@@ -60,7 +60,7 @@ view: opportunity {
 
   dimension: active_opportunity_c {
     type: yesno
-    sql: ${TABLE}."active_opportunity_c" ;;
+    sql: ${TABLE}.active_opportunity_c ;;
   }
 
   dimension_group: actual_go_live_date_c {
@@ -130,7 +130,7 @@ view: opportunity {
 
   dimension: arr_mirror_c {
     type: number
-    sql: ${TABLE}."arr_mirror_c" ;;
+    sql: ${TABLE}.arr_mirror_c ;;
   }
 
   dimension: authentication_c {
@@ -2387,7 +2387,7 @@ view: opportunity {
 
   dimension: stage_name {
     type: string
-    sql: ${TABLE}."stage_name" ;;
+    sql: ${TABLE}.stage_name ;;
   }
 
   dimension: standard_payment_term_override_c {
