@@ -731,7 +731,7 @@ view: opportunity {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}."closed_won_date_c" ;;
+    sql: ${TABLE}.closed_won_date_c ;;
   }
 
   dimension: closed_won_prediction_c {
