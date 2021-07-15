@@ -2800,18 +2800,18 @@ view: opportunity {
     sql: ${lead_source} = 'Partner' or ${partner_account_c} is not null ;;
   }
 
-  dimension: recurring_arr_type {
-    case: {
-      when: {
-        sql: ${dates.bucket_month} > ${start_date_c_month} ;;
-        label: "Started Before Month"
-      }
-      when: {
-        sql: ${dates.bucket_month} = ${start_date_c_month} ;;
-        label: "Started During Month"
-      }
-    }
-  }
+#  dimension: recurring_arr_type {
+#    case: {
+#      when: {
+#        sql: ${dates.bucket_month} > ${start_date_c_month} ;;
+#        label: "Started Before Month"
+#      }
+#      when: {
+#        sql: ${dates.bucket_month} = ${start_date_c_month} ;;
+#        label: "Started During Month"
+#      }
+#    }
+#  }
 
   dimension: pipeline_classification {
     case: {
@@ -2880,35 +2880,35 @@ view: opportunity {
     drill_fields: [id, created_date, start_date_c_date, end_renewal_date_c_date, amount]
   }
 
-  measure: total_arr_from_active_accounts {
-    label: "ARR for Active Accounts"
-    description: "ARR from accounts that are not lost"
-    hidden: yes
-    type: sum
-    filters: [account_facts.is_lost_account: "-Yes", is_hyperscience_arr: "Yes"]
-    sql: ${arr_mirror_c} ;;
-    value_format: "[>=1000000]$0.00,,\"M\";[>=1000]$0.00,\"K\";$0.00"
-    drill_fields: [detail*]
-  }
+#  measure: total_arr_from_active_accounts {
+#    label: "ARR for Active Accounts"
+#    description: "ARR from accounts that are not lost"
+#    hidden: yes
+#    type: sum
+#    filters: [account_facts.is_lost_account: "-Yes", is_hyperscience_arr: "Yes"]
+#    sql: ${arr_mirror_c} ;;
+#    value_format: "[>=1000000]$0.00,,\"M\";[>=1000]$0.00,\"K\";$0.00"
+#    drill_fields: [detail*]
+#  }
 
-  measure: cumulative_arr {
-    type: running_total
-    label: "Cumulative ARR"
-    description: "Running sum of all revenue types minus ARR from churned Logos (accounts)"
-    sql: ${total_arr_from_active_accounts};;
-    value_format: "[>=1000000]$0.00,,\"M\";[>=1000]$0.00,\"K\";$0.00"
-    drill_fields: [id, created_date, start_date_c_date, end_renewal_date_c_date, amount]
-  }
+#  measure: cumulative_arr {
+#    type: running_total
+#    label: "Cumulative ARR"
+#    description: "Running sum of all revenue types minus ARR from churned Logos (accounts)"
+#    sql: ${total_arr_from_active_accounts};;
+#    value_format: "[>=1000000]$0.00,,\"M\";[>=1000]$0.00,\"K\";$0.00"
+#    drill_fields: [id, created_date, start_date_c_date, end_renewal_date_c_date, amount]
+#  }
 
-  measure: total_churned_arr {
-    type: sum
-    label: "Churned ARR"
-    description: "ARR from churned accounts"
-    filters: [account_facts.is_lost_account: "Yes", is_hyperscience_arr: "Yes"]
-    sql: ${arr_mirror_c} ;;
-    value_format: "[>=1000000]$0.00,,\"M\";[>=1000]$0.00,\"K\";$0.00"
-    drill_fields: [id, created_date, start_date_c_date, end_renewal_date_c_date, amount]
-  }
+#  measure: total_churned_arr {
+#    type: sum
+#    label: "Churned ARR"
+#    description: "ARR from churned accounts"
+#    filters: [account_facts.is_lost_account: "Yes", is_hyperscience_arr: "Yes"]
+#    sql: ${arr_mirror_c} ;;
+#    value_format: "[>=1000000]$0.00,,\"M\";[>=1000]$0.00,\"K\";$0.00"
+#    drill_fields: [id, created_date, start_date_c_date, end_renewal_date_c_date, amount]
+#  }
 
   measure: total_net_new_arr {
     type: sum
