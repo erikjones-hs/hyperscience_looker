@@ -40,7 +40,7 @@ view: opportunity {
   dimension: account_id {
     type: string
     # hidden: yes
-    sql: ${TABLE}."account_id" ;;
+    sql: ${TABLE}.account_id ;;
   }
 
   dimension: account_lead_c {
