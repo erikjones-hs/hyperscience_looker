@@ -1,5 +1,5 @@
 view: lever_agg_postings {
-  sql_table_name: (select * from dev.hr.lever_agg_opp_app_post;;
+  sql_table_name: (select * from dev.hr.lever_agg_opp_app_post);;
   drill_fields: [detail*]
 
   dimension: opp_id {
@@ -254,6 +254,12 @@ view: lever_agg_postings {
 
   measure: count {
     type: count
+    drill_fields: [detail*]
+  }
+
+  measure: num_postings {
+    type: count_distinct
+    sql: ${post_id} ;;
     drill_fields: [detail*]
   }
 
