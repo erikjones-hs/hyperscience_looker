@@ -67,10 +67,11 @@ view: lever_agg_postings {
     sql: ${TABLE}."OPP_TAG" ;;
   }
 
-  dimension: opp_archived_at {
-    type: date
+  dimension_group: opp_archived_at {
+    type: time
     sql: ${TABLE}."OPP_ARCHIVED_AT" ;;
   }
+
 
   dimension: opp_archive_reason {
     type: string
@@ -290,7 +291,6 @@ view: lever_agg_postings {
       opp_last_advanced_at_time,
       opp_source,
       opp_tag,
-      opp_archived_at,
       opp_archive_reason,
       opp_stage_name,
       opp_status,
