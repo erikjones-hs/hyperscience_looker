@@ -261,19 +261,66 @@ view: lever_agg_postings {
   measure: num_postings {
     type: count_distinct
     sql: ${post_id} ;;
-    drill_fields: [detail*]
+    drill_fields: [detail_post*]
   }
 
   measure: num_opps {
     type: count_distinct
     sql: ${opp_id} ;;
-    drill_fields: [detail*]
+    drill_fields: [detail_opp*]
   }
 
   measure: num_apps {
     type: count_distinct
     sql: ${application_id} ;;
     drill_fields: [detail*]
+  }
+
+  set: detail_post {
+    fields: [
+      post_id,
+      post_state,
+      post_name,
+      post_create_dte,
+      post_team,
+      post_dept,
+      post_locations,
+      post_commit,
+      post_level,
+      post_req_code,
+      post_creator_id,
+      post_creator_name,
+      post_creator_email,
+      post_owner_id,
+      post_owner_name,
+      post_owner_email,
+      post_tags,
+      post_dist_channels
+    ]
+  }
+
+  set: detail_opp {
+    fields: [
+      opp_id,
+      opp_name,
+      opp_location,
+      contact_emails,
+      contact_links,
+      contact_phone_nums,
+      opp_headline,
+      opp_origin,
+      opp_create_dte_time,
+      opp_last_interaction_time,
+      opp_last_advanced_at_time,
+      opp_source,
+      opp_tag,
+      opp_archive_reason,
+      opp_stage_name,
+      opp_status,
+      opp_owner,
+      opp_owner_email,
+      opp_referrer_name
+    ]
   }
 
   set: detail {
