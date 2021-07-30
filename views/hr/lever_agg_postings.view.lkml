@@ -255,7 +255,7 @@ view: lever_agg_postings {
 
   dimension: time_since_posting {
     type: number
-    sql: DATEDIFF( day, ${post_create_dte}, now()) ;;
+    sql: DATEDIFF( day, ${post_create_dte}, current_date()) ;;
   }
 
   measure: count {
