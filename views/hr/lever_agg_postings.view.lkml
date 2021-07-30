@@ -253,6 +253,11 @@ view: lever_agg_postings {
     sql: ${TABLE}."POST_DIST_CHANNELS" ;;
   }
 
+  dimension: time_since_posting {
+    type: number
+    sql: DATEDIFF( day, ${post_create_dte}, now()) ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
