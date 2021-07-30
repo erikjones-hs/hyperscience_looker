@@ -263,6 +263,18 @@ view: lever_agg_postings {
     drill_fields: [detail*]
   }
 
+  measure: num_opps {
+    type: count_distinct
+    sql: ${opp_id} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: num_apps {
+    type: count_distinct
+    sql: ${application_id} ;;
+    drill_fields: [detail*]
+  }
+
   set: detail {
     fields: [
       opp_id,
