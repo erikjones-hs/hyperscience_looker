@@ -207,6 +207,44 @@ view: lever_opp_stage_hist {
     drill_fields: [detail*]
   }
 
+  measure: median_days_to_offer {
+    type: median
+    sql: ${days_to_offer} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: mean_days_to_offer {
+    type: average
+    sql: ${days_to_offer} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: min_days_to_offer {
+    type: min
+    sql: ${days_to_offer} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: max_days_to_offer {
+    type: max
+    sql: ${days_to_offer} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: percentile_25_days_to_offer {
+    type: percentile
+    percentile:  25
+    sql: ${days_to_offer} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: percentile_75_days_to_offer {
+    type: percentile
+    percentile:  75
+    sql: ${days_to_offer} ;;
+    drill_fields: [detail*]
+  }
+
 
 
   set: detail {
