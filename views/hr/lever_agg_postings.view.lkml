@@ -281,6 +281,12 @@ view: lever_agg_postings {
     drill_fields: [detail*]
   }
 
+  measure: num_locations {
+    type: count_distinct
+    sql: ${opp_location} ;;
+    drill_fields: [detail*]
+  }
+
   set: detail_post {
     fields: [
       post_id,
