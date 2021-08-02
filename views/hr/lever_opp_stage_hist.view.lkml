@@ -82,6 +82,12 @@ view: lever_opp_stage_hist {
     drill_fields: [detail*]
   }
 
+  measure: num_opps {
+    type: count_distinct
+    sql:  ${opp_id} ;;
+    drill_fields: [detail*]
+  }
+
   measure: median_days_between_stages {
     type: median
     sql: ${days_between_stages} ;;
