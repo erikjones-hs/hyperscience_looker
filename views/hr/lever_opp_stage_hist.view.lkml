@@ -72,6 +72,11 @@ view: lever_opp_stage_hist {
     sql: ${TABLE}."DAYS_IN_CURRENT_STAGE" ;;
   }
 
+  dimension: days_to_offer {
+    type: number
+    sql: ${TABLE}."DAYS_TO_OFFER" ;;
+  }
+
   dimension: days_to_archive {
     type: number
     sql: ${TABLE}."DAYS_TO_ARCHIVE" ;;
