@@ -22,6 +22,36 @@ view: lever_opp_stage_funnel {
     sql: ${TABLE}."POST_TEAM" ;;
   }
 
+  dimension: from_stage {
+    type: string
+    sql: ${TABLE}."FROM_STAGE" ;;
+  }
+
+  dimension: to_stage {
+    type: string
+    sql: ${TABLE}."TO_STAGE" ;;
+  }
+
+  dimension: stage_seq {
+    type: string
+    sql: ${TABLE}."STAGE_SEQ" ;;
+  }
+
+  dimension_group: from_stage_updated_at {
+    type: time
+    sql: ${TABLE}."FROM_STAGE_UPDATED_AT" ;;
+  }
+
+  dimension_group: to_stage_updated_at {
+    type: time
+    sql: ${TABLE}."TO_STAGE_UPDATED_AT" ;;
+  }
+
+  dimension: interaction_num {
+    type: number
+    sql: ${TABLE}."INTERACTION_NUM" ;;
+  }
+
   dimension_group: opp_create_dte {
     type: time
     sql: ${TABLE}."OPP_CREATE_DTE" ;;
@@ -60,6 +90,26 @@ view: lever_opp_stage_funnel {
   dimension: hire_fl {
     type: number
     sql: ${TABLE}."HIRE_FL" ;;
+  }
+
+  dimension: days_between_stages {
+    type: number
+    sql: ${TABLE}."DAYS_BETWEEN_STAGES" ;;
+  }
+
+  dimension: days_in_current_stage {
+    type: number
+    sql: ${TABLE}."DAYS_IN_CURRENT_STAGE" ;;
+  }
+
+  dimension: days_to_offer {
+    type: number
+    sql: ${TABLE}."DAYS_TO_OFFER" ;;
+  }
+
+  dimension: days_to_archive {
+    type: number
+    sql: ${TABLE}."DAYS_TO_ARCHIVE" ;;
   }
 
   measure: num_opps {
@@ -126,6 +176,12 @@ view: lever_opp_stage_funnel {
       opp_name,
       post_dept,
       post_team,
+      from_stage,
+      to_stage,
+      stage_seq,
+      from_stage_updated_at_time,
+      to_stage_updated_at_time,
+      interaction_num,
       opp_create_dte_time,
       opp_archived_at_time,
       opp_archive_reason,
@@ -133,7 +189,11 @@ view: lever_opp_stage_funnel {
       screen_fl,
       interview_fl,
       offer_fl,
-      hire_fl
+      hire_fl,
+      days_between_stages,
+      days_in_current_stage,
+      days_to_offer,
+      days_to_archive
     ]
   }
 }
