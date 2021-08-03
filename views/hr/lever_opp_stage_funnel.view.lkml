@@ -92,6 +92,34 @@ view: lever_opp_stage_funnel {
     drill_fields: [detail*]
   }
 
+  measure: screen_rate {
+    type: number
+    sql:  100.00 * ${num_screens} / NULLIFZERO(${num_opps}) ;;
+    value_format: "#0.00\%"
+    drill_fields: [detail*]
+  }
+
+  measure: interview_rate {
+    type: number
+    sql:  100.00 * ${num_interviews} / NULLIFZERO(${num_opps}) ;;
+    value_format: "#0.00\%"
+    drill_fields: [detail*]
+  }
+
+  measure: offer_rate {
+    type: number
+    sql:  100.00 * ${num_offers} / NULLIFZERO(${num_opps}) ;;
+    value_format: "#0.00\%"
+    drill_fields: [detail*]
+  }
+
+  measure: hire_rate {
+    type: number
+    sql:  100.00 * ${num_hires} / NULLIFZERO(${num_opps}) ;;
+    value_format: "#0.00\%"
+    drill_fields: [detail*]
+  }
+
   set: detail {
     fields: [
       opportunity_id,
