@@ -67,6 +67,11 @@ view: lever_agg_offer {
     sql: ${TABLE}."OFFER_JOB_TITLE" ;;
   }
 
+  dimension: num_job_title_offers {
+    type: number
+    sql: ${TABLE}."NUM_OFFERS" ;;
+  }
+
   dimension: offer_equity {
     type: number
     sql: ${TABLE}."OFFER_EQUITY" ;;
