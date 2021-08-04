@@ -119,25 +119,29 @@ view: lever_opp_stage_funnel {
   }
 
   measure: num_screens {
-    type: sum
+    type: sum_distinct
+    sql_distinct_key: ${opportunity_id};;
     sql:  ${screen_fl} ;;
     drill_fields: [detail*]
   }
 
   measure: num_interviews {
-    type: sum
+    type: sum_distinct
+    sql_distinct_key: ${opportunity_id};;
     sql:  ${interview_fl} ;;
     drill_fields: [detail*]
   }
 
   measure: num_offers {
-    type: sum
+    type: sum_distinct
+    sql_distinct_key: ${opportunity_id};;
     sql:  ${offer_fl} ;;
     drill_fields: [detail*]
   }
 
   measure: num_hires {
-    type: sum
+    type: sum_distinct
+    sql_distinct_key: ${opportunity_id};;
     sql:  ${hire_fl} ;;
     drill_fields: [detail*]
   }
