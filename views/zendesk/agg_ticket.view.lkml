@@ -115,6 +115,11 @@ view: agg_ticket {
   dimension: ticket_jira_id {
     type: string
     sql: ${TABLE}."TICKET_JIRA_ID" ;;
+    link: {
+      label: "JIRA"
+      url: "https://hyperscience.atlassian.net/browse/{{ value }}"
+      icon_url: "http://atlassian.net/favicon.ico"
+    }
   }
 
   dimension: ticket_problem_codes {
