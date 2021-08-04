@@ -161,6 +161,44 @@ view: lever_agg_offer {
     drill_fields: [detail*]
   }
 
+  measure: median_salary_usd {
+    type: median
+    sql: ${salary_usd} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: mean_salary_usd {
+    type: average
+    sql: ${salary_usd} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: min_salary_usd {
+    type: min
+    sql: ${salary_usd} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: max_salary_usd {
+    type: max
+    sql: ${salary_usd} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: percentile_25_salary_usd {
+    type: percentile
+    percentile:  25
+    sql: ${salary_usd} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: percentile_75_salary_usd {
+    type: percentile
+    percentile:  75
+    sql: ${salary_usd};;
+    drill_fields: [detail*]
+  }
+
   set: detail {
     fields: [
       offer_id,
