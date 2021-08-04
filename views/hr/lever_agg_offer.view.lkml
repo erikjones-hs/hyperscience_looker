@@ -204,6 +204,12 @@ view: lever_agg_offer {
     drill_fields: [detail*]
   }
 
+  measure: total_agency_fees {
+    type: sum
+    sql:  ${offer_agency_fees} ;;
+    drill_fields: [detail*]
+  }
+
   set: detail {
     fields: [
       offer_id,
