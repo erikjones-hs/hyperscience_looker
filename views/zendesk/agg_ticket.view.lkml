@@ -3,7 +3,7 @@ view: agg_ticket {
   drill_fields: [detail*]
 
   dimension: ticket_id {
-    type: number
+    type: string
     sql: ${TABLE}."TICKET_ID" ;;
     link: {
       label: "Zendesk"
