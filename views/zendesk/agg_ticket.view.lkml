@@ -288,20 +288,34 @@ view: agg_ticket {
     sql: ${TABLE}."SUBMITTER_EMAIL" ;;
   }
 
-  dimension: upgrade_install_fl {
+  dimension: upgrade_fl {
     type: yesno
     sql: contains (lower(${agg_ticket.ticket_problem_codes}),'upgrades')
          OR
-         contains (lower(${agg_ticket.ticket_problem_codes}),'install')
-         OR
          contains (lower(${agg_ticket.ticket_subject}), 'upgrade')
+         OR
+         contains (lower(${agg_ticket.ticket_activity}), 'upgrade')
+        ;;
+  }
+
+  dimension: install_fl {
+    type: yesno
+    sql: contains (lower(${agg_ticket.ticket_problem_codes}),'install')
          OR
          contains (lower(${agg_ticket.ticket_subject}), 'installation')
          OR
-         contains (lower(${agg_ticket.ticket_activity}), 'upgrade')
-         OR
          contains (lower(${agg_ticket.ticket_activity}), 'installation')
         ;;
+  }
+
+  dimension: customer_name {
+    type: string
+    sql: ${TABLE}."CUSTOMER_NAME" ;;
+  }
+
+  dimension: ticket_customer_name {
+    type: string
+    sql: ${TABLE}."TICKET_CUSTOMER_NAME" ;;
   }
 
   measure: num_tickets {
