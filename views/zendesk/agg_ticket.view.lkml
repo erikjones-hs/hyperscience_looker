@@ -284,13 +284,13 @@ view: agg_ticket {
 
   dimension: upgrade_install_fl {
     type: yesno
-    sql: contains (lower(${agg_ticket.ticket_problem_codes}),"upgrades")
+    sql: contains (lower(${agg_ticket.ticket_problem_codes}),'upgrades')
          OR
-         contains (lower(${agg_ticket.ticket_problem_codes}),"install")
+         contains (lower(${agg_ticket.ticket_problem_codes}),'install')
          OR
-         contains (lower(${agg_ticket.ticket_subject}), "upgrade")
+         contains (lower(${agg_ticket.ticket_subject}), 'upgrade')
          OR
-         contains (lower(${agg_ticket.ticket_subject}), "installation");;
+         contains (lower(${agg_ticket.ticket_subject}), 'installation');;
   }
 
   measure: num_tickets {
