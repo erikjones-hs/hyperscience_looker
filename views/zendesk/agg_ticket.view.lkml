@@ -282,6 +282,17 @@ view: agg_ticket {
     sql: ${TABLE}."SUBMITTER_EMAIL" ;;
   }
 
+  dimension: upgrade_install_fl {
+    type: yesno
+    sql: contains (lower(${agg_ticket.ticket_problem_codes}),"upgrades")
+         OR
+         contains (lower(${agg_ticket.ticket_problem_codes}),"install")
+         OR
+         contains (lower(${agg_ticket.ticket_subject}), "upgrade")
+         OR
+         contains (lower(${agg_ticket.ticket_subject}), "installation");;
+  }
+
   measure: num_tickets {
     type: count_distinct
     sql:  ${ticket_id} ;;
