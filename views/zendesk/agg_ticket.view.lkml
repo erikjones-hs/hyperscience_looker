@@ -147,6 +147,12 @@ view: agg_ticket {
     sql: ${TABLE}."TICKET_DUPLICATE_FL" ;;
   }
 
+  dimension: ticket_activity {
+    type: string
+    sql: ${TABLE}."TICKET_ACTIVITY" ;;
+  }
+
+
   dimension: organization_id {
     type: number
     sql: ${TABLE}."ORGANIZATION_ID" ;;
@@ -290,7 +296,12 @@ view: agg_ticket {
          OR
          contains (lower(${agg_ticket.ticket_subject}), 'upgrade')
          OR
-         contains (lower(${agg_ticket.ticket_subject}), 'installation');;
+         contains (lower(${agg_ticket.ticket_subject}), 'installation')
+         OR
+         contains (lower(${agg_ticket.ticket_activity}), 'upgrade')
+         OR
+         contains (lower(${agg_ticket.ticket_activity}), 'installation')
+        ;;
   }
 
   measure: num_tickets {
