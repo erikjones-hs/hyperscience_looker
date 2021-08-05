@@ -284,9 +284,10 @@ view: agg_ticket {
 
   measure: num_tickets {
     type: count_distinct
-    sql:  $(ticket_id} ;;
+    sql:  ${ticket_id} ;;
     drill_fields: [detail*]
   }
+
 
   set: detail {
     fields: [
