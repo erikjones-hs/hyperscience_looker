@@ -118,7 +118,7 @@ view: agg_ticket {
     link: {
       label: "JIRA"
       url: "https://hyperscience.atlassian.net/browse/{{ value }}"
-      icon_url: "https://worldvectorlogo.com/logo/jira-1"
+      icon_url: "https://wac-cdn.atlassian.com/assets/img/favicons/atlassian/favicon.png"
     }
   }
 
