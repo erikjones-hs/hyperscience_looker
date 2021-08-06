@@ -313,9 +313,26 @@ view: agg_ticket {
     sql: ${TABLE}."CUSTOMER_NAME" ;;
   }
 
+  dimension: is_tse_fl {
+    type: yesno
+    sql:  ${group_name} = 'TSE' ;;
+  }
+
+  measure: num_tse_tickets  {
+    type: sum
+    sql:  ${is_tse_fl} ;;
+  }
+
   measure: num_tickets {
     type: count_distinct
     sql:  ${ticket_id} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: tse_solve_rate {
+    type: number
+    sql:  100.00 * ${num_tse_tickets} / NULLIFZERO(${num_tickets}) ;;
+    value_format: "#0.00\%"
     drill_fields: [detail*]
   }
 
