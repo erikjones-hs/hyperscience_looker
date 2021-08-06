@@ -313,11 +313,6 @@ view: agg_ticket {
     sql: ${TABLE}."CUSTOMER_NAME" ;;
   }
 
-  dimension: ticket_customer_name {
-    type: string
-    sql: ${TABLE}."TICKET_CUSTOMER_NAME" ;;
-  }
-
   measure: num_tickets {
     type: count_distinct
     sql:  ${ticket_id} ;;
