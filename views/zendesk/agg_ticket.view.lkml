@@ -319,8 +319,8 @@ view: agg_ticket {
   }
 
   measure: num_tse_tickets  {
-    type: sum
-    sql:  ${is_tse_fl} ;;
+    type: number
+    sql:  SUM(CASE WHEN ${is_tse_fl} then 1 else 0 END) ;;
   }
 
   measure: num_tickets {
