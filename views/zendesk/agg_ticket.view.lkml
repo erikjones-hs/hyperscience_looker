@@ -245,7 +245,7 @@ view: agg_ticket {
 
   dimension: time_to_first_reply_seconds {
     type: number
-    sql: ${TABLE}."TIME_TO_FIRST_REPLY_SECONDS" ;;
+    sql: ${TABLE}."TIME_TO_FIRST_REPLY_MINUTES" ;;
   }
 
   dimension: group_stations {
