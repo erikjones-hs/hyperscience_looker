@@ -318,9 +318,89 @@ view: agg_ticket {
     sql:  ${group_name} = 'TSE' ;;
   }
 
+  dimension: is_level_2_fl {
+    type: yesno
+    sql:  ${group_name} = 'Level 2 Support' ;;
+  }
+
+  dimension: is_gainsight_fl {
+    type: yesno
+    sql:  ${group_name} = 'Gainsight' ;;
+  }
+
+  dimension: is_csm_fl {
+    type: yesno
+    sql:  ${group_name} = 'CSM' ;;
+  }
+
+  dimension: is_implementation_fl {
+    type: yesno
+    sql:  ${group_name} = 'Implementation' ;;
+  }
+
+  dimension: is_support_fl {
+    type: yesno
+    sql:  ${group_name} = 'Support' ;;
+  }
+
+  dimension: is_p1_fl {
+    type: yesno
+    sql:  ${ticket_custom_priority_customer} = 'p1' ;;
+  }
+
+  dimension: is_p2_fl {
+    type: yesno
+    sql:  ${ticket_custom_priority_customer} = 'p2' ;;
+  }
+
+  dimension: is_p3_fl {
+    type: yesno
+    sql:  ${ticket_custom_priority_customer} = 'p3' ;;
+  }
+
   measure: num_tse_tickets  {
     type: number
     sql:  SUM(CASE WHEN ${is_tse_fl} then 1 else 0 END) ;;
+  }
+
+  measure: num_level_2_tickets  {
+    type: number
+    sql:  SUM(CASE WHEN ${is_level_2_fl} then 1 else 0 END) ;;
+  }
+
+  measure: num_gainsight_tickets  {
+    type: number
+    sql:  SUM(CASE WHEN ${is_gainsight_fl} then 1 else 0 END) ;;
+  }
+
+  measure: num_csm_tickets  {
+    type: number
+    sql:  SUM(CASE WHEN ${is_csm_fl} then 1 else 0 END) ;;
+  }
+
+  measure: num_implementation_tickets  {
+    type: number
+    sql:  SUM(CASE WHEN ${is_implementation_fl} then 1 else 0 END) ;;
+  }
+
+  measure: num_support_tickets  {
+    type: number
+    sql:  SUM(CASE WHEN ${is_support_fl} then 1 else 0 END) ;;
+  }
+
+  measure: num_p1_tickets  {
+    type: number
+    sql:  SUM(CASE WHEN ${is_p1_fl} then 1 else 0 END) ;;
+  }
+
+  measure: num_p2_tickets  {
+    type: number
+    sql:  SUM(CASE WHEN ${is_p2_fl} then 1 else 0 END) ;;
+  }
+
+  measure: num_p3_tickets  {
+    type: number
+    sql:  SUM(CASE WHEN ${is_p3_fl} then 1 else 0 END) ;;
   }
 
   measure: num_tickets {
