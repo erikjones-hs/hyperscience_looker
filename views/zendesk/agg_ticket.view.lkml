@@ -244,7 +244,7 @@ view: agg_ticket {
     sql: ${TABLE}."FIRST_REPLY_TIME" ;;
   }
 
-  dimension: time_to_first_reply_seconds {
+  dimension: time_to_first_reply_minutes {
     type: number
     sql: ${TABLE}."TIME_TO_FIRST_REPLY_MINUTES" ;;
   }
@@ -417,6 +417,16 @@ view: agg_ticket {
     drill_fields: [detail*]
   }
 
+  measure: mean_time_to_first_reply {
+    type: average
+    sql: ${time_to_first_reply_minutes} ;;
+  }
+
+  measure: median_time_to_first_reply {
+    type: median
+    sql: ${time_to_first_reply_minutes} ;;
+  }
+
 
   set: detail {
     fields: [
@@ -465,7 +475,7 @@ view: agg_ticket {
       solved_at_time,
       last_updated_at_time,
       first_reply_time_time,
-      time_to_first_reply_seconds,
+      time_to_first_reply_minutes,
       group_stations,
       assignee_stations,
       assignee_name,
