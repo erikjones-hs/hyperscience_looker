@@ -359,6 +359,31 @@ view: agg_ticket {
     sql: ${TABLE}."IS_P3_FL" ;;
   }
 
+  dimension: is_closed_fl {
+    type: yesno
+    sql: ${agg_ticket.ticket_status} = 'closed');;
+  }
+
+  dimension: is_solved_fl {
+    type: yesno
+    sql: ${agg_ticket.ticket_status} = 'solved');;
+  }
+
+  dimension: is_open_fl {
+    type: yesno
+    sql: ${agg_ticket.ticket_status} = 'open');;
+  }
+
+  dimension: is_hold_fl {
+    type: yesno
+    sql: ${agg_ticket.ticket_status} = 'hold');;
+  }
+
+  dimension: is_pending_fl {
+    type: yesno
+    sql: ${agg_ticket.ticket_status} = 'pending');;
+  }
+
   measure: num_tse_tickets  {
     type: number
     sql:  SUM(${is_tse_fl}) ;;
