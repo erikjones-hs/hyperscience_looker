@@ -418,7 +418,8 @@ view: agg_ticket {
   }
 
   measure: mean_time_to_first_reply {
-    type: average
+    type: average_distinct
+    sql_distinct_key: ${ticket_created_at_date} ;;
     sql: ${time_to_first_reply_minutes} ;;
   }
 
