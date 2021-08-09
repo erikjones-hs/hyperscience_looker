@@ -29,6 +29,7 @@ view: agg_ticket {
 
   dimension_group: ticket_created_at {
     type: time
+    timeframes: [time, date, week, month, quarter]
     sql: ${TABLE}."TICKET_CREATED_AT" ;;
   }
 
