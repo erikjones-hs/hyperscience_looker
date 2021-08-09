@@ -314,93 +314,93 @@ view: agg_ticket {
   }
 
   dimension: is_tse_fl {
-    type: yesno
-    sql:  ${group_name} = 'TSE' ;;
+    type: number
+    sql: ${TABLE}."IS_TSE_FL" ;;
   }
 
   dimension: is_level_2_fl {
-    type: yesno
-    sql:  ${group_name} = 'Level 2 Support' ;;
+    type: number
+    sql: ${TABLE}."IS_LEVEL_2_SUPPORT_FL" ;;
   }
 
   dimension: is_gainsight_fl {
-    type: yesno
-    sql:  ${group_name} = 'Gainsight' ;;
+    type: number
+    sql: ${TABLE}."IS_GAINSIGHT_FL" ;;
   }
 
   dimension: is_csm_fl {
-    type: yesno
-    sql:  ${group_name} = 'CSM' ;;
+    type: number
+    sql: ${TABLE}."IS_CSM_FL" ;;
   }
 
   dimension: is_implementation_fl {
-    type: yesno
-    sql:  ${group_name} = 'Implementation' ;;
+    type: number
+    sql: ${TABLE}."IS_IMPLEMENTATION_FL" ;;
   }
 
   dimension: is_support_fl {
-    type: yesno
-    sql:  ${group_name} = 'Support' ;;
+    type: number
+    sql: ${TABLE}."IS_SUPPORT_FL" ;;
   }
 
   dimension: is_p1_fl {
-    type: yesno
-    sql:  ${ticket_custom_priority_customer} = 'p1' ;;
+    type: number
+    sql: ${TABLE}."IS_P1_FL" ;;
   }
 
   dimension: is_p2_fl {
-    type: yesno
-    sql:  ${ticket_custom_priority_customer} = 'p2' ;;
+    type: number
+    sql: ${TABLE}."IS_P2_FL" ;;
   }
 
   dimension: is_p3_fl {
-    type: yesno
-    sql:  ${ticket_custom_priority_customer} = 'p3' ;;
+    type: number
+    sql: ${TABLE}."IS_P3_FL" ;;
   }
 
   measure: num_tse_tickets  {
     type: number
-    sql:  SUM(CASE WHEN ${is_tse_fl} then 1 else 0 END) ;;
+    sql:  SUM(${is_tse_fl}) ;;
   }
 
   measure: num_level_2_tickets  {
     type: number
-    sql:  SUM(CASE WHEN ${is_level_2_fl} then 1 else 0 END) ;;
+    sql:  SUM(${is_level_2_fl}) ;;
   }
 
   measure: num_gainsight_tickets  {
     type: number
-    sql:  SUM(CASE WHEN ${is_gainsight_fl} then 1 else 0 END) ;;
+    sql:  SUM(${is_gainsight_fl}) ;;
   }
 
   measure: num_csm_tickets  {
     type: number
-    sql:  SUM(CASE WHEN ${is_csm_fl} then 1 else 0 END) ;;
+    sql:  SUM(${is_csm_fl}) ;;
   }
 
   measure: num_implementation_tickets  {
     type: number
-    sql:  SUM(CASE WHEN ${is_implementation_fl} then 1 else 0 END) ;;
+    sql:  SUM(${is_implementation_fl}) ;;
   }
 
   measure: num_support_tickets  {
     type: number
-    sql:  SUM(CASE WHEN ${is_support_fl} then 1 else 0 END) ;;
+    sql:  SUM(${is_support_fl}) ;;
   }
 
   measure: num_p1_tickets  {
     type: number
-    sql:  SUM(CASE WHEN ${is_p1_fl} then 1 else 0 END) ;;
+    sql:  SUM(${is_p1_fl}) ;;
   }
 
   measure: num_p2_tickets  {
     type: number
-    sql:  SUM(CASE WHEN ${is_p2_fl} then 1 else 0 END) ;;
+    sql:  SUM(${is_p2_fl}) ;;
   }
 
   measure: num_p3_tickets  {
     type: number
-    sql:  SUM(CASE WHEN ${is_p3_fl} then 1 else 0 END) ;;
+    sql:  SUM(${is_p3_fl}) ;;
   }
 
   measure: num_tickets {
