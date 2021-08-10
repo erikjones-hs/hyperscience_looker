@@ -27,8 +27,8 @@ view: lever_agg_offer {
     sql: ${TABLE}."OFFER_DECLINED_FL" ;;
   }
 
-  dimension: offer_create_dte {
-    type: date
+  dimension_group: offer_create_dte {
+    type: time
     sql: ${TABLE}."OFFER_CREATE_DTE" ;;
   }
 
@@ -217,7 +217,7 @@ view: lever_agg_offer {
       offer_status,
       offer_signed_fl,
       offer_declined_fl,
-      offer_create_dte,
+      offer_create_dte_date,
       offer_creator_name,
       offer_creator_email,
       offer_comp_currency,
