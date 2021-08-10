@@ -286,6 +286,12 @@ view: lever_agg_postings {
     drill_fields: [detail*]
   }
 
+  measure: num_hiring_managers {
+    type: count_distinct
+    sql: ${application_hiring_manager_id} ;;
+    drill_fields: [detail*]
+  }
+
   set: detail_post {
     fields: [
       post_id,
