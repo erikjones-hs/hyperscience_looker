@@ -72,7 +72,6 @@ view: lever_agg_postings {
     sql: ${TABLE}."OPP_ARCHIVED_AT" ;;
   }
 
-
   dimension: opp_archive_reason {
     type: string
     sql: ${TABLE}."OPP_ARCHIVE_REASON" ;;
@@ -113,13 +112,13 @@ view: lever_agg_postings {
     sql: ${TABLE}."APPLICATION_TYPE" ;;
   }
 
-  dimension: application_create_dte {
-    type: date
+  dimension_group: application_create_dte {
+    type: time
     sql: ${TABLE}."APPLICATION_CREATE_DTE" ;;
   }
 
-  dimension: application_archived_dte {
-    type: date
+  dimension_group: application_archived_dte {
+    type: time
     sql: ${TABLE}."APPLICATION_ARCHIVED_DTE" ;;
   }
 
@@ -357,8 +356,8 @@ view: lever_agg_postings {
       opp_referrer_name,
       application_id,
       application_type,
-      application_create_dte,
-      application_archived_dte,
+      #application_create_dte,
+      #application_archived_dte,
       application_archive_reason,
       application_hiring_manager_id,
       application_hiring_manager,
