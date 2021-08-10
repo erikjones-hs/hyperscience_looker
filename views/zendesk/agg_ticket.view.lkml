@@ -437,7 +437,7 @@ view: agg_ticket {
 
   measure: tse_solve_rate {
     type: number
-    sql:  100.00 * ${num_tse_tickets} / NULLIFZERO(${num_tickets}) ;;
+    sql:  100.00 * ${num_tse_tickets} / NULLIFZERO(${num_tse_tickets} + ${num_level_2_tickets}) ;;
     value_format: "#0.00\%"
     drill_fields: [detail*]
   }
