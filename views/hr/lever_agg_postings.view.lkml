@@ -177,8 +177,8 @@ view: lever_agg_postings {
     sql: ${TABLE}."POST_NAME" ;;
   }
 
-  dimension: post_create_dte {
-    type: date
+  dimension_group: post_create_dte {
+    type: time
     sql: ${TABLE}."POST_CREATE_DTE" ;;
   }
 
@@ -254,7 +254,7 @@ view: lever_agg_postings {
 
   dimension: time_since_posting {
     type: number
-    sql: DATEDIFF( day, ${post_create_dte}, current_date()) ;;
+    sql: DATEDIFF( day, ${post_create_dte_date}, current_date()) ;;
   }
 
   measure: count {
@@ -297,7 +297,7 @@ view: lever_agg_postings {
       post_id,
       post_state,
       post_name,
-      post_create_dte,
+      post_create_dte_date,
       post_team,
       post_dept,
       post_locations,
@@ -375,7 +375,7 @@ view: lever_agg_postings {
       post_id,
       post_state,
       post_name,
-      post_create_dte,
+      post_create_dte_date,
       post_team,
       post_dept,
       post_locations,
