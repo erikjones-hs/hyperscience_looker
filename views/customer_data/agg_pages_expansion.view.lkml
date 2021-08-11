@@ -18,6 +18,12 @@ view: agg_pages_expansion {
     sql: ${TABLE}."EXPANSION" ;;
   }
 
+  measure: pages_expansion{
+    type:  number
+    sql:  100 * ${expansion} ;;
+    value_format: "#0.00\%"
+  }
+
   set: detail {
     fields: []
   }
