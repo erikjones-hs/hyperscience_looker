@@ -8,19 +8,29 @@ view: agg_pages_expansion {
     sql: ${TABLE}."FIRST_FULL_MNTH" ;;
   }
 
+  dimension_group: dte {
+    type: time
+    sql: ${TABLE}."DTE" ;;
+  }
+
+  dimension: tot_first_full_month_pages {
+    type: number
+    sql: ${TABLE}."TOT_FIRST_FULL_MONTH_PAGES" ;;
+  }
+
+  dimension: sub_month_pages {
+    type: number
+    sql: ${TABLE}."SUB_MONTH_PAGES" ;;
+  }
+
   dimension: num_months_since {
     type: number
     sql: ${TABLE}."NUM_MONTHS_SINCE" ;;
   }
 
-  dimension: expansion {
-    type: number
-    sql: ${TABLE}."EXPANSION" ;;
-  }
-
-  measure: pages_expansion{
+  measure: expansion{
     type:  number
-    sql:  100 * ${expansion} ;;
+    sql:  100 * (${sub_month_pages} / ${tot_first_full_month_pages}) ;;
     value_format: "#0.00\%"
   }
 
