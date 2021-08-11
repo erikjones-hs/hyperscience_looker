@@ -4,6 +4,7 @@ view: agg_pages_expansion {
 
   dimension_group: first_full_mnth {
     type: time
+    timeframes: [date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num]
     sql: ${TABLE}."FIRST_FULL_MNTH" ;;
   }
 
@@ -18,6 +19,6 @@ view: agg_pages_expansion {
   }
 
   set: detail {
-    fields: [first_full_mnth_time, num_months_since, expansion]
+    fields: []
   }
 }
