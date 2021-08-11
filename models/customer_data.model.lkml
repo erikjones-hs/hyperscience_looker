@@ -1,7 +1,7 @@
 connection: "looker-snowflake"
 
-include: "/views/hr/*.view.lkml"
+include: "/views/customer_data/*.view.lkml"
 fiscal_month_offset:  2
 
 
-explore: lever_agg_postings {}
+explore: agg_pages_expansion {}
