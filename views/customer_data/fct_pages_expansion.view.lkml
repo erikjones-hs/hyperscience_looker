@@ -72,6 +72,11 @@ view: fct_pages_expansion {
     drill_fields: [detail*]
   }
 
+  measure: median_pages_created {
+    type: median
+    sql: ${total_pages_created} ;;
+    drill_fields: [detail*]
+  }
   measure: min_pages_created {
     type: min
     sql: ${total_pages_created} ;;
