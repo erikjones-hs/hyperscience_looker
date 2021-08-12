@@ -75,12 +75,12 @@ view: fct_pages_expansion {
 
   dimension: is_recent_month {
     type: yesno
-    sql: ${dte_month} = dateadd(month,-1,date_trunc('month', current_date()) ;;
+    sql: ${dte_month} = dateadd(month,-1,date_trunc('month', current_date())) ;;
   }
 
   dimension: is_prev_month {
     type: yesno
-    sql: ${dte_month} = dateadd(month,-2,date_trunc('month', current_date()) ;;
+    sql: ${dte_month} = dateadd(month,-2,date_trunc('month', current_date())) ;;
   }
 
   measure: sum_pages {
