@@ -2,48 +2,6 @@ view: fct_pages_expansion {
   sql_table_name: (select * from dev.cx.customer_data_fct_pages_expansion);;
   drill_fields: [detail*]
 
-  parameter: time_period {
-    type: unquoted
-
-    allowed_value: {
-      value: "QTD"
-    }
-
-    allowed_value: {
-      value: "YTD"
-    }
-
-  }
-
-  dimension: to_day {
-    label: "{% parameter time_period %}"
-    type: yesno
-    hidden: yes
-    sql:
-    {% if time_period._parameter_value == 'QTD' %}
-
-    ${dte_date} > TO_DATE(DATE_TRUNC('quarter', CURRENT_DATE()))
-
-    AND
-
-    ${dte_date} < (TO_DATE(DATEADD('month', 3, CAST(DATE_TRUNC('quarter', CAST(DATE_TRUNC('quarter', CURRENT_DATE()) AS DATE)) AS DATE))))
-
-    {% elsif time_period._parameter_value == 'YTD' %}
-
-    ${dte_date} > TO_DATE(DATE_TRUNC('year', CURRENT_DATE()))
-
-    AND
-
-    ${dte_date} < TO_DATE(DATEADD('year', 1, DATE_TRUNC('year', CURRENT_DATE())))
-
-    {% else %}
-
-    1=1
-
-    {% endif %};;
-
-    }
-
   dimension: customer {
     type: string
     sql: ${TABLE}."CUSTOMER" ;;
@@ -106,6 +64,38 @@ view: fct_pages_expansion {
       value: "yes"
     }
     label: "Num Pages Previously Completed Month"
+  }
+
+  measure: mean_pages_created {
+    type: average
+    sql: ${total_pages_created} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: min_pages_created {
+    type: min
+    sql: ${total_pages_created} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: max_pages_created {
+    type: max
+    sql: ${total_pages_created} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: percentile_25_pages_created {
+    type: percentile
+    percentile:  25
+    sql: ${total_pages_created} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: percentile_75_pages_created {
+    type: percentile
+    percentile:  75
+    sql: ${total_pages_created} ;;
+    drill_fields: [detail*]
   }
 
   set: detail {
