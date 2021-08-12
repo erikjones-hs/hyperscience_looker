@@ -26,8 +26,8 @@ view: fct_pages_expansion {
 
   dimension_group: num_months_since {
     type: duration
-    sql_start: ${first_full_month_date} ;;
-    sql_end: ${dte_date} ;;
+    sql_start: ${first_full_month_fiscal_quarter} ;;
+    sql_end: ${dte_fiscal_quarter} ;;
 
   }
 
