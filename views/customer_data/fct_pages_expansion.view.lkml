@@ -7,7 +7,7 @@ view: fct_pages_expansion {
     sql: ${TABLE}."CUSTOMER" ;;
   }
 
-  dimension_group: first_full_mnth {
+  dimension_group: first_full_month {
     type: time
     timeframes: [date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num]
     sql: ${TABLE}."FIRST_FULL_MNTH" ;;
@@ -22,6 +22,13 @@ view: fct_pages_expansion {
   dimension: total_pages_created {
     type: number
     sql: ${TABLE}."TOTAL_PAGES_CREATED" ;;
+  }
+
+  dimension_group: num_months_since {
+    type: duration
+    sql_start: ${first_full_month_date} ;;
+    sql_end: ${dte_date} ;;
+
   }
 
   measure: sum_pages {
