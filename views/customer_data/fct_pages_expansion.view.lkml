@@ -25,7 +25,7 @@ view: fct_pages_expansion {
   }
 
   dimension: qtrs_since_start {
-    sql: datediff('month', ${first_full_month_quarter}, ${dte_quarter}) / 3 ;;
+    sql: datediff('quarter', ${first_full_month_quarter}, ${dte_quarter});;
     type: number
   }
 
