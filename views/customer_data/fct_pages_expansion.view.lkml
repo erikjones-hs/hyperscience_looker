@@ -24,11 +24,9 @@ view: fct_pages_expansion {
     sql: ${TABLE}."TOTAL_PAGES_CREATED" ;;
   }
 
-  dimension_group: num_months_since {
-    type: duration
-    sql_start: ${first_full_month_fiscal_quarter} ;;
-    sql_end: ${dte_fiscal_quarter} ;;
-
+  dimension: qtrs_since_start {
+    sql: datediff('month', ${first_full_month_quarter}, ${dte_quarter}) / 3 ;;
+    type: number
   }
 
   dimension: is_recent_month {
