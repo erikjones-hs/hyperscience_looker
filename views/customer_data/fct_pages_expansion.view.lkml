@@ -24,8 +24,8 @@ view: fct_pages_expansion {
     sql: ${TABLE}."TOTAL_PAGES_CREATED" ;;
   }
 
-  dimension: qtrs_since_start {
-    sql: datediff('quarter', ${first_full_month_quarter}, ${dte_quarter});;
+  dimension: months_since_start {
+    sql: datediff('month', ${first_full_month_month}, ${dte_month});;
     type: number
   }
 
