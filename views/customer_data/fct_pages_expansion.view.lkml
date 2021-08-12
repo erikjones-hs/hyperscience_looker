@@ -10,7 +10,7 @@ view: fct_pages_expansion {
   dimension_group: first_full_month {
     type: time
     timeframes: [date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num]
-    sql: ${TABLE}."FIRST_FULL_MNTH" ;;
+    sql: ${TABLE}."FIRST_FULL_MONTH" ;;
   }
 
   dimension_group: dte {
