@@ -29,6 +29,11 @@ view: fct_pages_expansion {
     type: number
   }
 
+  dimension: num_months_since {
+    type: number
+    sql: ${TABLE}."NUM_MONTHS_SINCE" ;;
+  }
+
   dimension: is_recent_month {
     type: yesno
     sql: ${dte_date} = dateadd(month,-1,date_trunc('month', current_date())) ;;
