@@ -13,10 +13,22 @@ view: fct_pages_expansion {
     sql: ${TABLE}."FIRST_FULL_MONTH" ;;
   }
 
-  dimension_group: dte {
+  dimension_group: dte_month {
     type: time
     timeframes: [date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
-    sql: ${TABLE}."DTE" ;;
+    sql: ${TABLE}."DTE_MONTH" ;;
+  }
+
+  dimension_group: cohort_start_qtr {
+    type: time
+    timeframes: [date, quarter, year, fiscal_year, fiscal_quarter, fiscal_quarter_of_year]
+    sql: ${TABLE}."COHORT_START_QTR" ;;
+  }
+
+  dimension_group: dte_qtr {
+    type: time
+    timeframes: [date, quarter, year, fiscal_year, fiscal_quarter, fiscal_quarter_of_year]
+    sql: ${TABLE}."DTE_QTR" ;;
   }
 
   dimension: total_pages_created {
@@ -24,24 +36,24 @@ view: fct_pages_expansion {
     sql: ${TABLE}."TOTAL_PAGES_CREATED" ;;
   }
 
-  dimension: months_since_start {
-    sql: datediff('month', ${first_full_month_month}, ${dte_month});;
-    type: number
-  }
-
   dimension: num_months_since {
     type: number
     sql: ${TABLE}."NUM_MONTHS_SINCE" ;;
   }
 
+  dimension: num_quarters_since {
+    type: number
+    sql: ${TABLE}."NUM_QUARTERS_SINCE" ;;
+  }
+
   dimension: is_recent_month {
     type: yesno
-    sql: ${dte_date} = dateadd(month,-1,date_trunc('month', current_date())) ;;
+    sql: ${dte_month_date}_date} = dateadd(month,-1,date_trunc('month', current_date())) ;;
   }
 
   dimension: is_prev_month {
     type: yesno
-    sql: ${dte_date} = dateadd(month,-2,date_trunc('month', current_date())) ;;
+    sql: ${dte_month_date} = dateadd(month,-2,date_trunc('month', current_date())) ;;
   }
 
   measure: sum_pages {
