@@ -5,3 +5,5 @@ fiscal_month_offset:  2
 
 
 explore: fct_monthly_pages {}
+
+explore: fct_weekly_pages {}

@@ -1,4 +1,4 @@
-view: sql_runner_query {
+view: fct_weekly_pages {
   sql_table_name: (select * from dev.cx.customer_data_fct_weekly_pages);;
   drill_fields: [detail*]
 
