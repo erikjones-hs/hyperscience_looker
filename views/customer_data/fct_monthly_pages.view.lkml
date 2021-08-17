@@ -170,6 +170,12 @@ view: fct_monthly_pages {
     drill_fields: [detail*]
   }
 
+  measure: monthly_diff {
+    type: sum
+    sql:  ${diff_monthly_pages} ;;
+    drill_fields: [detail*]
+  }
+
   set: detail {
     fields: []
   }
