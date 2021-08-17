@@ -140,6 +140,31 @@ view: fct_monthly_pages {
     drill_fields: [detail*]
   }
 
+  measure: num_positive_months {
+    type: sum
+    sql:  ${monthly_pages_increase_fl} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: num_negative_months {
+    type: number
+    sql:  ${num_months_sending_data} - ${num_positive_months} - 1 ;;
+    drill_fields: [detail*]
+  }
+
+  measure: total_months {
+    type: number
+    sql:  ${num_positive_months} + ${num_negative_months};;
+    drill_fields: [detail*]
+  }
+
+  measure: percent_months_increasing {
+    type: number
+    sql:  100.00 * ${num_positive_months} / NULLIFZERO(${total_months}) ;;
+    value_format: "#0.00\%"
+    drill_fields: [detail*]
+  }
+
   set: detail {
     fields: []
   }
