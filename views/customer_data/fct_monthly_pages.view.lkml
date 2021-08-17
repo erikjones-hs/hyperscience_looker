@@ -1,6 +1,7 @@
-view: fct_pages_expansion {
-  sql_table_name: (select * from dev.cx.customer_data_fct_pages_expansion);;
+view: fct_monthly_pages {
+  sql_table_name: (select * from dev.cx.customer_data_fct_monthly_pages);;
   drill_fields: [detail*]
+
 
   dimension: customer {
     type: string
@@ -31,9 +32,15 @@ view: fct_pages_expansion {
     sql: ${TABLE}."DTE_QTR" ;;
   }
 
-  dimension: total_pages_created {
+  dimension: num_months_sending_data {
     type: number
-    sql: ${TABLE}."TOTAL_PAGES_CREATED" ;;
+    sql: ${TABLE}."NUM_MONTHS_SENDING_DATA" ;;
+  }
+
+  dimension_group: last_month_sending_data {
+    type: time
+    timeframes: [date, quarter, year, fiscal_year, fiscal_quarter, fiscal_quarter_of_year]
+    sql: ${TABLE}."LAST_MONTH_SENDING_DATA" ;;
   }
 
   dimension: num_months_since {
@@ -44,6 +51,21 @@ view: fct_pages_expansion {
   dimension: num_quarters_since {
     type: number
     sql: ${TABLE}."NUM_QUARTERS_SINCE" ;;
+  }
+
+  dimension: total_pages_created {
+    type: number
+    sql: ${TABLE}."TOTAL_PAGES_CREATED" ;;
+  }
+
+  dimension: diff_monthly_pages {
+    type: number
+    sql: ${TABLE}."DIFF_MONTHLY_PAGES" ;;
+  }
+
+  dimension: monthly_pages_increase_fl {
+    type: number
+    sql: ${TABLE}."MONTHLY_PAGES_INCREASE_FL" ;;
   }
 
   dimension: is_recent_month {
