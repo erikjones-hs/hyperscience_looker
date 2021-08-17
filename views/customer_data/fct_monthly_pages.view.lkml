@@ -68,6 +68,11 @@ view: fct_monthly_pages {
     sql: ${TABLE}."MONTHLY_PAGES_INCREASE_FL" ;;
   }
 
+  dimension: monthly_pages_decrease_fl {
+    type: number
+    sql: ${TABLE}."MONTHLY_PAGES_INCREASE_FL" ;;
+  }
+
   dimension: is_recent_month {
     type: yesno
     sql: ${dte_month_date}_date} = dateadd(month,-1,date_trunc('month', current_date())) ;;
@@ -147,8 +152,8 @@ view: fct_monthly_pages {
   }
 
   measure: num_negative_months {
-    type: number
-    sql:  ${num_months_sending_data} - ${num_positive_months} - 1 ;;
+    type: sum
+    sql:  ${monthly_pages_decrease_fl} ;;
     drill_fields: [detail*]
   }
 
