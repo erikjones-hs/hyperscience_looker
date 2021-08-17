@@ -70,7 +70,7 @@ view: fct_monthly_pages {
 
   dimension: monthly_pages_decrease_fl {
     type: number
-    sql: ${TABLE}."MONTHLY_PAGES_INCREASE_FL" ;;
+    sql: ${TABLE}."MONTHLY_PAGES_DECREASE_FL" ;;
   }
 
   dimension: is_recent_month {
