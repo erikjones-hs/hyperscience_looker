@@ -18,43 +18,43 @@ view: fct_weekly_pages {
     sql: ${TABLE}."WEEKLY_PAGES" ;;
   }
 
-  dimension: ma_2 {
-    type: number
+  measure: ma_2 {
+    type: sum
     sql: ${TABLE}."MA_2" ;;
   }
 
-  dimension: ma_4 {
-    type: number
+  measure: ma_4 {
+    type: sum
     sql: ${TABLE}."MA_4" ;;
   }
 
-  dimension: ma_8 {
-    type: number
+  measure: ma_8 {
+    type: sum
     sql: ${TABLE}."MA_8" ;;
   }
 
-  dimension: ma_12 {
-    type: number
+  measure: ma_12 {
+    type: sum
     sql: ${TABLE}."MA_12" ;;
   }
 
-  dimension: momentum_1 {
-    type: number
+  measure: momentum_1 {
+    type: sum
     sql: ${TABLE}."MOMENTUM_1" ;;
   }
 
-  dimension: momentum_4 {
-    type: number
+  measure: momentum_4 {
+    type: sum
     sql: ${TABLE}."MOMENTUM_4" ;;
   }
 
-  dimension: momentum_8 {
-    type: number
+  measure: momentum_8 {
+    type: sum
     sql: ${TABLE}."MOMENTUM_8" ;;
   }
 
-  dimension: momentum_12 {
-    type: number
+  measure: momentum_12 {
+    type: sum
     sql: ${TABLE}."MOMENTUM_12" ;;
   }
 
@@ -71,11 +71,6 @@ view: fct_weekly_pages {
   measure: sum_pages {
     type: sum
     sql:  ${weekly_pages} ;;
-  }
-
-  measure: oscillator {
-    type: number
-    sql:  ${oscillation};;
   }
 
   measure: median_pages_created {
