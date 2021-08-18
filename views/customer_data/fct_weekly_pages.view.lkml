@@ -59,7 +59,7 @@ view: fct_weekly_pages {
   }
 
   measure: oscillation {
-    type: number
+    type: sum
     sql: ${TABLE}."OSCILLATION" ;;
   }
 
