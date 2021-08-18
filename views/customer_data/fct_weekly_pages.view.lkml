@@ -68,6 +68,11 @@ measure: count {
   drill_fields: [detail*]
 }
 
+  measure: sum_pages {
+    type: sum
+    sql:  ${weekly_pages} ;;
+  }
+
   set: detail {
     fields: [
       customer,
