@@ -58,19 +58,24 @@ view: fct_weekly_pages {
     sql: ${TABLE}."MOMENTUM_12" ;;
   }
 
-  dimension: oscillation {
+  measure: oscillation {
     type: number
     sql: ${TABLE}."OSCILLATION" ;;
   }
 
-measure: count {
+  measure: count {
   type: count
   drill_fields: [detail*]
-}
+  }
 
   measure: sum_pages {
     type: sum
     sql:  ${weekly_pages} ;;
+  }
+
+  measure: oscillator {
+    type: number
+    sql:  ${oscillation};;
   }
 
   measure: median_pages_created {
