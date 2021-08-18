@@ -73,6 +73,37 @@ measure: count {
     sql:  ${weekly_pages} ;;
   }
 
+  measure: median_pages_created {
+    type: median
+    sql: ${weekly_pages} ;;
+    drill_fields: [detail*]
+  }
+  measure: min_pages_created {
+    type: min
+    sql: ${weekly_pages} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: max_pages_created {
+    type: max
+    sql: ${weekly_pages} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: percentile_25_pages_created {
+    type: percentile
+    percentile:  25
+    sql: ${weekly_pages} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: percentile_75_pages_created {
+    type: percentile
+    percentile:  75
+    sql: ${weekly_pages} ;;
+    drill_fields: [detail*]
+  }
+
   set: detail {
     fields: [
       customer,
