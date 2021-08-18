@@ -9,7 +9,7 @@ view: fct_weekly_pages {
 
   dimension_group: dte_week {
     type: time
-    timeframes: [date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
+    timeframes: [date, week, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
     sql: ${TABLE}."DTE_WEEK" ;;
   }
 
