@@ -2044,5 +2044,35 @@ view: lead {
     type: number
     value_format: "0.00\%"
   }
-}
 
+  measure: mal_count {
+    type: count
+    filters: [date_stage_mal_c_date: "-NULL"]
+
+  }
+
+  measure: mel_count {
+    type: count
+    filters: [date_stage_mel_c_date: "-NULL"]
+
+  }
+
+  measure: mql_count {
+    type: count
+    filters: [date_stage_mql_c_date: "-NULL"]
+
+  }
+
+  measure: sal_count {
+    type: count
+    filters: [date_stage_sal_c_date: "-NULL"]
+
+  }
+
+  measure: sql_count {
+    type: count
+    filters: [converted_opportunity_id: "-NULL"]
+
+  }
+
+}
