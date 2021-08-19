@@ -72,7 +72,6 @@ view: lever_agg_postings {
     sql: ${TABLE}."OPP_ARCHIVED_AT" ;;
   }
 
-
   dimension: opp_archive_reason {
     type: string
     sql: ${TABLE}."OPP_ARCHIVE_REASON" ;;
@@ -113,13 +112,13 @@ view: lever_agg_postings {
     sql: ${TABLE}."APPLICATION_TYPE" ;;
   }
 
-  dimension: application_create_dte {
-    type: date
+  dimension_group: application_create_dte {
+    type: time
     sql: ${TABLE}."APPLICATION_CREATE_DTE" ;;
   }
 
-  dimension: application_archived_dte {
-    type: date
+  dimension_group: application_archived_dte {
+    type: time
     sql: ${TABLE}."APPLICATION_ARCHIVED_DTE" ;;
   }
 
@@ -178,8 +177,8 @@ view: lever_agg_postings {
     sql: ${TABLE}."POST_NAME" ;;
   }
 
-  dimension: post_create_dte {
-    type: date
+  dimension_group: post_create_dte {
+    type: time
     sql: ${TABLE}."POST_CREATE_DTE" ;;
   }
 
@@ -255,7 +254,7 @@ view: lever_agg_postings {
 
   dimension: time_since_posting {
     type: number
-    sql: DATEDIFF( day, ${post_create_dte}, current_date()) ;;
+    sql: DATEDIFF( day, ${post_create_dte_date}, current_date()) ;;
   }
 
   measure: count {
@@ -287,12 +286,18 @@ view: lever_agg_postings {
     drill_fields: [detail*]
   }
 
+  measure: num_hiring_managers {
+    type: count_distinct
+    sql: ${application_hiring_manager_id} ;;
+    drill_fields: [detail*]
+  }
+
   set: detail_post {
     fields: [
       post_id,
       post_state,
       post_name,
-      post_create_dte,
+      post_create_dte_date,
       post_team,
       post_dept,
       post_locations,
@@ -357,8 +362,8 @@ view: lever_agg_postings {
       opp_referrer_name,
       application_id,
       application_type,
-      application_create_dte,
-      application_archived_dte,
+      #application_create_dte,
+      #application_archived_dte,
       application_archive_reason,
       application_hiring_manager_id,
       application_hiring_manager,
@@ -370,7 +375,7 @@ view: lever_agg_postings {
       post_id,
       post_state,
       post_name,
-      post_create_dte,
+      post_create_dte_date,
       post_team,
       post_dept,
       post_locations,

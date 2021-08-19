@@ -29,6 +29,7 @@ view: agg_ticket {
 
   dimension_group: ticket_created_at {
     type: time
+    timeframes: [time, date, week, month, quarter]
     sql: ${TABLE}."TICKET_CREATED_AT" ;;
   }
 
@@ -243,9 +244,9 @@ view: agg_ticket {
     sql: ${TABLE}."FIRST_REPLY_TIME" ;;
   }
 
-  dimension: time_to_first_reply_seconds {
+  dimension: time_to_first_reply_minutes {
     type: number
-    sql: ${TABLE}."TIME_TO_FIRST_REPLY_SECONDS" ;;
+    sql: ${TABLE}."TIME_TO_FIRST_REPLY_MINUTES" ;;
   }
 
   dimension: group_stations {
@@ -314,13 +315,118 @@ view: agg_ticket {
   }
 
   dimension: is_tse_fl {
+    type: number
+    sql: ${TABLE}."IS_TSE_FL" ;;
+  }
+
+  dimension: is_level_2_fl {
+    type: number
+    sql: ${TABLE}."IS_LEVEL_2_SUPPORT_FL" ;;
+  }
+
+  dimension: is_gainsight_fl {
+    type: number
+    sql: ${TABLE}."IS_GAINSIGHT_FL" ;;
+  }
+
+  dimension: is_csm_fl {
+    type: number
+    sql: ${TABLE}."IS_CSM_FL" ;;
+  }
+
+  dimension: is_implementation_fl {
+    type: number
+    sql: ${TABLE}."IS_IMPLEMENTATION_FL" ;;
+  }
+
+  dimension: is_support_fl {
+    type: number
+    sql: ${TABLE}."IS_SUPPORT_FL" ;;
+  }
+
+  dimension: is_p1_fl {
+    type: number
+    sql: ${TABLE}."IS_P1_FL" ;;
+  }
+
+  dimension: is_p2_fl {
+    type: number
+    sql: ${TABLE}."IS_P2_FL" ;;
+  }
+
+  dimension: is_p3_fl {
+    type: number
+    sql: ${TABLE}."IS_P3_FL" ;;
+  }
+
+  dimension: is_closed_fl {
     type: yesno
-    sql:  ${group_name} = 'TSE' ;;
+    sql: ${agg_ticket.ticket_status} = 'closed');;
+  }
+
+  dimension: is_solved_fl {
+    type: yesno
+    sql: ${agg_ticket.ticket_status} = 'solved');;
+  }
+
+  dimension: is_open_fl {
+    type: yesno
+    sql: ${agg_ticket.ticket_status} = 'open');;
+  }
+
+  dimension: is_hold_fl {
+    type: yesno
+    sql: ${agg_ticket.ticket_status} = 'hold');;
+  }
+
+  dimension: is_pending_fl {
+    type: yesno
+    sql: ${agg_ticket.ticket_status} = 'pending');;
   }
 
   measure: num_tse_tickets  {
     type: number
-    sql:  SUM(CASE WHEN ${is_tse_fl} then 1 else 0 END) ;;
+    sql:  SUM(${is_tse_fl}) ;;
+  }
+
+  measure: num_level_2_tickets  {
+    type: number
+    sql:  SUM(${is_level_2_fl}) ;;
+  }
+
+  measure: num_gainsight_tickets  {
+    type: number
+    sql:  SUM(${is_gainsight_fl}) ;;
+  }
+
+  measure: num_csm_tickets  {
+    type: number
+    sql:  SUM(${is_csm_fl}) ;;
+  }
+
+  measure: num_implementation_tickets  {
+    type: number
+    sql:  SUM(${is_implementation_fl}) ;;
+  }
+
+  measure: num_support_tickets  {
+    type: number
+    sql:  SUM(${is_support_fl}) ;;
+  }
+
+  measure: num_p1_tickets  {
+    type: number
+    sql:  SUM(${is_p1_fl}) ;;
+  }
+
+  measure: num_p2_tickets  {
+    type: number
+    sql:  SUM(${is_p2_fl}) ;;
+  }
+
+  measure: num_p3_tickets  {
+    type: number
+    sql:  SUM(${is_p3_fl}) ;;
   }
 
   measure: num_tickets {
@@ -331,9 +437,20 @@ view: agg_ticket {
 
   measure: tse_solve_rate {
     type: number
-    sql:  100.00 * ${num_tse_tickets} / NULLIFZERO(${num_tickets}) ;;
+    sql:  100.00 * ${num_tse_tickets} / NULLIFZERO(${num_tse_tickets} + ${num_level_2_tickets}) ;;
     value_format: "#0.00\%"
     drill_fields: [detail*]
+  }
+
+  measure: mean_time_to_first_reply {
+    type: average_distinct
+    sql_distinct_key: ${ticket_created_at_date} ;;
+    sql: ${time_to_first_reply_minutes} ;;
+  }
+
+  measure: median_time_to_first_reply {
+    type: median
+    sql: ${time_to_first_reply_minutes} ;;
   }
 
 
@@ -384,7 +501,7 @@ view: agg_ticket {
       solved_at_time,
       last_updated_at_time,
       first_reply_time_time,
-      time_to_first_reply_seconds,
+      time_to_first_reply_minutes,
       group_stations,
       assignee_stations,
       assignee_name,
