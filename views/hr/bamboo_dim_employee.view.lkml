@@ -142,8 +142,9 @@ view: bamboo_dim_employee {
     sql: ${TABLE}."SUPERVISOR" ;;
   }
 
-  measure: count {
-    type: count
+  measure: num_employees {
+    type: count_distinct
+    sql:  ${id} ;;
     drill_fields: [detail*]
   }
 
@@ -180,4 +181,3 @@ view: bamboo_dim_employee {
     ]
   }
 }
-
