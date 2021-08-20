@@ -171,6 +171,16 @@ view: bamboo_dim_employee {
     sql:  ${tenure} ;;
   }
 
+  measure: avg_age {
+    type:  average
+    sql:  ${age} ;;
+  }
+
+  measure: median_age {
+    type:  median
+    sql:  ${age} ;;
+  }
+
   set: detail {
     fields: [
       id,
