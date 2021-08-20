@@ -27,8 +27,9 @@ view: bamboo_dim_employee {
     sql: ${TABLE}."EMPLOYEE_NUMBER" ;;
   }
 
-  dimension: hire_date {
-    type: date
+  dimension_group: hire_date {
+    type: time
+    timeframes: [week, month, quarter, fiscal_quarter, fiscal_year]
     sql: ${TABLE}."HIRE_DATE" ;;
   }
 
@@ -155,7 +156,6 @@ view: bamboo_dim_employee {
       last_name,
       full_name_1,
       employee_number,
-      hire_date,
       department,
       work_email,
       city,
