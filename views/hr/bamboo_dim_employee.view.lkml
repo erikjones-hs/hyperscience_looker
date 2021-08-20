@@ -143,6 +143,13 @@ view: bamboo_dim_employee {
     sql: ${TABLE}."SUPERVISOR" ;;
   }
 
+  dimension: age_tier {
+    type: tier
+    tiers: [0,5,10,15,20,25,30,35,40,45,50,55,60,65]
+    style: integer
+    sql: ${age} ;;
+  }
+
   measure: num_employees {
     type: count_distinct
     sql:  ${id} ;;
