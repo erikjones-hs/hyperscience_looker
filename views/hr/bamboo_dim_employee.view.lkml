@@ -33,6 +33,11 @@ view: bamboo_dim_employee {
     sql: ${TABLE}."HIRE_DATE" ;;
   }
 
+  dimension: tenure {
+    type: number
+    sql: ${TABLE}."TENURE" ;;
+  }
+
   dimension: department {
     type: string
     sql: ${TABLE}."DEPARTMENT" ;;
@@ -154,6 +159,16 @@ view: bamboo_dim_employee {
     type: count_distinct
     sql:  ${id} ;;
     drill_fields: [detail*]
+  }
+
+  measure: avg_tenure {
+    type:  average
+    sql:  ${tenure} ;;
+  }
+
+  measure: median_tenure {
+    type:  median
+    sql:  ${tenure} ;;
   }
 
   set: detail {
