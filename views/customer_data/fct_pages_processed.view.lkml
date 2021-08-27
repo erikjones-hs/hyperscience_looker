@@ -1,5 +1,5 @@
 view: fct_pages_processed {
-  sql_table_name: (select * from dev.cx.customer_data_fct__pages_processed);;
+  sql_table_name: (select * from dev.cx.customer_data_fct_pages_processed);;
   drill_fields: [detail*]
 
   dimension: customer {
