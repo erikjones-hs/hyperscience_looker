@@ -2,11 +2,6 @@ view: fct_pages_processed {
   sql_table_name: (select * from dev.cx.customer_data_fct__pages_processed);;
   drill_fields: [detail*]
 
-  measure: count {
-    type: count
-    drill_fields: [detail*]
-  }
-
   dimension: customer {
     type: string
     sql: ${TABLE}."CUSTOMER" ;;
@@ -71,6 +66,17 @@ view: fct_pages_processed {
   dimension_group: last_month_sending_data {
     type: time
     sql: ${TABLE}."LAST_MONTH_SENDING_DATA" ;;
+  }
+
+  measure: count {
+    type: count
+    drill_fields: [detail*]
+  }
+
+  measure: num_pages {
+    type:  sum
+    sql:  ${number_of_pages_created} ;;
+    drill_fields: [detail*]
   }
 
   set: detail {
