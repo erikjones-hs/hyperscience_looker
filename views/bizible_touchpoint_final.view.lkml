@@ -962,7 +962,16 @@ view: bizible_touchpoint_final {
     sql: ${touchpoint_date};;
   }
 
-  dimension_group: mql_date {
+  dimension: mql_date {
+    type: date
+    sql: CASE WHEN ${bizible_touchpoint_final.touchpoint_position} LIKE '%MQL%'
+       AND ${mql_checkbox} = 'true'
+          THEN ${touchpoint_date}
+          ELSE NULL
+          END;;
+  }
+
+  dimension_group: mql_date_group {
     type: time
     convert_tz: no
     timeframes: [
@@ -974,11 +983,30 @@ view: bizible_touchpoint_final {
       quarter,
       year
     ]
-    sql: CASE WHEN ${bizible_touchpoint_final.touchpoint_position} LIKE '%MQL%'
-          AND ${mql_checkbox} = 'true'
+    sql: ${mql_date};;
+  }
+
+  dimension: sal_date {
+    type: date
+    sql: CASE WHEN ${bizible_touchpoint_final.touchpoint_position} LIKE '%SAL%'
           THEN ${touchpoint_date}
           ELSE NULL
           END;;
+  }
+
+  dimension_group: sal_date_group {
+    type: time
+    convert_tz: no
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${sal_date};;
   }
 
   parameter: start_date{
@@ -1016,7 +1044,7 @@ view: bizible_touchpoint_final {
       quarter,
       year
     ]
-    sql: CASE WHEN ${date_selector} = "mql_date" THEN ${mql_date_date}
+    sql: CASE WHEN ${date_selector} = "mql_date" THEN ${mql_date}
           WHEN ${date_selector} = "opportunity_created_date" THEN ${opportunity_created_date}
           END;;
   }
