@@ -752,6 +752,31 @@ view: bizible_touchpoint_final {
     sql: ${TABLE}."W_SHAPED_COUNT" ;;
   }
 
+  dimension: working_checkbox {
+    type: yesno
+    sql: ${TABLE}."LEAD_WORKING_STAGE_CHECKBOX" ;;
+  }
+
+  dimension: lead_status {
+    type: string
+    sql: ${TABLE}."LEAD_STATUS";;
+  }
+
+  dimension: lead_disqualified_reason_description {
+    type: string
+    sql: ${TABLE}."LEAD_DISQUALIFIED_REASON_DESCRIPTION";;
+  }
+
+  dimension: lead_disqualified_reason {
+    type: string
+    sql: ${TABLE}."LEAD_DISQUALIFIED_REASON";;
+  }
+
+  dimension: lead_dq_date {
+    type: date
+    sql: ${TABLE}."lead_dq_date" ;;
+  }
+
   dimension: mql_checkbox {
     type: yesno
     sql:
@@ -764,6 +789,15 @@ view: bizible_touchpoint_final {
   measure: count {
     type: count
     drill_fields: [detail*]
+  }
+
+  measure: lc_count {
+    type: count_distinct
+    sql:
+       CASE WHEN ${bizible_touchpoint_final.touchpoint_position} LIKE '%LC%'
+          THEN ${bizible_person_id}
+          ELSE NULL
+          END;;
   }
 
   measure: mal_count {
@@ -798,6 +832,7 @@ view: bizible_touchpoint_final {
     type: count_distinct
     sql:
        CASE WHEN ${bizible_touchpoint_final.touchpoint_position} LIKE '%SAL%'
+      AND ${working_checkbox} = 'true'
           THEN ${bizible_person_id}
           ELSE NULL
           END;;
