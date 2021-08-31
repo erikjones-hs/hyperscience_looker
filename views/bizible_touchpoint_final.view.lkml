@@ -963,7 +963,7 @@ view: bizible_touchpoint_final {
   }
 
   dimension: mql_date {
-    type: date
+    type: date_time
     sql: CASE WHEN ${bizible_touchpoint_final.touchpoint_position} LIKE '%MQL%'
        AND ${mql_checkbox} = 'true'
           THEN ${touchpoint_date}
@@ -987,8 +987,9 @@ view: bizible_touchpoint_final {
   }
 
   dimension: sal_date {
-    type: date
+    type: date_time
     sql: CASE WHEN ${bizible_touchpoint_final.touchpoint_position} LIKE '%SAL%'
+          AND ${working_checkbox} = 'true'
           THEN ${touchpoint_date}
           ELSE NULL
           END;;
