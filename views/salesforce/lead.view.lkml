@@ -106,6 +106,31 @@ view: lead {
     sql: ${TABLE}.bizible_2_marketing_channel_lc_c ;;
   }
 
+  dimension: bizible_marketing_channel_group_lc {
+    type:  string
+    sql: CASE
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Conference" THEN "Earned"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Content Syndication" THEN "Earned"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Direct" THEN "Earned"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Display" THEN "Paid"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Email" THEN "Owned"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Event" THEN "Earned"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Marketplace" THEN "Earned"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Organic Search" THEN "Earned"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Other" THEN "Other"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Paid Search" THEN "Paid"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Paid Social" THEN "Paid"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Partner" THEN "Earned"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Podcast" THEN "Owned"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "PR" THEN "Owned"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Social" THEN "Owned"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Telemarketing" THEN "Owned"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Web Referral" THEN "Earned"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Webinar" THEN "Earned"
+      ELSE "Other"
+    ;;
+  }
+
   dimension_group: bizible_2_touchpoint_date_ft_c {
     type: time
     timeframes: [
