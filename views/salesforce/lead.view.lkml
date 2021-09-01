@@ -128,7 +128,7 @@ view: lead {
       WHEN ${bizible_2_marketing_channel_lc_c} = "Web Referral" THEN "Earned"
       WHEN ${bizible_2_marketing_channel_lc_c} = "Webinar" THEN "Earned"
       ELSE "Other"
-    ;;
+      END ;;
   }
 
   dimension_group: bizible_2_touchpoint_date_ft_c {
