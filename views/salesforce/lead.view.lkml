@@ -1996,6 +1996,11 @@ view: lead {
     sql: ${TABLE}.zoom_info_state_c ;;
   }
 
+  dimension: days_mql_to_sal {
+    type: number
+    sql:  DATEDIFF( day, ${date_stage_mql_c_date}, ${date_stage_sal_c_date}) ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [id, last_name, first_name, middle_name, name]
@@ -2074,5 +2079,13 @@ view: lead {
     filters: [converted_opportunity_id: "-NULL"]
 
   }
+
+  measure: time_mql_to_sal {
+    type: average
+    sql:  ${days_mql_to_sal} ;;
+    filters: [date_stage_mql_c_date: "-NULL", date_stage_sal_c_date: "-NULL"]
+  }
+
+
 
 }
