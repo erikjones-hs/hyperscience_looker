@@ -974,7 +974,7 @@ view: bizible_touchpoint_final {
       quarter,
       year
     ]
-    sql: ${mql_date};;
+    sql: ${TABLE}."BIZIBLE_MQL_DATE" ;;
   }
 
   dimension: sal_date {
@@ -993,7 +993,7 @@ view: bizible_touchpoint_final {
       quarter,
       year
     ]
-    sql: ${sal_date};;
+    sql: ${TABLE}."BIZIBLE_SAL_DATE"  ;;
   }
 
   parameter: start_date{
