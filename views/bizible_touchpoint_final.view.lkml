@@ -779,7 +779,7 @@ view: bizible_touchpoint_final {
 
   dimension: mql_checkbox {
     type: yesno
-    sql: ${TABLE}."mql_checkbox" ;;
+    sql: ${TABLE}."MQL_CHECKBOX" ;;
   }
 
   measure: count {
