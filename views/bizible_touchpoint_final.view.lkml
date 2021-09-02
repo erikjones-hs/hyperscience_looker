@@ -779,11 +779,7 @@ view: bizible_touchpoint_final {
 
   dimension: mql_checkbox {
     type: yesno
-    sql:
-        CASE WHEN ${contact_mql_checkbox} = 'true'
-        THEN ${contact_mql_checkbox}
-        ELSE ${lead_mql_checkbox}
-        END;;
+    sql: ${TABLE}."mql_checkbox" ;;
   }
 
   measure: count {
@@ -964,11 +960,7 @@ view: bizible_touchpoint_final {
 
   dimension: mql_date {
     type: date
-    sql: CASE WHEN ${bizible_touchpoint_final.touchpoint_position} LIKE '%MQL%'
-          AND ${mql_checkbox} = 'true'
-          THEN ${touchpoint_date}
-          ELSE NULL
-          END;;
+    sql: ${TABLE}."BIZIBLE_MQL_DATE" ;;
   }
 
   dimension_group: mql_date_group {
@@ -985,12 +977,8 @@ view: bizible_touchpoint_final {
   }
 
   dimension: sal_date {
-    type: date_time
-    sql: CASE WHEN ${bizible_touchpoint_final.touchpoint_position} LIKE '%SAL%'
-          AND ${working_checkbox} = 'true'
-          THEN ${touchpoint_date}
-          ELSE NULL
-          END;;
+    type: date
+    sql: ${TABLE}."BIZIBLE_SAL_DATE" ;;
   }
 
   dimension_group: sal_date_group {
