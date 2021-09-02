@@ -143,3 +143,5 @@ explore: user {
   }
 
 }
+
+explore: pipeline_aggregation {}
