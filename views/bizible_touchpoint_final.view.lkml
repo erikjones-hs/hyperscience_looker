@@ -961,6 +961,7 @@ view: bizible_touchpoint_final {
   dimension: mql_date {
     type: date
     sql: ${TABLE}."BIZIBLE_MQL_DATE" ;;
+    datatype: date
   }
 
   dimension_group: mql_date_group {
@@ -979,6 +980,7 @@ view: bizible_touchpoint_final {
   dimension: sal_date {
     type: date
     sql: ${TABLE}."BIZIBLE_SAL_DATE" ;;
+    datatype: date
   }
 
   dimension_group: sal_date_group {
