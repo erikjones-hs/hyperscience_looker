@@ -996,6 +996,14 @@ view: bizible_touchpoint_final {
     sql: ${TABLE}."BIZIBLE_SAL_DATE"  ;;
   }
 
+  dimension: mal_date {
+    type: date
+    sql: CASE WHEN ${bizible_touchpoint_final.touchpoint_position} LIKE '%MAL%'
+          THEN ${touchpoint_date}
+          ELSE NULL
+          END;;
+  }
+
   parameter: start_date{
     type: date_time
     description: "Use this field to select the starting date"
@@ -1007,16 +1015,46 @@ view: bizible_touchpoint_final {
   }
 
   parameter: date_selector {
-    type: date_time
-    description: "Use this field to base the charts on a specfic date"
+    description: "Pick a date to filter the dashboard"
+    type: unquoted
+    allowed_value: {
+      label: "MAL Date"
+      value: "mal_date"
+    }
     allowed_value: {
       label: "MQL Date"
       value: "mql_date"
     }
     allowed_value: {
-      label: "SQL Date"
-      value: "opportunity_created_date"
+      label: "SAL Date"
+      value: "sal_date"
     }
+    allowed_value: {
+      label: "SQL Date"
+      value: "sql_date"
+    }
+    allowed_value: {
+      label: "CW Date"
+      value: "cw_date"
+    }
+  }
+
+
+  dimension: date_filter {
+    description: "Select a timeframe to view the data"
+    type: date
+    label_from_parameter: date_selector
+    sql: {% if date_selector._parameter_value == 'mal_date' %}
+        ${mal_date}
+        {% elsif date_selector._parameter_value == 'mql_date' %}
+        ${mql_date}
+        {% elsif date_selector._parameter_value == 'sal_date' %}
+        ${sal_date}
+        {% elsif date_selector._parameter_value == 'sql_date' %}
+        ${opportunity_created_date}
+        {% elsif date_selector._parameter_value == 'cw_date' %}
+        ${opportunity_closed_won_date}
+        {% endif %};;
   }
 
   dimension_group: date_selector_calc {
