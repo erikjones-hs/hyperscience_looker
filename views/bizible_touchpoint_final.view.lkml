@@ -469,6 +469,12 @@ view: bizible_touchpoint_final {
 
   }
 
+  dimension: opportunity_revenue_type {
+    type: string
+    sql:  ${TABLE}."OPPORTUNITY_REVENUE_TYPE" ;;
+
+  }
+
   dimension_group: opportunity_close {
     type: time
     timeframes: [
