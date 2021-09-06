@@ -457,6 +457,24 @@ view: bizible_touchpoint_final {
     sql: ${TABLE}."OPPORTUNITY_AMOUNT" ;;
   }
 
+  dimension: opportunity_forecasted_arr {
+    type:  number
+    sql:  ${TABLE}."OPPORTUNITY_FORECASTED_ARR" ;;
+
+  }
+
+  dimension: opportunity_mirror_arr {
+    type:  number
+    sql:  ${TABLE}."OPPORTUNITY_MIRROR_ARR" ;;
+
+  }
+
+  dimension: opportunity_revenue_type {
+    type: string
+    sql:  ${TABLE}."OPPORTUNITY_REVENUE_TYPE" ;;
+
+  }
+
   dimension_group: opportunity_close {
     type: time
     timeframes: [
@@ -855,6 +873,13 @@ view: bizible_touchpoint_final {
     sql: ${bizible_touchpoint_final.opportunity_amount};;
   }
 
+  measure: sql_pipeline_arr {
+    type: sum_distinct
+    value_format: "$#,##0.00"
+    sql_distinct_key: ${opportunity_id} ;;
+    sql: ${bizible_touchpoint_final.opportunity_mirror_arr};;
+  }
+
   measure: vo_sql_count{
     type: count_distinct
     filters: [opportunity_vo_check: "true"]
@@ -869,6 +894,14 @@ view: bizible_touchpoint_final {
     sql: ${bizible_touchpoint_final.opportunity_amount};;
   }
 
+  measure: vo_sql_pipeline_arr {
+    type: sum_distinct
+    value_format: "$#,##0.00"
+    filters: [opportunity_vo_check: "true"]
+    sql_distinct_key: ${opportunity_id} ;;
+    sql: ${bizible_touchpoint_final.opportunity_mirror_arr};;
+  }
+
   measure: cw_count{
     type: count_distinct
     filters: [opportunity_stage: "Closed Won"]
@@ -881,6 +914,14 @@ view: bizible_touchpoint_final {
     filters: [opportunity_stage: "Closed Won"]
     sql_distinct_key: ${opportunity_id} ;;
     sql: ${bizible_touchpoint_final.opportunity_amount};;
+  }
+
+  measure: cw_revenue_arr {
+    type: sum_distinct
+    value_format: "$#,##0.00"
+    filters: [opportunity_stage: "Closed Won"]
+    sql_distinct_key: ${opportunity_id} ;;
+    sql: ${bizible_touchpoint_final.opportunity_mirror_arr};;
   }
 
   dimension_group: opportunity_created_date_group {
@@ -996,6 +1037,14 @@ view: bizible_touchpoint_final {
     sql: ${TABLE}."BIZIBLE_SAL_DATE"  ;;
   }
 
+  dimension: mal_date {
+    type: date
+    sql: CASE WHEN ${bizible_touchpoint_final.touchpoint_position} LIKE '%MAL%'
+          THEN ${touchpoint_date}
+          ELSE NULL
+          END;;
+  }
+
   parameter: start_date{
     type: date_time
     description: "Use this field to select the starting date"
@@ -1007,16 +1056,46 @@ view: bizible_touchpoint_final {
   }
 
   parameter: date_selector {
-    type: date_time
-    description: "Use this field to base the charts on a specfic date"
+    description: "Pick a date to filter the dashboard"
+    type: unquoted
+    allowed_value: {
+      label: "MAL Date"
+      value: "mal_date"
+    }
     allowed_value: {
       label: "MQL Date"
       value: "mql_date"
     }
     allowed_value: {
-      label: "SQL Date"
-      value: "opportunity_created_date"
+      label: "SAL Date"
+      value: "sal_date"
     }
+    allowed_value: {
+      label: "SQL Date"
+      value: "sql_date"
+    }
+    allowed_value: {
+      label: "CW Date"
+      value: "cw_date"
+    }
+  }
+
+
+  dimension: date_filter {
+    description: "Select a timeframe to view the data"
+    type: date
+    label_from_parameter: date_selector
+    sql: {% if date_selector._parameter_value == 'mal_date' %}
+        ${mal_date}
+        {% elsif date_selector._parameter_value == 'mql_date' %}
+        ${mql_date}
+        {% elsif date_selector._parameter_value == 'sal_date' %}
+        ${sal_date}
+        {% elsif date_selector._parameter_value == 'sql_date' %}
+        ${opportunity_created_date}
+        {% elsif date_selector._parameter_value == 'cw_date' %}
+        ${opportunity_closed_won_date}
+        {% endif %};;
   }
 
   dimension_group: date_selector_calc {
