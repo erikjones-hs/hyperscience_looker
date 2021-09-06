@@ -1,5 +1,5 @@
 view: arr_tracking {
-  sql_table_name: (select * from dev.sales.opportunity) ;;
+  sql_table_name: (select * from dev.sales.ARR_TRACKING) ;;
 
     measure: count {
       type: count
