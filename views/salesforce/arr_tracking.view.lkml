@@ -47,7 +47,7 @@ view: arr_tracking {
     }
 
     measure: arr {
-      type: number
+      type: sum
       sql: ${TABLE}."ARR" ;;
       value_format_name:usd
     }
