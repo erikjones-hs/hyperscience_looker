@@ -47,9 +47,11 @@ view: arr_tracking {
     }
 
     measure: arr {
+      label: "ARR"
       type: sum
       sql: ${TABLE}."ARR" ;;
-      value_format_name:usd
+      value_format:"[>=1000000]$0.00,,\"M\";[>=1000]$0.00,\"K\";$0.00"
+      drill_fields: [week,ae,manager,role,region,lead_source,revenue_type,opportunity_id]
     }
 
     set: detail {
