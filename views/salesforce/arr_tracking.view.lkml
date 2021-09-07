@@ -49,6 +49,7 @@ view: arr_tracking {
     measure: arr {
       type: number
       sql: ${TABLE}."ARR" ;;
+      value_format_name:usd
     }
 
     set: detail {
