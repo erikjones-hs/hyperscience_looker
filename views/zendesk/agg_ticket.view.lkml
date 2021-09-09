@@ -442,6 +442,13 @@ view: agg_ticket {
     drill_fields: [detail*]
   }
 
+  measure: level_2_solve_rate {
+    type: number
+    sql:  100.00 * ${num_level_2_tickets} / NULLIFZERO(${num_tse_tickets} + ${num_level_2_tickets}) ;;
+    value_format: "#0.00\%"
+    drill_fields: [detail*]
+  }
+
   measure: mean_time_to_first_reply {
     type: average_distinct
     sql_distinct_key: ${ticket_created_at_date} ;;
