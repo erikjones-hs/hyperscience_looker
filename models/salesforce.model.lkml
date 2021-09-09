@@ -121,3 +121,29 @@ explore: opportunity {
     relationship: many_to_one
   }
 }
+
+explore: user {
+  from: user
+
+  join: user_role {
+    sql_on: ${user.user_role_id} = ${user_role.id} ;;
+    relationship: one_to_one
+  }
+
+  join: account {
+    from: account
+    sql_on: ${account.owner_id} = ${user.id} ;;
+    relationship: many_to_one
+  }
+
+  join: opportunity {
+    from:  opportunity
+    sql_on:  ${opportunity.owner_id} = ${user.id} ;;
+    relationship:  many_to_one
+  }
+
+}
+
+explore: pipeline_aggregation {}
+
+explore: arr_tracking {}

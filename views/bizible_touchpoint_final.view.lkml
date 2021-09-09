@@ -457,6 +457,24 @@ view: bizible_touchpoint_final {
     sql: ${TABLE}."OPPORTUNITY_AMOUNT" ;;
   }
 
+  dimension: opportunity_forecasted_arr {
+    type:  number
+    sql:  ${TABLE}."OPPORTUNITY_FORECASTED_ARR" ;;
+
+  }
+
+  dimension: opportunity_mirror_arr {
+    type:  number
+    sql:  ${TABLE}."OPPORTUNITY_MIRROR_ARR" ;;
+
+  }
+
+  dimension: opportunity_revenue_type {
+    type: string
+    sql:  ${TABLE}."OPPORTUNITY_REVENUE_TYPE" ;;
+
+  }
+
   dimension_group: opportunity_close {
     type: time
     timeframes: [
@@ -752,18 +770,48 @@ view: bizible_touchpoint_final {
     sql: ${TABLE}."W_SHAPED_COUNT" ;;
   }
 
+  dimension: working_checkbox {
+    type: yesno
+    sql: ${TABLE}."LEAD_WORKING_STAGE_CHECKBOX" ;;
+  }
+
+  dimension: lead_status {
+    type: string
+    sql: ${TABLE}."LEAD_STATUS";;
+  }
+
+  dimension: lead_disqualified_reason_description {
+    type: string
+    sql: ${TABLE}."LEAD_DISQUALIFIED_REASON_DESCRIPTION";;
+  }
+
+  dimension: lead_disqualified_reason {
+    type: string
+    sql: ${TABLE}."LEAD_DISQUALIFIED_REASON";;
+  }
+
+  dimension: lead_dq_date {
+    type: date
+    sql: ${TABLE}."lead_dq_date" ;;
+  }
+
   dimension: mql_checkbox {
     type: yesno
-    sql:
-        CASE WHEN ${contact_mql_checkbox} = 'true'
-        THEN ${contact_mql_checkbox}
-        ELSE ${lead_mql_checkbox}
-        END;;
+    sql: ${TABLE}."MQL_CHECKBOX" ;;
   }
 
   measure: count {
     type: count
     drill_fields: [detail*]
+  }
+
+  measure: lc_count {
+    type: count_distinct
+    sql:
+       CASE WHEN ${bizible_touchpoint_final.touchpoint_position} LIKE '%LC%'
+          THEN ${bizible_person_id}
+          ELSE NULL
+          END;;
   }
 
   measure: mal_count {
@@ -798,6 +846,7 @@ view: bizible_touchpoint_final {
     type: count_distinct
     sql:
        CASE WHEN ${bizible_touchpoint_final.touchpoint_position} LIKE '%SAL%'
+      AND ${working_checkbox} = 'true'
           THEN ${bizible_person_id}
           ELSE NULL
           END;;
@@ -824,6 +873,13 @@ view: bizible_touchpoint_final {
     sql: ${bizible_touchpoint_final.opportunity_amount};;
   }
 
+  measure: sql_pipeline_arr {
+    type: sum_distinct
+    value_format: "$#,##0.00"
+    sql_distinct_key: ${opportunity_id} ;;
+    sql: ${bizible_touchpoint_final.opportunity_mirror_arr};;
+  }
+
   measure: vo_sql_count{
     type: count_distinct
     filters: [opportunity_vo_check: "true"]
@@ -838,6 +894,14 @@ view: bizible_touchpoint_final {
     sql: ${bizible_touchpoint_final.opportunity_amount};;
   }
 
+  measure: vo_sql_pipeline_arr {
+    type: sum_distinct
+    value_format: "$#,##0.00"
+    filters: [opportunity_vo_check: "true"]
+    sql_distinct_key: ${opportunity_id} ;;
+    sql: ${bizible_touchpoint_final.opportunity_mirror_arr};;
+  }
+
   measure: cw_count{
     type: count_distinct
     filters: [opportunity_stage: "Closed Won"]
@@ -850,6 +914,14 @@ view: bizible_touchpoint_final {
     filters: [opportunity_stage: "Closed Won"]
     sql_distinct_key: ${opportunity_id} ;;
     sql: ${bizible_touchpoint_final.opportunity_amount};;
+  }
+
+  measure: cw_revenue_arr {
+    type: sum_distinct
+    value_format: "$#,##0.00"
+    filters: [opportunity_stage: "Closed Won"]
+    sql_distinct_key: ${opportunity_id} ;;
+    sql: ${bizible_touchpoint_final.opportunity_mirror_arr};;
   }
 
   dimension_group: opportunity_created_date_group {
@@ -927,20 +999,47 @@ view: bizible_touchpoint_final {
     sql: ${touchpoint_date};;
   }
 
-  dimension_group: mql_date {
+  dimension: mql_date {
+    type: date
+    sql: ${TABLE}."BIZIBLE_MQL_DATE" ;;
+    datatype: date
+  }
+
+  dimension_group: mql_date_group {
     type: time
-    convert_tz: no
     timeframes: [
       raw,
-      time,
       date,
       week,
       month,
       quarter,
       year
     ]
-    sql: CASE WHEN ${bizible_touchpoint_final.touchpoint_position} LIKE '%MQL%'
-          AND ${mql_checkbox} = 'true'
+    sql: ${TABLE}."BIZIBLE_MQL_DATE" ;;
+  }
+
+  dimension: sal_date {
+    type: date
+    sql: ${TABLE}."BIZIBLE_SAL_DATE" ;;
+    datatype: date
+  }
+
+  dimension_group: sal_date_group {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}."BIZIBLE_SAL_DATE"  ;;
+  }
+
+  dimension: mal_date {
+    type: date
+    sql: CASE WHEN ${bizible_touchpoint_final.touchpoint_position} LIKE '%MAL%'
           THEN ${touchpoint_date}
           ELSE NULL
           END;;
@@ -957,16 +1056,46 @@ view: bizible_touchpoint_final {
   }
 
   parameter: date_selector {
-    type: date_time
-    description: "Use this field to base the charts on a specfic date"
+    description: "Pick a date to filter the dashboard"
+    type: unquoted
+    allowed_value: {
+      label: "MAL Date"
+      value: "mal_date"
+    }
     allowed_value: {
       label: "MQL Date"
       value: "mql_date"
     }
     allowed_value: {
-      label: "SQL Date"
-      value: "opportunity_created_date"
+      label: "SAL Date"
+      value: "sal_date"
     }
+    allowed_value: {
+      label: "SQL Date"
+      value: "sql_date"
+    }
+    allowed_value: {
+      label: "CW Date"
+      value: "cw_date"
+    }
+  }
+
+
+  dimension: date_filter {
+    description: "Select a timeframe to view the data"
+    type: date
+    label_from_parameter: date_selector
+    sql: {% if date_selector._parameter_value == 'mal_date' %}
+        ${mal_date}
+        {% elsif date_selector._parameter_value == 'mql_date' %}
+        ${mql_date}
+        {% elsif date_selector._parameter_value == 'sal_date' %}
+        ${sal_date}
+        {% elsif date_selector._parameter_value == 'sql_date' %}
+        ${opportunity_created_date}
+        {% elsif date_selector._parameter_value == 'cw_date' %}
+        ${opportunity_closed_won_date}
+        {% endif %};;
   }
 
   dimension_group: date_selector_calc {
@@ -981,7 +1110,7 @@ view: bizible_touchpoint_final {
       quarter,
       year
     ]
-    sql: CASE WHEN ${date_selector} = "mql_date" THEN ${mql_date_date}
+    sql: CASE WHEN ${date_selector} = "mql_date" THEN ${mql_date}
           WHEN ${date_selector} = "opportunity_created_date" THEN ${opportunity_created_date}
           END;;
   }

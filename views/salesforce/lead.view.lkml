@@ -106,6 +106,31 @@ view: lead {
     sql: ${TABLE}.bizible_2_marketing_channel_lc_c ;;
   }
 
+  dimension: bizible_marketing_channel_group_lc {
+    type:  string
+    sql: CASE
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Conference" THEN "Earned"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Content Syndication" THEN "Earned"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Direct" THEN "Earned"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Display" THEN "Paid"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Email" THEN "Owned"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Event" THEN "Earned"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Marketplace" THEN "Earned"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Organic Search" THEN "Earned"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Other" THEN "Other"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Paid Search" THEN "Paid"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Paid Social" THEN "Paid"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Partner" THEN "Earned"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Podcast" THEN "Owned"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "PR" THEN "Owned"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Social" THEN "Owned"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Telemarketing" THEN "Owned"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Web Referral" THEN "Earned"
+      WHEN ${bizible_2_marketing_channel_lc_c} = "Webinar" THEN "Earned"
+      ELSE "Other"
+      END ;;
+  }
+
   dimension_group: bizible_2_touchpoint_date_ft_c {
     type: time
     timeframes: [
@@ -1996,6 +2021,11 @@ view: lead {
     sql: ${TABLE}.zoom_info_state_c ;;
   }
 
+  dimension: days_mql_to_sal {
+    type: number
+    sql:  DATEDIFF( day, ${date_stage_mql_c_date}, ${date_stage_sal_c_date}) ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [id, last_name, first_name, middle_name, name]
@@ -2074,5 +2104,13 @@ view: lead {
     filters: [converted_opportunity_id: "-NULL"]
 
   }
+
+  measure: time_mql_to_sal {
+    type: average
+    sql:  ${days_mql_to_sal} ;;
+    filters: [date_stage_mql_c_date: "-NULL", date_stage_sal_c_date: "-NULL"]
+  }
+
+
 
 }
