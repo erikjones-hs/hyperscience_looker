@@ -384,6 +384,11 @@ view: agg_ticket {
     sql: ${agg_ticket.ticket_status} = 'pending');;
   }
 
+  dimension: null_problem_code_fl {
+    type: yesno
+    sql: ${ticket_problem_codes} = '' OR ${ticket_problem_codes} IS NULL);;
+  }
+
   measure: num_tse_tickets  {
     type: number
     sql:  SUM(${is_tse_fl}) ;;
