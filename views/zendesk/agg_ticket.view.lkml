@@ -361,32 +361,32 @@ view: agg_ticket {
 
   dimension: is_closed_fl {
     type: yesno
-    sql: ${agg_ticket.ticket_status} = 'closed');;
+    sql: ${agg_ticket.ticket_status} = 'closed';;
   }
 
   dimension: is_solved_fl {
     type: yesno
-    sql: ${agg_ticket.ticket_status} = 'solved');;
+    sql: ${agg_ticket.ticket_status} = 'solved';;
   }
 
   dimension: is_open_fl {
     type: yesno
-    sql: ${agg_ticket.ticket_status} = 'open');;
+    sql: ${agg_ticket.ticket_status} = 'open';;
   }
 
   dimension: is_hold_fl {
     type: yesno
-    sql: ${agg_ticket.ticket_status} = 'hold');;
+    sql: ${agg_ticket.ticket_status} = 'hold';;
   }
 
   dimension: is_pending_fl {
     type: yesno
-    sql: ${agg_ticket.ticket_status} = 'pending');;
+    sql: ${agg_ticket.ticket_status} = 'pending';;
   }
 
   dimension: null_problem_code_fl {
     type: yesno
-    sql: ${ticket_problem_codes} = '' OR ${ticket_problem_codes} IS NULL);;
+    sql: ${ticket_problem_codes} = '' OR ${ticket_problem_codes} IS NULL;;
   }
 
   measure: num_tse_tickets  {
