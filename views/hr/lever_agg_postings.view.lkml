@@ -287,6 +287,47 @@ view: lever_agg_postings {
     }
   }
 
+  dimension: location {
+    case: {
+      when: {
+        sql: ${post_locations} in ('Washington DC','Washington DC, Remote','New York City, NY','West Coast, US Remote','Chicago, Illinois','New York City - NY, US Remote') ;;
+        label: "USA"
+      }
+      when: {
+        sql: ${post_locations} in ('New York City, NY [Contract]','New York City - NY, US Remote [Contract]') ;;
+        label: "USA Contract"
+      }
+      when: {
+        sql: ${post_locations} in ('Europe - Remote','Zurich, Switzerland','Germany','France, Switzerland, Europe Remote','Ireland','Paris, France');;
+        label: "EUR"
+      }
+      when: {
+        sql: ${post_locations} = 'Toronto, Canada' ;;
+        label: "CAN"
+      }
+      when: {
+        sql: ${post_locations} = 'London, England' ;;
+        label: "UK"
+      }
+      when: {
+        sql: ${post_locations} = 'Sofia, Bulgaria' ;;
+        label: "BULG"
+      }
+      when: {
+        sql: ${post_locations} = 'Portugal' ;;
+        label: "PORT"
+      }
+      when: {
+        sql: ${post_locations} = 'Remote' ;;
+        label: "REMOTE"
+      }
+      when: {
+        sql: ${post_locations} in ('Sydney, Australia','Dubai','India' ;;
+        label: "APAC"
+      }
+    }
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
