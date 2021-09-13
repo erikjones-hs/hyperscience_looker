@@ -269,7 +269,7 @@ view: lever_agg_postings {
       }
       when: {
         sql: ${opp_stage_name} in ('Skills test','Phone screen');;
-        label: "Tech + Phone Screen"
+        label: "Technical Screen"
       }
       when: {
         sql: ${opp_stage_name} = 'On-site interview' ;;
