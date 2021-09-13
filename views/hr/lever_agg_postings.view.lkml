@@ -299,11 +299,11 @@ view: lever_agg_postings {
       }
       when: {
         sql: ${post_locations} in ('Europe - Remote','Zurich, Switzerland','Germany','France, Switzerland, Europe Remote','Ireland','Paris, France');;
-        label: "EUR"
+        label: "Europe"
       }
       when: {
         sql: ${post_locations} = 'Toronto, Canada' ;;
-        label: "CAN"
+        label: "Canada"
       }
       when: {
         sql: ${post_locations} = 'London, England' ;;
@@ -311,15 +311,15 @@ view: lever_agg_postings {
       }
       when: {
         sql: ${post_locations} = 'Sofia, Bulgaria' ;;
-        label: "BULG"
+        label: "Bulgaria"
       }
       when: {
         sql: ${post_locations} = 'Portugal' ;;
-        label: "PORT"
+        label: "Portugal"
       }
       when: {
         sql: ${post_locations} = 'Remote' ;;
-        label: "REMOTE"
+        label: "Remote"
       }
       when: {
         sql: ${post_locations} in ('Sydney, Australia','Dubai','India') ;;
