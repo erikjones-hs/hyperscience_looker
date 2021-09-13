@@ -257,6 +257,31 @@ view: lever_agg_postings {
     sql: DATEDIFF( day, ${post_create_dte_date}, current_date()) ;;
   }
 
+  dimension: applicant_funnel_stage {
+    case: {
+      when: {
+        sql: ${opp_stage_name} in ('New applicant','New lead') ;;
+        label: "Unprocessed Applicants"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'Recruiter screen' ;;
+        label: "Recruiter Screen"
+      }
+      when: {
+        sql: ${opp_stage_name} in ('Skills test','Phone screen');;
+        label: "Tech + Phone Screen"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'On-site interview' ;;
+        label: "On-Site"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'Offer' ;;
+        label: "Offer"
+      }
+    }
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
