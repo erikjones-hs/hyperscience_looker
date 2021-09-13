@@ -5,6 +5,11 @@ view: lever_agg_postings {
   dimension: opp_id {
     type: string
     sql: ${TABLE}."OPP_ID" ;;
+    link: {
+      label: "Lever"
+      url: "https://hire.lever.co/candidates/{{ value }}"
+      icon_url: "https://lever.co/favicon.ico"
+    }
   }
 
   dimension: opp_name {
