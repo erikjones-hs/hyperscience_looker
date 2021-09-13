@@ -322,7 +322,7 @@ view: lever_agg_postings {
         label: "REMOTE"
       }
       when: {
-        sql: ${post_locations} in ('Sydney, Australia','Dubai','India' ;;
+        sql: ${post_locations} in ('Sydney, Australia','Dubai','India') ;;
         label: "APAC"
       }
     }
