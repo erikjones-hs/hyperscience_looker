@@ -391,21 +391,14 @@ view: lever_agg_postings {
       opp_id,
       opp_name,
       opp_location,
-      contact_emails,
-      contact_links,
-      contact_phone_nums,
-      opp_headline,
       opp_origin,
       opp_create_dte_time,
       opp_last_interaction_time,
       opp_last_advanced_at_time,
-      opp_source,
-      opp_tag,
       opp_archive_reason,
       opp_stage_name,
       opp_status,
       opp_owner,
-      opp_owner_email,
       opp_referrer_name
     ]
   }
