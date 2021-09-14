@@ -143,11 +143,6 @@ view: agg_ticket {
     sql: ${TABLE}."TICKET_HOTFIX" ;;
   }
 
-  dimension: ticket_duplicate_fl {
-    type: number
-    sql: ${TABLE}."TICKET_DUPLICATE_FL" ;;
-  }
-
   dimension: ticket_activity {
     type: string
     sql: ${TABLE}."TICKET_ACTIVITY" ;;
@@ -389,6 +384,11 @@ view: agg_ticket {
     sql: ${ticket_problem_codes} = '' OR ${ticket_problem_codes} IS NULL;;
   }
 
+  dimension: duplicate_ticket_fl {
+    type: yesno
+    sql: ${ticket_resolution_code} = 'duplicate_ticket';;
+  }
+
   measure: num_tse_tickets  {
     type: number
     sql:  SUM(${is_tse_fl}) ;;
@@ -494,7 +494,6 @@ view: agg_ticket {
       ticket_severity,
       ticket_major_version,
       ticket_hotfix,
-      ticket_duplicate_fl,
       organization_id,
       group_id,
       requester_id,
