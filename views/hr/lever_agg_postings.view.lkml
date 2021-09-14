@@ -277,7 +277,7 @@ view: lever_agg_postings {
         label: "Technical Screen"
       }
       when: {
-        sql: ${opp_stage_name} = 'On-site interview' ;;
+        sql: ${opp_stage_name} in ('On-site interview','Additional interview') ;;
         label: "On-Site"
       }
       when: {
