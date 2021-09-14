@@ -172,7 +172,7 @@ view: lever_agg_postings {
     sql: ${TABLE}."POST_ID" ;;
     link: {
       label: "Lever"
-      url: "https://hire.lever.co/postings/{{ value }}"
+      url: "https://hire.lever.co/reports/postings/{{ value }}"
       icon_url: "https://lever.co/favicon.ico"
     }
   }
