@@ -328,6 +328,19 @@ view: lever_agg_postings {
     }
   }
 
+  dimension: intern_fl {
+    case: {
+      when: {
+        sql: lower(${post_name}) like '%intern%';;
+        label: "Intern Positions"
+      }
+      when: {
+        sql: lower(${post_name}) not like '%intern%';;
+        label: "Non-Intern Positions"
+      }
+    }
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
