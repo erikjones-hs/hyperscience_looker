@@ -274,6 +274,10 @@ view: lever_agg_postings {
         label: "Unprocessed Applicants"
       }
       when: {
+        sql: ${opp_stage_name} in ('Intro call','Reached out','Responded','Sell action') ;;
+        label: "Pre-Interview"
+      }
+      when: {
         sql: ${opp_stage_name} = 'Recruiter screen' ;;
         label: "Recruiter Screen"
       }
