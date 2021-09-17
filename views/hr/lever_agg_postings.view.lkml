@@ -270,27 +270,27 @@ view: lever_agg_postings {
   dimension: applicant_funnel_stage {
     case: {
       when: {
-        sql: lower(${opp_stage_name}) in ('New applicant','New lead') ;;
+        sql: lower(${opp_stage_name}) in ('new applicant','new lead') ;;
         label: "Unprocessed Applicants"
       }
       when: {
-        sql: lower(${opp_stage_name}) in ('Intro call','Reached out','Responded','Sell action') ;;
+        sql: lower(${opp_stage_name}) in ('intro call','reached out','responded','sell action') ;;
         label: "Pre-Interview"
       }
       when: {
-        sql: lower(${opp_stage_name}) = 'Recruiter screen' ;;
+        sql: lower(${opp_stage_name}) = 'recruiter screen' ;;
         label: "Recruiter Screen"
       }
       when: {
-        sql: lower(${opp_stage_name}) in ('Skills test','Phone screen');;
+        sql: lower(${opp_stage_name}) in ('skills test','phone screen');;
         label: "Technical Screen"
       }
       when: {
-        sql: lower(${opp_stage_name}) in ('On-site interview','Additional interview') ;;
+        sql: lower(${opp_stage_name}) in ('on-site interview','additional interview') ;;
         label: "On-Site"
       }
       when: {
-        sql: lower(${opp_stage_name}) = 'Offer' ;;
+        sql: lower(${opp_stage_name}) = 'offer' ;;
         label: "Offer"
       }
     }
