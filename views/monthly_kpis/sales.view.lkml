@@ -1,5 +1,5 @@
 view: sales {
-  sql_table_name: (select * from dev.sales.salesforce_agg_opporunity);;
+  sql_table_name: (select * from dev.sales.salesforce_agg_opportunity);;
   drill_fields: [detail*]
 
   dimension: opp_id {
