@@ -351,6 +351,16 @@ view: sales {
     drill_fields: [detail*]
   }
 
+  measure: arr {
+    type: number
+    sql:  ${opp_arr} ;;
+  }
+
+  measure: net_new_arr {
+    type: number
+    sql:  ${opp_net_new_arr} ;;
+  }
+
   set: detail {
     fields: [
       opp_id,
