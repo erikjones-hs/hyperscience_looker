@@ -352,12 +352,12 @@ view: sales {
   }
 
   measure: arr {
-    type: number
+    type: sum
     sql:  ${opp_arr} ;;
   }
 
   measure: net_new_arr {
-    type: number
+    type: sum
     sql:  ${opp_net_new_arr} ;;
   }
 
