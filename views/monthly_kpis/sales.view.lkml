@@ -169,11 +169,13 @@ view: sales {
 
   dimension_group: opp_closed_won_dte {
     type: time
+    timeframes: [date, month, quarter, year]
     sql: ${TABLE}."OPP_CLOSED_WON_DTE" ;;
   }
 
   dimension_group: opp_created_dte {
     type: time
+    timeframes: [date, month, quarter, year]
     sql: ${TABLE}."OPP_CREATED_DTE" ;;
   }
 
@@ -184,56 +186,67 @@ view: sales {
 
   dimension_group: opp_start_dte {
     type: time
+    timeframes: [date, month, quarter, year]
     sql: ${TABLE}."OPP_START_DTE" ;;
   }
 
   dimension_group: opp_close_dte {
     type: time
+    timeframes: [date, month, quarter, year]
     sql: ${TABLE}."OPP_CLOSE_DTE" ;;
   }
 
   dimension_group: opp_discovery_call_dte {
     type: time
+    timeframes: [date, month, quarter, year]
     sql: ${TABLE}."OPP_DISCOVERY_CALL_DTE" ;;
   }
 
   dimension_group: opp_vf_dte {
     type: time
+    timeframes: [date, month, quarter, year]
     sql: ${TABLE}."OPP_VF_DTE" ;;
   }
 
   dimension_group: opp_tdd_dte {
     type: time
+    timeframes: [date, month, quarter, year]
     sql: ${TABLE}."OPP_TDD_DTE" ;;
   }
 
   dimension_group: opp_eb_go_no_go_dte {
     type: time
+    timeframes: [date, month, quarter, year]
     sql: ${TABLE}."OPP_EB_GO_NO_GO_DTE" ;;
   }
 
   dimension_group: opp_poc_dte {
     type: time
+    timeframes: [date, month, quarter, year]
     sql: ${TABLE}."OPP_POC_DTE" ;;
   }
 
   dimension_group: opp_eb_review_dte {
     type: time
+    timeframes: [date, month, quarter, year]
     sql: ${TABLE}."OPP_EB_REVIEW_DTE" ;;
   }
 
   dimension_group: opp_neg_and_close_dte {
     type: time
+    timeframes: [date, month, quarter, year]
     sql: ${TABLE}."OPP_NEG_AND_CLOSE_DTE" ;;
   }
 
   dimension_group: opp_vo_dte {
     type: time
+    timeframes: [date, month, quarter, year]
     sql: ${TABLE}."OPP_VO_DTE" ;;
   }
 
   dimension_group: opp_nbm_meeting_dte {
     type: time
+    timeframes: [date, month, quarter, year]
     sql: ${TABLE}."OPP_NBM_MEETING_DTE" ;;
   }
 
@@ -373,20 +386,7 @@ view: sales {
       opp_pipeline_flag,
       opp_fiscal,
       opp_loss_reason,
-      opp_closed_won_dte_time,
-      opp_created_dte_time,
       opp_sales_cycle_days,
-      opp_start_dte_time,
-      opp_close_dte_time,
-      opp_discovery_call_dte_time,
-      opp_vf_dte_time,
-      opp_tdd_dte_time,
-      opp_eb_go_no_go_dte_time,
-      opp_poc_dte_time,
-      opp_eb_review_dte_time,
-      opp_neg_and_close_dte_time,
-      opp_vo_dte_time,
-      opp_nbm_meeting_dte_time,
       closed_won_fy_qtr,
       close_fy_qtr,
       start_fy_qtr,
