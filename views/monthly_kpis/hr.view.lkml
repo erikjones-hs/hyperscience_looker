@@ -177,6 +177,12 @@ view: hr {
       sql: ${TABLE}."SUPERVISOR_EMAIL" ;;
     }
 
+    dimension_group: current_date {
+      type: time
+      timeframes: [date, month, quarter, year]
+      sql:  to_timestamp(to_date(current_date())) ;;
+    }
+
     measure: count {
       type: count
       drill_fields: [detail*]
