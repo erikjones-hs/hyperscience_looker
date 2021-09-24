@@ -86,7 +86,10 @@ view: pages_processed {
   measure: pages_processed {
     type: sum
     sql:  ${total_pages_created} ;;
-    drill_fields: [detail*]
+    link: {
+      label: "Page Volume Details Dashboard"
+      url: "https://hyperscience.cloud.looker.com/dashboards-next/42"
+    }
   }
 
     set: detail {
