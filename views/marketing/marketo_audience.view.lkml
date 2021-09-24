@@ -9,7 +9,7 @@ view: Marketo_Audience {
   }
 
 
-  dimension_group: LEAD_CREATED_DATE {
+  dimension_group: CREATED_DATE {
     type: time
     timeframes: [
       raw,
@@ -19,7 +19,7 @@ view: Marketo_Audience {
       quarter,
       year
     ]
-    sql: ${TABLE}.LEAD_CREATED_DATE ;;
+    sql: ${TABLE}.CREATED_DATE ;;
   }
 
   dimension: ACTIVE_LEAD {
