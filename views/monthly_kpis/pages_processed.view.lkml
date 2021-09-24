@@ -85,6 +85,7 @@ view: pages_processed {
 
   measure: pages_processed {
     type: sum
+    sql:  ${total_pages_created} ;;
     drill_fields: [detail*]
   }
 
