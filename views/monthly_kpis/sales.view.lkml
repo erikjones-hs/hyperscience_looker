@@ -360,6 +360,10 @@ view: sales {
   measure: arr {
     type: sum
     sql:  ${opp_arr} ;;
+    link: {
+      label: "ARR Details Dashboard"
+      url: "https://hyperscience.cloud.looker.com/dashboards-next/43"
+    }
   }
 
   measure: net_new_arr {
