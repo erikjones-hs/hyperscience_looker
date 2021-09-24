@@ -351,6 +351,12 @@ view: sales {
     drill_fields: [detail*]
   }
 
+  measure: num_accounts {
+    type: count_distinct
+    sql:  ${account_id} ;;
+    drill_fields: [detail*]
+  }
+
   measure: arr {
     type: sum
     sql:  ${opp_arr} ;;
