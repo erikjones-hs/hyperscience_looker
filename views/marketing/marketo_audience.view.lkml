@@ -1,4 +1,4 @@
-view: MARKETO_AUDIENCE {
+view: Marketo_Audience {
     sql_table_name: (select * from dev.marketing.marketo_adudience_view) ;;
 
 
