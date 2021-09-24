@@ -98,6 +98,11 @@ view: agg_ticket {
     sql: ${TABLE}."TICKET_PROBLEM_SOURCE" ;;
   }
 
+  dimension: infrastructure_component {
+    type: string
+    sql: ${TABLE}."INFRASTRUCTURE_COMPONENT";;
+  }
+
   dimension: ticket_custom_customer_type {
     type: string
     sql: ${TABLE}."TICKET_CUSTOM_CUSTOMER_TYPE" ;;
