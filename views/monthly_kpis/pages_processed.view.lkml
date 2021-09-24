@@ -89,6 +89,7 @@ view: pages_processed {
     link: {
       label: "Page Volume Details Dashboard"
       url: "https://hyperscience.cloud.looker.com/dashboards-next/42"
+      icon_url: "http://looker.com/favicon.ico"
     }
   }
 

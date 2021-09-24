@@ -194,6 +194,12 @@ view: hr {
     drill_fields: [detail*]
   }
 
+  measure: cumulative_employees {
+    type:  running_total
+    sql:  ${num_employees} ;;
+    drill_fields: [detail*]
+  }
+
     set: detail {
       fields: [
         employee_eid,
