@@ -184,7 +184,7 @@ view: hr {
 
   measure: num_employees {
     type: count_distinct
-    sql:$(${employee_eid} ;;
+    sql:${employee_eid} ;;
     drill_fields: [detail*]
   }
 
