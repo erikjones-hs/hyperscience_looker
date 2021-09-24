@@ -1,5 +1,5 @@
 view: Marketo_Audience {
-    sql_table_name: (select * from dev.marketing.marketo_adudience) ;;
+    sql_table_name: (select * from dev.marketing.marketo_audience_view) ;;
 
 
   dimension: MARKETO_ID  {
