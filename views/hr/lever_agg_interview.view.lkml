@@ -6,11 +6,6 @@ view: lever_agg_interview {
     dimension: interview_id {
       type: string
       sql: ${TABLE}."INTERVIEW_ID" ;;
-      link: {
-        label: "Lever"
-        url: "https://hire.lever.co/reports/interviews/events/overview/{{ value }}"
-        icon_url: "https://lever.co/favicon.ico"
-      }
     }
 
     dimension: interviewer_id {
