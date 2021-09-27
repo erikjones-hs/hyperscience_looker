@@ -28,6 +28,11 @@ view: lever_agg_interview {
       sql: ${TABLE}."INTERVIEW_CANDIDATE_ID" ;;
     }
 
+  dimension: panel_id {
+    type: string
+    sql: ${TABLE}."PANEL_ID" ;;
+  }
+
     dimension: interview_subject {
       type: string
       sql: ${TABLE}."INTERVIEW_SUBJECT" ;;
@@ -69,6 +74,18 @@ view: lever_agg_interview {
   measure: num_candidates {
     type: count_distinct
     sql: ${interview_candidate_id} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: num_panels {
+    type: count_distinct
+    sql: ${panel_id} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: num_interviews {
+    type: count_distinct
+    sql: ${interview_id} ;;
     drill_fields: [detail*]
   }
 
