@@ -6,11 +6,21 @@ view: lever_agg_interview {
     dimension: interview_id {
       type: string
       sql: ${TABLE}."INTERVIEW_ID" ;;
+      link: {
+        label: "Lever"
+        url: "https://hire.lever.co/reports/interviews/overview/{{ value }}"
+        icon_url: "https://lever.co/favicon.ico"
+      }
     }
 
     dimension: interviewer_id {
       type: string
       sql: ${TABLE}."INTERVIEWER_ID" ;;
+      link: {
+        label: "Lever"
+        url: "https://hire.lever.co/reports/interviews/events/overview?byInterviewer%5Bids%5D%5B%5D={{ value }}"
+        icon_url: "https://lever.co/favicon.ico"
+      }
     }
 
     dimension: interviewer_name {
@@ -26,6 +36,11 @@ view: lever_agg_interview {
     dimension: interview_candidate_id {
       type: string
       sql: ${TABLE}."INTERVIEW_CANDIDATE_ID" ;;
+      link: {
+        label: "Lever"
+        url: "https://hire.lever.co/candidates/{{ value }}"
+        icon_url: "https://lever.co/favicon.ico"
+      }
     }
 
   dimension: interview_panel_id {
@@ -128,6 +143,8 @@ view: lever_agg_interview {
         interview_subject,
         interview_duration,
         interview_stage_name,
+        interview_dte_date,
+        interview_canceled_dte_date
       ]
     }
   }
