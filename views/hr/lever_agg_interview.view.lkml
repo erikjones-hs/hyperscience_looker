@@ -66,6 +66,35 @@ view: lever_agg_interview {
       sql: ${TABLE}."INTERVIEW_CANCELED_DTE" ;;
     }
 
+  dimension: interview_stage_category {
+    case: {
+      when: {
+        sql: lower(${interview_stage_name}) in ('new applicant','new lead') ;;
+        label: "Unprocessed Applicants"
+      }
+      when: {
+        sql: lower(${interview_stage_name}) in ('intro call','reached out','responded','sell action') ;;
+        label: "Pre-Interview"
+      }
+      when: {
+        sql: lower(${interview_stage_name}) = 'recruiter screen' ;;
+        label: "Recruiter Screen"
+      }
+      when: {
+        sql: lower(${interview_stage_name}) in ('skills test','phone screen');;
+        label: "Technical Screen"
+      }
+      when: {
+        sql: lower(${interview_stage_name}) in ('on-site interview','additional interview') ;;
+        label: "On-Site"
+      }
+      when: {
+        sql: lower(${interview_stage_name}) = 'offer' ;;
+        label: "Offer"
+      }
+    }
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
