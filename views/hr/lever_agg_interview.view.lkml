@@ -144,7 +144,6 @@ view: lever_agg_interview {
         interview_duration,
         interview_stage_name,
         interview_dte_date,
-        interview_canceled_dte_date
       ]
     }
   }
