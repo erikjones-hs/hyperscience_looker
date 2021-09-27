@@ -8,7 +8,7 @@ view: lever_agg_interview {
       sql: ${TABLE}."INTERVIEW_ID" ;;
       link: {
         label: "Lever"
-        url: "https://hire.lever.co/reports/interviews/events/overview/{{ value }}?timePeriod=custom&time%5Bstart%5D=1606798800000&time%5Bend%5D=1631343599999"
+        url: "https://hire.lever.co/reports/interviews/events/overview/{{ value }}"
         icon_url: "https://lever.co/favicon.ico"
       }
     }
