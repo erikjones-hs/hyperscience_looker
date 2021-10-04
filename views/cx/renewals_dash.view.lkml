@@ -48,6 +48,11 @@ view: renewals_dash {
     sql: ${TABLE}."COMPANY_ID_NAME" ;;
   }
 
+  dimension: current_contracted_volume {
+    type: number
+    sql: ${TABLE}."CURRENT_CONTRACTED_VOLUME" ;;
+  }
+
   dimension: csm_name {
     type: string
     sql: ${TABLE}."CSM_NAME" ;;
