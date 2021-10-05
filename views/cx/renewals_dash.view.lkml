@@ -32,6 +32,26 @@ view: renewals_dash {
     sql: ${TABLE}."OPP_NET_NEW_ARR" ;;
   }
 
+  dimension: opp_stage_name {
+    type: string
+    sql: ${TABLE}."OPP_STAGE_NAME" ;;
+  }
+
+  dimension: opp_commit_status {
+    type: string
+    sql: ${TABLE}."OPP_COMMIT_STATUS" ;;
+  }
+
+  dimension: opp_revenue_type {
+    type: string
+    sql: ${TABLE}."OPP_REVENUE_TYPE" ;;
+  }
+
+  dimension: opp_prior_opp_id {
+    type: string
+    sql: ${TABLE}."OPP_PRIOR_OPP_ID" ;;
+  }
+
   dimension_group: opp_renewal_dte {
     type: time
     timeframes: [date,week,month,year]
