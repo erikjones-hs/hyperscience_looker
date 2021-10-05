@@ -74,7 +74,7 @@ view: renewals_dash {
     link: {
       label: "Gainsight"
       url: "https://hyperscience.gainsightcloud.com/v1/ui/customersuccess360?cid={{ value }}"
-      icon_url: "http://salesforce.com/favicon.ico"
+      icon_url: "http://gainsight.com/favicon.jpg"
     }
   }
 
