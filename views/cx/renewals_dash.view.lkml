@@ -71,6 +71,11 @@ view: renewals_dash {
   dimension: company_id_gsid {
     type: string
     sql: ${TABLE}."COMPANY_ID_GSID" ;;
+    link: {
+      label: "Gainsight"
+      url: "https://hyperscience.gainsightcloud.com/v1/ui/customersuccess360?cid={{ value }}"
+      icon_url: "http://salesforce.com/favicon.ico"
+    }
   }
 
   dimension: company_id_name {
