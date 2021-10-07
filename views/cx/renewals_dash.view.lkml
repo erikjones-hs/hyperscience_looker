@@ -62,6 +62,12 @@ view: renewals_dash {
     sql: ${TABLE}."OPP_PRIOR_OPP_ID" ;;
   }
 
+  dimension_group: opp_start_date {
+    type: time
+    timeframes: [date,week,month,year]
+    sql: ${TABLE}."OPP_START_DATE" ;;
+  }
+
   dimension_group: opp_renewal_dte {
     type: time
     timeframes: [date,week,month,year]
@@ -83,9 +89,9 @@ view: renewals_dash {
     sql: ${TABLE}."COMPANY_ID_NAME" ;;
   }
 
-  dimension: current_contracted_volume {
+  dimension: current_contracted_page_volume {
     type: number
-    sql: ${TABLE}."CURRENT_CONTRACTED_VOLUME" ;;
+    sql: ${TABLE}."CURRENT_CONTRACTED_PAGE_VOLUME" ;;
   }
 
   dimension: csm_name {
@@ -122,6 +128,16 @@ view: renewals_dash {
   dimension: renewal_type_name {
     type: string
     sql: ${TABLE}."RENEWAL_TYPE_NAME" ;;
+  }
+
+  dimension: sentiment_change {
+    type: string
+    sql: ${TABLE}."SENTIMENT_CHANGE" ;;
+  }
+
+  dimension: sentiment_change_name {
+    type: string
+    sql: ${TABLE}."SENTIMENT_CHANGE_NAME" ;;
   }
 
   dimension: company_forecast_name {
