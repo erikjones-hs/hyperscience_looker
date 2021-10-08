@@ -161,6 +161,12 @@ view: renewals_dash {
     sql: ${TABLE}."PROJECTED_RUN_RATE" ;;
   }
 
+  dimension: contracted_pages_over_term {
+    type: number
+    sql: ${TABLE}."CONTRACTED_PAGES_OVER_TERM" ;;
+  }
+
+
   measure: count {
     type: count
     drill_fields: [detail*]
