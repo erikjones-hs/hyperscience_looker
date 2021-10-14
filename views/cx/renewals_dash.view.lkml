@@ -80,6 +80,26 @@ view: renewals_dash {
     sql: ${TABLE}."OPP_RENEWAL_DTE" ;;
   }
 
+  dimension: opp_owner_id {
+    type: string
+    sql: ${TABLE}."OPP_OWNER_ID" ;;
+  }
+
+  dimension: opportunity_owner {
+    type: string
+    sql: ${TABLE}."OPPORTUNITY_OWNER" ;;
+  }
+
+  dimension: username {
+    type: string
+    sql: ${TABLE}."USERNAME" ;;
+  }
+
+  dimension: owner_description {
+    type: string
+    sql: ${TABLE}."OWNER_DESCRIPTION" ;;
+  }
+
   dimension: company_id_gsid {
     type: string
     sql: ${TABLE}."COMPANY_ID_GSID" ;;
