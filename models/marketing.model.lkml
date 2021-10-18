@@ -12,4 +12,7 @@ explore: lead_contact_life_cycle_status_changes {
     sql_on: ${lead_contact_life_cycle_status_changes.person_id} = ${salesforce_leads_and_contacts.person_id} ;;
     relationship: many_to_one
   }
+
 }
+
+explore: digital_ad_stats {}
