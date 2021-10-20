@@ -132,21 +132,21 @@ view: lever_opp_stage_funnel {
   measure: num_applications {
     type: sum_distinct
     sql_distinct_key: ${opportunity_id};;
-    sql:  ${application_fl}_fl}screen_fl} ;;
+    sql:  ${application_fl} ;;
     drill_fields: [detail*]
   }
 
   measure: num_recruiter_screens {
     type: sum_distinct
     sql_distinct_key: ${opportunity_id};;
-    sql:  ${recruiting_screen_fl}screen_fl} ;;
+    sql:  ${recruiting_screen_fl} ;;
     drill_fields: [detail*]
   }
 
   measure: num_phone_screens {
     type: sum_distinct
     sql_distinct_key: ${opportunity_id};;
-    sql:  ${phone_screen_fl}_screen_fl}screen_fl} ;;
+    sql:  ${phone_screen_fl} ;;
     drill_fields: [detail*]
   }
 
