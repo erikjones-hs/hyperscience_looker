@@ -130,6 +130,7 @@ view: lever_opp_stage_funnel {
   }
 
   measure: num_applications {
+    label: "# Applied"
     type: sum_distinct
     sql_distinct_key: ${opportunity_id};;
     sql:  ${application_fl} ;;
@@ -137,6 +138,7 @@ view: lever_opp_stage_funnel {
   }
 
   measure: num_recruiter_screens {
+    label: "# Recruiter Screened"
     type: sum_distinct
     sql_distinct_key: ${opportunity_id};;
     sql:  ${recruiting_screen_fl} ;;
@@ -144,6 +146,7 @@ view: lever_opp_stage_funnel {
   }
 
   measure: num_phone_screens {
+    label: "# Phone Screened"
     type: sum_distinct
     sql_distinct_key: ${opportunity_id};;
     sql:  ${phone_screen_fl} ;;
@@ -151,6 +154,7 @@ view: lever_opp_stage_funnel {
   }
 
   measure: num_interviews {
+    label: "# Interviewed"
     type: sum_distinct
     sql_distinct_key: ${opportunity_id};;
     sql:  ${interview_fl} ;;
@@ -158,6 +162,7 @@ view: lever_opp_stage_funnel {
   }
 
   measure: num_offers {
+    label: "# Offers Made"
     type: sum_distinct
     sql_distinct_key: ${opportunity_id};;
     sql:  ${offer_fl} ;;
@@ -165,6 +170,7 @@ view: lever_opp_stage_funnel {
   }
 
   measure: num_hires {
+    label: "# Hired"
     type: sum_distinct
     sql_distinct_key: ${opportunity_id};;
     sql:  ${hire_fl} ;;
