@@ -240,6 +240,34 @@ view: lever_opp_stage_funnel {
     drill_fields: [detail*]
   }
 
+  measure: phone_screen_to_offer {
+    label: "Phone Screen-to-Offer"
+    type:  number
+    sql:  ${num_phone_screens} / ${num_offers} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: interview_to_offer {
+    label: "Interview-to-Offer"
+    type:  number
+    sql:  ${num_interviews} / ${num_offers} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: phone_screen_to_hire {
+    label: "Phone Screen-to-Hire"
+    type:  number
+    sql:  ${num_phone_screens} / ${num_hires} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: interview_to_hire {
+    label: "Interview-to-Hire"
+    type:  number
+    sql:  ${num_interviews} / ${num_hires} ;;
+    drill_fields: [detail*]
+  }
+
   measure: median_days_between_stages {
     type: median
     sql: ${days_between_stages} ;;
