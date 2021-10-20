@@ -244,6 +244,7 @@ view: lever_opp_stage_funnel {
     label: "Phone Screen-to-Offer"
     type:  number
     sql:  ${num_phone_screens} / ${num_offers} ;;
+    value_format: "0.0"
     drill_fields: [detail*]
   }
 
@@ -251,6 +252,7 @@ view: lever_opp_stage_funnel {
     label: "Interview-to-Offer"
     type:  number
     sql:  ${num_interviews} / ${num_offers} ;;
+    value_format: "0.0"
     drill_fields: [detail*]
   }
 
@@ -258,6 +260,7 @@ view: lever_opp_stage_funnel {
     label: "Phone Screen-to-Hire"
     type:  number
     sql:  ${num_phone_screens} / ${num_hires} ;;
+    value_format: "0.0"
     drill_fields: [detail*]
   }
 
@@ -265,6 +268,7 @@ view: lever_opp_stage_funnel {
     label: "Interview-to-Hire"
     type:  number
     sql:  ${num_interviews} / ${num_hires} ;;
+    value_format: "0.0"
     drill_fields: [detail*]
   }
 
