@@ -1,5 +1,5 @@
 view: bizible_touchpoint_final {
-  sql_table_name: (select * from dev.chrismee.bizible_touchpoint_final);;
+  sql_table_name: (select * from dev.marketing.bizible_touchpoint_final);;
 
 
   dimension: abm_target_type {
