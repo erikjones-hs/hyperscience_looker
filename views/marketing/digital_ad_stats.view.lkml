@@ -107,25 +107,25 @@ view: digital_ad_stats {
 
   measure: click_through_rate {
     type: number
-    sql:  ${total_clicks} / ${total_impressions}  ;;
+    sql:  NULLIF(${total_clicks}, 0) / NULLIF(${total_impressions}, 0)  ;;
     value_format: "0.00%"
   }
 
   measure: conversion_rate {
     type:  number
-    sql:  ${total_conversions} / ${total_clicks} ;;
+    sql:   NULLIF(${total_conversions}, 0) / NULLIF(${total_clicks}, 0) ;;
     value_format: "0.00%"
   }
 
   measure: cost_per_click {
     type:  number
-    sql:  ${total_cost} / ${total_clicks} ;;
+    sql:  NULLIF(${total_cost}, 0) / NULLIF(${total_clicks}, 0) ;;
     value_format: "$#,##0.00"
   }
 
   measure: cost_per_conversion {
     type: number
-    sql: ${total_cost} / ${total_conversions} ;;
+    sql: NULLIF(${total_cost}, 0) / NULLIF(${total_conversions}, 0) ;;
     value_format: "$#,##0.00"
 
   }
