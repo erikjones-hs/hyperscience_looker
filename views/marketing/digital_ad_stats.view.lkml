@@ -1,5 +1,5 @@
 view: digital_ad_stats {
-  sql_table_name: (select * from prod.marketing.digital_ad_stats);;
+  sql_table_name: "MARKETING"."DIGITAL_AD_STATS";;
 
   dimension: campaign_ad_type {
     type: string
