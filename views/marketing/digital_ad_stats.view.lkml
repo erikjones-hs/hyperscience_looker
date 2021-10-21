@@ -104,6 +104,11 @@ view: digital_ad_stats {
     drill_fields: [campaign_name]
   }
 
+  measure: click_through_rate {
+    type: number
+    sql:  ${total_clicks} / ${total_impressions}  ;;
+  }
+
 
 
 
