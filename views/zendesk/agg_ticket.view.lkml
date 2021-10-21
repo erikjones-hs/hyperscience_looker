@@ -1,5 +1,5 @@
 view: agg_ticket {
-  sql_table_name: (select * from dev.cx.zendesk_agg_ticket);;
+  sql_table_name: (select * from prod.cx.zendesk_agg_ticket);;
   drill_fields: [detail*]
 
   dimension: ticket_id {
@@ -46,11 +46,6 @@ view: agg_ticket {
   dimension: ticket_subject {
     type: string
     sql: ${TABLE}."TICKET_SUBJECT" ;;
-  }
-
-  dimension: ticket_description {
-    type: string
-    sql: ${TABLE}."TICKET_DESCRIPTION" ;;
   }
 
   dimension: ticket_default_priority {
@@ -481,7 +476,6 @@ view: agg_ticket {
       ticket_updated_at_time,
       ticket_type,
       ticket_subject,
-      ticket_description,
       ticket_default_priority,
       ticket_status,
       ticket_recipient,
