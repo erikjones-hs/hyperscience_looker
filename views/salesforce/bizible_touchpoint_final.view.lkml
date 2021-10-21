@@ -27,6 +27,11 @@ view: bizible_touchpoint_final {
     sql: ${TABLE}."ACCOUNT_CSM" ;;
   }
 
+  dimension: account_user_role_region {
+    type:  string
+    sql:  ${TABLE}."USER_ROLE_REGION" ;;
+  }
+
   dimension: account_domain {
     type: string
     sql: ${TABLE}."ACCOUNT_DOMAIN" ;;
