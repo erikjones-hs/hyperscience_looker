@@ -84,6 +84,7 @@ view: digital_ad_stats {
     type: sum
     sql: ${cost} ;;
     drill_fields: [campaign_name]
+    value_format: "$0.00"
   }
 
   measure: total_impressions {
