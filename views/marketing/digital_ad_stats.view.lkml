@@ -84,7 +84,7 @@ view: digital_ad_stats {
     type: sum
     sql: ${cost} ;;
     drill_fields: [campaign_name]
-    value_format: "$0.00"
+    value_format: "$#,##0.00"
   }
 
   measure: total_impressions {
@@ -120,13 +120,13 @@ view: digital_ad_stats {
   measure: cost_per_click {
     type:  number
     sql:  ${total_cost} / ${total_clicks} ;;
-    value_format: "$0.00"
+    value_format: "$#,##0.00"
   }
 
   measure: cost_per_conversion {
     type: number
     sql: ${total_cost} / ${total_conversions} ;;
-    value_format: "$0.00"
+    value_format: "$#,##0.00"
 
   }
 
