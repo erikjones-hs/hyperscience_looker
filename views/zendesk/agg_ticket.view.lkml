@@ -1,5 +1,5 @@
 view: agg_ticket {
-  sql_table_name: (select * from dev.cx.zendesk_agg_ticket);;
+  sql_table_name: (select * from prod.cx.zendesk_agg_ticket);;
   drill_fields: [detail*]
 
   dimension: ticket_id {
