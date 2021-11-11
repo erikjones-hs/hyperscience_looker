@@ -32,7 +32,7 @@
     }
 
     dimension: fy_qtr_year {
-      type: string
+      type: date
       sql: ${TABLE}."FY_QTR_YEAR" ;;
     }
 
