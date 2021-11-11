@@ -5,6 +5,11 @@ view: lever_agg_postings {
   dimension: opp_id {
     type: string
     sql: ${TABLE}."OPP_ID" ;;
+    link: {
+      label: "Lever"
+      url: "https://hire.lever.co/candidates/{{ value }}"
+      icon_url: "https://lever.co/favicon.ico"
+    }
   }
 
   dimension: opp_name {
@@ -165,6 +170,11 @@ view: lever_agg_postings {
   dimension: post_id {
     type: string
     sql: ${TABLE}."POST_ID" ;;
+    link: {
+      label: "Lever"
+      url: "https://hire.lever.co/reports/postings/{{ value }}"
+      icon_url: "https://lever.co/favicon.ico"
+    }
   }
 
   dimension: post_state {
@@ -257,6 +267,89 @@ view: lever_agg_postings {
     sql: DATEDIFF( day, ${post_create_dte_date}, current_date()) ;;
   }
 
+  dimension: applicant_funnel_stage {
+    case: {
+      when: {
+        sql: lower(${opp_stage_name}) in ('new applicant','new lead') ;;
+        label: "Unprocessed Applicants"
+      }
+      when: {
+        sql: lower(${opp_stage_name}) in ('intro call','reached out','responded','sell action') ;;
+        label: "Pre-Interview"
+      }
+      when: {
+        sql: lower(${opp_stage_name}) = 'recruiter screen' ;;
+        label: "Recruiter Screen"
+      }
+      when: {
+        sql: lower(${opp_stage_name}) in ('skills test','phone screen');;
+        label: "Technical Screen"
+      }
+      when: {
+        sql: lower(${opp_stage_name}) in ('on-site interview','additional interview') ;;
+        label: "On-Site"
+      }
+      when: {
+        sql: lower(${opp_stage_name}) = 'offer' ;;
+        label: "Offer"
+      }
+    }
+  }
+
+  dimension: location {
+    case: {
+      when: {
+        sql: ${post_locations} in ('Washington DC','Washington DC, Remote','New York City, NY','West Coast, US Remote','Chicago, Illinois','New York City - NY, US Remote') ;;
+        label: "USA"
+      }
+      when: {
+        sql: ${post_locations} in ('New York City, NY [Contract]','New York City - NY, US Remote [Contract]') ;;
+        label: "USA Contract"
+      }
+      when: {
+        sql: ${post_locations} in ('Europe - Remote','Zurich, Switzerland','Germany','France, Switzerland, Europe Remote','Ireland','Paris, France');;
+        label: "Europe"
+      }
+      when: {
+        sql: ${post_locations} = 'Toronto, Canada' ;;
+        label: "Canada"
+      }
+      when: {
+        sql: ${post_locations} = 'London, England' ;;
+        label: "UK"
+      }
+      when: {
+        sql: ${post_locations} = 'Sofia, Bulgaria' ;;
+        label: "Bulgaria"
+      }
+      when: {
+        sql: ${post_locations} = 'Portugal' ;;
+        label: "Portugal"
+      }
+      when: {
+        sql: ${post_locations} = 'Remote' ;;
+        label: "Remote"
+      }
+      when: {
+        sql: ${post_locations} in ('Sydney, Australia','Dubai','India') ;;
+        label: "APAC"
+      }
+    }
+  }
+
+  dimension: intern_fl {
+    case: {
+      when: {
+        sql: lower(${post_name}) like '%intern%';;
+        label: "Intern Positions"
+      }
+      when: {
+        sql: lower(${post_name}) not like '%intern%';;
+        label: "Non-Intern Positions"
+      }
+    }
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
@@ -320,21 +413,14 @@ view: lever_agg_postings {
       opp_id,
       opp_name,
       opp_location,
-      contact_emails,
-      contact_links,
-      contact_phone_nums,
-      opp_headline,
       opp_origin,
       opp_create_dte_time,
       opp_last_interaction_time,
       opp_last_advanced_at_time,
-      opp_source,
-      opp_tag,
       opp_archive_reason,
       opp_stage_name,
       opp_status,
       opp_owner,
-      opp_owner_email,
       opp_referrer_name
     ]
   }

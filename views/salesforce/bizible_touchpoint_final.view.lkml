@@ -1,5 +1,5 @@
 view: bizible_touchpoint_final {
-  sql_table_name: (select * from dev.chrismee.bizible_touchpoint_final);;
+  sql_table_name: (select * from dev.marketing.bizible_touchpoint_final);;
 
 
   dimension: abm_target_type {
@@ -25,6 +25,11 @@ view: bizible_touchpoint_final {
   dimension: account_csm {
     type: string
     sql: ${TABLE}."ACCOUNT_CSM" ;;
+  }
+
+  dimension: account_user_role_region {
+    type:  string
+    sql:  ${TABLE}."USER_ROLE_REGION" ;;
   }
 
   dimension: account_domain {
@@ -877,7 +882,7 @@ view: bizible_touchpoint_final {
     type: sum_distinct
     value_format: "$#,##0.00"
     sql_distinct_key: ${opportunity_id} ;;
-    sql: ${bizible_touchpoint_final.opportunity_mirror_arr};;
+    sql: ${bizible_touchpoint_final.opportunity_forecasted_arr};;
   }
 
   measure: vo_sql_count{
@@ -899,7 +904,7 @@ view: bizible_touchpoint_final {
     value_format: "$#,##0.00"
     filters: [opportunity_vo_check: "true"]
     sql_distinct_key: ${opportunity_id} ;;
-    sql: ${bizible_touchpoint_final.opportunity_mirror_arr};;
+    sql: ${bizible_touchpoint_final.opportunity_forecasted_arr};;
   }
 
   measure: cw_count{
@@ -916,12 +921,20 @@ view: bizible_touchpoint_final {
     sql: ${bizible_touchpoint_final.opportunity_amount};;
   }
 
-  measure: cw_revenue_arr {
+  measure: cw_revenue_mirror_arr {
     type: sum_distinct
     value_format: "$#,##0.00"
     filters: [opportunity_stage: "Closed Won"]
     sql_distinct_key: ${opportunity_id} ;;
     sql: ${bizible_touchpoint_final.opportunity_mirror_arr};;
+  }
+
+  measure: cw_revenue_arr {
+    type: sum_distinct
+    value_format: "$#,##0.00"
+    filters: [opportunity_stage: "Closed Won"]
+    sql_distinct_key: ${opportunity_id} ;;
+    sql: ${bizible_touchpoint_final.opportunity_forecasted_arr};;
   }
 
   dimension_group: opportunity_created_date_group {

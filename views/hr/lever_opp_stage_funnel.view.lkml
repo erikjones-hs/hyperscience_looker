@@ -72,9 +72,19 @@ view: lever_opp_stage_funnel {
     sql: ${TABLE}."ORIGIN" ;;
   }
 
-  dimension: screen_fl {
+  dimension: application_fl {
     type: number
-    sql: ${TABLE}."SCREEN_FL" ;;
+    sql: ${TABLE}."APPLICATION_FL" ;;
+  }
+
+  dimension: recruiting_screen_fl {
+    type: number
+    sql: ${TABLE}."RECRUITING_SCREEN_FL" ;;
+  }
+
+  dimension: phone_screen_fl {
+    type: number
+    sql: ${TABLE}."PHONE_SCREEN_FL" ;;
   }
 
   dimension: interview_fl {
@@ -112,20 +122,39 @@ view: lever_opp_stage_funnel {
     sql: ${TABLE}."DAYS_TO_ARCHIVE" ;;
   }
 
+
   measure: num_opps {
     type: count_distinct
     sql:  ${opportunity_id} ;;
     drill_fields: [detail*]
   }
 
-  measure: num_screens {
+  measure: num_applications {
+    label: "# Applied"
     type: sum_distinct
     sql_distinct_key: ${opportunity_id};;
-    sql:  ${screen_fl} ;;
+    sql:  ${application_fl} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: num_recruiter_screens {
+    label: "# Recruiter Screened"
+    type: sum_distinct
+    sql_distinct_key: ${opportunity_id};;
+    sql:  ${recruiting_screen_fl} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: num_phone_screens {
+    label: "# Phone Screened"
+    type: sum_distinct
+    sql_distinct_key: ${opportunity_id};;
+    sql:  ${phone_screen_fl} ;;
     drill_fields: [detail*]
   }
 
   measure: num_interviews {
+    label: "# Interviewed"
     type: sum_distinct
     sql_distinct_key: ${opportunity_id};;
     sql:  ${interview_fl} ;;
@@ -133,6 +162,7 @@ view: lever_opp_stage_funnel {
   }
 
   measure: num_offers {
+    label: "# Offers Made"
     type: sum_distinct
     sql_distinct_key: ${opportunity_id};;
     sql:  ${offer_fl} ;;
@@ -140,37 +170,105 @@ view: lever_opp_stage_funnel {
   }
 
   measure: num_hires {
+    label: "# Hired"
     type: sum_distinct
     sql_distinct_key: ${opportunity_id};;
     sql:  ${hire_fl} ;;
     drill_fields: [detail*]
   }
 
-  measure: screen_rate {
+  measure: recruiting_screen_rate {
     type: number
-    sql:  100.00 * ${num_screens} / NULLIFZERO(${num_opps}) ;;
+    sql:  100.00 * ${num_recruiter_screens} / NULLIFZERO(${num_applications}) ;;
+    value_format: "#0.00\%"
+    drill_fields: [detail*]
+  }
+
+  measure: phone_screen_rate {
+    type: number
+    sql:  100.00 * ${num_phone_screens} / NULLIFZERO(${num_applications}) ;;
     value_format: "#0.00\%"
     drill_fields: [detail*]
   }
 
   measure: interview_rate {
     type: number
-    sql:  100.00 * ${num_interviews} / NULLIFZERO(${num_opps}) ;;
+    sql:  100.00 * ${num_interviews} / NULLIFZERO(${num_applications}) ;;
     value_format: "#0.00\%"
     drill_fields: [detail*]
   }
 
   measure: offer_rate {
     type: number
-    sql:  100.00 * ${num_offers} / NULLIFZERO(${num_opps}) ;;
+    sql:  100.00 * ${num_offers} / NULLIFZERO(${num_applications}) ;;
     value_format: "#0.00\%"
     drill_fields: [detail*]
   }
 
   measure: hire_rate {
     type: number
-    sql:  100.00 * ${num_hires} / NULLIFZERO(${num_opps}) ;;
+    sql:  100.00 * ${num_hires} / NULLIFZERO(${num_applications}) ;;
     value_format: "#0.00\%"
+    drill_fields: [detail*]
+  }
+
+  measure: phone_screen_pass_rate {
+    type: number
+    sql:  100.00 * ${num_phone_screens} / NULLIFZERO(${num_recruiter_screens}) ;;
+    value_format: "#0.00\%"
+    drill_fields: [detail*]
+  }
+
+  measure: interview_pass_rate {
+    type: number
+    sql:  100.00 * ${num_interviews} / NULLIFZERO(${num_phone_screens}) ;;
+    value_format: "#0.00\%"
+    drill_fields: [detail*]
+  }
+
+  measure: offer_pass_rate {
+    type: number
+    sql:  100.00 * ${num_offers} / NULLIFZERO(${num_interviews}) ;;
+    value_format: "#0.00\%"
+    drill_fields: [detail*]
+  }
+
+  measure: hire_pass_rate {
+    type: number
+    sql:  100.00 * ${num_hires} / NULLIFZERO(${num_offers}) ;;
+    value_format: "#0.00\%"
+    drill_fields: [detail*]
+  }
+
+  measure: phone_screen_to_offer {
+    label: "Phone Screen-to-Offer"
+    type:  number
+    sql:  ${num_phone_screens} / ${num_offers} ;;
+    value_format: "0.0"
+    drill_fields: [detail*]
+  }
+
+  measure: interview_to_offer {
+    label: "Interview-to-Offer"
+    type:  number
+    sql:  ${num_interviews} / ${num_offers} ;;
+    value_format: "0.0"
+    drill_fields: [detail*]
+  }
+
+  measure: phone_screen_to_hire {
+    label: "Phone Screen-to-Hire"
+    type:  number
+    sql:  ${num_phone_screens} / ${num_hires} ;;
+    value_format: "0.0"
+    drill_fields: [detail*]
+  }
+
+  measure: interview_to_hire {
+    label: "Interview-to-Hire"
+    type:  number
+    sql:  ${num_interviews} / ${num_hires} ;;
+    value_format: "0.0"
     drill_fields: [detail*]
   }
 
@@ -342,7 +440,6 @@ view: lever_opp_stage_funnel {
       opp_archived_at_time,
       opp_archive_reason,
       origin,
-      screen_fl,
       interview_fl,
       offer_fl,
       hire_fl,

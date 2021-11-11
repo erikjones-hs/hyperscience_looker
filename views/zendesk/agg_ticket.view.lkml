@@ -1,5 +1,5 @@
 view: agg_ticket {
-  sql_table_name: (select * from dev.cx.zendesk_agg_ticket);;
+  sql_table_name: (select * from prod.cx.zendesk_agg_ticket);;
   drill_fields: [detail*]
 
   dimension: ticket_id {
@@ -48,11 +48,6 @@ view: agg_ticket {
     sql: ${TABLE}."TICKET_SUBJECT" ;;
   }
 
-  dimension: ticket_description {
-    type: string
-    sql: ${TABLE}."TICKET_DESCRIPTION" ;;
-  }
-
   dimension: ticket_default_priority {
     type: string
     sql: ${TABLE}."TICKET_DEFAULT_PRIORITY" ;;
@@ -98,6 +93,11 @@ view: agg_ticket {
     sql: ${TABLE}."TICKET_PROBLEM_SOURCE" ;;
   }
 
+  dimension: infrastructure_component {
+    type: string
+    sql: ${TABLE}."INFRASTRUCTURE_COMPONENT";;
+  }
+
   dimension: ticket_custom_customer_type {
     type: string
     sql: ${TABLE}."TICKET_CUSTOM_CUSTOMER_TYPE" ;;
@@ -141,11 +141,6 @@ view: agg_ticket {
   dimension: ticket_hotfix {
     type: string
     sql: ${TABLE}."TICKET_HOTFIX" ;;
-  }
-
-  dimension: ticket_duplicate_fl {
-    type: number
-    sql: ${TABLE}."TICKET_DUPLICATE_FL" ;;
   }
 
   dimension: ticket_activity {
@@ -361,27 +356,37 @@ view: agg_ticket {
 
   dimension: is_closed_fl {
     type: yesno
-    sql: ${agg_ticket.ticket_status} = 'closed');;
+    sql: ${agg_ticket.ticket_status} = 'closed';;
   }
 
   dimension: is_solved_fl {
     type: yesno
-    sql: ${agg_ticket.ticket_status} = 'solved');;
+    sql: ${agg_ticket.ticket_status} = 'solved';;
   }
 
   dimension: is_open_fl {
     type: yesno
-    sql: ${agg_ticket.ticket_status} = 'open');;
+    sql: ${agg_ticket.ticket_status} = 'open';;
   }
 
   dimension: is_hold_fl {
     type: yesno
-    sql: ${agg_ticket.ticket_status} = 'hold');;
+    sql: ${agg_ticket.ticket_status} = 'hold';;
   }
 
   dimension: is_pending_fl {
     type: yesno
-    sql: ${agg_ticket.ticket_status} = 'pending');;
+    sql: ${agg_ticket.ticket_status} = 'pending';;
+  }
+
+  dimension: null_problem_code_fl {
+    type: yesno
+    sql: ${ticket_problem_codes} = '' OR ${ticket_problem_codes} IS NULL;;
+  }
+
+  dimension: duplicate_ticket_fl {
+    type: yesno
+    sql: ${ticket_resolution_code} = 'duplicate_ticket';;
   }
 
   measure: num_tse_tickets  {
@@ -442,6 +447,13 @@ view: agg_ticket {
     drill_fields: [detail*]
   }
 
+  measure: level_2_solve_rate {
+    type: number
+    sql:  100.00 * ${num_level_2_tickets} / NULLIFZERO(${num_tse_tickets} + ${num_level_2_tickets}) ;;
+    value_format: "#0.00\%"
+    drill_fields: [detail*]
+  }
+
   measure: mean_time_to_first_reply {
     type: average_distinct
     sql_distinct_key: ${ticket_created_at_date} ;;
@@ -464,7 +476,6 @@ view: agg_ticket {
       ticket_updated_at_time,
       ticket_type,
       ticket_subject,
-      ticket_description,
       ticket_default_priority,
       ticket_status,
       ticket_recipient,
@@ -482,7 +493,6 @@ view: agg_ticket {
       ticket_severity,
       ticket_major_version,
       ticket_hotfix,
-      ticket_duplicate_fl,
       organization_id,
       group_id,
       requester_id,
