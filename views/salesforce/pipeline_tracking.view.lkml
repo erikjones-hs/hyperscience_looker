@@ -31,7 +31,7 @@
       sql: ${TABLE}."REP" ;;
     }
 
-    dimension: fy_qtr_year {
+    dimension: fiscal_quarter {
       type: date
       sql: ${TABLE}."FY_QTR_YEAR" ;;
     }
@@ -82,7 +82,7 @@
         region,
         manager,
         rep,
-        fy_qtr_year,
+        fiscal_quarter,
         stage_name,
         commit_status,
         arr,
