@@ -1,5 +1,5 @@
 view: hr {
-      sql_table_name: (select * from "DEV"."HR"."BAMBOO_DIM_EMPLOYEE");;
+      sql_table_name: (select * from dev.erikjones.monthly_kpis_hr_headcount_current);;
       drill_fields: [detail*]
 
     dimension: employee_eid {
@@ -182,6 +182,11 @@ view: hr {
       timeframes: [date, month, quarter, year]
       sql:  to_timestamp(to_date(current_date())) ;;
     }
+
+  dimension: date_ran {
+    type: date
+    sql: ${TABLE}."DATE_RAN" ;;
+  }
 
     measure: count {
       type: count
