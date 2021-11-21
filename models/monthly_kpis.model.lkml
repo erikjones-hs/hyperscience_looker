@@ -6,3 +6,4 @@ explore: sales {}
 explore: pages_processed {}
 explore: hr {}
 explore: sales_pipeline_history {}
+explore: sales_pipeline_current {}
