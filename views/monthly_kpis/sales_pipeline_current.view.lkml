@@ -89,10 +89,19 @@ view: sales_pipeline_current {
     drill_fields: [detail*]
   }
 
-  measure: total_net_new_arr {
+  measure: total_net_new_arr_pipeline {
     type:  sum
     sql:  ${opp_net_new_arr};;
     value_format: "$#,##0"
+    filters: [opp_pipeline_category: "pipeline"]
+    drill_fields: [detail*]
+  }
+
+  measure: total_net_new_arr_qualified_pipeline {
+    type:  sum
+    sql:  ${opp_net_new_arr};;
+    value_format: "$#,##0"
+    filters: [opp_pipeline_category: "qualified_pipeline"]
     drill_fields: [detail*]
   }
 
