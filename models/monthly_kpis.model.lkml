@@ -5,3 +5,4 @@ include: "/views/monthly_kpis/*.view.lkml"                # include all views in
 explore: sales {}
 explore: pages_processed {}
 explore: hr {}
+explore: sales_pipeline_history {}
