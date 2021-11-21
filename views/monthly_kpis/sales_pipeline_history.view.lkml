@@ -2,10 +2,12 @@ view: sales_pipeline_history {
   sql_table_name: (select * from dev.erikjones.monthly_kpis_pipeline_history);;
   drill_fields: [detail*]
 
-  dimension: date_ran {
-    type: date
+  dimension_group: date_ran {
+    type: time
+    timeframes: [date, month, quarter, year]
     sql: ${TABLE}."DATE_RAN" ;;
   }
+
 
   dimension: opp_id {
     type: string
@@ -95,7 +97,7 @@ view: sales_pipeline_history {
 
   set: detail {
     fields: [
-      date_ran,
+      date_ran_date,
       opp_id,
       opp_name,
       account_name,
