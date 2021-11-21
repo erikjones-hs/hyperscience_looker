@@ -882,7 +882,7 @@ view: bizible_touchpoint_final {
     type: sum_distinct
     value_format: "$#,##0.00"
     sql_distinct_key: ${opportunity_id} ;;
-    sql: ${bizible_touchpoint_final.opportunity_mirror_arr};;
+    sql: ${bizible_touchpoint_final.opportunity_forecasted_arr};;
   }
 
   measure: vo_sql_count{
@@ -904,7 +904,7 @@ view: bizible_touchpoint_final {
     value_format: "$#,##0.00"
     filters: [opportunity_vo_check: "true"]
     sql_distinct_key: ${opportunity_id} ;;
-    sql: ${bizible_touchpoint_final.opportunity_mirror_arr};;
+    sql: ${bizible_touchpoint_final.opportunity_forecasted_arr};;
   }
 
   measure: cw_count{
@@ -921,12 +921,20 @@ view: bizible_touchpoint_final {
     sql: ${bizible_touchpoint_final.opportunity_amount};;
   }
 
-  measure: cw_revenue_arr {
+  measure: cw_revenue_mirror_arr {
     type: sum_distinct
     value_format: "$#,##0.00"
     filters: [opportunity_stage: "Closed Won"]
     sql_distinct_key: ${opportunity_id} ;;
     sql: ${bizible_touchpoint_final.opportunity_mirror_arr};;
+  }
+
+  measure: cw_revenue_arr {
+    type: sum_distinct
+    value_format: "$#,##0.00"
+    filters: [opportunity_stage: "Closed Won"]
+    sql_distinct_key: ${opportunity_id} ;;
+    sql: ${bizible_touchpoint_final.opportunity_forecasted_arr};;
   }
 
   dimension_group: opportunity_created_date_group {

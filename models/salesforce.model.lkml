@@ -147,3 +147,5 @@ explore: user {
 explore: pipeline_aggregation {}
 
 explore: arr_tracking {}
+
+explore: pipeline_tracking {}
