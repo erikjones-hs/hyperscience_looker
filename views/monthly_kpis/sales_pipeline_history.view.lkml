@@ -92,6 +92,7 @@ view: sales_pipeline_history {
   measure: total_net_new_arr {
     type:  sum
     sql:  ${opp_net_new_arr};;
+    value_format: "$#,##0"
     drill_fields: [detail*]
   }
 
