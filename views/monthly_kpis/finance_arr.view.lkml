@@ -212,10 +212,8 @@ view: finance_arr {
   }
 
   measure: arr_customers {
-    type:  count_distinct
-    sql_distinct_key: ${account_id} ;;
-    sql:  ${account_id};;
-    filters: [customer_category: "active OR new"]
+    type:  number
+    sql:  ${active_customers} + ${new_customers};;
     drill_fields: [detail*]
   }
 
