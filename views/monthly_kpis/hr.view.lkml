@@ -209,6 +209,16 @@ view: hr {
     }
   }
 
+  dimension: lt_year_flag {
+    type: number
+    sql: ${TABLE}."LT_YEAR_FLAG" ;;
+  }
+
+  dimension: ge_year_flag {
+    type: number
+    sql: ${TABLE}."GE_YEAR_FLAG" ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
@@ -232,26 +242,23 @@ view: hr {
     drill_fields: [detail*]
   }
 
-  measure: num_employees_lt_1_yr {
-    type:  count_distinct
-    sql_distinct_key: ${employee_eid} ;;
-    sql: ${employee_tenure_days} < 365 ;;
-    drill_fields: [detail*]
+  measure: num_employees_lt_1_year  {
+    type: number
+    sql:  SUM(${lt_year_flag}) ;;
   }
 
-  measure: num_employees_ge_1_yr {
-    type:  count_distinct
-    sql_distinct_key: ${employee_eid} ;;
-    sql: ${employee_tenure_days} >= 365 ;;
-    drill_fields: [detail*]
+  measure: num_employees_ge_1_year  {
+    type: number
+    sql:  SUM(${ge_year_flag}) ;;
   }
 
   measure: zero_year_ratio {
     type:  number
-    sql: 100* ${num_employees_lt_1_yr} / NULLIFZERO(${num_employees_ge_1_yr});;
+    sql: 100* ${num_employees_lt_1_year} / NULLIFZERO(${num_employees_ge_1_year} + ${num_employees_lt_1_year} );;
     drill_fields: [detail*]
     value_format: "#0.00\%"
   }
+
 
     set: detail {
       fields: [
