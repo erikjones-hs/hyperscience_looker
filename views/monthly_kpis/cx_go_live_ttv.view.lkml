@@ -72,6 +72,12 @@ view: cx_go_live_ttv {
     drill_fields: [detail*]
   }
 
+  measure: cumulative_live_customers {
+    type:  running_total
+    sql:  ${num_customers} ;;
+    drill_fields: [detail*]
+  }
+
   measure: avg_time_to_value {
     type: average
     sql:${time_to_value} ;;
