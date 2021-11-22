@@ -188,6 +188,27 @@ view: hr {
     sql: ${TABLE}."DATE_RAN" ;;
   }
 
+  dimension: group {
+    case: {
+      when: {
+        sql: ${employee_department} in ('Sales','Customer Experience','Marketing') ;;
+        label: "GTM"
+      }
+      when: {
+        sql: ${employee_department} in ('Engineering','Product','Machine Learning') ;;
+        label: "PDE"
+      }
+      when: {
+        sql: ${employee_department} in ('People','IT & Security','Legal','Finance');;
+        label: "Ops"
+      }
+      when: {
+        sql: ${employee_department} IS NULL ;;
+        label: "Ops"
+      }
+    }
+  }
+
     measure: count {
       type: count
       drill_fields: [detail*]
