@@ -211,6 +211,15 @@ view: finance_arr {
     drill_fields: [detail*]
   }
 
+  measure: arr_customers {
+    type:  count_distinct
+    sql_distinct_key: ${account_id} ;;
+    sql:  ${account_id};;
+    filters: [customer_category: "active", customer_category: "new"]
+    drill_fields: [detail*]
+  }
+
+
 
 
   set: detail {
