@@ -123,14 +123,14 @@ view: sales_pipeline_current {
 
   measure: percent_pipeline_mktg {
     type:  number
-    sql: 100* ${total_net_new_arr_pipeline_mktg} / NULLIFZERO(${total_net_new_arr_pipeline_mktg} + ${total_net_new_arr_pipeline});;
+    sql: 100* ${total_net_new_arr_pipeline_mktg} / ${total_net_new_arr_pipeline};;
     drill_fields: [detail*]
     value_format: "#0.00\%"
   }
 
   measure: percent_qualified_pipeline_mktg {
     type:  number
-    sql: 100* ${total_net_new_arr_qualified_pipeline_mktg} / NULLIFZERO(${total_net_new_arr_qualified_pipeline_mktg} + ${total_net_new_arr_qualified_pipeline});;
+    sql: 100* ${total_net_new_arr_qualified_pipeline_mktg} / ${total_net_new_arr_qualified_pipeline};;
     drill_fields: [detail*]
     value_format: "#0.00\%"
   }
