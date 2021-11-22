@@ -237,7 +237,7 @@ view: hr {
   }
 
   measure: average_tenure {
-    type:  average
+    type:  median
     sql: ${employee_tenure_days} ;;
     drill_fields: [detail*]
   }
