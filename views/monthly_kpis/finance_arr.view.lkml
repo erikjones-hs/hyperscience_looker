@@ -187,6 +187,35 @@ view: finance_arr {
     drill_fields: [detail*]
   }
 
+  measure: new_customers {
+    type:  count_distinct
+    sql_distinct_key: ${account_id} ;;
+    sql:  ${account_id};;
+    value_format: "$#,##0"
+    filters: [customer_category: "new"]
+    drill_fields: [detail*]
+  }
+
+  measure: active_customers {
+    type:  count_distinct
+    sql_distinct_key: ${account_id} ;;
+    sql:  ${account_id};;
+    value_format: "$#,##0"
+    filters: [customer_category: "active"]
+    drill_fields: [detail*]
+  }
+
+  measure: churn_customers {
+    type:  count_distinct
+    sql_distinct_key: ${account_id} ;;
+    sql:  ${account_id};;
+    value_format: "$#,##0"
+    filters: [customer_category: "churn"]
+    drill_fields: [detail*]
+  }
+
+
+
   set: detail {
     fields: [
       date_month_date,
