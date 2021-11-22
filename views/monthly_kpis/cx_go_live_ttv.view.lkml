@@ -55,6 +55,12 @@ view: cx_go_live_ttv {
     sql: ${TABLE}."GO_LIVE_DATE" ;;
   }
 
+  dimension_group: current_date {
+    type: time
+    timeframes: [date, month, quarter, year]
+    sql:  to_timestamp(to_date(current_date())) ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
