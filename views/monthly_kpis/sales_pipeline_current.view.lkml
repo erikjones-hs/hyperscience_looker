@@ -105,6 +105,36 @@ view: sales_pipeline_current {
     drill_fields: [detail*]
   }
 
+  measure: total_net_new_arr_pipeline_mktg {
+    type:  sum
+    sql:  ${opp_net_new_arr};;
+    value_format: "$#,##0"
+    filters: [opp_pipeline_category: "pipeline", opp_is_marketing_influenced_flag: "1"]
+    drill_fields: [detail*]
+  }
+
+  measure: total_net_new_arr_qualified_pipeline_mktg {
+    type:  sum
+    sql:  ${opp_net_new_arr};;
+    value_format: "$#,##0"
+    filters: [opp_pipeline_category: "qualified_pipeline", opp_is_marketing_influenced_flag: "1"]
+    drill_fields: [detail*]
+  }
+
+  measure: percent_pipeline_mktg {
+    type:  number
+    sql: 100* ${total_net_new_arr_pipeline_mktg} / NULLIFZERO(${total_net_new_arr_pipeline_mktg} + ${total_net_new_arr_pipeline});;
+    drill_fields: [detail*]
+    value_format: "#0.00\%"
+  }
+
+  measure: percent_qualified_pipeline_mktg {
+    type:  number
+    sql: 100* ${total_net_new_arr_qualified_pipeline_mktg} / NULLIFZERO(${total_net_new_arr_qualified_pipeline_mktg} + ${total_net_new_arr_qualified_pipeline});;
+    drill_fields: [detail*]
+    value_format: "#0.00\%"
+  }
+
   set: detail {
     fields: [
       date_ran_date,
