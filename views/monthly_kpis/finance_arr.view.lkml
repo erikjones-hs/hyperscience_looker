@@ -144,7 +144,8 @@ view: finance_arr {
   }
 
   measure: new_arr {
-    type:  sum
+    type:  sum_distinct
+    sql_distinct_key: ${account_id} ;;
     sql:  ${account_mrr};;
     value_format: "$#,##0"
     filters: [revenue_category: "new"]
@@ -152,7 +153,8 @@ view: finance_arr {
   }
 
   measure: recurring_arr {
-    type:  sum
+    type:  sum_distinct
+    sql_distinct_key: ${account_id} ;;
     sql:  ${account_mrr};;
     value_format: "$#,##0"
     filters: [revenue_category: "recurring"]
@@ -160,7 +162,8 @@ view: finance_arr {
   }
 
   measure: expansion_arr {
-    type:  sum
+    type:  sum_distinct
+    sql_distinct_key: ${account_id} ;;
     sql:  ${account_mrr};;
     value_format: "$#,##0"
     filters: [revenue_category: "expansion"]
@@ -168,7 +171,8 @@ view: finance_arr {
   }
 
   measure: churn_arr {
-    type:  sum
+    type:  sum_distinct
+    sql_distinct_key: ${account_id} ;;
     sql:  ${mrr_change_acct};;
     value_format: "$#,##0"
     filters: [revenue_category: "churn"]
@@ -176,7 +180,8 @@ view: finance_arr {
   }
 
   measure: total_arr {
-    type:  sum
+    type:  sum_distinct
+    sql_distinct_key: ${account_id} ;;
     sql:  ${account_mrr};;
     value_format: "$#,##0"
     drill_fields: [detail*]
