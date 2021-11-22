@@ -206,7 +206,7 @@ view: finance_arr {
   measure: churn_customers {
     type:  count_distinct
     sql_distinct_key: ${account_id} ;;
-    sql:  -1*${account_id};;
+    sql:  ${account_id};;
     filters: [customer_category: "churn"]
     drill_fields: [detail*]
   }
