@@ -209,9 +209,9 @@ view: hr {
     }
   }
 
-    measure: count {
-      type: count
-      drill_fields: [detail*]
+  measure: count {
+    type: count
+    drill_fields: [detail*]
     }
 
   measure: num_employees {
@@ -224,6 +224,33 @@ view: hr {
     type:  running_total
     sql:  ${num_employees} ;;
     drill_fields: [detail*]
+  }
+
+  measure: average_tenure {
+    type:  average
+    sql: ${employee_tenure_days} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: num_employees_lt_1_yr {
+    type:  count_distinct
+    sql_distinct_key: ${employee_eid} ;;
+    sql: ${employee_tenure_days} < 365 ;;
+    drill_fields: [detail*]
+  }
+
+  measure: num_employees_ge_1_yr {
+    type:  count_distinct
+    sql_distinct_key: ${employee_eid} ;;
+    sql: ${employee_tenure_days} >= 365 ;;
+    drill_fields: [detail*]
+  }
+
+  measure: zero_year_ratio {
+    type:  number
+    sql: 100* ${num_employees_lt_1_yr} / NULLIFZERO(${num_employees_ge_1_yr});;
+    drill_fields: [detail*]
+    value_format: "#0.00\%"
   }
 
     set: detail {
