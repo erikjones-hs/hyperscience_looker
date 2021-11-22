@@ -191,7 +191,6 @@ view: finance_arr {
     type:  count_distinct
     sql_distinct_key: ${account_id} ;;
     sql:  ${account_id};;
-    value_format: "$#,##0"
     filters: [customer_category: "new"]
     drill_fields: [detail*]
   }
@@ -200,7 +199,6 @@ view: finance_arr {
     type:  count_distinct
     sql_distinct_key: ${account_id} ;;
     sql:  ${account_id};;
-    value_format: "$#,##0"
     filters: [customer_category: "active"]
     drill_fields: [detail*]
   }
@@ -208,8 +206,7 @@ view: finance_arr {
   measure: churn_customers {
     type:  count_distinct
     sql_distinct_key: ${account_id} ;;
-    sql:  ${account_id};;
-    value_format: "$#,##0"
+    sql:  -1*${account_id};;
     filters: [customer_category: "churn"]
     drill_fields: [detail*]
   }
