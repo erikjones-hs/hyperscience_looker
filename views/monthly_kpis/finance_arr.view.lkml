@@ -88,6 +88,11 @@ view: finance_arr {
     sql: ${TABLE}."MRR_CHANGE" ;;
   }
 
+  dimension: mrr_reporting {
+    type: number
+    sql: ${TABLE}."MRR_REPORTING" ;;
+  }
+
   dimension: is_active_acct {
     type: string
     sql: ${TABLE}."IS_ACTIVE_ACCT" ;;
@@ -121,6 +126,11 @@ view: finance_arr {
   dimension: mrr_change_acct {
     type: number
     sql: ${TABLE}."MRR_CHANGE_ACCT" ;;
+  }
+
+  dimension: mrr_reporting_acct {
+    type: number
+    sql: ${TABLE}."MRR_REPORTING_ACCT" ;;
   }
 
   dimension: opp_category {
