@@ -120,7 +120,7 @@ view: finance_arr {
 
   dimension: account_mrr {
     type: number
-    sql: ${TABLE}."ACCOUNT_MRR" ;;
+    sql: ${TABLE}."MRR_ACCT" ;;
   }
 
   dimension: mrr_change_acct {
