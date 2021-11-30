@@ -76,6 +76,11 @@ view: agg_account_arr {
     sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
   }
 
+  dimension: months_since_start {
+    type: number
+    sql: ${TABLE}."MONTHS_SINCE_START" ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
@@ -165,10 +170,13 @@ view: agg_account_arr {
     drill_fields: [detail*]
   }
 
-  measure: months_since_start {
-    type:  number
-    sql: datediff(month,${first_active_month_raw},${date_month_raw}) ;;
+  measure: net_retention_arr {
+    type:  sum
+    sql: ${mrr_acct};;
+    filters: [months_since_start: ">= 12"]
+    drill_fields: [detail*]
   }
+
 
 
 
