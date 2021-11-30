@@ -45,6 +45,12 @@ view: sales_closed_opps_this_year {
     drill_fields: [detail*]
   }
 
+  measure: total_arr {
+    type:  number
+    sql:  ${opp_arr} ;;
+    drill_fields: [detail*]
+  }
+
 
   set: detail {
     fields: [
