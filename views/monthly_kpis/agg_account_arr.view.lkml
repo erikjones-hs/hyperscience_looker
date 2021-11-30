@@ -98,6 +98,7 @@ view: agg_account_arr {
     sql:  ${mrr_acct};;
     value_format: "$#,##0"
     filters: [revenue_category: "new"]
+    label: "New"
     drill_fields: [detail*]
   }
 
@@ -106,6 +107,7 @@ view: agg_account_arr {
     sql:  ${mrr_acct};;
     value_format: "$#,##0"
     filters: [revenue_category: "recurring"]
+    label: "Recurring"
     drill_fields: [detail*]
   }
 
@@ -114,6 +116,7 @@ view: agg_account_arr {
     sql:  ${mrr_acct};;
     value_format: "$#,##0"
     filters: [revenue_category: "expansion"]
+    label: "Expansion"
     drill_fields: [detail*]
   }
 
@@ -122,6 +125,7 @@ view: agg_account_arr {
     sql:  ${mrr_change_acct};;
     value_format: "$#,##0"
     filters: [revenue_category: "churn"]
+    label: "Churn"
     drill_fields: [detail*]
   }
 
