@@ -42,6 +42,19 @@ view: lead_contact_life_cycle_status_changes {
     drill_fields: []
   }
 
+  measure: leads_created {
+
+    type: count_distinct
+    sql: ${TABLE}."PERSON_ID" ;;
+
+    filters: {
+
+      field: status_change
+      value: "Created"
+
+    }
+  }
+
   filter: date_filter {
 
     description: "Use this date filter in combination with the timeframes dimension for dynamic date filtering"
@@ -96,30 +109,50 @@ view: lead_contact_life_cycle_status_changes {
 
     suggestions: ["period","previous period"]
 
-  type: string
+    type: string
 
-  case:  {
+    case:  {
 
-    when:  {
+     when:  {
 
-      sql: ${date_date} BETWEEN ${filter_start_date_raw} AND ${filter_end_date_raw};;
+        sql: ${date_date} BETWEEN ${filter_start_date_raw} AND ${filter_end_date_raw};;
 
-      label: "Period"
+        label: "Period"
+
+      }
+
+      when: {
+
+        sql: ${date_date} BETWEEN ${previous_start_date} AND ${filter_start_date_raw} ;;
+
+        label: "Previous Period"
+
+      }
+
+      else: "Not in time period"
 
     }
-
-    when: {
-
-      sql: ${date_date} BETWEEN ${previous_start_date} AND ${filter_start_date_raw} ;;
-
-      label: "Previous Period"
-
-    }
-
-    else: "Not in time period"
 
   }
 
-}
+  measure: selected_period_leads_created {
+
+    type: count_distinct
+
+    sql: ${TABLE}."PERSON_ID" ;;
+
+    filters: [timeframes: "Period", status_change: "Created"]
+
+  }
+
+  measure: previous_period_leads_created {
+
+    type: count_distinct
+
+    sql: ${TABLE}."PERSON_ID";;
+
+    filters: [timeframes: "Period", status_change: "Created"]
+
+  }
 
 }
