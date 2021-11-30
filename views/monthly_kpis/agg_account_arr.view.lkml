@@ -145,11 +145,17 @@ view: agg_account_arr {
     drill_fields: [detail*]
   }
 
-  measure: churn_customers {
+  measure: churn_customers_int {
     type:  count_distinct
     sql_distinct_key: ${account_id} ;;
     sql:  ${account_id};;
     filters: [customer_category: "churn"]
+    drill_fields: [detail*]
+  }
+
+  measure: churn_customers {
+    type:  number
+    sql: -1 * ${churn_customers_int} ;;
     drill_fields: [detail*]
   }
 
