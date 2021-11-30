@@ -93,6 +93,38 @@ view: agg_account_arr {
     drill_fields: [detail*]
   }
 
+  measure: new_arr {
+    type:  sum
+    sql:  ${mrr_acct};;
+    value_format: "$#,##0"
+    filters: [revenue_category: "new"]
+    drill_fields: [detail*]
+  }
+
+  measure: recurring_arr {
+    type:  sum
+    sql:  ${mrr_acct};;
+    value_format: "$#,##0"
+    filters: [revenue_category: "recurring"]
+    drill_fields: [detail*]
+  }
+
+  measure: expansion_arr {
+    type:  sum
+    sql:  ${mrr_acct};;
+    value_format: "$#,##0"
+    filters: [revenue_category: "expansion"]
+    drill_fields: [detail*]
+  }
+
+  measure: churn_arr {
+    type:  sum
+    sql:  ${mrr_change_acct};;
+    value_format: "$#,##0"
+    filters: [revenue_category: "churn"]
+    drill_fields: [detail*]
+  }
+
 
 
   set: detail {
