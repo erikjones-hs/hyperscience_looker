@@ -101,13 +101,7 @@ view: agg_account_arr {
       account_id,
       account_name,
       mrr_acct,
-      mrr_change_acct,
-      mrr_reporting_acct,
-      is_active_acct,
       first_active_month_month,
-      last_active_month_month,
-      is_first_month_acct,
-      is_last_month_acct,
       customer_category,
       revenue_category
     ]
