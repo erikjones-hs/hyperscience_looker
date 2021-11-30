@@ -73,7 +73,7 @@ view: agg_account_arr {
   dimension_group: current_date {
     type: time
     timeframes: [date, month, quarter, year]
-    sql:  to_timestamp(to_date(current_date())) ;;
+    sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
   }
 
   measure: count {
