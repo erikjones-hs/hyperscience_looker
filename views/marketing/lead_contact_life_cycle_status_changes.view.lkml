@@ -151,7 +151,14 @@ view: lead_contact_life_cycle_status_changes {
 
     sql: ${TABLE}."PERSON_ID";;
 
-    filters: [timeframes: "Period", status_change: "Created"]
+    filters: [timeframes: "Previous Period", status_change: "Created"]
+
+  }
+
+  measure: leads_created_change {
+
+    type: number
+    sql: ${selected_period_leads_created} - ${previous_period_leads_created} ;;
 
   }
 
