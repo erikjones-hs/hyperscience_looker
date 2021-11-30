@@ -106,7 +106,7 @@ view: lead_contact_life_cycle_status_changes {
 
     when:  {
 
-      sql: ${date_raw} BETWEEN ${filter_start_date_raw} AND ${filter_end_date_raw};;
+      sql: ${date_date} BETWEEN ${filter_start_date_raw} AND ${filter_end_date_raw};;
 
       label: "Period"
 
@@ -114,7 +114,7 @@ view: lead_contact_life_cycle_status_changes {
 
     when: {
 
-      sql: ${date_raw} BETWEEN ${previous_start_date} AND ${filter_start_date_raw} ;;
+      sql: ${date_date} BETWEEN ${previous_start_date} AND ${filter_start_date_raw} ;;
 
       label: "Previous Period"
 
