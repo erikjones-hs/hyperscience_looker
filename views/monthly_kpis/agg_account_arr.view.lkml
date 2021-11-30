@@ -4,7 +4,7 @@ view: agg_account_arr {
 
   dimension_group: date_month {
     type: time
-    timeframes: [date, month, quarter, year]
+    timeframes: [raw, date, month, quarter, year]
     sql: ${TABLE}."DATE_MONTH" ;;
   }
 
@@ -40,7 +40,7 @@ view: agg_account_arr {
 
   dimension_group: first_active_month {
     type: time
-    timeframes: [date, month, quarter, year]
+    timeframes: [raw, date, month, quarter, year]
     sql: ${TABLE}."FIRST_ACTIVE_MONTH" ;;
   }
 
@@ -167,7 +167,7 @@ view: agg_account_arr {
 
   measure: months_since_start {
     type:  number
-    sql: datediff(month,${first_active_month_month},${date_month_month}) ;;
+    sql: datediff(month,${first_active_month_raw},${date_month_raw}) ;;
   }
 
 
