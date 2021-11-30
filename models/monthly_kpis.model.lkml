@@ -9,3 +9,4 @@ explore: sales_pipeline_history {}
 explore: sales_pipeline_current {}
 explore: cx_go_live_ttv {}
 explore: finance_arr {}
+explore: agg_account_arr {}
