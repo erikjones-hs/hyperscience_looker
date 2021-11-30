@@ -52,127 +52,74 @@ view: lead_contact_life_cycle_status_changes {
   dimension_group: filter_start_date {
 
     type: time
-
-    timeframes: [raw]
-
-    sql: CASE WHEN {% date_start date_filter %} IS NULL THEN '1970-01-01' ELSE NULLIF({% date_start date_filter %}, 0)::timestamp END;;
-
-# MySQL: CASE WHEN {% date_start date_filter %} IS NULL THEN '1970-01-01' ELSE  TIMESTAMP(NULLIF({% date_start date_filter %}, 0)) END;;
+    timeframes: [raw,date]
+    sql: CASE WHEN {% date_start date_filter %} IS NULL THEN '1970-01-01' ELSE CAST({% date_start date_filter %} AS DATE) END;;
 
   }
 
   dimension_group: filter_end_date {
 
     type: time
-
-    timeframes: [raw]
-
-    sql: CASE WHEN {% date_end date_filter %} IS NULL THEN CURRENT_DATE ELSE NULLIF({% date_end date_filter %}, 0)::timestamp END;;
-
-# MySQL: CASE WHEN {% date_end date_filter %} IS NULL THEN NOW() ELSE TIMESTAMP(NULLIF({% date_end date_filter %}, 0)) END;;
+    timeframes: [raw,date]
+    sql: CASE WHEN {% date_end date_filter %} IS NULL THEN CURRENT_DATE ELSE CAST({% date_end date_filter %} AS DATE) END;;
 
   }
 
   dimension: interval {
 
     type: number
-
-    sql: DATEDIFF(seconds, ${filter_start_date_raw}, ${filter_end_date_raw});;
-
-# MySQL: TIMESTAMPDIFF(second, ${filter_end_date_raw}, ${filter_start_date_raw});;
+    sql: DATE_DIFF(${filter_start_date_raw}, ${filter_end_date_raw}, DAY);;
 
   }
 
   dimension: previous_start_date {
 
-    type: date
+    type: string
+    sql: DATE_ADD(${filter_start_date_raw}, INTERVAL ${interval} DAY) ;;
 
-    sql: DATEADD(seconds, -${interval}, ${filter_start_date_raw}) ;;
+  }
 
-# MySQL: DATE_ADD(${filter_start_date_raw}, interval ${interval} second) ;;
+  dimension: is_current_period {
+
+    type: yesno
+    sql: ${date_raw} >= ${filter_start_date_date} AND ${date_raw} < ${filter_end_date_date} ;;
+
+  }
+
+  dimension: is_previous_period {
+
+    type: yesno
+    sql: ${date_raw} >= ${previous_start_date} AND ${date_raw} < ${filter_start_date_date} ;;
 
   }
 
   dimension: timeframes {
 
     description: "Use this field in combination with the date filter field for dynamic date filtering"
-
     suggestions: ["period","previous period"]
 
-  type: string
+    type: string
 
-  case:  {
+    case:  {
 
-    when:  {
+      when:  {
 
-      sql: ${date_raw} BETWEEN ${filter_start_date_raw} AND  ${filter_end_date_raw};;
+        sql: ${is_current_period} = true;;
+        label: "Selected Period"
 
-      label: "Period"
+      }
+
+      when: {
+
+        sql: ${is_previous_period} = true;;
+        label: "Previous Period"
+
+      }
+
+      else: "Not in time period"
 
     }
-
-    when: {
-
-      sql: ${date_raw} BETWEEN ${previous_start_date} AND ${filter_start_date_raw} ;;
-
-      label: "Previous Period"
-
-    }
-
-    else: "Not in time period"
 
   }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
