@@ -167,7 +167,7 @@ view: agg_account_arr {
 
   measure: months_since_start {
     type:  number
-    sql: datediff(month,${first_active_month_month},${date_month_month} ;;
+    sql: datediff(month,${first_active_month_month},${date_month_month}) ;;
   }
 
 
