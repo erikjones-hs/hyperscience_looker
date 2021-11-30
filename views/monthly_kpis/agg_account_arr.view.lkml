@@ -129,6 +129,36 @@ view: agg_account_arr {
     drill_fields: [detail*]
   }
 
+  measure: new_customers {
+    type:  count_distinct
+    sql_distinct_key: ${account_id} ;;
+    sql:  ${account_id};;
+    filters: [customer_category: "new"]
+    drill_fields: [detail*]
+  }
+
+  measure: active_customers {
+    type:  count_distinct
+    sql_distinct_key: ${account_id} ;;
+    sql:  ${account_id};;
+    filters: [customer_category: "active"]
+    drill_fields: [detail*]
+  }
+
+  measure: churn_customers {
+    type:  count_distinct
+    sql_distinct_key: ${account_id} ;;
+    sql:  ${account_id};;
+    filters: [customer_category: "churn"]
+    drill_fields: [detail*]
+  }
+
+  measure: arr_customers {
+    type:  number
+    sql:  ${active_customers} + ${new_customers};;
+    drill_fields: [detail*]
+  }
+
 
 
   set: detail {
