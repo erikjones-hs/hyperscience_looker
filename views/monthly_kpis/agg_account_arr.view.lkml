@@ -118,7 +118,7 @@ view: agg_account_arr {
 
   measure: expansion_arr {
     type:  sum
-    sql:  ${mrr_acct};;
+    sql:  ${mrr_change_acct};;
     value_format: "$#,##0"
     filters: [revenue_category: "expansion"]
     label: "Expansion"
