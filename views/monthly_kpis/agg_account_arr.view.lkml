@@ -191,6 +191,13 @@ view: agg_account_arr {
     drill_fields: [detail*]
   }
 
+  measure: net_new_arr {
+    type:  number
+    sql:  ${new_arr} + ${expansion_arr} - ${churn_arr} ;;
+    value_format: "$#,##0"
+    drill_fields: [detail*]
+  }
+
 
 
 
