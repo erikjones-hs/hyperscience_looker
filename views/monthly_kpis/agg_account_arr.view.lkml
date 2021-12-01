@@ -198,12 +198,6 @@ view: agg_account_arr {
     drill_fields: [detail*]
   }
 
-  measure: cum_churn {
-    type: running_total
-    sql:  ${churn_arr} ;;
-    value_format: "$#,##0"
-    drill_fields: [detail*]
-  }
 
 
 
