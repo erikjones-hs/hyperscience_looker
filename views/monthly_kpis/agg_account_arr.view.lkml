@@ -184,6 +184,13 @@ view: agg_account_arr {
     drill_fields: [detail*]
   }
 
+  measure: max_arr {
+    type:  max
+    sql: ${mrr_acct};;
+    value_format: "$#,##0"
+    drill_fields: [detail*]
+  }
+
 
 
 
