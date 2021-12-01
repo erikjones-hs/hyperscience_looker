@@ -177,6 +177,13 @@ view: agg_account_arr {
     drill_fields: [detail*]
   }
 
+  measure: avg_arr {
+    type:  average
+    sql:  ${mrr_acct} ;;
+    value_format: "$#,##0"
+    drill_fields: [detail*]
+  }
+
 
 
 
