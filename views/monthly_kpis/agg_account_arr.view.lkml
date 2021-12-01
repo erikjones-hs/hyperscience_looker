@@ -198,6 +198,13 @@ view: agg_account_arr {
     drill_fields: [detail*]
   }
 
+  measure: net_churn_ltm {
+    type:  number
+    sql: ${expansion_arr} + ${churn_arr} ;;
+    value_format: "$#,##0"
+    drill_fields: [detail*]
+  }
+
 
 
 
