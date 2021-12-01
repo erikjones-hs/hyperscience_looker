@@ -11,3 +11,4 @@ explore: cx_go_live_ttv {}
 explore: finance_arr {}
 explore: agg_account_arr {}
 explore: sales_closed_opps_this_year {}
+explore: marketing_mqls {}
