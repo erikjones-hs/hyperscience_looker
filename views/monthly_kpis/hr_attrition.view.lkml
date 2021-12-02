@@ -80,6 +80,12 @@ view: hr_attrition {
     sql: ${TABLE}."IS_LAST_MONTH" ;;
   }
 
+  dimension_group: current_date {
+    type: time
+    timeframes: [date, month, quarter, year]
+    sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
