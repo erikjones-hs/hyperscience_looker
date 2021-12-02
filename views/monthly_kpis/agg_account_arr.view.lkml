@@ -118,7 +118,7 @@ view: agg_account_arr {
 
   measure: expansion_arr {
     type:  sum
-    sql:  ${mrr_acct};;
+    sql:  ${mrr_change_acct};;
     value_format: "$#,##0"
     filters: [revenue_category: "expansion"]
     label: "Expansion"
@@ -183,6 +183,22 @@ view: agg_account_arr {
     value_format: "$#,##0"
     drill_fields: [detail*]
   }
+
+  measure: max_arr {
+    type:  max
+    sql: ${mrr_acct};;
+    value_format: "$#,##0"
+    drill_fields: [detail*]
+  }
+
+  measure: net_new_arr {
+    type:  number
+    sql:  ${new_arr} + ${expansion_arr} + ${churn_arr} ;;
+    value_format: "$#,##0"
+    drill_fields: [detail*]
+  }
+
+
 
 
 
