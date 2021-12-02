@@ -93,7 +93,7 @@ view: hr_attrition {
     drill_fields: [detail*]
   }
 
-  measure: churned_employees {
+  measure: churned_employees_int {
     type:  count_distinct
     sql_distinct_key: ${employee_eid} ;;
     sql:  ${employee_eid};;
@@ -101,15 +101,21 @@ view: hr_attrition {
     drill_fields: [detail*]
   }
 
+  measure: churned_employees {
+    type:  number
+    sql:  -1 * ${churned_employees_int} ;;
+    drill_fields: [detail*]
+  }
+
   measure: total_employees {
     type:  number
-    sql:  ${active_employees} + ${churned_employees};;
+    sql:  ${active_employees} + ${churned_employees_int};;
     drill_fields: [detail*]
   }
 
   measure: attrition_rate {
     type:  number
-    sql:  100.00 * ${churned_employees} / NULLIFZERO(${total_employees});;
+    sql:  100.00 * ${churned_employees_int} / NULLIFZERO(${total_employees});;
     value_format: "#0.00\%"
     drill_fields: [detail*]
   }
