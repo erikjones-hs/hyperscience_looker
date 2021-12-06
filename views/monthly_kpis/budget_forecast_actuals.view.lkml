@@ -73,21 +73,18 @@ view: budget_forecast_actuals {
   measure: budget_headcount {
     type: sum
     sql: ${headcount_budget} ;;
-    value_format: "$#,##0"
     drill_fields: [detail*]
   }
 
   measure: forecast_headcount {
     type: sum
     sql: ${headcount_forecast} ;;
-    value_format: "$#,##0"
     drill_fields: [detail*]
   }
 
   measure: actuals_headcount {
     type: sum
     sql: ${headcount_actual} ;;
-    value_format: "$#,##0"
     drill_fields: [detail*]
   }
 
