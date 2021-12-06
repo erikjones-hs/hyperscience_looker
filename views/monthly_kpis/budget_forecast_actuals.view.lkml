@@ -50,7 +50,7 @@ view: budget_forecast_actuals {
   }
 
   measure: budget_arr {
-    type: number
+    type: sum
     sql: ${arr_budget} ;;
     value_format: "$#,##0"
     drill_fields: [detail*]
