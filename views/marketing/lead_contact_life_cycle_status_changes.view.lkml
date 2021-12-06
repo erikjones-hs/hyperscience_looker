@@ -162,4 +162,31 @@ view: lead_contact_life_cycle_status_changes {
 
   }
 
+  measure: selected_period_leads_mql {
+
+    type: count_distinct
+
+    sql: ${TABLE}."PERSON_ID" ;;
+
+    filters: [timeframes: "Period", status_change: "MQL, MQL from SAL"]
+
+  }
+
+  measure: previous_period_leads_mql {
+
+    type: count_distinct
+
+    sql: ${TABLE}."PERSON_ID";;
+
+    filters: [timeframes: "Previous Period", status_change: "MQL, MQL from SAL"]
+
+  }
+
+  measure: leads_mql_change {
+
+    type: number
+    sql: ${selected_period_leads_mql} - ${previous_period_leads_mql} ;;
+
+  }
+
 }
