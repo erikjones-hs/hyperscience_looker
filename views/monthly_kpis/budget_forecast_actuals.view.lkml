@@ -49,6 +49,48 @@ view: budget_forecast_actuals {
     drill_fields: [detail*]
   }
 
+  measure: budget_arr {
+    type: number
+    sql: ${arr_budget} ;;
+    value_format: "$#,##0"
+    drill_fields: [detail*]
+  }
+
+  measure: forecast_arr {
+    type: number
+    sql: ${arr_forecast} ;;
+    value_format: "$#,##0"
+    drill_fields: [detail*]
+  }
+
+  measure: actuals_arr {
+    type: number
+    sql: ${arr_actual} ;;
+    value_format: "$#,##0"
+    drill_fields: [detail*]
+  }
+
+  measure: budget_headcount {
+    type: number
+    sql: ${headcount_budget} ;;
+    value_format: "$#,##0"
+    drill_fields: [detail*]
+  }
+
+  measure: forecast_headcount {
+    type: number
+    sql: ${headcount_forecast} ;;
+    value_format: "$#,##0"
+    drill_fields: [detail*]
+  }
+
+  measure: actuals_headcount {
+    type: number
+    sql: ${headcount_actual} ;;
+    value_format: "$#,##0"
+    drill_fields: [detail*]
+  }
+
   set: detail {
     fields: [
       dte_raw,
