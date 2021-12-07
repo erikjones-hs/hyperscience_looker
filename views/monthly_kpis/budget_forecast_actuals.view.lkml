@@ -38,6 +38,11 @@ view: budget_forecast_actuals {
     sql: ${TABLE}."HEADCOUNT_ACTUAL" ;;
   }
 
+  dimension: headcount_current {
+    type: number
+    sql: ${TABLE}."HEADCOUNT_CURRENT" ;;
+  }
+
   dimension_group: current_date {
     type: time
     timeframes: [date, month, quarter, year]
@@ -85,6 +90,12 @@ view: budget_forecast_actuals {
   measure: actuals_headcount {
     type: sum
     sql: ${headcount_actual} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: current_heacount {
+    type:  sum
+    sql: ${headcount_current} ;;
     drill_fields: [detail*]
   }
 
