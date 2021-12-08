@@ -23,6 +23,11 @@ view: budget_forecast_actuals {
     sql: ${TABLE}."ARR_ACTUAL" ;;
   }
 
+  dimension: arr_current {
+    type: number
+    sql: ${TABLE}."ARR_CURRENT" ;;
+  }
+
   dimension: headcount_budget {
     type: number
     sql: ${TABLE}."HEADCOUNT_BUDGET" ;;
@@ -71,6 +76,13 @@ view: budget_forecast_actuals {
   measure: actuals_arr {
     type: sum
     sql: ${arr_actual} ;;
+    value_format: "$#,##0"
+    drill_fields: [detail*]
+  }
+
+  measure: current_arr {
+    type:  sum
+    sql: ${arr_current} ;;
     value_format: "$#,##0"
     drill_fields: [detail*]
   }
