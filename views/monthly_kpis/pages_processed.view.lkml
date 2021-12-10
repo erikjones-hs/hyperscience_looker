@@ -97,8 +97,6 @@ view: pages_processed {
       fields: [
         customer,
         num_months_sending_data,
-        num_months_since,
-        num_quarters_since,
         total_pages_created,
         diff_monthly_pages,
         monthly_pages_increase_fl,
