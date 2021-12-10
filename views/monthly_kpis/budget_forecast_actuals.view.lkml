@@ -1,6 +1,5 @@
 view: budget_forecast_actuals {
   sql_table_name: (select * from dev.erikjones.fct_actuals_forecst_budget);;
-  drill_fields: [detail*]
 
   dimension_group: dte {
     type: time
@@ -56,70 +55,50 @@ view: budget_forecast_actuals {
 
   measure: count {
     type: count
-    drill_fields: [detail*]
   }
 
   measure: budget_arr {
     type: sum
     sql: ${arr_budget} ;;
     value_format: "$#,##0"
-    drill_fields: [detail*]
   }
 
   measure: forecast_arr {
     type: sum
     sql: ${arr_forecast} ;;
     value_format: "$#,##0"
-    drill_fields: [detail*]
   }
 
   measure: actuals_arr {
     type: sum
     sql: ${arr_actual} ;;
     value_format: "$#,##0"
-    drill_fields: [detail*]
   }
 
   measure: current_arr {
     type:  sum
     sql: ${arr_current} ;;
     value_format: "$#,##0"
-    drill_fields: [detail*]
   }
 
   measure: budget_headcount {
     type: sum
     sql: ${headcount_budget} ;;
-    drill_fields: [detail*]
   }
 
   measure: forecast_headcount {
     type: sum
     sql: ${headcount_forecast} ;;
-    drill_fields: [detail*]
   }
 
   measure: actuals_headcount {
     type: sum
     sql: ${headcount_actual} ;;
-    drill_fields: [detail*]
   }
 
   measure: current_heacount {
     type:  sum
     sql: ${headcount_current} ;;
-    drill_fields: [detail*]
   }
 
-  set: detail {
-    fields: [
-      dte_raw,
-      arr_budget,
-      arr_forecast,
-      arr_actual,
-      headcount_budget,
-      headcount_forecast,
-      headcount_actual
-    ]
-  }
 }
