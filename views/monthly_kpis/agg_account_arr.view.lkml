@@ -175,14 +175,12 @@ view: agg_account_arr {
     type:  sum
     sql: ${mrr_acct};;
     filters: [months_since_start: ">= 12"]
-    drill_fields: [detail*]
   }
 
   measure: avg_arr {
     type:  average
     sql:  ${mrr_acct} ;;
     value_format: "$#,##0"
-    drill_fields: [detail*]
   }
 
   measure: max_arr {
@@ -198,11 +196,6 @@ view: agg_account_arr {
     value_format: "$#,##0"
     drill_fields: [detail*]
   }
-
-
-
-
-
 
   set: detail {
     fields: [
