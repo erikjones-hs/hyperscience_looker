@@ -55,6 +55,12 @@ view: cx_go_live_ttv {
     sql: ${TABLE}."GO_LIVE_DATE" ;;
   }
 
+  dimension_group: min_go_live_date {
+    type: time
+    timeframes: [date, month, quarter, year]
+    sql: min(${TABLE}."GO_LIVE_DATE") ;;
+  }
+
   dimension_group: current_date {
     type: time
     timeframes: [date, month, quarter, year]
