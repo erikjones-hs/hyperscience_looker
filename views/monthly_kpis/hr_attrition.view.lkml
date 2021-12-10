@@ -134,8 +134,6 @@ view: hr_attrition {
       hire_dte_month,
       end_dte_date,
       end_dte_month,
-      employee_salary_usd,
-      salary,
       is_active,
       first_active_month_date,
       last_active_month_date,
