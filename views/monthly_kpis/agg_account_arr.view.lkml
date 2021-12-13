@@ -210,7 +210,7 @@ view: agg_account_arr {
       account_id,
       account_name,
       mrr_acct,
-      arr_acct_change,
+      mrr_change_acct,
       first_active_month_month
     ]
   }
