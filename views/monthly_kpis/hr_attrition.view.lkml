@@ -80,6 +80,41 @@ view: hr_attrition {
     sql: ${TABLE}."IS_LAST_MONTH" ;;
   }
 
+  dimension: employee_name {
+    type: string
+    sql: ${TABLE}."EMPLOYEE_NAME" ;;
+  }
+
+  dimension: employee_tenure_days {
+    type: number
+    sql: ${TABLE}."EMPLOYEE_TENURE_DAYS" ;;
+  }
+
+  dimension: employee_department {
+    type: string
+    sql: ${TABLE}."EMPLOYEE_DEPARTMENT" ;;
+  }
+
+  dimension: employee_location {
+    type: string
+    sql: ${TABLE}."EMPLOYEE_LOCATION" ;;
+  }
+
+  dimension: employee_job_title {
+    type: string
+    sql: ${TABLE}."EMPLOYEE_JOB_TITLE" ;;
+  }
+
+  dimension: supervisor {
+    type: string
+    sql: ${TABLE}."SUPERVISOR" ;;
+  }
+
+  dimension: supervisor_email {
+    type: string
+    sql: ${TABLE}."SUPERVISOR_EMAIL" ;;
+  }
+
   dimension_group: current_date {
     type: time
     timeframes: [date, month, quarter, year]
@@ -128,18 +163,15 @@ view: hr_attrition {
 
   set: detail {
     fields: [
-      date_month_date,
       employee_eid,
+      employee_name,
+      employee_job_title,
+      employee_department,
+      employee_location,
       hire_dte_date,
-      hire_dte_month,
-      end_dte_date,
-      end_dte_month,
-      is_active,
-      first_active_month_date,
-      last_active_month_date,
-      is_first_month,
-      is_last_month,
-      is_employee
+      employee_tenure_days,
+      supervisor,
+      supervisor_email
     ]
   }
 }
