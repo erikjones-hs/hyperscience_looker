@@ -269,7 +269,6 @@ view: hr {
         employee_job_title,
         employee_location,
         supervisor,
-        supervisor_email,
         employee_hire_dte_date,
         employee_tenure_days,
       ]

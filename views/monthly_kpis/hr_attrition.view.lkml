@@ -171,7 +171,6 @@ view: hr_attrition {
       hire_dte_date,
       employee_tenure_days,
       supervisor,
-      supervisor_email
     ]
   }
 }
