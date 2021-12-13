@@ -12,6 +12,11 @@ view: sales_pipeline_history {
   dimension: opp_id {
     type: string
     sql: ${TABLE}."OPP_ID" ;;
+    link: {
+      label: "Salesforce"
+      url: "https://hyperscience.lightning.force.com/lightning/r/Opportunity/{{ value }}/view"
+      icon_url: "http://salesforce.com/favicon.ico"
+    }
   }
 
   dimension: opp_name {
@@ -98,7 +103,6 @@ view: sales_pipeline_history {
 
   set: detail {
     fields: [
-      date_ran_date,
       opp_id,
       opp_name,
       account_name,
