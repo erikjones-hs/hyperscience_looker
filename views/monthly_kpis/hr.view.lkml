@@ -195,7 +195,7 @@ view: hr {
         label: "GTM"
       }
       when: {
-        sql: ${employee_department} in ('Engineering','Product','Machine Learning') ;;
+        sql: ${employee_department} in ('Engineering','Product','Machine Learning', 'BXP') ;;
         label: "PDE"
       }
       when: {
@@ -204,7 +204,7 @@ view: hr {
       }
       when: {
         sql: ${employee_department} IS NULL ;;
-        label: "Ops"
+        label: "None"
       }
     }
   }
