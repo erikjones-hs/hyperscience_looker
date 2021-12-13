@@ -11,6 +11,11 @@ view: agg_account_arr {
   dimension: account_id {
     type: string
     sql: ${TABLE}."ACCOUNT_ID" ;;
+    link: {
+      label: "Salesforce"
+      url: "https://hyperscience.lightning.force.com/lightning/r/Account/{{ value }}/view"
+      icon_url: "http://salesforce.com/favicon.ico"
+    }
   }
 
   dimension: account_name {
