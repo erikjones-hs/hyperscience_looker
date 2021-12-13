@@ -72,6 +72,11 @@ view: pages_processed {
       sql: ${TABLE}."MONTHLY_PAGES_DECREASE_FL" ;;
     }
 
+  dimension: perc_change_monthly_pages {
+    type: number
+    sql: ${TABLE}."PERC_CHANGE_MONTHLY_PAGES" ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
