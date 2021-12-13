@@ -135,6 +135,13 @@ view: agg_account_arr {
     drill_fields: [detail*]
   }
 
+  measure: arr_acct_change {
+    type:  sum
+    sql: ${mrr_change_acct};;
+    value_format: "$0.00"
+    drill_fields: [detail*]
+  }
+
   measure: new_customers {
     type:  count_distinct
     sql_distinct_key: ${account_id} ;;
@@ -203,9 +210,8 @@ view: agg_account_arr {
       account_id,
       account_name,
       mrr_acct,
-      first_active_month_month,
-      customer_category,
-      revenue_category
+      arr_acct_change,
+      first_active_month_month
     ]
   }
 }
