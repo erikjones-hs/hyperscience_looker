@@ -1,5 +1,5 @@
 view: marketing_closed_won_opps_agg {
-  sql_table_name: (select * from select * from DEV.ERIKJONES.MONTHLY_KPIS_MARKETING_CLOSED_WON_OPPS_AGG_HIST);;
+  sql_table_name: (select * from DEV.ERIKJONES.MONTHLY_KPIS_MARKETING_CLOSED_WON_OPPS_AGG_HIST);;
 
   dimension: fy_year {
     type: string
