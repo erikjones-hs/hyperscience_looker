@@ -6,6 +6,11 @@ view: marketing_closed_won_opps {
   dimension: account_id {
     type: string
     sql: ${TABLE}."ACCOUNT_ID" ;;
+    link: {
+      label: "Salesforce"
+      url: "https://hyperscience.lightning.force.com/lightning/r/Account/{{ value }}/view"
+      icon_url: "http://salesforce.com/favicon.ico"
+    }
   }
 
   dimension: account_name {
@@ -16,6 +21,11 @@ view: marketing_closed_won_opps {
   dimension: opp_id {
     type: string
     sql: ${TABLE}."OPP_ID" ;;
+    link: {
+      label: "Salesforce"
+      url: "https://hyperscience.lightning.force.com/lightning/r/Opportunity/{{ value }}/view"
+      icon_url: "http://salesforce.com/favicon.ico"
+    }
   }
 
   dimension: opp_name {
@@ -82,6 +92,7 @@ view: marketing_closed_won_opps {
   measure: num_opps {
     type:  count_distinct
     sql: ${opp_id} ;;
+    drill_fields: [detail*]
   }
 
   measure: arr {
@@ -105,8 +116,6 @@ view: marketing_closed_won_opps {
       opp_id,
       opp_name,
       opp_revenue_type,
-      end_dte_date,
-      start_dte_date,
       closed_won_dte_date,
       opp_arr,
       opp_net_new_arr
