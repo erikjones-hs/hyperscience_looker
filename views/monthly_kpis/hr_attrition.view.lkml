@@ -157,7 +157,7 @@ view: hr_attrition {
   measure: attrition_rate {
     type:  number
     sql:  100.00 * ${churned_employees_int} / NULLIFZERO(${total_employees});;
-    value_format: "#0.00\%"
+    value_format: "#0\%"
     drill_fields: [detail*]
   }
 
