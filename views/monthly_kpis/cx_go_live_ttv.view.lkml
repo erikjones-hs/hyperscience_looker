@@ -87,6 +87,7 @@ view: cx_go_live_ttv {
   measure: avg_time_to_value {
     type: average
     sql:${time_to_value} ;;
+    value_format: "0.##"
     drill_fields: [detail*]
   }
 
