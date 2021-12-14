@@ -16,3 +16,4 @@ explore: hr_attrition {}
 explore: budget_forecast_actuals {}
 explore: ml_team_metrics {}
 explore: marketing_closed_won_opps {}
+explore: marketing_closed_won_opps_agg {}
