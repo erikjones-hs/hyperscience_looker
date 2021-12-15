@@ -110,6 +110,13 @@ view: sales_pipeline_current {
     drill_fields: [detail*]
   }
 
+  measure: total_pipeline {
+    type:  number
+    sql:  ${total_net_new_arr_pipeline} + ${total_net_new_arr_qualified_pipeline} ;;
+    value_format: "$#,##0"
+    drill_fields: [detail*]
+  }
+
   measure: total_net_new_arr_pipeline_mktg {
     type:  sum
     sql:  ${opp_net_new_arr};;
@@ -126,6 +133,13 @@ view: sales_pipeline_current {
     drill_fields: [detail*]
   }
 
+  measure: total_pipeline_mktg {
+    type:  number
+    sql:  ${total_net_new_arr_pipeline_mktg} + ${total_net_new_arr_qualified_pipeline_mktg} ;;
+    value_format: "$#,##0"
+    drill_fields: [detail*]
+  }
+
   measure: percent_pipeline_mktg {
     type:  number
     sql: 100* ${total_net_new_arr_pipeline_mktg} / ${total_net_new_arr_pipeline};;
@@ -136,6 +150,13 @@ view: sales_pipeline_current {
   measure: percent_qualified_pipeline_mktg {
     type:  number
     sql: 100* ${total_net_new_arr_qualified_pipeline_mktg} / ${total_net_new_arr_qualified_pipeline};;
+    drill_fields: [detail*]
+    value_format: "#0.00\%"
+  }
+
+  measure: percent_total_pipeline_mktg {
+    type:  number
+    sql: 100* ${total_pipeline_mktg} / ${total_pipeline};;
     drill_fields: [detail*]
     value_format: "#0.00\%"
   }
