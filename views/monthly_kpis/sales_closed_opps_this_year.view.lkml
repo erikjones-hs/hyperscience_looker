@@ -2,9 +2,19 @@ view: sales_closed_opps_this_year {
   sql_table_name: (select * from dev.erikjones.monthly_kpis_sales_opps_closed);;
   drill_fields: [detail*]
 
+  dimension: account_id {
+    type: string
+    sql: ${TABLE}."ACCOUNT_ID" ;;
+  }
+
   dimension: account_name {
     type: string
     sql: ${TABLE}."ACCOUNT_NAME" ;;
+  }
+
+  dimension: opp_id {
+    type: string
+    sql: ${TABLE}."OPP_ID" ;;
   }
 
   dimension: opp_name {
@@ -40,8 +50,9 @@ view: sales_closed_opps_this_year {
     sql: ${TABLE}."CLOSED_WON_DTE" ;;
   }
 
-  measure: count {
-    type: count
+  measure: num_deals {
+    type: count_distinct
+    sql: ${opp_id};;
     drill_fields: [detail*]
   }
 
