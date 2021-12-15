@@ -17,6 +17,11 @@ view: marketing_closed_won_opps_agg {
     sql: ${TABLE}."NET_NEW_ARR" ;;
   }
 
+  dimension: total_arr {
+    type: number
+    sql: ${TABLE}."TOTAL_ARR" ;;
+  }
+
   dimension: num_opps {
     type: number
     sql: ${TABLE}."NUM_OPPS" ;;
@@ -26,11 +31,18 @@ view: marketing_closed_won_opps_agg {
     type: count
   }
 
-  measure: closed_won_arr {
+  measure: closed_won_net_new_arr {
     type:  sum
     sql:  ${net_new_arr} ;;
     value_format: "$#,##0"
   }
+
+  measure: closed_won_total_arr {
+    type:  sum
+    sql:  ${total_arr} ;;
+    value_format: "$#,##0"
+  }
+
 
   measure: closed_won_opps {
     type:  sum
