@@ -5,6 +5,11 @@ view: sales_closed_opps_this_year {
   dimension: account_id {
     type: string
     sql: ${TABLE}."ACCOUNT_ID" ;;
+    link: {
+      label: "Salesforce"
+      url: "https://hyperscience.lightning.force.com/lightning/r/Account/{{ value }}/view"
+      icon_url: "http://salesforce.com/favicon.ico"
+    }
   }
 
   dimension: account_name {
@@ -15,6 +20,11 @@ view: sales_closed_opps_this_year {
   dimension: opp_id {
     type: string
     sql: ${TABLE}."OPP_ID" ;;
+    link: {
+      label: "Salesforce"
+      url: "https://hyperscience.lightning.force.com/lightning/r/Opportunity/{{ value }}/view"
+      icon_url: "http://salesforce.com/favicon.ico"
+    }
   }
 
   dimension: opp_name {
@@ -50,6 +60,12 @@ view: sales_closed_opps_this_year {
     sql: ${TABLE}."CLOSED_WON_DTE" ;;
   }
 
+  dimension_group: current_date {
+    type: time
+    timeframes: [date, month, quarter, year]
+    sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
+  }
+
   measure: num_deals {
     type: count_distinct
     sql: ${opp_id};;
@@ -65,13 +81,14 @@ view: sales_closed_opps_this_year {
 
   set: detail {
     fields: [
+      account_id,
       account_name,
+      opp_id,
       opp_name,
+      closed_won_dte_date,
       start_dte_date,
-      end_dte_date,
       opp_arr,
       opp_net_new_arr,
-      closed_won_dte_date
     ]
   }
 }
