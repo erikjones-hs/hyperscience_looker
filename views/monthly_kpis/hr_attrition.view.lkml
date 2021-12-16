@@ -161,6 +161,12 @@ view: hr_attrition {
     drill_fields: [detail*]
   }
 
+  measure: average_tenure {
+    type:  median
+    sql: ${employee_tenure_days} ;;
+    drill_fields: [detail*]
+  }
+
   set: detail {
     fields: [
       employee_eid,
