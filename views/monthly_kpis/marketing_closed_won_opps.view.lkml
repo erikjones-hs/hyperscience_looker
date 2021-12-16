@@ -109,12 +109,6 @@ view: marketing_closed_won_opps {
     drill_fields: [detail*]
   }
 
-  measure: cumulative_arr {
-    type:  running_total
-    sql:  ${opp_arr} ;;
-    value_format: "$#,##0"
-    drill_fields: [detail*]
-  }
 
   set: detail {
     fields: [
