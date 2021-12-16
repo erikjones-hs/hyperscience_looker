@@ -26,6 +26,21 @@ view: hr_attrition {
     sql: ${TABLE}."HIRE_DTE_MONTH" ;;
   }
 
+  dimension: employee_tenure_calc {
+    type: number
+    sql: ${TABLE}."EMPLOYEE_TENURE_CALC" ;;
+  }
+
+  dimension: lt_year_flag {
+    type: number
+    sql: ${TABLE}."LT_YEAR_FLAG" ;;
+  }
+
+  dimension: ge_year_flag {
+    type: number
+    sql: ${TABLE}."GE_YEAR_FLAG" ;;
+  }
+
   dimension_group: end_dte {
     type: time
     timeframes: [raw, date, month, quarter, year]
@@ -163,8 +178,25 @@ view: hr_attrition {
 
   measure: average_tenure {
     type:  median
-    sql: ${employee_tenure_days} ;;
+    sql: ${employee_tenure_calc} ;;
     drill_fields: [detail*]
+  }
+
+  measure: num_employees_lt_1_year  {
+    type: number
+    sql:  SUM(${lt_year_flag}) ;;
+  }
+
+  measure: num_employees_ge_1_year  {
+    type: number
+    sql:  SUM(${ge_year_flag}) ;;
+  }
+
+  measure: zero_year_ratio {
+    type:  number
+    sql: 100* ${num_employees_lt_1_year} / NULLIFZERO(${num_employees_ge_1_year} + ${num_employees_lt_1_year} );;
+    drill_fields: [detail*]
+    value_format: "#0.00\%"
   }
 
   set: detail {
