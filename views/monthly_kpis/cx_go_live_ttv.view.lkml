@@ -67,6 +67,22 @@ view: cx_go_live_ttv {
     sql:  to_timestamp(to_date(current_date())) ;;
   }
 
+  dimension: project_status {
+    type: string
+    sql: ${TABLE}."PROJECT_STATUS" ;;
+  }
+
+  dimension_group: kpi_start_date {
+    type: time
+    timeframes: [date, month, quarter, year]
+    sql: ${TABLE}."KPI_START_DATE" ;;
+  }
+
+  dimension: initial_implementation {
+    type: string
+    sql: ${TABLE}."INITIAL_IMPLEMENTATION" ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
