@@ -4,7 +4,7 @@ view: lever_time_series_hist {
 
    dimension_group: date {
     type: time
-    timeframes: [raw, date, month, quarter, year]
+    timeframes: [raw, date, week, month, quarter, year]
     sql: ${TABLE}."DATE" ;;
   }
 
@@ -50,7 +50,7 @@ view: lever_time_series_hist {
 
   dimension_group: post_create_dte {
     type: time
-    timeframes: [raw, date, month, quarter, year]
+    timeframes: [raw, date, week, month, quarter, year]
     sql: ${TABLE}."POST_CREATE_DTE" ;;
   }
 
@@ -91,13 +91,13 @@ view: lever_time_series_hist {
 
   dimension_group: opp_create_dte {
     type: time
-    timeframes: [raw, date, month, quarter, year]
+    timeframes: [raw, date, week, month, quarter, year]
     sql: ${TABLE}."OPP_CREATE_DTE" ;;
   }
 
   dimension_group: archive_dte {
     type: time
-    timeframes: [raw, date, month, quarter, year]
+    timeframes: [raw, date, week, month, quarter, year]
     sql: ${TABLE}."ARCHIVE_DTE" ;;
   }
 
@@ -108,37 +108,37 @@ view: lever_time_series_hist {
 
   dimension_group: application_dte {
     type: time
-    timeframes: [raw, date, month, quarter, year]
+    timeframes: [raw, date, week, month, quarter, year]
     sql: ${TABLE}."APPLICATION_DTE" ;;
   }
 
   dimension_group: recruiter_screen_dte {
     type: time
-    timeframes: [raw, date, month, quarter, year]
+    timeframes: [raw, date, week, month, quarter, year]
     sql: ${TABLE}."RECRUITER_SCREEN_DTE" ;;
   }
 
   dimension_group: phone_screen_dte {
     type: time
-    timeframes: [raw, date, month, quarter, year]
+    timeframes: [raw, date, week, month, quarter, year]
     sql: ${TABLE}."PHONE_SCREEN_DTE" ;;
   }
 
   dimension_group: interview_dte {
     type: time
-    timeframes: [raw, date, month, quarter, year]
+    timeframes: [raw, date, week, month, quarter, year]
     sql: ${TABLE}."INTERVIEW_DTE" ;;
   }
 
   dimension_group: offer_dte {
     type: time
-    timeframes: [raw, date, month, quarter, year]
+    timeframes: [raw, date, week, month, quarter, year]
     sql: ${TABLE}."OFFER_DTE" ;;
   }
 
   dimension_group: hire_dte {
     type: time
-    timeframes: [raw, date, month, quarter, year]
+    timeframes: [raw, date, week, month, quarter, year]
     sql: ${TABLE}."HIRE_DTE" ;;
   }
 
@@ -184,7 +184,7 @@ view: lever_time_series_hist {
 
   dimension_group: current_date {
     type: time
-    timeframes: [date, month, quarter, year]
+    timeframes: [date, week, month, quarter, year]
     sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
   }
 
