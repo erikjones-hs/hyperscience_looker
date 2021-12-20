@@ -12,3 +12,5 @@ explore: lever_opp_stage_funnel {}
 explore: lever_agg_offer {}
 
 explore: lever_agg_interview {}
+
+explore: lever_time_series_hist {}
