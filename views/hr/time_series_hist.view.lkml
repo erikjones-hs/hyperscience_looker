@@ -11,6 +11,11 @@ view: lever_time_series_hist {
   dimension: opp_id {
     type: string
     sql: ${TABLE}."OPP_ID" ;;
+    link: {
+      label: "Lever"
+      url: "https://hire.lever.co/candidates/{{ value }}"
+      icon_url: "https://lever.co/favicon.ico"
+    }
   }
 
   dimension: opp_name {
