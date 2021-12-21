@@ -193,8 +193,9 @@ view: lever_time_series_hist {
     sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
   }
 
-  measure: count {
-    type: count
+  measure: num_opps {
+    type: count_distinct
+    sql: ${opp_id} ;;
     drill_fields: [detail*]
   }
 
