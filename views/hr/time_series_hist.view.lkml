@@ -341,7 +341,6 @@ view: lever_time_series_hist {
 
   set: detail {
     fields: [
-      date_raw,
       opp_id,
       opp_name,
       stage_name_raw,
