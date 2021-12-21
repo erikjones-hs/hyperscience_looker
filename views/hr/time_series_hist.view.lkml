@@ -303,6 +303,42 @@ view: lever_time_series_hist {
     drill_fields: [detail*]
   }
 
+  measure: num_applications_pass_through {
+    type:  count_distinct
+    sql: ${opp_id};;
+    filters: [application_is_date_month: "= 1"]
+  }
+
+  measure: num_recruiter_screens_pass_through {
+    type:  count_distinct
+    sql: ${opp_id};;
+    filters: [recruiting_screen_fl: "= 1"]
+  }
+
+  measure: num_phone_screens_pass_through {
+    type:  count_distinct
+    sql: ${opp_id};;
+    filters: [phone_screen_fl: "= 1"]
+  }
+
+  measure: num_interviews_pass_through {
+    type:  count_distinct
+    sql: ${opp_id};;
+    filters: [interview_fl: "= 1"]
+  }
+
+  measure: num_offers_pass_through {
+    type:  count_distinct
+    sql: ${opp_id};;
+    filters: [offer_fl: "= 1"]
+  }
+
+  measure: num_hires_pass_through {
+    type:  count_distinct
+    sql: ${opp_id};;
+    filters: [hire_fl: "= 1"]
+  }
+
   set: detail {
     fields: [
       date_raw,
