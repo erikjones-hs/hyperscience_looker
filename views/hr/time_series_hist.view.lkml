@@ -237,8 +237,20 @@ view: lever_time_series_hist {
     drill_fields: [detail*]
   }
 
+  measure: num_applications_rt {
+    type:  running_total
+    sql: ${is_application} ;;
+    drill_fields: [detail*]
+  }
+
   measure: num_recruiter_screens {
     type:  sum
+    sql: ${is_reccruiter_screen} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: num_recruiter_screens_rt {
+    type:  running_total
     sql: ${is_reccruiter_screen} ;;
     drill_fields: [detail*]
   }
@@ -249,8 +261,20 @@ view: lever_time_series_hist {
     drill_fields: [detail*]
   }
 
+  measure: num_phone_screens_rt {
+    type:  running_total
+    sql: ${is_phone_screen} ;;
+    drill_fields: [detail*]
+  }
+
   measure: num_interviews {
     type:  sum
+    sql: ${is_interview} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: num_interviews_rt {
+    type:  running_total
     sql: ${is_interview} ;;
     drill_fields: [detail*]
   }
@@ -261,8 +285,20 @@ view: lever_time_series_hist {
     drill_fields: [detail*]
   }
 
+  measure: num_offers_rt {
+    type:  running_total
+    sql: ${is_offer} ;;
+    drill_fields: [detail*]
+  }
+
   measure: num_hires {
     type:  sum
+    sql: ${is_hire} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: num_hires_rt {
+    type:  running_total
     sql: ${is_hire} ;;
     drill_fields: [detail*]
   }
