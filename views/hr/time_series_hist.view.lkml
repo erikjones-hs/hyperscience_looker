@@ -117,6 +117,27 @@ view: lever_time_series_hist {
     sql: ${TABLE}."APPLICATION_DTE" ;;
   }
 
+  parameter: timeframe_picker {
+    label: "Date Granularity"
+    type: string
+    allowed_value: { value: "Week" }
+    allowed_value: { value: "Month" }
+    allowed_value: { value: "Quarter" }
+    allowed_value: { value: "Year" }
+    default_value: "Week"
+  }
+
+  dimension: dynamic_timeframe {
+    type: string
+    sql:
+    CASE
+    WHEN {% parameter timeframe_picker %} = 'Week' THEN ${application_dte_week}
+    WHEN {% parameter timeframe_picker %} = 'Month' THEN ${application_dte_month}
+    WHEN{% parameter timeframe_picker %} = 'Quarter' THEN ${application_dte_quarter}
+    WHEN{% parameter timeframe_picker %} = 'Year' THEN ${application_dte_year}
+    END ;;
+  }
+
   dimension_group: recruiter_screen_dte {
     type: time
     timeframes: [raw, date, week, month, quarter, year]
