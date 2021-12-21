@@ -339,6 +339,90 @@ view: lever_time_series_hist {
     filters: [hire_fl: "= 1"]
   }
 
+  measure: application_to_recutiing_screen_yield {
+    type: number
+    sql:  100.00 * ${num_recruiter_screens_pass_through} / NULLIFZERO(${num_applications_pass_through}) ;;
+    value_format: "#0.00\%"
+  }
+
+  measure: recutiing_screen_to_phone_screen_yield {
+    type: number
+    sql:  100.00 * ${num_phone_screens_pass_through} / NULLIFZERO(${num_recruiter_screens_pass_through}) ;;
+    value_format: "#0.00\%"
+  }
+
+  measure: phone_screen_to_interview_yield {
+    type: number
+    sql:  100.00 * ${num_interviews_pass_through} / NULLIFZERO(${num_phone_screens_pass_through}) ;;
+    value_format: "#0.00\%"
+  }
+
+  measure: interview_to_offer_yield {
+    type: number
+    sql:  100.00 * ${num_offers_pass_through} / NULLIFZERO(${num_interviews_pass_through}) ;;
+    value_format: "#0.00\%"
+  }
+
+  measure: offer_to_hire_yield {
+    type: number
+    sql:  100.00 * ${num_hires_pass_through} / NULLIFZERO(${num_offers_pass_through}) ;;
+    value_format: "#0.00\%"
+  }
+
+  measure: hire_rate {
+    type: number
+    sql:  100.00 * ${num_hires_pass_through} / NULLIFZERO(${num_applications_pass_through}) ;;
+    value_format: "#0.00\%"
+  }
+
+  measure: recruiter_screen_rate {
+    type: number
+    sql:  100.00 * ${num_recruiter_screens_pass_through} / NULLIFZERO(${num_applications_pass_through}) ;;
+    value_format: "#0.00\%"
+  }
+
+  measure: phone_screen_rate {
+    type: number
+    sql:  100.00 * ${num_phone_screens_pass_through} / NULLIFZERO(${num_applications_pass_through}) ;;
+    value_format: "#0.00\%"
+  }
+
+  measure: interview_rate {
+    type: number
+    sql:  100.00 * ${num_interviews_pass_through} / NULLIFZERO(${num_applications_pass_through}) ;;
+    value_format: "#0.00\%"
+  }
+
+  measure: offer_rate {
+    type: number
+    sql:  100.00 * ${num_offers_pass_through} / NULLIFZERO(${num_applications_pass_through}) ;;
+    value_format: "#0.00\%"
+  }
+
+  measure: phone_to_offer_ratio {
+    type: number
+    sql:  ${num_phone_screens_pass_through} / NULLIFZERO(${num_offers_pass_through}) ;;
+    value_format: "0.0"
+  }
+
+  measure: interview_to_offer_ratio {
+    type: number
+    sql:  ${num_interviews_pass_through} / NULLIFZERO(${num_offers_pass_through}) ;;
+    value_format: "0.0"
+  }
+
+  measure: phone_to_hire_ratio {
+    type: number
+    sql:  ${num_phone_screens_pass_through} / NULLIFZERO(${num_hires_pass_through}) ;;
+    value_format: "0.0"
+  }
+
+  measure: interview_to_hire_ratio {
+    type: number
+    sql:  ${num_interviews_pass_through} / NULLIFZERO(${num_hires_pass_through}) ;;
+    value_format: "0.0"
+  }
+
   set: detail {
     fields: [
       opp_id,
