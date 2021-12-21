@@ -18,9 +18,14 @@ view: lever_time_series_hist {
     sql: ${TABLE}."OPP_NAME" ;;
   }
 
-  dimension: stage_name {
+  dimension: stage_name_raw {
     type: string
-    sql: ${TABLE}."STAGE_NAME" ;;
+    sql: ${TABLE}."STAGE_NAME_RAW" ;;
+  }
+
+  dimension: opp_stage_name {
+    type: string
+    sql: ${TABLE}."OPP_STAGE_NAME" ;;
   }
 
   dimension: opp_status {
@@ -240,7 +245,8 @@ view: lever_time_series_hist {
       date_raw,
       opp_id,
       opp_name,
-      stage_name,
+      stage_name_raw,
+      opp_stage_name,
       opp_status,
       opp_origin,
       opp_owner,
