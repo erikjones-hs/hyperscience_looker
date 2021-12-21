@@ -193,6 +193,32 @@ view: lever_time_series_hist {
     sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
   }
 
+  dimension: stage_custom_sort {
+    label: "Stage (Custom Sort)"
+    case: {
+      when: {
+        sql: ${opp_stage_name} = 'pre_interview' ;;
+        label: "Pre-Screen"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'recruiter_screen' ;;
+        label: "Recruiter Screen"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'phone_screen' ;;
+        label: "Phone Screen"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'interview' ;;
+        label: "Interview"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'offer' ;;
+        label: "Offer"
+      }
+    }
+  }
+
   measure: num_opps {
     type: count_distinct
     sql: ${opp_id} ;;
