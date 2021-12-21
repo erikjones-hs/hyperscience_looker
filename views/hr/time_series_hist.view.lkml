@@ -187,6 +187,41 @@ view: lever_time_series_hist {
     sql: ${TABLE}."IS_INTERN_FLAG" ;;
   }
 
+  dimension: application_fl {
+    type: number
+    sql: ${TABLE}."APPLICATION_FL" ;;
+  }
+
+  dimension: recruiting_screen_fl {
+    type: number
+    sql: ${TABLE}."RECRUITING_SCREEN_FL" ;;
+  }
+
+  dimension: phone_screen_fl {
+    type: number
+    sql: ${TABLE}."PHONE_SCREEN_FL" ;;
+  }
+
+  dimension: interview_fl {
+    type: number
+    sql: ${TABLE}."INTERVIEW_FL" ;;
+  }
+
+  dimension: offer_fl {
+    type: number
+    sql: ${TABLE}."OFFER_FL" ;;
+  }
+
+  dimension: hire_fl {
+    type: number
+    sql: ${TABLE}."HIRE_FL" ;;
+  }
+
+  dimension: application_is_date_month {
+    type: number
+    sql: ${TABLE}."APPLICATION_IS_DATE_MONTH" ;;
+  }
+
   dimension_group: current_date {
     type: time
     timeframes: [date, week, month, quarter, year]
@@ -237,21 +272,10 @@ view: lever_time_series_hist {
     drill_fields: [detail*]
   }
 
-  measure: num_applications_rt {
-    type:  running_total
-    sql: ${num_applications} ;;
-    drill_fields: [detail*]
-  }
 
   measure: num_recruiter_screens {
     type:  sum
     sql: ${is_reccruiter_screen} ;;
-    drill_fields: [detail*]
-  }
-
-  measure: num_recruiter_screens_rt {
-    type:  running_total
-    sql: ${num_recruiter_screens} ;;
     drill_fields: [detail*]
   }
 
@@ -261,21 +285,9 @@ view: lever_time_series_hist {
     drill_fields: [detail*]
   }
 
-  measure: num_phone_screens_rt {
-    type:  running_total
-    sql: ${num_phone_screens} ;;
-    drill_fields: [detail*]
-  }
-
   measure: num_interviews {
     type:  sum
     sql: ${is_interview} ;;
-    drill_fields: [detail*]
-  }
-
-  measure: num_interviews_rt {
-    type:  running_total
-    sql: ${num_interviews} ;;
     drill_fields: [detail*]
   }
 
@@ -285,21 +297,9 @@ view: lever_time_series_hist {
     drill_fields: [detail*]
   }
 
-  measure: num_offers_rt {
-    type:  running_total
-    sql: ${num_offers} ;;
-    drill_fields: [detail*]
-  }
-
   measure: num_hires {
     type:  sum
     sql: ${is_hire} ;;
-    drill_fields: [detail*]
-  }
-
-  measure: num_hires_rt {
-    type:  running_total
-    sql: ${num_hires} ;;
     drill_fields: [detail*]
   }
 
