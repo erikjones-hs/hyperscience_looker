@@ -302,6 +302,12 @@ view: lever_time_series_hist {
     drill_fields: [detail*]
   }
 
+  measure: unique_postings {
+    type:  count_distinct
+    sql: ${post_name} ;;
+    drill_fields: [detail*]
+  }
+
   measure: num_applications {
     type:  sum
     sql: ${is_application} ;;
