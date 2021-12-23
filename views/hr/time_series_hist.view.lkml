@@ -64,6 +64,16 @@ view: lever_time_series_hist {
     sql: ${TABLE}."POST_CREATE_DTE" ;;
   }
 
+  dimension: post_id {
+    type: string
+    sql: ${TABLE}."POST_ID" ;;
+    link: {
+      label: "Lever"
+      url: "https://hire.lever.co/reports/postings/{{ value }}"
+      icon_url: "https://lever.co/favicon.ico"
+    }
+  }
+
   dimension: is_post_created {
     type: number
     sql: ${TABLE}."IS_POST_CREATED" ;;
