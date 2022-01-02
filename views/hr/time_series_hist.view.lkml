@@ -269,7 +269,7 @@ view: lever_time_series_hist {
     case: {
       when: {
         sql: ${opp_stage_name} = 'pre_interview' ;;
-        label: "Pre-Screen"
+        label: "Open Applications"
       }
       when: {
         sql: ${opp_stage_name} = 'recruiter_screen' ;;
