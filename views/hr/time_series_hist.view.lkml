@@ -496,40 +496,16 @@ view: lever_time_series_hist {
 
   set: detail {
     fields: [
+      post_name,
+      post_locations,
       opp_id,
       opp_name,
-      stage_name_raw,
       opp_stage_name,
       opp_status,
       opp_origin,
       opp_owner,
       post_dept,
-      post_team,
-      post_create_dte_date,
-      is_post_created,
-      post_name,
-      post_state,
-      post_locations,
-      post_level,
-      post_owner_name,
-      post_location_grouped,
-      opp_create_dte_date,
-      archive_dte_date,
-      opp_archive_reason,
-      application_dte_date,
-      recruiter_screen_dte_date,
-      phone_screen_dte_date,
-      interview_dte_date,
-      offer_dte_date,
-      hire_dte_date,
-      is_application,
-      is_reccruiter_screen,
-      is_phone_screen,
-      is_interview,
-      is_offer,
-      is_hire,
-      is_archived,
-      is_intern_flag
+      post_team
     ]
   }
 }
