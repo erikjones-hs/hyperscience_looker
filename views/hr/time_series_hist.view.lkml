@@ -104,6 +104,11 @@ view: lever_time_series_hist {
     sql: ${TABLE}."POST_OWNER_NAME" ;;
   }
 
+  dimension: hiring_manager {
+    type: string
+    sql: ${TABLE}."HIRING_MANAGER" ;;
+  }
+
   dimension: post_location_grouped {
     type: string
     sql: ${TABLE}."POST_LOCATION_GROUPED" ;;
