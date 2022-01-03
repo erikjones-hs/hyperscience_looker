@@ -461,6 +461,36 @@ view: lever_time_series_hist {
     value_format: "0.0"
   }
 
+  measure: open_applications {
+    type:  count_distinct
+    sql: ${opp_id};;
+    filters: [opp_stage_name: "-archived", opp_stage_name: "-hired", post_state: "= published" ]
+  }
+
+  measure: open_recruiting_screens{
+    type:  count_distinct
+    sql: ${opp_id};;
+    filters: [opp_stage_name: "= recruiter_screen", post_state: "= published" ]
+  }
+
+  measure: open_phone_screens{
+    type:  count_distinct
+    sql: ${opp_id};;
+    filters: [opp_stage_name: "= phone_screen", post_state: "= published" ]
+  }
+
+  measure: open_interviews{
+    type:  count_distinct
+    sql: ${opp_id};;
+    filters: [opp_stage_name: "= interview", post_state: "= published" ]
+  }
+
+  measure: open_offers{
+    type:  count_distinct
+    sql: ${opp_id};;
+    filters: [opp_stage_name: "= offer", post_state: "= published" ]
+  }
+
   set: detail {
     fields: [
       opp_id,
