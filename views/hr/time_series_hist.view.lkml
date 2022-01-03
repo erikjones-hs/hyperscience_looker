@@ -268,10 +268,6 @@ view: lever_time_series_hist {
     label: "Stage (Custom Sort)"
     case: {
       when: {
-        sql: ${opp_stage_name} = 'pre_interview' ;;
-        label: "Open Applications"
-      }
-      when: {
         sql: ${opp_stage_name} = 'recruiter_screen' ;;
         label: "Recruiter Screen"
       }
