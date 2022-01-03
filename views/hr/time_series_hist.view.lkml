@@ -463,8 +463,11 @@ view: lever_time_series_hist {
 
   measure: open_applications {
     type:  count_distinct
-    sql: ${opp_id};;
-    filters: [opp_stage_name: "-archived", opp_stage_name: "-hired", post_state: "published" ]
+    sql:
+       CASE WHEN ${opp_stage_name} not in ('archived','hired') AND ${post_state} = 'published'
+       THEN ${opp_id}
+       ELSE NULL
+      END;;
   }
 
   measure: open_recruiting_screens{
