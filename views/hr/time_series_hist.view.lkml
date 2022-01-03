@@ -286,6 +286,19 @@ view: lever_time_series_hist {
     }
   }
 
+  dimension: intern_fl {
+    case: {
+      when: {
+        sql: ${is_intern_flag} = 1;;
+        label: "Intern Positions"
+      }
+      when: {
+        sql: ${is_intern_flag} = 0;;
+        label: "Non-Intern Positions"
+      }
+    }
+  }
+
   measure: num_opps {
     type: count_distinct
     sql: ${opp_id} ;;
