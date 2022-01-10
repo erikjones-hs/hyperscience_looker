@@ -189,4 +189,58 @@ view: lead_contact_life_cycle_status_changes {
 
   }
 
+  measure: selected_period_leads_sal {
+
+    type: count_distinct
+
+    sql: ${TABLE}."PERSON_ID" ;;
+
+    filters: [timeframes: "Period", status_change: "SAL"]
+
+  }
+
+  measure: previous_period_leads_sal {
+
+    type: count_distinct
+
+    sql: ${TABLE}."PERSON_ID";;
+
+    filters: [timeframes: "Previous Period", status_change: "SAL"]
+
+  }
+
+  measure: leads_sal_change {
+
+    type: number
+    sql: ${selected_period_leads_sal} - ${previous_period_leads_sal} ;;
+
+  }
+
+  measure: selected_period_leads_sql {
+
+    type: count_distinct
+
+    sql: ${TABLE}."PERSON_ID" ;;
+
+    filters: [timeframes: "Period", status_change: "SQL"]
+
+  }
+
+  measure: previous_period_leads_sql {
+
+    type: count_distinct
+
+    sql: ${TABLE}."PERSON_ID";;
+
+    filters: [timeframes: "Previous Period", status_change: "SQL"]
+
+  }
+
+  measure: leads_sql_change {
+
+    type: number
+    sql: ${selected_period_leads_sql} - ${previous_period_leads_sql} ;;
+
+  }
+
 }
