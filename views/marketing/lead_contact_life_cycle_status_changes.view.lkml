@@ -79,7 +79,7 @@ view: lead_contact_life_cycle_status_changes {
 
     timeframes: [raw]
 
-    sql: CASE WHEN {% date_end date_filter %} IS NULL THEN CURRENT_DATE ELSE DATEADD(days, -1, CAST({% date_end date_filter %}) AS DATE) END;;
+    sql: CASE WHEN {% date_end date_filter %} IS NULL THEN CURRENT_DATE ELSE CAST({% date_end date_filter %} AS DATE) END;;
 
   }
 
@@ -123,7 +123,7 @@ view: lead_contact_life_cycle_status_changes {
 
       when: {
 
-        sql: ${date_date} BETWEEN ${previous_start_date} AND DATEADD(days, -1, ${filter_start_date_raw}) ;;
+        sql: ${date_date} BETWEEN ${previous_start_date} AND ${filter_start_date_raw} ;;
 
         label: "Previous Period"
 
