@@ -87,7 +87,7 @@ view: lead_contact_life_cycle_status_changes {
 
     type: number
 
-    sql: DATEDIFF(days, ${filter_start_date_raw}, ${filter_end_date_raw})-1;;
+    sql: DATEDIFF(days, ${filter_start_date_raw}, ${filter_end_date_raw});;
 
 # MySQL: TIMESTAMPDIFF(second, ${filter_end_date_raw}, ${filter_start_date_raw});;
 
@@ -123,7 +123,7 @@ view: lead_contact_life_cycle_status_changes {
 
       when: {
 
-        sql: ${date_date} BETWEEN ${previous_start_date} AND ${filter_start_date_raw} ;;
+        sql: ${date_date} BETWEEN ${previous_start_date} AND DATEADD(days, -1, ${filter_start_date_raw}) ;;
 
         label: "Previous Period"
 
