@@ -65,7 +65,7 @@ view: renewals_dash {
   dimension_group: opp_start_date {
     type: time
     timeframes: [date,week,month,year]
-    sql: ${TABLE}."OPP_START_DATE" ;;
+    sql: ${TABLE}."OPP_START_DTE" ;;
   }
 
   dimension_group: opp_close_date {
