@@ -315,6 +315,25 @@ view: salesforce_leads_and_contacts {
     sql: ${TABLE}."SOURCE_LAST_LEAD_SOURCE_DETAIL" ;;
   }
 
+  dimension: converted_opportunity_id {
+
+    type: string
+    sql:  ${TABLE}."CONVERTED_OPPORTUNITY_ID" ;;
+
+  }
+
+  dimension: opp_stage_name_ordered {
+
+    type: string
+    sql: ${TABLE}."OPP_STAGE_NAME_ORDERED" ;;
+
+  }
+
+  dimension: opp_arr {
+    type: number
+    sql: ${TABLE}."OPP_ARR" ;;
+  }
+
   dimension_group: sql {
     type: time
     timeframes: [
