@@ -373,4 +373,21 @@ view: salesforce_leads_and_contacts {
     type: count
     drill_fields: []
   }
+
+  measure: converted_opps {
+
+    type: count_distinct
+    sql: ${TABLE}."CONVERTED_OPPORTUNITY_ID" ;;
+
+  }
+
+  measure: arr {
+
+    type: sum_distinct
+    sql: ${TABLE}."OPP_ARR" ;;
+    sql_distinct_key: ${TABLE}."CONVERTED_OPPORTUNITY_ID" ;;
+
+  }
+
+
 }
