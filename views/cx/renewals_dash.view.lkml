@@ -57,11 +57,6 @@ view: renewals_dash {
     sql: ${TABLE}."OPP_REVENUE_TYPE" ;;
   }
 
-  dimension: opp_prior_opp_id {
-    type: string
-    sql: ${TABLE}."OPP_PRIOR_OPP_ID" ;;
-  }
-
   dimension_group: opp_start_date {
     type: time
     timeframes: [date,week,month,year]
@@ -100,25 +95,15 @@ view: renewals_dash {
     sql: ${TABLE}."OWNER_DESCRIPTION" ;;
   }
 
-  dimension: company_id_gsid {
-    type: string
-    sql: ${TABLE}."COMPANY_ID_GSID" ;;
-    link: {
-      label: "Gainsight"
-      url: "https://hyperscience.gainsightcloud.com/v1/ui/customersuccess360?cid={{ value }}"
-      icon_url: "http://gainsight.com/favicon.jpg"
-    }
-  }
-
-  dimension: company_id_name {
-    type: string
-    sql: ${TABLE}."COMPANY_ID_NAME" ;;
-  }
-
-  dimension: current_contracted_page_volume {
-    type: number
-    sql: ${TABLE}."CURRENT_CONTRACTED_PAGE_VOLUME" ;;
-  }
+#  dimension: company_id_gsid {
+#    type: string
+#    sql: ${TABLE}."COMPANY_ID_GSID" ;;
+#    link: {
+#      label: "Gainsight"
+#      url: "https://hyperscience.gainsightcloud.com/v1/ui/customersuccess360?cid={{ value }}"
+#      icon_url: "http://gainsight.com/favicon.jpg"
+#    }
+#  }
 
   dimension: csm_name {
     type: string
@@ -200,8 +185,6 @@ view: renewals_dash {
       account_name,
       opp_arr,
       opp_net_new_arr,
-      company_id_gsid,
-      company_id_name,
       csm_name,
       notes,
       renewal_status,
