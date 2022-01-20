@@ -83,6 +83,35 @@ view: forecast_actuals {
     sql: ${TABLE}."DATE_RAN" ;;
   }
 
+  measure: total_pages_processed {
+    type: sum
+    # drill_fields: [details*, number_of_pages_created]
+    sql: ${actual_pages_processed}  ;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    # link: {
+    #   label: "Detailed View of pages Created"
+    #   url: "{{drill_pages_created._link}}&sorts=user_defied_usage_data.usage_date+asc"
+    # }
+  }
+
+  measure: total_pages_forecasted {
+    type: sum
+    # drill_fields: [details*, number_of_pages_created]
+    sql: ${forecast_pages}  ;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    # link: {
+    #   label: "Detailed View of pages Created"
+    #   url: "{{drill_pages_created._link}}&sorts=user_defied_usage_data.usage_date+asc"
+    # }
+  }
+
+  measure: monthly_contracted_pages {
+    type: number
+    #drill_fields: [details*, number_of_pages_completed, number_of_documents_completed]
+    sql: ${contracted_pages_over_term}::real/nullif(${current_contract_term}::real,0) ;;
+    value_format_name: decimal_2
+  }
+
   set: detail {
     fields: [
       dte,
