@@ -117,7 +117,7 @@ view: forecast_actuals {
   }
 
   measure: term {
-    type: number
+    type: max
     # drill_fields: [details*, number_of_pages_created]
     sql: ${current_contract_term}  ;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
@@ -127,12 +127,6 @@ view: forecast_actuals {
     # }
   }
 
-  measure: monthly_contracted_pages {
-    type: number
-    #drill_fields: [details*, number_of_pages_completed, number_of_documents_completed]
-    sql: ${total_contracted_pages}::real/nullif(${term}::real,0) ;;
-    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  }
 
   set: detail {
     fields: [
