@@ -8,10 +8,20 @@
     sql: ${TABLE}."MQL_DTE" ;;
   }
 
-  dimension: lead_id {
+  dimension: person_id {
     type: string
-    sql: ${TABLE}."LEAD_ID" ;;
-  }
+    sql: ${TABLE}."PERSON_ID" ;;
+    }
+
+  dimension: lead_source {
+    type: string
+    sql: ${TABLE}."LEAD_SOURCE" ;;
+    }
+
+  dimension: email {
+    type: string
+    sql: ${TABLE}."EMAIL" ;;
+    }
 
   measure: count {
     type: count
@@ -20,7 +30,7 @@
 
   measure: num_leads {
     type: count_distinct
-    sql:${lead_id} ;;
+    sql:${person_id} ;;
     drill_fields: [detail*]
   }
 
@@ -31,6 +41,6 @@
     }
 
   set: detail {
-    fields: [mql_dte_date, lead_id]
+    fields: [mql_dte_date, person_id, lead_source, email]
   }
 }

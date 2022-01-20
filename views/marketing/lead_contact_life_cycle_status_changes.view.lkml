@@ -87,7 +87,7 @@ view: lead_contact_life_cycle_status_changes {
 
     type: number
 
-    sql: DATEDIFF(seconds, ${filter_start_date_raw}, ${filter_end_date_raw});;
+    sql: DATEDIFF(days, ${filter_start_date_raw}, ${filter_end_date_raw});;
 
 # MySQL: TIMESTAMPDIFF(second, ${filter_end_date_raw}, ${filter_start_date_raw});;
 
@@ -97,7 +97,7 @@ view: lead_contact_life_cycle_status_changes {
 
     type: date
 
-    sql: DATEADD(seconds, -${interval}, ${filter_start_date_raw}) ;;
+    sql: DATEADD(days, -${interval}, ${filter_start_date_raw}) ;;
 
 # MySQL: DATE_ADD(${filter_start_date_raw}, interval ${interval} second) ;;
 
