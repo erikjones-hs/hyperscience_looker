@@ -12,6 +12,22 @@ view: forecast_actuals {
     sql: ${TABLE}."DTE" ;;
   }
 
+  dimension_group: dte {
+    type: time
+    convert_tz: no
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year,
+      day_of_year
+    ]
+    sql: ${TABLE}."DTE" ;;
+  }
+
   dimension: customer_name {
     type: string
     sql: ${TABLE}."CUSTOMER_NAME" ;;
