@@ -142,7 +142,7 @@ view: forecast_actuals {
   measure: diff_from_forecast {
     type: number
     drill_fields: [detail*]
-    sql: ${total_pages_processed}-${total_pages_forecasted};;
+    sql: if(${forecast_actuals.dte_month}<=add_months(-1,now()),${forecast_actuals.total_pages_processed}-${forecast_actuals.total_pages_forecasted},0);;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
     # link: {
     #   label: "Detailed View of pages Created"
