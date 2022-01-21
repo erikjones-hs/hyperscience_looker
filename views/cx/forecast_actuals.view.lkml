@@ -139,17 +139,29 @@ view: forecast_actuals {
     # }
   }
 
+  measure: diff_from_forecast {
+    type: number
+    drill_fields: [detail*]
+    sql: ${total_pages_processed}-${total_pages_forecasted};;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    # link: {
+    #   label: "Detailed View of pages Created"
+    #   url: "{{drill_pages_created._link}}&sorts=user_defied_usage_data.usage_date+asc"
+    # }
+  }
+
 
   set: detail {
     fields: [
       dte,
       customer_name,
+      actual_pages_processed,
       forecast_pages,
+      diff_from_forecast,
+      contracted_pages_over_term,
       current_contract_start,
       current_contract_end,
       current_contract_term,
-      actual_pages_processed,
-      contracted_pages_over_term,
       fy_year,
       fy_qtr_year,
       fy_qtr_end_dte,
