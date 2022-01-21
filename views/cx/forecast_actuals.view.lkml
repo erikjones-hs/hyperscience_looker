@@ -26,66 +26,78 @@ view: forecast_actuals {
       day_of_year
     ]
     sql: ${TABLE}."DTE" ;;
+    drill_fields: [detail*]
   }
 
   dimension: customer_name {
     type: string
     sql: ${TABLE}."CUSTOMER_NAME" ;;
+    drill_fields: [detail*]
   }
 
   dimension: forecast_pages {
     type: number
     sql: ${TABLE}."FORECAST_PAGES" ;;
+    drill_fields: [detail*]
   }
 
   dimension: current_contract_start {
     type: date
     sql: ${TABLE}."CURRENT_CONTRACT_START" ;;
+    drill_fields: [detail*]
   }
 
   dimension: current_contract_end {
     type: date
     sql: ${TABLE}."CURRENT_CONTRACT_END" ;;
+    drill_fields: [detail*]
   }
 
   dimension: current_contract_term {
     type: number
     sql: ${TABLE}."CURRENT_CONTRACT_TERM" ;;
+    drill_fields: [detail*]
   }
 
   dimension: actual_pages_processed {
     type: number
     sql: ${TABLE}."ACTUAL_PAGES_PROCESSED" ;;
+    drill_fields: [detail*]
   }
 
   dimension: contracted_pages_over_term {
     type: number
     sql: ${TABLE}."CONTRACTED_PAGES_OVER_TERM" ;;
+    drill_fields: [detail*]
   }
 
   dimension: fy_year {
     type: date
     sql: ${TABLE}."FY_YEAR" ;;
+    drill_fields: [detail*]
   }
 
   dimension: fy_qtr_year {
     type: string
     sql: ${TABLE}."FY_QTR_YEAR" ;;
+    drill_fields: [detail*]
   }
 
   dimension: fy_qtr_end_dte {
     type: date
     sql: ${TABLE}."FY_QTR_END_DTE" ;;
+    drill_fields: [detail*]
   }
 
   dimension: date_ran {
     type: date
     sql: ${TABLE}."DATE_RAN" ;;
+    drill_fields: [detail*]
   }
 
   measure: total_pages_processed {
     type: sum
-    # drill_fields: [details*, number_of_pages_created]
+    drill_fields: [detail*]
     sql: ${actual_pages_processed}  ;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
     # link: {
@@ -96,7 +108,7 @@ view: forecast_actuals {
 
   measure: total_pages_forecasted {
     type: sum
-    # drill_fields: [details*, number_of_pages_created]
+   drill_fields: [detail*]
     sql: ${forecast_pages}  ;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
     # link: {
@@ -107,7 +119,7 @@ view: forecast_actuals {
 
   measure: total_contracted_pages {
     type: sum
-    # drill_fields: [details*, number_of_pages_created]
+    drill_fields: [detail*]
     sql: ${contracted_pages_over_term}  ;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
     # link: {
@@ -118,7 +130,7 @@ view: forecast_actuals {
 
   measure: term {
     type: max
-    # drill_fields: [details*, number_of_pages_created]
+    drill_fields: [detail*]
     sql: ${current_contract_term}  ;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
     # link: {
