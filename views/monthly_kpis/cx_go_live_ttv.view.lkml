@@ -67,6 +67,13 @@ view: cx_go_live_ttv {
     sql:  to_timestamp(to_date(current_date())) ;;
   }
 
+  dimension_group: ttv_days {
+    type: duration
+    intervals: [day, week, month]
+    sql_start: ${kpi_start_date_date} ;;
+    sql_end: ${go_live_date_date};;
+  }
+
   dimension: project_status {
     type: string
     sql: ${TABLE}."PROJECT_STATUS" ;;
