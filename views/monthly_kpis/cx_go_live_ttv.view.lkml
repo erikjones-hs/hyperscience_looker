@@ -79,7 +79,7 @@ view: cx_go_live_ttv {
     tiers: [0, 30, 60, 90, 120, 150, 180]
     style: relational
     sql: ${days_ttv_days} ;;
-    value_format: "$#,##0"
+    value_format: "#,##0"
   }
 
   dimension: project_status {
