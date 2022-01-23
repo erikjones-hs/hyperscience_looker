@@ -70,8 +70,8 @@ view: cx_go_live_ttv {
   dimension_group: ttv_days {
     type: duration
     intervals: [day, week, month]
-    sql_start: ${kpi_start_date_date} ;;
-    sql_end: ${go_live_date_date};;
+    sql_start: ${TABLE}."KPI_START_DATE" ;;
+    sql_end: ${TABLE}."GO_LIVE_DATE";;
   }
 
   dimension: project_status {
