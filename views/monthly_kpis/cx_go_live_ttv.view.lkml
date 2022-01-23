@@ -74,6 +74,14 @@ view: cx_go_live_ttv {
     sql_end: ${TABLE}."GO_LIVE_DATE";;
   }
 
+  dimension: ttv_tier {
+    type: tier
+    tiers: [0, 30, 60, 90, 120, 150, 180]
+    style: relational
+    sql: ${days_ttv_days} ;;
+    value_format: "$#,##0"
+  }
+
   dimension: project_status {
     type: string
     sql: ${TABLE}."PROJECT_STATUS" ;;
