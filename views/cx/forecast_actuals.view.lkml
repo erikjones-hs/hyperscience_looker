@@ -97,7 +97,7 @@ view: forecast_actuals {
 
   dimension: usage_collected {
     type: yesno
-    sql: ${actual_pages_processed} is null AND ${forecast_pages} > 0;;
+    sql: ${actual_pages_processed} > 0 AND ${forecast_pages} > 0;;
     drill_fields: [detail*]
   }
 
@@ -114,7 +114,7 @@ view: forecast_actuals {
 
   measure: total_usage_paused {
     type: number
-    sql: SUM(CASE WHEN ${usage_collected} THEN 1 ELSE 0 END) ;;
+    sql: SUM(CASE WHEN ${usage_paused} THEN 1 ELSE 0 END) ;;
   }
 
   measure: total_pages_processed {
