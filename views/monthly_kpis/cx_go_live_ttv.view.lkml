@@ -100,6 +100,21 @@ view: cx_go_live_ttv {
     sql: ${TABLE}."INITIAL_IMPLEMENTATION" ;;
   }
 
+  dimension: fy_year {
+    type: date
+    sql: ${TABLE}."FY_YEAR" ;;
+  }
+
+  dimension: fy_qtr_year {
+    type: string
+    sql: ${TABLE}."FY_QTR_YEAR" ;;
+  }
+
+  dimension: fy_qtr_end_dte {
+    type: date
+    sql: ${TABLE}."FY_QTR_END_DTE" ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
@@ -136,7 +151,9 @@ view: cx_go_live_ttv {
       time_to_value,
       days_ttv_days,
       ttv_tier,
-      go_live_date_date
+      fy_qtr_end_dte,
+      go_live_date_date,
+      first_go_live_date_date
     ]
   }
 }
