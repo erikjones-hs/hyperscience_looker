@@ -101,9 +101,9 @@ view: forecast_actuals {
     drill_fields: [detail*]
   }
 
-  dimension: usage_paused {
+  dimension: usage_expected {
     type: yesno
-    sql: ${actual_pages_processed} = 0 ;;
+    sql: ${forecast_pages} > 0 ;;
     drill_fields: [detail*]
   }
 
@@ -112,9 +112,9 @@ view: forecast_actuals {
     sql: SUM(CASE WHEN ${usage_collected} THEN 1 ELSE 0 END) ;;
   }
 
-  measure: total_usage_paused {
+  measure: total_usage_expected {
     type: number
-    sql: SUM(CASE WHEN ${usage_paused} THEN 1 ELSE 0 END) ;;
+    sql: SUM(CASE WHEN ${usage_expected} THEN 1 ELSE 0 END) ;;
   }
 
   measure: total_pages_processed {
