@@ -95,6 +95,28 @@ view: forecast_actuals {
     drill_fields: [detail*]
   }
 
+  dimension: usage_collected {
+    type: yesno
+    sql: ${actual_pages_processed} is null AND ${forecast_pages} > 0;;
+    drill_fields: [detail*]
+  }
+
+  dimension: usage_paused {
+    type: yesno
+    sql: ${actual_pages_processed} = 0 ;;
+    drill_fields: [detail*]
+  }
+
+  measure: total_usage_collected {
+    type: number
+    sql: SUM(CASE WHEN ${usage_collected} THEN 1 ELSE 0 END) ;;
+  }
+
+  measure: total_usage_paused {
+    type: number
+    sql: SUM(CASE WHEN ${usage_collected} THEN 1 ELSE 0 END) ;;
+  }
+
   measure: total_pages_processed {
     type: sum
     drill_fields: [detail*]
