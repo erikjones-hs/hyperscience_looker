@@ -134,7 +134,8 @@ view: cx_go_live_ttv {
       current_contract_start_date,
       current_contract_end_date,
       time_to_value,
-      go_live_goal_date,
+      days_ttv_days,
+      ttv_tier,
       go_live_date_date
     ]
   }
