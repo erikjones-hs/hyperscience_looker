@@ -72,6 +72,7 @@ view: cx_go_live_ttv {
     intervals: [day, week, month]
     sql_start: ${TABLE}."KPI_START_DATE" ;;
     sql_end: ${TABLE}."GO_LIVE_DATE";;
+    drill_fields: [detail*]
   }
 
   dimension: ttv_tier {
@@ -80,6 +81,7 @@ view: cx_go_live_ttv {
     style: relational
     sql: ${days_ttv_days} ;;
     value_format: "#,##0"
+    drill_fields: [detail*]
   }
 
   dimension: project_status {
@@ -121,7 +123,6 @@ view: cx_go_live_ttv {
     value_format: "0.##"
     drill_fields: [detail*]
   }
-
 
   set: detail {
     fields: [
