@@ -209,6 +209,13 @@ view: agg_account_arr {
     drill_fields: [detail*]
   }
 
+  measure: arr_churn {
+    type:  number
+    sql:  ${mrr_reporting_acct} ;;
+    value_format: "$#,##0"
+    drill_fields: [detail*]
+  }
+
   set: detail {
     fields: [
       date_month_month,
