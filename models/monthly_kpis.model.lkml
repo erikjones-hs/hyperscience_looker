@@ -7,6 +7,7 @@ explore: sales {}
 explore: pages_processed {}
 explore: hr {}
 explore: sales_pipeline_history {}
+explore: sales_dq_pipeline_history {}
 explore: sales_pipeline_current {}
 explore: cx_go_live_ttv {}
 explore: finance_arr {}
