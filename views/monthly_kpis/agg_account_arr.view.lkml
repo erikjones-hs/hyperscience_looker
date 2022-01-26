@@ -4,7 +4,7 @@ view: agg_account_arr {
 
   dimension_group: date_month {
     type: time
-    timeframes: [raw, date, month, quarter, year]
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
     sql: ${TABLE}."DATE_MONTH" ;;
   }
 
