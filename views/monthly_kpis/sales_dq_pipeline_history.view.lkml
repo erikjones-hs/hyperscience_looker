@@ -104,7 +104,6 @@
     measure: num_opps_dq_pipeline {
       type:  count_distinct
       sql:  ${opp_id};;
-      value_format: "$#,##0"
       label: "Num Opps DQed Pipeline"
       drill_fields: [detail*]
     }
