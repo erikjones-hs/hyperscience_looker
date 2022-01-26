@@ -210,7 +210,7 @@ view: agg_account_arr {
   }
 
   measure: arr_churn {
-    type:  number
+    type:  sum
     sql:  ${mrr_reporting_acct} ;;
     value_format: "$#,##0"
     drill_fields: [detail*]
