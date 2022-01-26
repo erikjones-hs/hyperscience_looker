@@ -4,7 +4,7 @@ view: agg_account_arr {
 
   dimension_group: date_month {
     type: time
-    timeframes: [raw, date, month, quarter, year]
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
     sql: ${TABLE}."DATE_MONTH" ;;
   }
 
@@ -45,13 +45,13 @@ view: agg_account_arr {
 
   dimension_group: first_active_month {
     type: time
-    timeframes: [raw, date, month, quarter, year]
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
     sql: ${TABLE}."FIRST_ACTIVE_MONTH" ;;
   }
 
   dimension_group: last_active_month {
     type: time
-    timeframes: [date, month, quarter, year]
+    timeframes: [date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
     sql: ${TABLE}."LAST_ACTIVE_MONTH" ;;
   }
 
@@ -205,6 +205,13 @@ view: agg_account_arr {
   measure: net_new_arr {
     type:  number
     sql:  ${new_arr} + ${expansion_arr} + ${churn_arr} ;;
+    value_format: "$#,##0"
+    drill_fields: [detail*]
+  }
+
+  measure: arr_churn {
+    type:  sum
+    sql:  ${mrr_reporting_acct} ;;
     value_format: "$#,##0"
     drill_fields: [detail*]
   }

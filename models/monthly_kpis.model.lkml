@@ -1,6 +1,7 @@
 connection: "looker-snowflake"
 
 include: "/views/monthly_kpis/*.view.lkml"                # include all views in the views/ folder in this project
+fiscal_month_offset:  2
 
 explore: sales {}
 explore: pages_processed {}

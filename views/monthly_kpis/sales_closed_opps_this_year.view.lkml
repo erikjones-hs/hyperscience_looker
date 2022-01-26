@@ -34,13 +34,13 @@ view: sales_closed_opps_this_year {
 
   dimension_group: start_dte {
     type: time
-    timeframes: [raw, date, month, quarter, year]
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
     sql: ${TABLE}."START_DTE" ;;
   }
 
   dimension_group: end_dte {
     type: time
-    timeframes: [raw, date, month, quarter, year]
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
     sql: ${TABLE}."END_DTE" ;;
   }
 
@@ -56,7 +56,7 @@ view: sales_closed_opps_this_year {
 
   dimension_group: closed_won_dte {
     type: time
-    timeframes: [raw, date, month, quarter, year]
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
     sql: ${TABLE}."CLOSED_WON_DTE" ;;
   }
 
