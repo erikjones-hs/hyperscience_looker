@@ -107,11 +107,41 @@ view: forecast_actuals {
     drill_fields: [detail*]
   }
 
+  dimension: region {
+    type: string
+    sql: ${TABLE}."REGION" ;;
+  }
+
+  dimension: industry {
+    type: string
+    sql: ${TABLE}."INDUSTRY" ;;
+  }
+
+  dimension: partner {
+    type: string
+    sql: ${TABLE}."PARTNER" ;;
+  }
+
+  dimension: prev_three_month_page_avg {
+    type: number
+    sql: ${TABLE}."PREV_THREE_MONTH_PAGE_AVG" ;;
+  }
+
   measure: total_usage_collected {
     type: number
     sql: SUM(CASE WHEN ${usage_collected} THEN 1 ELSE 0 END) ;;
   }
 
+  measure: three_month_page_avg {
+    type: sum
+    drill_fields: [detail*]
+    sql: ${prev_three_month_page_avg}  ;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    # link: {
+    #   label: "Detailed View of pages Created"
+    #   url: "{{drill_pages_created._link}}&sorts=user_defied_usage_data.usage_date+asc"
+    # }
+  }
   measure: total_usage_expected {
     type: number
     sql: SUM(CASE WHEN ${usage_expected} THEN 1 ELSE 0 END) ;;
@@ -184,9 +214,13 @@ view: forecast_actuals {
       current_contract_start,
       current_contract_end,
       current_contract_term,
+      prev_three_month_page_avg,
       fy_year,
       fy_qtr_year,
       fy_qtr_end_dte,
+      region,
+      industry,
+      partner,
       date_ran
     ]
   }
