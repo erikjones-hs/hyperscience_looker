@@ -67,6 +67,23 @@ view: cx_go_live_ttv {
     sql:  to_timestamp(to_date(current_date())) ;;
   }
 
+  dimension_group: ttv_days {
+    type: duration
+    intervals: [day, week, month]
+    sql_start: ${TABLE}."KPI_START_DATE" ;;
+    sql_end: ${TABLE}."GO_LIVE_DATE";;
+    drill_fields: [detail*]
+  }
+
+  dimension: ttv_tier {
+    type: tier
+    tiers: [0, 30, 60, 90, 120, 150, 180]
+    style: relational
+    sql: ${days_ttv_days} ;;
+    value_format: "#,##0"
+    drill_fields: [detail*]
+  }
+
   dimension: project_status {
     type: string
     sql: ${TABLE}."PROJECT_STATUS" ;;
@@ -81,6 +98,21 @@ view: cx_go_live_ttv {
   dimension: initial_implementation {
     type: string
     sql: ${TABLE}."INITIAL_IMPLEMENTATION" ;;
+  }
+
+  dimension: fy_year {
+    type: date
+    sql: ${TABLE}."FY_YEAR" ;;
+  }
+
+  dimension: fy_qtr_year {
+    type: string
+    sql: ${TABLE}."FY_QTR_YEAR" ;;
+  }
+
+  dimension: fy_qtr_end_dte {
+    type: date
+    sql: ${TABLE}."FY_QTR_END_DTE" ;;
   }
 
   measure: count {
@@ -107,7 +139,6 @@ view: cx_go_live_ttv {
     drill_fields: [detail*]
   }
 
-
   set: detail {
     fields: [
       gsid,
@@ -118,8 +149,11 @@ view: cx_go_live_ttv {
       current_contract_start_date,
       current_contract_end_date,
       time_to_value,
-      go_live_goal_date,
-      go_live_date_date
+      days_ttv_days,
+      ttv_tier,
+      fy_qtr_end_dte,
+      go_live_date_date,
+      first_go_live_date_date
     ]
   }
 }
