@@ -104,7 +104,8 @@
   }
 
   measure: total_net_new_arr_dq_pipeline {
-    type:  sum
+    type:  sum_distinct
+    sql_distinct_key:  ${opp_id} ;;
     sql:  ${opp_net_new_arr};;
     value_format: "$#,##0"
     label: "DQed Pipeline"
