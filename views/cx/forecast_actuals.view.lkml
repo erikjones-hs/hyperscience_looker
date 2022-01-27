@@ -142,6 +142,18 @@ view: forecast_actuals {
     #   url: "{{drill_pages_created._link}}&sorts=user_defied_usage_data.usage_date+asc"
     # }
   }
+
+  measure: three_month_page_avg_missing_customers {
+    type: sum
+    drill_fields: [detail*]
+    sql: CASE WHEN ${usage_collected} != TRUE AND ${usage_expected} THEN ${prev_three_month_page_avg} ELSE 0;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    # link: {
+    #   label: "Detailed View of pages Created"
+    #   url: "{{drill_pages_created._link}}&sorts=user_defied_usage_data.usage_date+asc"
+    # }
+  }
+
   measure: total_usage_expected {
     type: number
     sql: SUM(CASE WHEN ${usage_expected} THEN 1 ELSE 0 END) ;;
