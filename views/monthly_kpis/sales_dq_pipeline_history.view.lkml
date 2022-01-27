@@ -88,6 +88,16 @@
     sql: ${TABLE}."OPP_DQ_DTE" ;;
   }
 
+    dimension: dq_reason {
+      type: string
+      sql: ${TABLE}."DQ_REASON" ;;
+    }
+
+    dimension: dq_reason_description {
+      type: string
+      sql: ${TABLE}."DQ_REASON_DESCRIPTION" ;;
+    }
+
   measure: count {
     type: count
     drill_fields: [detail*]
