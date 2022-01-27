@@ -10,6 +10,7 @@ explore: sales_pipeline_history {}
 explore: sales_dq_pipeline_history {}
 explore: sales_dq_opportunities {}
 explore: sales_pipeline_current {}
+explore: sales_stage_progression {}
 explore: cx_go_live_ttv {}
 explore: finance_arr {}
 explore: agg_account_arr {}
