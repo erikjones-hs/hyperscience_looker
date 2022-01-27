@@ -146,7 +146,7 @@ view: forecast_actuals {
   measure: three_month_page_avg_missing_customers {
     type: sum
     drill_fields: [detail*]
-    sql: CASE WHEN ${usage_collected} != TRUE AND ${usage_expected} THEN ${prev_three_month_page_avg} ELSE 0;;
+    sql: CASE WHEN NOT ${usage_collected} AND ${usage_expected} THEN ${prev_three_month_page_avg} ELSE 0;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
     # link: {
     #   label: "Detailed View of pages Created"
