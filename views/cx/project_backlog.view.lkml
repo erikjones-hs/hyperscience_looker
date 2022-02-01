@@ -14,7 +14,7 @@ view: project_backlog {
 
   dimension: month {
     type: date
-    sql: ${TABLE}."MONTH" ;;
+    sql: date_trunc('month',${TABLE}."MONTH") ;;
   }
 
   dimension: fy_qtr_year {
