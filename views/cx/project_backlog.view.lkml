@@ -1,5 +1,5 @@
 view: project_backlog {
-  sql_table_name: (select * from DEV.CX.PROJECT BACKLOG);;
+  sql_table_name: (select * from DEV.CX.PROJECT_BACKLOG);;
   drill_fields: [detail*]
 
   measure: count {
