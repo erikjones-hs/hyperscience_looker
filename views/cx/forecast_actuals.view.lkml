@@ -177,10 +177,34 @@ view: forecast_actuals {
     # }
   }
 
+  measure: total_pages_processed_fed {
+    type: sum
+    drill_fields: [detail*]
+    sql: ${actual_pages_processed}  ;;
+    filters: [fed_sled: "Fed"]
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    # link: {
+    #   label: "Detailed View of pages Created"
+    #   url: "{{drill_pages_created._link}}&sorts=user_defied_usage_data.usage_date+asc"
+    # }
+  }
+
   measure: total_pages_forecasted {
     type: sum
    drill_fields: [detail*]
     sql: ${forecast_pages}  ;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    # link: {
+    #   label: "Detailed View of pages Created"
+    #   url: "{{drill_pages_created._link}}&sorts=user_defied_usage_data.usage_date+asc"
+    # }
+  }
+
+  measure: total_pages_forecasted_fed {
+    type: sum
+    drill_fields: [detail*]
+    sql: ${forecast_pages}  ;;
+    filters: [fed_sled: "Fed"]
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
     # link: {
     #   label: "Detailed View of pages Created"
