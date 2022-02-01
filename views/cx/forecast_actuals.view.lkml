@@ -117,6 +117,13 @@ view: forecast_actuals {
     sql: ${TABLE}."INDUSTRY" ;;
   }
 
+  dimension: fed_sled {
+    type: string
+    sql: CASE WHEN ${industry} = 'Government & Public Services' AND ${customer_name} in ('Department of Veterans Affairs','Social Security Administration','Department of Treasury') THEN 'Fed'
+    WHEN ${industry} = 'Government & Public Services' AND ${customer_name} not in ('Department of Veterans Affairs','Social Security Administration','Department of Treasury') THEN 'Sled'
+    ELSE 'Private' END) ;;
+  }
+
   dimension: partner {
     type: string
     sql: ${TABLE}."PARTNER" ;;
