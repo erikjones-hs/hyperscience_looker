@@ -23,6 +23,31 @@
     sql: ${TABLE}."EMAIL" ;;
     }
 
+  dimension: lead_type {
+    type: string
+    sql: ${TABLE}."LEAD_TYPE" ;;
+  }
+
+  dimension: secondary_lead_source {
+    type: string
+    sql: ${TABLE}."SECONDARY_LEAD_SOURCE" ;;
+  }
+
+  dimension: first_lead_source_detail {
+    type: string
+    sql: ${TABLE}."SOURCE_FIRST_LEAD_SOURCE_DETAIL" ;;
+  }
+
+  dimension: last_lead_source {
+    type: string
+    sql: ${TABLE}."LAST_LEAD_SOURCE" ;;
+  }
+
+  dimension: email_domain {
+    type: string
+    sql: ${TABLE}."EMAIL_DOMAIN" ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
@@ -41,6 +66,6 @@
     }
 
   set: detail {
-    fields: [mql_dte_date, person_id, lead_source, email]
+    fields: [mql_dte_date, person_id, lead_source, first_lead_source_detail, email]
   }
 }
