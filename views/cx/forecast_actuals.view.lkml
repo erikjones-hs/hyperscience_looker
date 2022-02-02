@@ -161,6 +161,11 @@ view: forecast_actuals {
     # }
   }
 
+  measure: approximate_page_count_not_collected{
+    type: number
+    sql: coalesce(${three_month_page_avg_missing_customers},max(${three_month_page_avg_missing_customers}) ;;
+  }
+
   measure: total_usage_expected {
     type: number
     sql: SUM(CASE WHEN ${usage_expected} THEN 1 ELSE 0 END) ;;
