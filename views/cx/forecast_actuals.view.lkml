@@ -65,6 +65,12 @@ view: forecast_actuals {
     drill_fields: [detail*]
   }
 
+  dimension: previous_pages_processed {
+    type: number
+    sql: lag(${TABLE}."ACTUAL_PAGES_PROCESSED") over (partition by ${customer_name} order by ${dte_month} desc);;
+    drill_fields: [detail*]
+  }
+
   dimension: contracted_pages_over_term {
     type: number
     sql: ${TABLE}."CONTRACTED_PAGES_OVER_TERM" ;;
