@@ -67,6 +67,29 @@ view: project_backlog {
     sql: ${TABLE}."GO_LIVE_DATE" ;;
   }
 
+  dimension_group: go_live_goal {
+    type: time
+    timeframes: [date, month, quarter, year]
+    sql: ${TABLE}."GO_LIVE_GOAL" ;;
+  }
+
+  dimension_group: ttv_days {
+    type: duration
+    intervals: [day, week, month]
+    sql_start: ${TABLE}."KPI_START_DATE" ;;
+    sql_end: ${TABLE}."GO_LIVE_GOAL";;
+    drill_fields: [detail*]
+  }
+
+  dimension: ttv_tier {
+    type: tier
+    tiers: [0, 30, 60, 90, 120, 150, 180]
+    style: relational
+    sql: ${days_ttv_days} ;;
+    value_format: "#,##0"
+    drill_fields: [detail*]
+  }
+
   dimension_group: kpi_start_date {
     type: time
     sql: ${TABLE}."KPI_START_DATE" ;;
