@@ -133,10 +133,11 @@ view: forecast_actuals {
     sql: ${TABLE}."PREV_THREE_MONTH_PAGE_AVG" ;;
   }
 
-  measure: arr {
+  dimension: arr {
     type: number
     sql: ${TABLE}."ARR" ;;
   }
+
 
   measure: total_usage_collected {
     type: number
