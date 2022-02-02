@@ -133,6 +133,11 @@ view: forecast_actuals {
     sql: ${TABLE}."PREV_THREE_MONTH_PAGE_AVG" ;;
   }
 
+  measure: arr {
+    type: number
+    sql: ${TABLE}."ARR" ;;
+  }
+
   measure: total_usage_collected {
     type: number
     sql: SUM(CASE WHEN ${usage_collected} THEN 1 ELSE 0 END) ;;
