@@ -23,6 +23,28 @@ view: cx_go_live_ttv {
     sql: ${TABLE}."COMPANY_ID_NAME" ;;
   }
 
+  dimension: industry {
+    type: string
+    sql: ${TABLE}."INDUSTRY" ;;
+  }
+
+  dimension: region {
+    type: string
+    sql: ${TABLE}."REGION" ;;
+  }
+
+  dimension: partner {
+    type: string
+    sql: ${TABLE}."PARTNER" ;;
+  }
+
+  dimension: fed_sled {
+    type: string
+    sql: CASE WHEN ${industry} = 'Government & Public Services' AND ${company_id_name} in ('Department of Veterans Affairs','Social Security Administration','Treasury') THEN 'Fed'
+          WHEN ${industry} = 'Government & Public Services' AND ${company_id_name} not in ('Department of Veterans Affairs','Social Security Administration','Treasury') THEN 'Sled'
+          ELSE 'Private sector' END;;
+  }
+
   dimension: current_contracted_volume {
     type: number
     sql: ${TABLE}."CURRENT_CONTRACTED_VOLUME" ;;
@@ -141,13 +163,12 @@ view: cx_go_live_ttv {
 
   set: detail {
     fields: [
-      gsid,
-      current_opportunity_id,
       name,
       company_id_name,
       current_contracted_volume,
-      current_contract_start_date,
-      current_contract_end_date,
+      industry,
+      partner,
+      region,
       time_to_value,
       days_ttv_days,
       ttv_tier,

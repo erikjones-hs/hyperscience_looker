@@ -119,7 +119,8 @@ view: forecast_actuals {
 
   dimension: fed_sled {
     type: string
-    sql: CASE WHEN ${industry} = 'Government & Public Services' AND ${customer_name} in ('Dept. of VA via VICCS (IBM/DLT)','SSA-Dedupe', 'SSA-Extract','Treasury') THEN 'Fed'
+    sql: CASE WHEN ${industry} = 'Government & Public Services' AND ${customer_name} in ('Dept. of VA via VICCS (IBM/DLT)','SSA-Dedupe', 'SSA-Extract',) THEN 'Fed'
+    WHEN ${industry} = 'Government & Public Services' AND ${customer_name} in ('Treasury') THEN 'Treasury'
     ELSE 'Private/Sled' END;;
   }
 
