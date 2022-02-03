@@ -40,8 +40,8 @@ view: cx_go_live_ttv {
 
   dimension: fed_sled {
     type: string
-    sql: CASE WHEN ${industry} = 'Government & Public Services' AND ${company_id_name} in ('Department of Veterans Affairs','Social Security Administration','Treasury') THEN 'Fed'
-          WHEN ${industry} = 'Government & Public Services' AND ${company_id_name} not in ('Department of Veterans Affairs','Social Security Administration','Treasury') THEN 'Sled'
+    sql: CASE WHEN ${industry} = 'Government & Public Services' AND ${company_id_name} in ('Department of Veterans Affairs','Social Security Administration','Department of Treasury') THEN 'Fed'
+          WHEN ${industry} = 'Government & Public Services' AND ${company_id_name} not in ('Department of Veterans Affairs','Social Security Administration','Department of Treasury') THEN 'Sled'
           ELSE 'Private sector' END;;
   }
 
