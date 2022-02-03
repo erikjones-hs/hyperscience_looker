@@ -137,6 +137,11 @@ view: cx_go_live_ttv {
     sql: ${TABLE}."FY_QTR_END_DTE" ;;
   }
 
+  dimension: account_exec {
+    type: string
+    sql: ${TABLE}."ACCOUNT_EXEC" ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
