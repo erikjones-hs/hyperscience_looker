@@ -141,6 +141,10 @@ view: forecast_actuals {
     sql: ${TABLE}."ARR" ;;
   }
 
+  dimension: account_exec {
+    type: string
+    sql: ${TABLE}."ACCOUNT_EXEC" ;;
+  }
 
   measure: total_usage_collected {
     type: number
