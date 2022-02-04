@@ -73,6 +73,17 @@ view: project_backlog {
     sql: ${TABLE}."GO_LIVE_GOAL" ;;
   }
 
+  dimension: project_end_date {
+    type: date
+    sql: ${TABLE}."PROJECT_END_DATE" ;;
+  }
+
+  dimension: project_inactive_date {
+    type: date
+    sql: ${TABLE}."PROJECT_INACTIVE_DATE" ;;
+  }
+
+
   dimension_group: ttv_days {
     type: duration
     intervals: [day, week, month]
@@ -107,19 +118,20 @@ view: project_backlog {
 
   set: detail {
     fields: [
+      company_id_name,
+      name,
+      project_manager_name,
+      implementation_manager_name,
+      project_inactive_date,
+      go_live_date_time,
+      kpi_start_date_time,
+      project_in_backlog,
+      arr_in_backlog,
       fy_year,
       month,
       fy_qtr_year,
       fy_qtr_start_dte,
-      fy_qtr_end_dte,
-      project_in_backlog,
-      arr_in_backlog,
-      name,
-      project_manager_name,
-      implementation_manager_name,
-      company_id_name,
-      go_live_date_time,
-      kpi_start_date_time
+      fy_qtr_end_dte
     ]
   }
 }
