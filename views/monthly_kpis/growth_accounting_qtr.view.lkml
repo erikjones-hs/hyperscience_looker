@@ -145,6 +145,7 @@ view: growth_accounting_qtr {
   measure: avg_arr {
     type:  sum
     sql:  ${arr_per_customer} ;;
+    value_format: "$#,##0"
     label: "Avg. ARR Per Customer"
   }
 
