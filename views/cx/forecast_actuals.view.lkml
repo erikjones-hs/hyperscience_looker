@@ -119,7 +119,7 @@ view: forecast_actuals {
 
   dimension: fed_sled {
     type: string
-    sql: CASE WHEN ${industry} = 'Government & Public Services' AND ${customer_name} in ('Dept. of VA via VICCS (IBM/DLT)','SSA-Dedupe', 'SSA-Extract') THEN 'Fed'
+    sql: CASE WHEN ${industry} = 'Government & Public Services' AND ${customer_name} in ('Dept. of VA via VICCS (IBM/DLT)','GDIT-VA','SSA-Dedupe','SSA-Extract') THEN 'Fed'
     WHEN ${industry} = 'Government & Public Services' AND ${customer_name} in ('Treasury') THEN 'Treasury'
     WHEN ${customer_name} in ('Conduent','Conduent (Humana)','Accerta','Fidelity', 'FATCO','Data Dimensions','AIG','TD Ameritrade',
     'Principal Life Insurance','Momentum','Mercury','State of CO','1-800-Contacts','Great American','Ascensus','Mutual of Omaha','CDCR','Voya','Natera') THEN 'Top 20 by FY 21 forecast'
