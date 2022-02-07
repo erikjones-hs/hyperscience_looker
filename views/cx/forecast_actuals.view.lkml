@@ -122,7 +122,7 @@ view: forecast_actuals {
     sql: CASE WHEN ${industry} = 'Government & Public Services' AND ${customer_name} in ('Dept. of VA via VICCS (IBM/DLT)','SSA-Dedupe', 'SSA-Extract') THEN 'Fed'
     WHEN ${industry} = 'Government & Public Services' AND ${customer_name} in ('Treasury') THEN 'Treasury'
     WHEN ${customer_name} in ('Conduent','Conduent (Humana)','Accerta','Fidelity', 'FATCO','Data Dimensions','AIG','TD Ameritrade',
-    'Principal Life Insurance','Momentum','Mercury','CRL','1-800-Contacts','Great American','Ascensus','Mutual of Omaha','Unum Group','CompIQ','Voya','Natera','Ascensus') THEN 'Top 20 by FY 21 forecast'
+    'Principal Life Insurance','Momentum','Mercury','CRL','1-800-Contacts','Great American','Ascensus','Mutual of Omaha','CDCR','Voya','Natera','Ascensus') THEN 'Top 20 by FY 21 forecast'
     ELSE 'Rest of customer base' END;;
   }
 
