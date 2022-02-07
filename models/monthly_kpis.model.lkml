@@ -25,3 +25,4 @@ explore: marketing_closed_won_sourced_opps {}
 explore: growth_accounting_qtr {}
 explore: customer_cohort_retention {}
 explore: net_revenue_cohort_retention {}
+explore: gross_revenue_cohort_retention {}
