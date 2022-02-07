@@ -5,7 +5,6 @@ view: growth_accounting_qtr {
 
   dimension_group: qtr_end_dte {
     type: time
-    timeframes: [raw, date, month, quarter, year]
     sql: ${TABLE}."QTR_END_DTE" ;;
   }
 
