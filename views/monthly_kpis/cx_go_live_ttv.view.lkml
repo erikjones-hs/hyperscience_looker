@@ -106,6 +106,11 @@ view: cx_go_live_ttv {
     drill_fields: [detail*]
   }
 
+  dimension: deployment_type {
+    type: string
+    sql: ${TABLE}."DEPLOYMENT_TYPE" ;;
+  }
+
   dimension: project_status {
     type: string
     sql: ${TABLE}."PROJECT_STATUS" ;;
