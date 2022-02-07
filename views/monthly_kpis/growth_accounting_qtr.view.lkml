@@ -3,8 +3,8 @@ view: growth_accounting_qtr {
   drill_fields: [detail*]
 
 
-  dimension_group: qtr_end_dte {
-    type: time
+  dimension: qtr_end_dte {
+    type: date
     sql: ${TABLE}."QTR_END_DTE" ;;
   }
 
