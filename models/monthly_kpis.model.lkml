@@ -26,3 +26,4 @@ explore: growth_accounting_qtr {}
 explore: customer_cohort_retention {}
 explore: net_revenue_cohort_retention {}
 explore: gross_revenue_cohort_retention {}
+explore: mql_yoy_comparison {}
