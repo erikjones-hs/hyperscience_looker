@@ -3,27 +3,27 @@ connection: "looker-snowflake"
 include: "/views/monthly_kpis/*.view.lkml"                # include all views in the views/ folder in this project
 fiscal_month_offset:  2
 
-explore: sales {}
-explore: pages_processed {}
-explore: hr {}
-explore: sales_pipeline_history {}
-explore: sales_dq_pipeline_history {}
-explore: sales_dq_opportunities {}
-explore: sales_pipeline_current {}
-explore: sales_stage_progression {}
-explore: cx_go_live_ttv {}
-explore: finance_arr {}
-explore: agg_account_arr {}
-explore: sales_closed_opps_this_year {}
-explore: marketing_mqls {}
-explore: hr_attrition {}
-explore: budget_forecast_actuals {}
-explore: ml_team_metrics {}
-explore: marketing_closed_won_opps {}
-explore: marketing_closed_won_opps_agg {}
-explore: marketing_closed_won_sourced_opps {}
-explore: growth_accounting_qtr {}
-explore: customer_cohort_retention {}
-explore: net_revenue_cohort_retention {}
-explore: gross_revenue_cohort_retention {}
-explore: mql_yoy_comparison {}
+explore: sales {persist_for: "12 hours"}
+explore: pages_processed {persist_for: "12 hours"}
+explore: hr {persist_for: "12 hours"}
+explore: sales_pipeline_history {persist_for: "12 hours"}
+explore: sales_dq_pipeline_history {persist_for: "12 hours"}
+explore: sales_dq_opportunities {persist_for: "12 hours"}
+explore: sales_pipeline_current {persist_for: "12 hours"}
+explore: sales_stage_progression {persist_for: "12 hours"}
+explore: cx_go_live_ttv {persist_for: "12 hours"}
+explore: finance_arr {persist_for: "12 hours"}
+explore: agg_account_arr {persist_for: "12 hours"}
+explore: sales_closed_opps_this_year {persist_for: "12 hours"}
+explore: marketing_mqls {persist_for: "12 hours"}
+explore: hr_attrition {persist_for: "12 hours"}
+explore: budget_forecast_actuals {persist_for: "12 hours"}
+explore: ml_team_metrics {persist_for: "12 hours"}
+explore: marketing_closed_won_opps {persist_for: "12 hours"}
+explore: marketing_closed_won_opps_agg {persist_for: "12 hours"}
+explore: marketing_closed_won_sourced_opps {persist_for: "12 hours"}
+explore: growth_accounting_qtr {persist_for: "12 hours"}
+explore: customer_cohort_retention {persist_for: "12 hours"}
+explore: net_revenue_cohort_retention {persist_for: "12 hours"}
+explore: gross_revenue_cohort_retention {persist_for: "12 hours"}
+explore: mql_yoy_comparison {persist_for: "12 hours"}
