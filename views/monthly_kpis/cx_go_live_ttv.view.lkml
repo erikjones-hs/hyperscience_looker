@@ -16,26 +16,31 @@ view: cx_go_live_ttv {
   dimension: name {
     type: string
     sql: ${TABLE}."NAME" ;;
+    drill_fields: [detail*]
   }
 
   dimension: company_id_name {
     type: string
     sql: ${TABLE}."COMPANY_ID_NAME" ;;
+    drill_fields: [detail*]
   }
 
   dimension: industry {
     type: string
     sql: ${TABLE}."INDUSTRY" ;;
+    drill_fields: [detail*]
   }
 
   dimension: region {
     type: string
     sql: ${TABLE}."REGION" ;;
+    drill_fields: [detail*]
   }
 
   dimension: partner {
     type: string
     sql: ${TABLE}."PARTNER" ;;
+    drill_fields: [detail*]
   }
 
   dimension: fed_sled {
@@ -43,6 +48,7 @@ view: cx_go_live_ttv {
     sql: CASE WHEN ${industry} = 'Government & Public Services' AND ${company_id_name} in ('Department of Veterans Affairs','Social Security Administration','Department of Treasury') THEN 'Fed'
           WHEN ${industry} = 'Government & Public Services' AND ${company_id_name} not in ('Department of Veterans Affairs','Social Security Administration','Department of Treasury') THEN 'Sled'
           ELSE 'Private sector' END;;
+    drill_fields: [detail*]
   }
 
   dimension: current_contracted_volume {
@@ -63,6 +69,7 @@ view: cx_go_live_ttv {
   dimension: time_to_value {
     type: number
     sql: ${TABLE}."TIME_TO_VALUE" ;;
+    drill_fields: [detail*]
   }
 
   dimension_group: go_live_goal {
