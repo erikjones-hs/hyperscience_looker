@@ -1,5 +1,5 @@
 view: net_revenue_cohort_retention {
-  sql_table_name: (select * from dev.erikjones.fct_net_rev_retention_cohort);;
+  sql_table_name: (select * from dev.erikjones.prod.monthly_kpis.net_revenue_retention_cohort_qtr);;
   drill_fields: [detail*]
 
   dimension: first_active_quarter {

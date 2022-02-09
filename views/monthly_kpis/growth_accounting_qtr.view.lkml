@@ -1,5 +1,5 @@
 view: growth_accounting_qtr {
-  sql_table_name: (select * from dev.erikjones.fct_growth_accounting_qtr);;
+  sql_table_name: (select * from prod.monthly_kpis.monthly_kpis_growth_accounting_qtr);;
   drill_fields: [detail*]
 
 

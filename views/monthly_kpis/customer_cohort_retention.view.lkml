@@ -1,5 +1,5 @@
   view: customer_cohort_retention {
-    sql_table_name: (select * from dev.erikjones.fct_customer_retention_cohort);;
+    sql_table_name: (select * from prod.monthly_kpis.customer_retention_cohort_qtr);;
     drill_fields: [detail*]
 
   dimension: first_active_quarter {

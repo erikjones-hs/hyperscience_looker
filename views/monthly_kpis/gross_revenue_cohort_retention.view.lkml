@@ -1,5 +1,5 @@
 view: gross_revenue_cohort_retention {
-  sql_table_name: (select * from dev.erikjones.fct_gross_rev_retention_cohort);;
+  sql_table_name: (select * from prod.monthly_kpis.gross_revenue_retention_cohort_qtr);;
   drill_fields: [detail*]
 
   dimension: first_active_quarter {
