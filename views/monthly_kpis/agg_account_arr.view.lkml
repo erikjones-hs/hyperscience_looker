@@ -86,11 +86,6 @@ view: agg_account_arr {
     sql: ${TABLE}."MONTHS_SINCE_START" ;;
   }
 
-  dimension: length_of_time_as_customer_kj{
-    type: number
-    sql:DATEDIFF(month, ${first_active_month_date}, ${TABLE}."DATE_MONTH") ;;
-  }
-
   measure: count {
     type: count
     drill_fields: [detail*]
@@ -192,12 +187,6 @@ view: agg_account_arr {
     type:  sum
     sql: ${mrr_acct};;
     filters: [months_since_start: ">= 12"]
-  }
-
-  measure: net_retention_arr_kj {
-    type:  sum
-    sql: ${mrr_acct};;
-    filters: [length_of_time_as_customer_kj: ">= 12"]
   }
 
   measure: avg_arr {
