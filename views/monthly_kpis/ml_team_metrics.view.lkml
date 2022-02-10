@@ -7,7 +7,7 @@ view: ml_team_metrics {
   }
 
   dimension: date {
-    type: string
+    type: date
     sql: ${TABLE}."DATE" ;;
   }
 
