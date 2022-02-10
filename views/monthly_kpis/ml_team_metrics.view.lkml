@@ -7,7 +7,7 @@ view: ml_team_metrics {
   }
 
   dimension: date {
-    type: string
+    type: date
     sql: ${TABLE}."DATE" ;;
   }
 
@@ -86,73 +86,79 @@ view: ml_team_metrics {
   }
 
   measure: english_handwritten_accuracy {
-    type:  number
+    type: sum
     sql:  ${accuracy_english_handwritten} ;;
     value_format: "0.00%"
   }
 
   measure: non_english_handwritten_accuracy {
-    type:  number
+    type:  sum
     sql:  ${accuracy_non_english_handwritten} ;;
     value_format: "0.00%"
   }
 
   measure: arabic_handwritten_accuracy {
-    type:  number
+    type:  sum
     sql:  ${accuracy_arabic_handwritten};;
     value_format: "0.00%"
   }
 
+  measure: arabic_printed_accuracy {
+    type:  sum
+    sql:  ${accuracy_arabic_printed};;
+    value_format: "0.00%"
+  }
+
   measure: field_ident {
-    type:  number
+    type:  sum
     sql:  ${field_id} ;;
     value_format: "0.00%"
   }
 
   measure: mobile_ident {
-    type:  number
+    type:  sum
     sql:  ${mobile} ;;
     value_format: "0.00%"
   }
 
   measure: field_no_multiple {
-    type:  number
+    type:  sum
     sql:  ${field_id_without_multiple_occurrence} ;;
     value_format: "0.00%"
   }
 
   measure: nlp_unstructured {
-    type:  number
+    type:  sum
     sql:  ${unstructured_nlp} ;;
     value_format: "0.00%"
   }
 
   measure: english_printed_accuracy {
-    type:  number
+    type:  sum
     sql:  ${accuracy_english_printed} ;;
     value_format: "0.00%"
   }
 
   measure: tables_ident {
-    type:  number
+    type:  sum
     sql:  ${tables} ;;
     value_format: "0.00%"
   }
 
   measure: tables_no_nested {
-    type:  number
+    type:  sum
     sql:  ${tables_minus_nested} ;;
     value_format: "0.00%"
   }
 
   measure: non_english_printed_accuracy {
-    type:  number
+    type:  sum
     sql:  ${accuracy_non_english_printed} ;;
     value_format: "0.00%"
   }
 
   measure: segmentation_ident {
-    type:  number
+    type:  sum
     sql:  ${segmentation} ;;
     value_format: "0.00%"
   }
