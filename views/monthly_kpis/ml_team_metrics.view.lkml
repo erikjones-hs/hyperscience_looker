@@ -103,6 +103,12 @@ view: ml_team_metrics {
     value_format: "0.00%"
   }
 
+  measure: arabic_printed_accuracy {
+    type:  sum
+    sql:  ${accuracy_arabic_printed};;
+    value_format: "0.00%"
+  }
+
   measure: field_ident {
     type:  sum
     sql:  ${field_id} ;;
