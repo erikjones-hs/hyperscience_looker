@@ -196,7 +196,7 @@ view: hr {
       }
       when: {
         sql: ${employee_department} in ('Engineering','Product','Machine Learning', 'BXP') ;;
-        label: "PDE"
+        label: "Tech"
       }
       when: {
         sql: ${employee_department} in ('People','IT & Security','Legal','Finance');;
