@@ -28,3 +28,4 @@ explore: net_revenue_cohort_retention {persist_for: "12 hours"}
 explore: gross_revenue_cohort_retention {persist_for: "12 hours"}
 explore: mql_yoy_comparison {persist_for: "12 hours"}
 explore: operational_health_metrics {persist_for: "12 hours"}
+explore: hr_growth_accounting {persist_for: "12 hours"}
