@@ -171,7 +171,7 @@ view: sales_funnel {
 
   measure: discovery_closed_ratio {
     type: number
-    sql:100 * ${num_closed_won} / NULLIFZERO(${num_had_discovery_call};;
+    sql:100 * ${num_closed_won} / NULLIFZERO(${num_had_discovery_call});;
     drill_fields: [detail*]
     value_format: "#0.00\%"
     label: "Discovery Call - Closed Won Ratio"
@@ -179,7 +179,7 @@ view: sales_funnel {
 
   measure: vf_closed_ratio {
     type: number
-    sql:100 * ${num_closed_won} / NULLIFZERO(${num_had_vf};;
+    sql:100 * ${num_closed_won} / NULLIFZERO(${num_had_vf});;
     drill_fields: [detail*]
     value_format: "#0.00\%"
     label: "Value/Fit - Closed Won Ratio"
@@ -187,7 +187,7 @@ view: sales_funnel {
 
   measure: tdd_closed_ratio {
     type: number
-    sql:100 * ${num_closed_won} / NULLIFZERO(${num_had_tdd};;
+    sql:100 * ${num_closed_won} / NULLIFZERO(${num_had_tdd});;
     drill_fields: [detail*]
     value_format: "#0.00\%"
     label: "TDD - Closed Won Ratio"
@@ -195,7 +195,7 @@ view: sales_funnel {
 
   measure: eb_go_no_closed_ratio {
     type: number
-    sql:100 * ${num_closed_won} / NULLIFZERO(${num_eb_go_no_go};;
+    sql:100 * ${num_closed_won} / NULLIFZERO(${num_eb_go_no_go});;
     drill_fields: [detail*]
     value_format: "#0.00\%"
     label: "EB Go/No - Closed Won Ratio"
@@ -203,7 +203,7 @@ view: sales_funnel {
 
   measure: poc_closed_ratio {
     type: number
-    sql:100 * ${num_closed_won} / NULLIFZERO(${num_had_poc};;
+    sql:100 * ${num_closed_won} / NULLIFZERO(${num_had_poc});;
     drill_fields: [detail*]
     value_format: "#0.00\%"
     label: "POC - Closed Won Ratio"
@@ -211,7 +211,7 @@ view: sales_funnel {
 
   measure: eb_review_closed_ratio {
     type: number
-    sql:100 * ${num_closed_won} / NULLIFZERO(${num_had_eb_review};;
+    sql:100 * ${num_closed_won} / NULLIFZERO(${num_had_eb_review});;
     drill_fields: [detail*]
     value_format: "#0.00\%"
     label: "EB Review - Closed Won Ratio"
@@ -219,7 +219,7 @@ view: sales_funnel {
 
   measure: neg_closed_ratio {
     type: number
-    sql:100 * ${num_closed_won} / NULLIFZERO(${num_neg_and_close};;
+    sql:100 * ${num_closed_won} / NULLIFZERO(${num_neg_and_close});;
     drill_fields: [detail*]
     value_format: "#0.00\%"
     label: "Neg. & Close - Closed Won Ratio"
