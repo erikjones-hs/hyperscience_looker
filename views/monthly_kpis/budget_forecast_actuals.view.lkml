@@ -47,6 +47,26 @@ view: budget_forecast_actuals {
     sql: ${TABLE}."HEADCOUNT_CURRENT" ;;
   }
 
+  dimension: marketing_influenced_arr_goal {
+    type: number
+    sql: ${TABLE}."MARKETING_INFLUENCED_ARR_GOAL" ;;
+  }
+
+  dimension: mql_goal {
+    type: number
+    sql: ${TABLE}."MQL_GOAL" ;;
+  }
+
+  dimension: new_arr_goal {
+    type: number
+    sql: ${TABLE}."NEW_ARR_GOAL" ;;
+  }
+
+  dimension: new_arr {
+    type: number
+    sql: ${TABLE}."NEW_ARR" ;;
+  }
+
   dimension_group: current_date {
     type: time
     timeframes: [date, month, quarter, year]
@@ -100,5 +120,33 @@ view: budget_forecast_actuals {
     type:  sum
     sql: ${headcount_current} ;;
   }
+
+  measure: mktg_inf_arr_goal {
+    type:  sum
+    sql: ${marketing_influenced_arr_goal} ;;
+    value_format: "$#,##0"
+    label: "Marketing Influenced ARR Goal"
+  }
+
+  measure: goal_mql {
+    type:  sum
+    sql: ${mql_goal} ;;
+    label: "MQL Goal"
+  }
+
+  measure: goal_new_arr {
+    type:  sum
+    sql: ${new_arr_goal} ;;
+    value_format: "$#,##0"
+    label: "New ARR Goal"
+  }
+
+  measure: actuals_new_arr {
+    type:  sum
+    sql: ${new_arr} ;;
+    value_format: "$#,##0"
+    label: "New ARR"
+  }
+
 
 }
