@@ -134,7 +134,7 @@ view: sales_funnel {
     label: "# TDD"
   }
 
-  measure: num_eb_go_bo_go_tdd {
+  measure: num_eb_go_no_go {
     type:  count_distinct
     sql: ${opp_id} ;;
     filters: [opp_had_eb_go_no_go_flag: "= 1"]
@@ -168,6 +168,64 @@ view: sales_funnel {
     filters: [opp_closed_won_flag: "= 1"]
     label: "# Closed Won"
   }
+
+  measure: discovery_closed_ratio {
+    type: number
+    sql:100 * ${num_closed_won} / NULLIFZERO(${num_had_discovery_call};;
+    drill_fields: [detail*]
+    value_format: "#0.00\%"
+    label: "Discovery Call - Closed Won Ratio"
+  }
+
+  measure: vf_closed_ratio {
+    type: number
+    sql:100 * ${num_closed_won} / NULLIFZERO(${num_had_vf};;
+    drill_fields: [detail*]
+    value_format: "#0.00\%"
+    label: "Value/Fit - Closed Won Ratio"
+  }
+
+  measure: tdd_closed_ratio {
+    type: number
+    sql:100 * ${num_closed_won} / NULLIFZERO(${num_had_tdd};;
+    drill_fields: [detail*]
+    value_format: "#0.00\%"
+    label: "TDD - Closed Won Ratio"
+  }
+
+  measure: eb_go_no_closed_ratio {
+    type: number
+    sql:100 * ${num_closed_won} / NULLIFZERO(${num_eb_go_no_go};;
+    drill_fields: [detail*]
+    value_format: "#0.00\%"
+    label: "EB Go/No - Closed Won Ratio"
+  }
+
+  measure: poc_closed_ratio {
+    type: number
+    sql:100 * ${num_closed_won} / NULLIFZERO(${num_had_poc};;
+    drill_fields: [detail*]
+    value_format: "#0.00\%"
+    label: "POC - Closed Won Ratio"
+  }
+
+  measure: eb_review_closed_ratio {
+    type: number
+    sql:100 * ${num_closed_won} / NULLIFZERO(${num_had_eb_review};;
+    drill_fields: [detail*]
+    value_format: "#0.00\%"
+    label: "EB Review - Closed Won Ratio"
+  }
+
+  measure: neg_closed_ratio {
+    type: number
+    sql:100 * ${num_closed_won} / NULLIFZERO(${num_neg_and_close};;
+    drill_fields: [detail*]
+    value_format: "#0.00\%"
+    label: "Neg. & Close - Closed Won Ratio"
+  }
+
+
 
   set: detail {
     fields: [
