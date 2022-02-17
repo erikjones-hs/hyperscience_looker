@@ -30,3 +30,4 @@ explore: mql_yoy_comparison {persist_for: "12 hours"}
 explore: operational_health_metrics {persist_for: "12 hours"}
 explore: hr_growth_accounting {persist_for: "12 hours"}
 explore: sales_funnel {persist_for: "12 hours"}
+explore: all_closed_won_opps {persist_for: "12 hours"}
