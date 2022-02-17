@@ -178,6 +178,38 @@ view: cx_go_live_ttv {
     drill_fields: [detail*]
   }
 
+  measure: median_ttv {
+    type: median
+    sql: ${time_to_value} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: min_ttv {
+    type: min
+    sql: ${time_to_value} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: max_ttv {
+    type: max
+    sql:${time_to_value} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: percentile_25_ttv {
+    type: percentile
+    percentile:  25
+    sql: ${time_to_value} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: percentile_75_ttv {
+    type: percentile
+    percentile:  75
+    sql: ${time_to_value} ;;
+    drill_fields: [detail*]
+  }
+
   set: detail {
     fields: [
       name,
