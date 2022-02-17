@@ -97,11 +97,25 @@
     label: "# Marketing Influenced Opportunities"
   }
 
-    measure: num_opps {
-      type: count_distinct
-      sql: ${opp_id} ;;
-      label: "# Closed Won Opportunities"
-    }
+  measure: num_opps {
+    type: count_distinct
+    sql: ${opp_id} ;;
+    label: "# Closed Won Opportunities"
+  }
+
+  measure: marketing_closed_won_rate {
+    type:  number
+    sql:  100.00 * ${num_marketing_opps} / NULLIFZERO(${num_opps});;
+    value_format: "#0\%"
+    drill_fields: [detail*]
+  }
+
+  measure: non_marketing_closed_won_rate {
+    type:  number
+    sql:  100.00 * ${num_non_marketing_opps} / NULLIFZERO(${num_opps});;
+    value_format: "#0\%"
+    drill_fields: [detail*]
+  }
 
     measure: median_sales_cycle {
       type: median
