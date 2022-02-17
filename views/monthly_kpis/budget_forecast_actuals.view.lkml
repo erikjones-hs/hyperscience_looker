@@ -1,5 +1,5 @@
 view: budget_forecast_actuals {
-  sql_table_name: (select * from dev.erikjones.fct_actuals_forecst_budget);;
+  sql_table_name: (select * from dev.erikjones.fct_actuals_forecst_budget_v1);;
 
   dimension_group: dte {
     type: time
