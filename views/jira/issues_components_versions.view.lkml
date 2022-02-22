@@ -10,6 +10,11 @@ view: issues_components_versions {
   dimension: issue_key {
     type: string
     sql: ${TABLE}."ISSUE_KEY" ;;
+    link: {
+      label: "JIRA"
+      url: "https://hyperscience.atlassian.net/browse/{{ value }}"
+      icon_url: "https://wac-cdn.atlassian.com/assets/img/favicons/atlassian/favicon.png"
+    }
   }
 
   dimension: parent_id {
@@ -127,23 +132,16 @@ view: issues_components_versions {
 
   set: detail {
     fields: [
-      issue_id,
       issue_key,
-      parent_id,
-      epic_name,
-      resolution_stage,
       priority,
       priority_name,
-      assignee_id,
       assignee_name,
       status,
       status_category_name,
       creator_name,
-      issue_type_name,
-      project_id,
       project_key,
       project_name,
-      project_category,
+      resolution_stage,
       resolution_dte_date,
       created_dte_date,
       component,
