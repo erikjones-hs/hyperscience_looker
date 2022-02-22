@@ -1,5 +1,5 @@
 view: agg_account_arr {
-  sql_table_name: (select * from dev.erikjones.monthly_kpis_finance_arr_acct);;
+  sql_table_name: (select * from prod.monthly_kpis.fct_arr_account);;
   drill_fields: [detail*]
 
   dimension_group: date_month {
