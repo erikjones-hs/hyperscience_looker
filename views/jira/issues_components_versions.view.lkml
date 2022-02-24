@@ -124,6 +124,16 @@ view: issues_components_versions {
     sql: ${TABLE}."VERSION_IS_ACTIVE" ;;
   }
 
+  dimension: feedback_category {
+    type: string
+    sql: ${TABLE}."FEEDBACK_CATEGORY" ;;
+  }
+
+  dimension: customer_name {
+    type: string
+    sql: ${TABLE}."CUSTOMER_NAME" ;;
+  }
+
   measure: num_tickets {
     type: count_distinct
     sql: ${issue_id} ;;
@@ -147,7 +157,9 @@ view: issues_components_versions {
       component,
       component_is_active,
       version_name,
-      version_is_active
+      version_is_active,
+      feedback_category,
+      customer_name
     ]
   }
 }
