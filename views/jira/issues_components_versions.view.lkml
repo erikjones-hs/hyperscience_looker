@@ -134,6 +134,11 @@ view: issues_components_versions {
     sql: ${TABLE}."CUSTOMER_NAME" ;;
   }
 
+  dimension: version_category {
+    type: string
+    sql: split_part(${version_name},'.',1) ;;
+  }
+
   measure: num_tickets {
     type: count_distinct
     sql: ${issue_id} ;;
