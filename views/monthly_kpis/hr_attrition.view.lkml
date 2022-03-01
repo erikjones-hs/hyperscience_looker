@@ -16,13 +16,13 @@ view: hr_attrition {
 
   dimension_group: hire_dte {
     type: time
-    timeframes: [raw, date, month, quarter, year]
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
     sql: ${TABLE}."HIRE_DTE" ;;
   }
 
   dimension_group: hire_dte_month {
     type: time
-    timeframes: [raw, date, month, quarter, year]
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
     sql: ${TABLE}."HIRE_DTE_MONTH" ;;
   }
 
@@ -49,7 +49,7 @@ view: hr_attrition {
 
   dimension_group: end_dte_month {
     type: time
-    timeframes: [raw, date, month, quarter, year]
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
     sql: ${TABLE}."END_DTE_MONTH" ;;
   }
 

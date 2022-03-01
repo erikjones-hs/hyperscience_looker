@@ -29,7 +29,7 @@ view: hr {
 
     dimension_group: employee_hire_dte {
       type: time
-      timeframes: [date, month, quarter, year]
+      timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
       sql: ${TABLE}."EMPLOYEE_HIRE_DTE" ;;
     }
 
