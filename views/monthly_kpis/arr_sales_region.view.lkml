@@ -88,6 +88,131 @@
     sql: ${TABLE}."SALES_REGION" ;;
   }
 
+  measure: num_accounts {
+    type: count_distinct
+    sql:${account_id} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: total_arr {
+    type:  sum
+    sql: ${mrr_acct};;
+    value_format: "$0.00"
+    drill_fields: [detail*]
+  }
+
+  measure: new_arr {
+    type:  sum
+    sql:  ${mrr_acct};;
+    value_format: "$#,##0"
+    filters: [revenue_category: "new"]
+    label: "New"
+    drill_fields: [detail*]
+  }
+
+  measure: recurring_arr {
+    type:  sum
+    sql:  ${mrr_acct};;
+    value_format: "$#,##0"
+    filters: [revenue_category: "recurring"]
+    label: "Recurring"
+    drill_fields: [detail*]
+  }
+
+  measure: expansion_arr {
+    type:  sum
+    sql:  ${mrr_change_acct};;
+    value_format: "$#,##0"
+    filters: [revenue_category: "expansion"]
+    label: "Expansion"
+    drill_fields: [detail*]
+  }
+
+  measure: churn_arr {
+    type:  sum
+    sql:  ${mrr_change_acct};;
+    value_format: "$#,##0"
+    filters: [revenue_category: "churn"]
+    label: "Churn"
+    drill_fields: [detail*]
+  }
+
+  measure: arr_acct_change {
+    type:  sum
+    sql: ${mrr_change_acct};;
+    value_format: "$0.00"
+    drill_fields: [detail*]
+  }
+
+  measure: new_customers {
+    type:  count_distinct
+    sql_distinct_key: ${account_id} ;;
+    sql:  ${account_id};;
+    filters: [customer_category: "new"]
+    drill_fields: [detail*]
+  }
+
+  measure: active_customers {
+    type:  count_distinct
+    sql_distinct_key: ${account_id} ;;
+    sql:  ${account_id};;
+    filters: [customer_category: "active"]
+    drill_fields: [detail*]
+  }
+
+  measure: churn_customers_int {
+    type:  count_distinct
+    sql_distinct_key: ${account_id} ;;
+    sql:  ${account_id};;
+    filters: [customer_category: "churn"]
+    drill_fields: [detail*]
+  }
+
+  measure: churn_customers {
+    type:  number
+    sql: -1 * ${churn_customers_int} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: arr_customers {
+    type:  number
+    sql:  ${active_customers} + ${new_customers};;
+    drill_fields: [detail*]
+  }
+
+  measure: net_retention_arr {
+    type:  sum
+    sql: ${mrr_acct};;
+    filters: [months_since_start: ">= 12"]
+  }
+
+  measure: avg_arr {
+    type:  average
+    sql:  ${mrr_acct} ;;
+    value_format: "$#,##0"
+  }
+
+  measure: max_arr {
+    type:  max
+    sql: ${mrr_acct};;
+    value_format: "$#,##0"
+    drill_fields: [detail*]
+  }
+
+  measure: net_new_arr {
+    type:  number
+    sql:  ${new_arr} + ${expansion_arr} + ${churn_arr} ;;
+    value_format: "$#,##0"
+    drill_fields: [detail*]
+  }
+
+  measure: arr_churn {
+    type:  sum
+    sql:  ${mrr_reporting_acct} ;;
+    value_format: "$#,##0"
+    drill_fields: [detail*]
+  }
+
   set: detail {
     fields: [
       date_month_date,
