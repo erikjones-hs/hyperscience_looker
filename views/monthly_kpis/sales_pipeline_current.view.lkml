@@ -89,8 +89,26 @@ view: sales_pipeline_current {
     sql: ${TABLE}."OPP_PIPELINE_CATEGORY" ;;
   }
 
-  measure: count {
-    type: count
+  measure: total_pipeline_opps {
+    type: count_distinct
+    sql: ${opp_id} ;;
+    label: "Total Opportunities"
+    drill_fields: [detail*]
+  }
+
+  measure: total_non_qual_pipeline_opps {
+    type: count_distinct
+    sql: ${opp_id} ;;
+    label: "Total Pipeline Opportunities"
+    filters: [opp_pipeline_category: "pipeline"]
+    drill_fields: [detail*]
+  }
+
+  measure: total_qual_pipeline_opps {
+    type: count_distinct
+    sql: ${opp_id} ;;
+    label: "Total Qualified Pipeline Opportunities"
+    filters: [opp_pipeline_category: "qualified_pipeline"]
     drill_fields: [detail*]
   }
 
