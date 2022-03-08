@@ -89,6 +89,41 @@ view: sales_pipeline_history {
     sql: ${TABLE}."OPP_PIPELINE_CATEGORY" ;;
   }
 
+  dimension: stage_custom_sort {
+    label: "Stage (custom sort)"
+    case: {
+      when: {
+        sql: ${opp_stage_name} = 'AE Discovery' ;;
+        label: "Discovery"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'Value/Fit' ;;
+        label: "Value/Fit"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'TDD' ;;
+        label: "TDD"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'EB Go/No-Go' ;;
+        label: "EB Go/No-Go"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'TVE' ;;
+        label: "POC"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'EB Revisit' ;;
+        label: "EB Review"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'Negotiate and Close' ;;
+        label: "Negotiate & Close"
+      }
+
+    }
+  }
+
   measure: total_pipeline_opps {
     type: count_distinct
     sql: ${opp_id} ;;
