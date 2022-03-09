@@ -189,6 +189,17 @@ view: agg_account_arr {
     filters: [months_since_start: ">= 12"]
   }
 
+  measure: arr_12_months_ago {
+    type:  number
+    sql: lag(${total_arr},12);;
+  }
+
+  measure: net_dollar_retention {
+    type:  number
+    sql: 100 * ${net_retention_arr} / NULLIFZERO(${arr_12_months_ago});;
+    value_format: "#0.00\%"
+  }
+
   measure: avg_arr {
     type:  average
     sql:  ${mrr_acct} ;;
