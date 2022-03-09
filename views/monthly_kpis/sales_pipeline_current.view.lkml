@@ -47,6 +47,7 @@ view: sales_pipeline_current {
   dimension: opp_stage_name {
     type: string
     sql: ${TABLE}."OPP_STAGE_NAME" ;;
+    order_by_field: stage_ordering
   }
 
   dimension: opp_lead_source {
@@ -89,39 +90,21 @@ view: sales_pipeline_current {
     sql: ${TABLE}."OPP_PIPELINE_CATEGORY" ;;
   }
 
-  dimension: stage_custom_sort {
-    label: "Stage (custom sort)"
-    case: {
-      when: {
-        sql: ${opp_stage_name} = 'AE Discovery' ;;
-        label: "Discovery"
-      }
-      when: {
-        sql: ${opp_stage_name} = 'Value/Fit' ;;
-        label: "Value/Fit"
-      }
-      when: {
-        sql: ${opp_stage_name} = 'TDD' ;;
-        label: "TDD"
-      }
-      when: {
-        sql: ${opp_stage_name} = 'EB Go/No-Go' ;;
-        label: "EB Go/No-Go"
-      }
-      when: {
-        sql: ${opp_stage_name} = 'TVE' ;;
-        label: "POC"
-      }
-      when: {
-        sql: ${opp_stage_name} = 'EB Revisit' ;;
-        label: "EB Review"
-      }
-      when: {
-        sql: ${opp_stage_name} = 'Negotiate and Close' ;;
-        label: "Negotiate & Close"
-      }
-
-    }
+  dimension: stage_ordering {
+    type: number
+    sql:
+      CASE
+        WHEN ${opp_stage_name} = 'AE Discovery' THEN 1
+        WHEN ${opp_stage_name} = 'Value/Fit' THEN 2
+        WHEN ${opp_stage_name} = 'TDD' THEN 3
+        WHEN ${opp_stage_name} = 'EB Go/No-Go' THEN 4
+        WHEN ${opp_stage_name} = 'TVE' THEN 5
+        WHEN ${opp_stage_name} = 'EB Revisit' THEN 6
+        WHEN ${opp_stage_name} = 'Negotiate and Close' THEN 7
+        ELSE 8
+      END ;;
+    hidden: yes
+    description: "This dimension is used to force sort the stage name dimension."
   }
 
   measure: total_pipeline_opps {
