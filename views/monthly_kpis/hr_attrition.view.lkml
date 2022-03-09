@@ -143,8 +143,8 @@ view: hr_attrition {
         label: "Sales"
       }
       when: {
-        sql: ${employee_department} in ('Customer Experience') ;;
-        label: "CX"
+        sql: ${employee_department} in ('Customer Experience','Customer Success') ;;
+        label: "Customer Success"
       }
       when: {
         sql: ${employee_department} in ('Marketing') ;;
