@@ -13,10 +13,11 @@
     sql: ${TABLE}."NET_DOLLAR_RETENTION" ;;
   }
 
-  measure: count {
+  measure: dollar_retention_net {
     type: sum
     sql: ${net_dollar_retention} ;;
     value_format: "#0.0\%"
+    label: "Net $$ Retention"
     drill_fields: [detail*]
   }
 
