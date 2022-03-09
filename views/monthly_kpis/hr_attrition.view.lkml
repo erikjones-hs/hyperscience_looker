@@ -164,7 +164,7 @@ view: hr_attrition {
       }
       when: {
         sql: ${employee_department} in ('Finance');;
-        label: "People"
+        label: "Finance"
       }
       when: {
         sql: ${employee_department} in ('Corporate Development');;
