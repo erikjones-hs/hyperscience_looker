@@ -44,6 +44,23 @@ view: sales_pipeline_current {
     sql: ${TABLE}."PARTNER_ACCOUNT_NAME" ;;
   }
 
+  dimension: stage_ordering {
+    type: number
+    sql:
+      CASE
+        WHEN ${opp_stage_name} = 'AE Discovery' THEN 1
+        WHEN ${opp_stage_name} = 'Value/Fit' THEN 2
+        WHEN ${opp_stage_name} = 'TDD' THEN 3
+        WHEN ${opp_stage_name} = 'EB Go/No-Go' THEN 4
+        WHEN ${opp_stage_name} = 'TVE' THEN 5
+        WHEN ${opp_stage_name} = 'EB Revisit' THEN 6
+        WHEN ${opp_stage_name} = 'Negotiate and Close' THEN 7
+        ELSE 8
+      END ;;
+    hidden: yes
+    description: "This dimension is used to force sort the stage name dimension."
+  }
+
   dimension: opp_stage_name {
     type: string
     sql: ${TABLE}."OPP_STAGE_NAME" ;;
@@ -88,23 +105,6 @@ view: sales_pipeline_current {
   dimension: opp_pipeline_category {
     type: string
     sql: ${TABLE}."OPP_PIPELINE_CATEGORY" ;;
-  }
-
-  dimension: stage_ordering {
-    type: number
-    sql:
-      CASE
-        WHEN ${opp_stage_name} = 'AE Discovery' THEN 1
-        WHEN ${opp_stage_name} = 'Value/Fit' THEN 2
-        WHEN ${opp_stage_name} = 'TDD' THEN 3
-        WHEN ${opp_stage_name} = 'EB Go/No-Go' THEN 4
-        WHEN ${opp_stage_name} = 'TVE' THEN 5
-        WHEN ${opp_stage_name} = 'EB Revisit' THEN 6
-        WHEN ${opp_stage_name} = 'Negotiate and Close' THEN 7
-        ELSE 8
-      END ;;
-    hidden: yes
-    description: "This dimension is used to force sort the stage name dimension."
   }
 
   measure: total_pipeline_opps {
