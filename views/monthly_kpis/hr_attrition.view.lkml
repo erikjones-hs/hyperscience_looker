@@ -136,6 +136,51 @@ view: hr_attrition {
     sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
   }
 
+  dimension: hr_grouping {
+    case: {
+      when: {
+        sql: ${employee_department} in ('Sales') ;;
+        label: "Sales"
+      }
+      when: {
+        sql: ${employee_department} in ('Customer Experience') ;;
+        label: "CX"
+      }
+      when: {
+        sql: ${employee_department} in ('Marketing') ;;
+        label: "Marketing"
+      }
+      when: {
+        sql: ${employee_department} in ('Engineering','Product','Machine Learning', 'BXP','IT & Security') ;;
+        label: "Tech"
+      }
+      when: {
+        sql: ${employee_department} in ('People');;
+        label: "People"
+      }
+      when: {
+        sql: ${employee_department} in ('Legal');;
+        label: "Legal"
+      }
+      when: {
+        sql: ${employee_department} in ('Finance');;
+        label: "People"
+      }
+      when: {
+        sql: ${employee_department} in ('Corporate Development');;
+        label: "Corp. Dev"
+      }
+      when: {
+        sql: ${employee_department} in ('Operations');;
+        label: "Operations"
+      }
+      when: {
+        sql: ${employee_department} IS NULL ;;
+        label: "None"
+      }
+    }
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
