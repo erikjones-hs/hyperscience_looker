@@ -191,7 +191,7 @@ view: agg_account_arr {
 
   measure: arr_12_months_ago {
     type:  sum
-    sql: lag(${mrr_acct}),12,0);;
+    sql: lag(${mrr_acct},12,0);;
   }
 
   measure: net_dollar_retention {
