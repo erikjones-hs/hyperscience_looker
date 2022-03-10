@@ -89,6 +89,11 @@ view: sales_pipeline_history {
     sql: ${TABLE}."OPP_PIPELINE_CATEGORY" ;;
   }
 
+  dimension: is_partner_influenced {
+    type: yesno
+    sql: ${partner_account_name} IS NOT NULL ;;
+  }
+
   dimension: stage_custom_sort {
     label: "Stage (custom sort)"
     case: {
@@ -217,6 +222,50 @@ view: sales_pipeline_history {
   measure: percent_total_pipeline_mktg {
     type:  number
     sql: 100* ${total_pipeline_mktg} / ${total_pipeline};;
+    drill_fields: [detail*]
+    value_format: "#0.00\%"
+  }
+
+  measure: total_net_new_arr_pipeline_partner {
+    type:  sum
+    sql:  CASE WHEN ${is_partner_influenced} then ${opp_net_new_arr} else 0 end;;
+    value_format: "$#,##0"
+    filters: [opp_pipeline_category: "pipeline"]
+    drill_fields: [detail*]
+  }
+
+  measure: total_net_new_arr_qualified_pipeline_partner {
+    type:  sum
+    sql:  CASE WHEN ${is_partner_influenced} then ${opp_net_new_arr} else 0 end;;
+    value_format: "$#,##0"
+    filters: [opp_pipeline_category: "qualified_pipeline"]
+    drill_fields: [detail*]
+  }
+
+  measure: total_pipeline_partner {
+    type:  number
+    sql:  ${total_net_new_arr_pipeline_partner} + ${total_net_new_arr_qualified_pipeline_partner} ;;
+    value_format: "$#,##0"
+    drill_fields: [detail*]
+  }
+
+  measure: percent_pipeline_partner {
+    type:  number
+    sql: 100* ${total_net_new_arr_pipeline_partner} / ${total_net_new_arr_pipeline};;
+    drill_fields: [detail*]
+    value_format: "#0.00\%"
+  }
+
+  measure: percent_qualified_pipeline_partner {
+    type:  number
+    sql: 100* ${total_net_new_arr_qualified_pipeline_partner} / ${total_net_new_arr_qualified_pipeline};;
+    drill_fields: [detail*]
+    value_format: "#0.00\%"
+  }
+
+  measure: percent_total_pipeline_partner {
+    type:  number
+    sql: 100* ${total_pipeline_partner} / ${total_pipeline};;
     drill_fields: [detail*]
     value_format: "#0.00\%"
   }
