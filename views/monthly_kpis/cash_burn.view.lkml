@@ -13,6 +13,12 @@
     sql: ${TABLE}."NET_BURN" ;;
   }
 
+    dimension_group: current_date {
+      type: time
+      timeframes: [date, month, quarter, year]
+      sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
+    }
+
   measure: cash_burn {
     type: sum
     sql: -1*${net_burn} ;;

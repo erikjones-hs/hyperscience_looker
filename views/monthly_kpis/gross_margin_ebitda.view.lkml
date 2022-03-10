@@ -23,6 +23,12 @@
     sql: ${TABLE}."ADJUSTED_EBITDA" ;;
   }
 
+    dimension_group: current_date {
+      type: time
+      timeframes: [date, month, quarter, year]
+      sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
+    }
+
   measure: gm {
     type:  sum
     sql: ${gross_margin} ;;
