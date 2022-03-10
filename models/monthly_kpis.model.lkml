@@ -34,3 +34,4 @@ explore: all_closed_won_opps {persist_for: "12 hours"}
 explore: arr_sales_region {persist_for: "12 hours"}
 explore: net_dollar_retention_qtr {persist_for: "12 hours"}
 explore: cash_burn {persist_for: "12 hours"}
+explore: gross_margin_ebitda {persist_for: "12 hours"}
