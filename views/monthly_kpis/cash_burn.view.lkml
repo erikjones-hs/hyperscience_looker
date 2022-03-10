@@ -16,7 +16,7 @@
   measure: cash_burn {
     type: sum
     sql: ${net_burn} ;;
-    value_format: "$0.00"
+    value_format: "$#.00;($#.00)"
     label: "Cash Burn"
   }
 
