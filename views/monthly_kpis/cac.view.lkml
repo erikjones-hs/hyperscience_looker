@@ -24,6 +24,12 @@
     sql: ${TABLE}."ARR_CAC_RATIO" ;;
   }
 
+    dimension_group: current_date {
+      type: time
+      timeframes: [date, month, quarter, year]
+      sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
+    }
+
   measure: cost_acq {
     type:  sum
     sql: ${cac} ;;
