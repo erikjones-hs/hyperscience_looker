@@ -36,3 +36,4 @@ explore: net_dollar_retention_qtr {persist_for: "12 hours"}
 explore: cash_burn {persist_for: "12 hours"}
 explore: gross_margin_ebitda {persist_for: "12 hours"}
 explore: cac {persist_for: "12 hours"}
+explore: arr_actuals_forecast {persist_for: "12 hours"}
