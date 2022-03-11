@@ -56,7 +56,7 @@
     type:  sum
     sql: ${recurring_arr} ;;
     value_format: "$#,##0.00"
-    label: "Expansion ARR"
+    label: "Recurring ARR"
   }
 
   measure: arr_churn {
