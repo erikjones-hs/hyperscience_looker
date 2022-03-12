@@ -27,6 +27,7 @@
   measure: ftes {
     type: sum
     sql: ${headcount} ;;
+    label: "Headcount"
   }
 
   set: detail {
