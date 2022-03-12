@@ -37,3 +37,4 @@ explore: cash_burn {persist_for: "12 hours"}
 explore: gross_margin_ebitda {persist_for: "12 hours"}
 explore: cac {persist_for: "12 hours"}
 explore: arr_actuals_forecast {persist_for: "12 hours"}
+explore:hr_budget_forecast {persist_for: "12 hours"}
