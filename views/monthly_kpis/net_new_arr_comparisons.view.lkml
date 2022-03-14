@@ -20,7 +20,7 @@
   measure: annual_recurring_revenue {
     type: sum
     sql: ${arr} ;;
-    value_format: "$0,,\" M\""
+    value_format: "$0.0,,\" M\""
     label: "Net New ARR"
   }
 
