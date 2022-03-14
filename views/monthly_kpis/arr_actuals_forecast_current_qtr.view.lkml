@@ -32,7 +32,7 @@
   measure: annual_recurring_revenue{
     type:  sum
     sql: ${arr} ;;
-    value_format: "$#,##0.00"
+    value_format: "$#,##0"
     label: "ARR"
   }
 
