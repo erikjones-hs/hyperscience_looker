@@ -21,6 +21,7 @@
     type: sum
     sql: ${arr} ;;
     value_format: "$#,##0.00"
+    label: "Net New ARR"
   }
 
 }
