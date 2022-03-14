@@ -39,3 +39,4 @@ explore: cac {persist_for: "12 hours"}
 explore: arr_actuals_forecast {persist_for: "12 hours"}
 explore:hr_budget_forecast {persist_for: "12 hours"}
 explore:sales_team_actuals_goals {persist_for: "12 hours"}
+explore: arr_actuals_forecast_current_qtr {persist_for: "12 hours"}
