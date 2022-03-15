@@ -23,11 +23,16 @@
     sql: ${TABLE}."ADJUSTED_EBITDA" ;;
   }
 
-    dimension_group: current_date {
-      type: time
-      timeframes: [date, month, quarter, year]
-      sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
-    }
+  dimension: revenue {
+    type:  number
+    sql: ${TABLE}."REVENUE" ;;
+  }
+
+  dimension_group: current_date {
+    type: time
+    timeframes: [date, month, quarter, year]
+    sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
+  }
 
   measure: gm {
     type:  sum
@@ -41,6 +46,13 @@
     sql: ${adjusted_ebitda} ;;
     value_format: "$#,##0"
     label: "Adjustd EBITDA"
+  }
+
+  measure: rev {
+    type: sum
+    sql: ${revenue} ;;
+    value_format: "$#,##0"
+    label: "GAAP Revenue"
   }
 
   set: detail {
