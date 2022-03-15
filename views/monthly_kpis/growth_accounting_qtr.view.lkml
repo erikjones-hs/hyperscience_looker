@@ -8,11 +8,11 @@ view: growth_accounting_qtr {
     sql: ${TABLE}."QTR_END_DTE" ;;
   }
 
-#  dimension_group: qtr_end_dte {
-#    type:  time
-#    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
-#    sql: ${TABLE}."QTR_END_DTE" ;;
-#  }
+  dimension_group: qtr_end {
+    type:  time
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
+    sql: ${TABLE}."QTR_END_DTE" ;;
+  }
 
   dimension: beginning_arr {
     type: number
