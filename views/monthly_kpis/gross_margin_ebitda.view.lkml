@@ -37,7 +37,7 @@
   measure: gm {
     type:  sum
     sql: ${gross_margin} ;;
-    value_format: "0.0%"
+    value_format: "0%"
     label: "Gross Margin"
   }
 
