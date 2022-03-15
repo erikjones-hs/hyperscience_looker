@@ -16,7 +16,7 @@
   measure: dollar_retention_net {
     type: sum
     sql: ${net_dollar_retention} ;;
-    value_format: "#0.0\%"
+    value_format: "0%"
     label: "Net $$ Retention"
     drill_fields: [detail*]
   }
