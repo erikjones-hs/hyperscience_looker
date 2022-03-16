@@ -64,6 +64,11 @@ view: sales_pipeline_history {
     sql: ${TABLE}."OPP_CLOSE_DTE" ;;
   }
 
+  dimension_group: opp_closed_won_dte {
+    type: time
+    sql: ${TABLE}."OPP_CLOSED_WON_DTE" ;;
+  }
+
   dimension: opp_arr {
     type: number
     sql: ${TABLE}."OPP_ARR" ;;
