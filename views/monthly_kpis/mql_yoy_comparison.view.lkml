@@ -1,5 +1,5 @@
 view: mql_yoy_comparison {
-  sql_table_name: (select * from prod.monthly_kpis.monthly_kpis_mql_yoy_comparison);;
+  sql_table_name: (select * from dev.erikjones.monthly_kpis_mql_yoy_comparison);;
 
   dimension: fy_year {
     type: date
