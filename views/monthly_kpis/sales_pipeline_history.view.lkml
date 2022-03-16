@@ -130,6 +130,10 @@ view: sales_pipeline_history {
         sql: ${opp_stage_name} = 'Negotiate and Close' ;;
         label: "Negotiate & Close"
       }
+      when: {
+        sql: ${opp_stage_name} = 'Closed Won' ;;
+        label: "Closed Won"
+      }
 
     }
   }
