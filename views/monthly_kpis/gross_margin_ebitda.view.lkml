@@ -51,7 +51,7 @@
   measure: rev {
     type: sum
     sql: ${revenue} ;;
-    value_format: "$0.0,,\" M\""
+    value_format: "$0.0,,\"M\""
     label: "GAAP Revenue"
   }
 
