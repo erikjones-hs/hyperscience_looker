@@ -1,25 +1,24 @@
 view: mql_yoy_comparison {
   sql_table_name: (select * from prod.monthly_kpis.monthly_kpis_mql_yoy_comparison);;
-  drill_fields: [detail*]
 
   dimension: fy_year {
     type: date
     sql: ${TABLE}."FY_YEAR" ;;
   }
 
-  dimension_group: dte_month {
+  dimension_group: dte {
     type: time
-    sql: ${TABLE}."DTE_MONTH" ;;
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
+    sql: ${TABLE}."DTE" ;;
   }
 
   dimension: num_leads {
     type: number
-    sql: ${TABLE}."NUM_LEADS" ;;
+    sql: ${TABLE}."NUM_MQLS" ;;
   }
 
   measure: count {
     type: count
-    drill_fields: [detail*]
   }
 
   measure: num_mqls {
@@ -28,7 +27,4 @@ view: mql_yoy_comparison {
     label: "# MQLs"
   }
 
-  set: detail {
-    fields: [fy_year, dte_month_time, num_leads]
-  }
 }
