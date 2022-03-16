@@ -22,7 +22,7 @@ view: mql_yoy_comparison {
   }
 
   measure: num_mqls {
-    type: sum
+    type: number
     sql:  ${num_leads} ;;
     label: "# MQLs"
   }
