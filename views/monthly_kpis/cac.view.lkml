@@ -12,16 +12,19 @@
   dimension: cac {
     type: number
     sql: ${TABLE}."CAC" ;;
+    value_format: "$0.0,,\" M\""
   }
 
   dimension: new_upsell_arr {
     type: number
     sql: ${TABLE}."NEW_UPSELL_ARR" ;;
+    value_format: "$0.0,,\" M\""
   }
 
   dimension: arr_cac_ratio {
     type: number
     sql: ${TABLE}."ARR_CAC_RATIO" ;;
+    value_format: "$0.0"
   }
 
     dimension_group: current_date {
