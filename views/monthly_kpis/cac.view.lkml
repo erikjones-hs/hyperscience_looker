@@ -47,7 +47,7 @@
     measure: cac_ratio {
       type:  number
       sql: ${new_expansion_arr} / NULLIFZERO(${cost_acq}) ;;
-      value_format: "$0.0"
+      value_format: "$0.00"
       label: "New/Expansion ARR / CAC Ratio"
     }
 
