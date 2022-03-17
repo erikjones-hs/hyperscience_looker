@@ -33,7 +33,7 @@
   measure: cost_acq {
     type:  sum
     sql: ${cac} ;;
-    value_format: "$0.0,,\" M\""
+    value_format: "$0.0,,\"M\""
     label: "CAC"
   }
 
