@@ -7,26 +7,39 @@
     sql: ${TABLE}."DTE" ;;
   }
 
-  dimension: eoy_goal {
-    type: number
-    sql: ${TABLE}."EOY_GOAL" ;;
-  }
+    dimension: new_arr {
+      type: number
+      sql: ${TABLE}."NEW_ARR" ;;
+    }
 
   dimension: sales_team {
     type: string
     sql: ${TABLE}."SALES_TEAM" ;;
   }
 
-    dimension_group: current_date {
-      type: time
-      timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
-      sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
-    }
+  dimension_group: current_date {
+    type: time
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
+    sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
+  }
+
+  dimension: category {
+    type: string
+    sql: ${TABLE}."CATEGORY" ;;
+  }
 
   measure: goal_eoy{
     type:  sum
-    sql: ${eoy_goal} ;;
+    sql: ${new_arr} ;;
+    filters: [category: "budget"]
     value_format: "$#,##0.00"
   }
+
+ measure: actuals_fytd {
+   type: sum
+   sql: ${new_arr} ;;
+  filters: [category: "actuals"]
+   value_format: "$#,##0.00"
+ }
 
 }
