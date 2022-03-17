@@ -40,7 +40,7 @@
     measure: new_expansion_arr {
       type:  sum
       sql: ${new_upsell_arr} ;;
-      value_format: "$0.0,,\" M\""
+      value_format: "$0.0,,\"M\""
       label: "New/Expansion ARR"
     }
 
