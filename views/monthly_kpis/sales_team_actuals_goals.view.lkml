@@ -37,8 +37,8 @@
 
  measure: actuals_fytd {
    type: sum
-   sql: ${new_arr} ;;
-  filters: [category: "actuals"]
+   sql: ZEROIFNULL(${new_arr}) ;;
+   filters: [category: "actuals"]
    value_format: "$#,##0.00"
  }
 
