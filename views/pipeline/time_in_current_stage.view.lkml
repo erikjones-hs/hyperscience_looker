@@ -169,43 +169,50 @@ view: time_in_current_stage {
   }
 
   measure: discovery_time_in {
-    type: number
+    type: average_distinct
+    sql_distinct_key: ${opp_id} ;;
     sql: ${time_in_discovery} ;;
     label: "Time in Discovery"
   }
 
   measure: vf_time_in {
-    type: number
+    type: average_distinct
+    sql_distinct_key: ${opp_id} ;;
     sql: ${time_in_vf} ;;
     label: "Time in Value/Fit"
   }
 
   measure: tdd_time_in {
-    type: number
+    type: average_distinct
+    sql_distinct_key: ${opp_id} ;;
     sql: ${time_in_tdd} ;;
     label: "Time in TDD"
   }
 
   measure: go_no_time_in {
-    type: number
+    type: average_distinct
+    sql_distinct_key: ${opp_id} ;;
     sql: ${time_in_go_no} ;;
     label: "Time in EB Go/No-Go"
   }
 
   measure: poc_time_in {
-    type: number
+    type: average_distinct
+    sql_distinct_key: ${opp_id} ;;
     sql: ${time_in_poc} ;;
     label: "Time in POC"
   }
 
   measure: eb_review_time_in {
-    type: number
+    type: average_distinct
+    sql_distinct_key: ${opp_id} ;;
     sql: ${time_in_eb_review} ;;
     label: "Time in EB Review"
   }
 
   measure: neg_and_close_time_in {
-    type: number
+    type: average_distinct
+    sql_distinct_key: ${opp_id} ;;
     sql: ${time_in_neg_and_close} ;;
     label: "Time in Negotiate & Close"
   }
