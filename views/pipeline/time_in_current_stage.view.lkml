@@ -162,6 +162,36 @@ view: time_in_current_stage {
     sql: ${TABLE}."TIME_IN_NEG_AND_CLOSE" ;;
   }
 
+  dimension: time_in_discovery_bucket {
+    case: {
+      when: {
+        sql: ${time_in_discovery} <= 30;;
+        label: "0-30"
+      }
+      when: {
+        sql: ${time_in_discovery} > 30 AND ${time_in_discovery} <= 60;;
+        label: "31-60"
+      }
+      when: {
+        sql: ${time_in_discovery} > 60 AND ${time_in_discovery} <= 90;;
+        label: "61-90"
+      }
+      when: {
+        sql: ${time_in_discovery} > 90 AND ${time_in_discovery} <= 120;;
+        label: "91-120"
+      }
+      when: {
+        sql: ${time_in_discovery} > 120 AND ${time_in_discovery} <= 365;;
+        label: "110-365"
+      }
+      when: {
+        sql: ${time_in_discovery} > 365;;
+        label: "365+"
+      }
+      else:"Unknown"
+    }
+  }
+
   measure: num_opps {
     type:  count_distinct
     sql_distinct_key: ${opp_id} ;;
