@@ -177,12 +177,12 @@ view: time_in_current_stage {
         label: "61-90"
       }
       when: {
-        sql: ${time_in_discovery} > 90 AND ${time_in_discovery} <= 120;;
-        label: "91-120"
+        sql: ${time_in_discovery} > 90 AND ${time_in_discovery} <= 180;;
+        label: "91-180"
       }
       when: {
-        sql: ${time_in_discovery} > 120 AND ${time_in_discovery} <= 365;;
-        label: "110-365"
+        sql: ${time_in_discovery} > 180 AND ${time_in_discovery} <= 365;;
+        label: "181-365"
       }
       when: {
         sql: ${time_in_discovery} > 365;;
@@ -207,12 +207,12 @@ view: time_in_current_stage {
         label: "61-90"
       }
       when: {
-        sql: ${time_in_tdd} > 90 AND ${time_in_tdd} <= 120;;
-        label: "91-120"
+        sql: ${time_in_tdd} > 90 AND ${time_in_tdd} <= 180;;
+        label: "91-180"
       }
       when: {
-        sql: ${time_in_tdd} > 120 AND ${time_in_tdd} <= 365;;
-        label: "110-365"
+        sql: ${time_in_tdd} > 180 AND ${time_in_tdd} <= 365;;
+        label: "181-365"
       }
       when: {
         sql: ${time_in_tdd} > 365;;
@@ -237,12 +237,12 @@ view: time_in_current_stage {
         label: "61-90"
       }
       when: {
-        sql: ${time_in_vf} > 90 AND ${time_in_vf} <= 120;;
-        label: "91-120"
+        sql: ${time_in_vf} > 90 AND ${time_in_vf} <= 180;;
+        label: "91-180"
       }
       when: {
-        sql: ${time_in_vf} > 120 AND ${time_in_vf} <= 365;;
-        label: "110-365"
+        sql: ${time_in_vf} > 180 AND ${time_in_vf} <= 365;;
+        label: "181-365"
       }
       when: {
         sql: ${time_in_vf} > 365;;
@@ -267,12 +267,12 @@ view: time_in_current_stage {
         label: "61-90"
       }
       when: {
-        sql: ${time_in_go_no} > 90 AND ${time_in_go_no} <= 120;;
-        label: "91-120"
+        sql: ${time_in_go_no} > 90 AND ${time_in_go_no} <= 180;;
+        label: "91-180"
       }
       when: {
-        sql: ${time_in_go_no} > 120 AND ${time_in_go_no} <= 365;;
-        label: "110-365"
+        sql: ${time_in_go_no} > 180 AND ${time_in_go_no} <= 365;;
+        label: "181-365"
       }
       when: {
         sql: ${time_in_go_no} > 365;;
@@ -297,12 +297,12 @@ view: time_in_current_stage {
         label: "61-90"
       }
       when: {
-        sql: ${time_in_poc} > 90 AND ${time_in_poc} <= 120;;
-        label: "91-120"
+        sql: ${time_in_poc} > 90 AND ${time_in_poc} <= 180;;
+        label: "91-180"
       }
       when: {
-        sql: ${time_in_poc} > 120 AND ${time_in_poc} <= 365;;
-        label: "110-365"
+        sql: ${time_in_poc} > 180 AND ${time_in_poc} <= 365;;
+        label: "181-365"
       }
       when: {
         sql: ${time_in_poc} > 365;;
@@ -327,12 +327,12 @@ view: time_in_current_stage {
         label: "61-90"
       }
       when: {
-        sql: ${time_in_eb_review} > 90 AND ${time_in_eb_review} <= 120;;
-        label: "91-120"
+        sql: ${time_in_eb_review} > 90 AND ${time_in_eb_review} <= 180;;
+        label: "91-180"
       }
       when: {
-        sql: ${time_in_eb_review} > 120 AND ${time_in_eb_review} <= 365;;
-        label: "110-365"
+        sql: ${time_in_eb_review} > 180 AND ${time_in_eb_review} <= 365;;
+        label: "181-365"
       }
       when: {
         sql: ${time_in_eb_review} > 365;;
@@ -357,12 +357,12 @@ view: time_in_current_stage {
         label: "61-90"
       }
       when: {
-        sql: ${time_in_neg_and_close} > 90 AND ${time_in_neg_and_close} <= 120;;
-        label: "91-120"
+        sql: ${time_in_neg_and_close} > 90 AND ${time_in_neg_and_close} <= 180;;
+        label: "91-180"
       }
       when: {
-        sql: ${time_in_neg_and_close} > 120 AND ${time_in_neg_and_close} <= 365;;
-        label: "110-365"
+        sql: ${time_in_neg_and_close} > 180 AND ${time_in_neg_and_close} <= 365;;
+        label: "181-365"
       }
       when: {
         sql: ${time_in_neg_and_close} > 365;;
