@@ -453,12 +453,10 @@ view: time_in_current_stage {
 
   set: detail {
     fields: [
-      date_ran_time,
       opp_id,
       opp_name,
       account_name,
       account_industry,
-      account_sales_region,
       partner_account_name,
       opp_stage_name,
       opp_lead_source,
@@ -477,7 +475,6 @@ view: time_in_current_stage {
       opp_net_new_arr,
       opportunity_owner,
       owner_description,
-      opp_pipeline_category,
       time_in_discovery,
       time_in_vf,
       time_in_tdd,
