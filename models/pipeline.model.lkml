@@ -4,3 +4,4 @@ include: "/views/pipeline/*.view.lkml"                # include all views in the
 fiscal_month_offset:  2
 
 explore: from_to {}
+explore: time_in_current_stage {}
