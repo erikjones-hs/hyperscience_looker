@@ -192,98 +192,264 @@ view: time_in_current_stage {
     }
   }
 
+  dimension: time_in_tdd_bucket {
+    case: {
+      when: {
+        sql: ${time_in_tdd} <= 30;;
+        label: "0-30"
+      }
+      when: {
+        sql: ${time_in_tdd} > 30 AND ${time_in_tdd} <= 60;;
+        label: "31-60"
+      }
+      when: {
+        sql: ${time_in_tdd} > 60 AND ${time_in_tdd} <= 90;;
+        label: "61-90"
+      }
+      when: {
+        sql: ${time_in_tdd} > 90 AND ${time_in_tdd} <= 120;;
+        label: "91-120"
+      }
+      when: {
+        sql: ${time_in_tdd} > 120 AND ${time_in_tdd} <= 365;;
+        label: "110-365"
+      }
+      when: {
+        sql: ${time_in_tdd} > 365;;
+        label: "365+"
+      }
+      else:"Unknown"
+    }
+  }
+
+  dimension: time_in_vf_bucket {
+    case: {
+      when: {
+        sql: ${time_in_vf} <= 30;;
+        label: "0-30"
+      }
+      when: {
+        sql: ${time_in_vf} > 30 AND ${time_in_vf} <= 60;;
+        label: "31-60"
+      }
+      when: {
+        sql: ${time_in_vf} > 60 AND ${time_in_vf} <= 90;;
+        label: "61-90"
+      }
+      when: {
+        sql: ${time_in_vf} > 90 AND ${time_in_vf} <= 120;;
+        label: "91-120"
+      }
+      when: {
+        sql: ${time_in_vf} > 120 AND ${time_in_vf} <= 365;;
+        label: "110-365"
+      }
+      when: {
+        sql: ${time_in_vf} > 365;;
+        label: "365+"
+      }
+      else:"Unknown"
+    }
+  }
+
+  dimension: time_in_go_no_bucket {
+    case: {
+      when: {
+        sql: ${time_in_go_no} <= 30;;
+        label: "0-30"
+      }
+      when: {
+        sql: ${time_in_go_no} > 30 AND ${time_in_go_no} <= 60;;
+        label: "31-60"
+      }
+      when: {
+        sql: ${time_in_go_no} > 60 AND ${time_in_go_no} <= 90;;
+        label: "61-90"
+      }
+      when: {
+        sql: ${time_in_go_no} > 90 AND ${time_in_go_no} <= 120;;
+        label: "91-120"
+      }
+      when: {
+        sql: ${time_in_go_no} > 120 AND ${time_in_go_no} <= 365;;
+        label: "110-365"
+      }
+      when: {
+        sql: ${time_in_go_no} > 365;;
+        label: "365+"
+      }
+      else:"Unknown"
+    }
+  }
+
+  dimension: time_in_poc_bucket {
+    case: {
+      when: {
+        sql: ${time_in_poc} <= 30;;
+        label: "0-30"
+      }
+      when: {
+        sql: ${time_in_poc} > 30 AND ${time_in_poc} <= 60;;
+        label: "31-60"
+      }
+      when: {
+        sql: ${time_in_poc} > 60 AND ${time_in_poc} <= 90;;
+        label: "61-90"
+      }
+      when: {
+        sql: ${time_in_poc} > 90 AND ${time_in_poc} <= 120;;
+        label: "91-120"
+      }
+      when: {
+        sql: ${time_in_poc} > 120 AND ${time_in_poc} <= 365;;
+        label: "110-365"
+      }
+      when: {
+        sql: ${time_in_poc} > 365;;
+        label: "365+"
+      }
+      else:"Unknown"
+    }
+  }
+
+  dimension: time_in_eb_review_bucket {
+    case: {
+      when: {
+        sql: ${time_in_eb_review} <= 30;;
+        label: "0-30"
+      }
+      when: {
+        sql: ${time_in_eb_review} > 30 AND ${time_in_eb_review} <= 60;;
+        label: "31-60"
+      }
+      when: {
+        sql: ${time_in_eb_review} > 60 AND ${time_in_eb_review} <= 90;;
+        label: "61-90"
+      }
+      when: {
+        sql: ${time_in_eb_review} > 90 AND ${time_in_eb_review} <= 120;;
+        label: "91-120"
+      }
+      when: {
+        sql: ${time_in_eb_review} > 120 AND ${time_in_eb_review} <= 365;;
+        label: "110-365"
+      }
+      when: {
+        sql: ${time_in_eb_review} > 365;;
+        label: "365+"
+      }
+      else:"Unknown"
+    }
+  }
+
+  dimension: time_in_neg_close_bucket {
+    case: {
+      when: {
+        sql: ${time_in_neg_and_close} <= 30;;
+        label: "0-30"
+      }
+      when: {
+        sql: ${time_in_neg_and_close} > 30 AND ${time_in_neg_and_close} <= 60;;
+        label: "31-60"
+      }
+      when: {
+        sql: ${time_in_neg_and_close} > 60 AND ${time_in_neg_and_close} <= 90;;
+        label: "61-90"
+      }
+      when: {
+        sql: ${time_in_neg_and_close} > 90 AND ${time_in_neg_and_close} <= 120;;
+        label: "91-120"
+      }
+      when: {
+        sql: ${time_in_neg_and_close} > 120 AND ${time_in_neg_and_close} <= 365;;
+        label: "110-365"
+      }
+      when: {
+        sql: ${time_in_neg_and_close} > 365;;
+        label: "365+"
+      }
+      else:"Unknown"
+    }
+  }
+
+  measure: median_discovery {
+    type: median
+    sql: ${time_in_discovery} ;;
+  }
+
+  measure: mean_discovery {
+    type: average
+    sql: ${time_in_discovery} ;;
+  }
+
+  measure: median_vf {
+    type: median
+    sql: ${time_in_vf} ;;
+  }
+
+  measure: mean_vf {
+    type: average
+    sql: ${time_in_vf} ;;
+  }
+
+  measure: median_tdd {
+    type: median
+    sql: ${time_in_tdd} ;;
+  }
+
+  measure: mean_tdd {
+    type: average
+    sql: ${time_in_tdd} ;;
+  }
+
+  measure: median_go_no {
+    type: median
+    sql: ${time_in_go_no} ;;
+  }
+
+  measure: mean_go_no {
+    type: average
+    sql: ${time_in_go_no} ;;
+  }
+
+  measure: median_poc {
+    type: median
+    sql: ${time_in_poc} ;;
+  }
+
+  measure: mean_poc {
+    type: average
+    sql: ${time_in_poc} ;;
+  }
+
+  measure: median_eb_review {
+    type: median
+    sql: ${time_in_eb_review} ;;
+  }
+
+  measure: mean_eb_review {
+    type: average
+    sql: ${time_in_eb_review} ;;
+  }
+
+  measure: median_neg_close {
+    type: median
+    sql: ${time_in_neg_and_close} ;;
+  }
+
+  measure: mean_neg_close {
+    type: average
+    sql: ${time_in_neg_and_close} ;;
+  }
+
+
+
   measure: num_opps {
     type:  count_distinct
     sql_distinct_key: ${opp_id} ;;
     sql: ${opp_id} ;;
   }
 
-  measure: discovery_time_in {
-    type: average_distinct
-    sql_distinct_key: ${opp_id} ;;
-    sql: ${time_in_discovery} ;;
-    label: "Time in Discovery"
-  }
-
-  measure: vf_time_in {
-    type: average_distinct
-    sql_distinct_key: ${opp_id} ;;
-    sql: ${time_in_vf} ;;
-    label: "Time in Value/Fit"
-  }
-
-  measure: tdd_time_in {
-    type: average_distinct
-    sql_distinct_key: ${opp_id} ;;
-    sql: ${time_in_tdd} ;;
-    label: "Time in TDD"
-  }
-
-  measure: go_no_time_in {
-    type: average_distinct
-    sql_distinct_key: ${opp_id} ;;
-    sql: ${time_in_go_no} ;;
-    label: "Time in EB Go/No-Go"
-  }
-
-  measure: poc_time_in {
-    type: average_distinct
-    sql_distinct_key: ${opp_id} ;;
-    sql: ${time_in_poc} ;;
-    label: "Time in POC"
-  }
-
-  measure: eb_review_time_in {
-    type: average_distinct
-    sql_distinct_key: ${opp_id} ;;
-    sql: ${time_in_eb_review} ;;
-    label: "Time in EB Review"
-  }
-
-  measure: neg_and_close_time_in {
-    type: average_distinct
-    sql_distinct_key: ${opp_id} ;;
-    sql: ${time_in_neg_and_close} ;;
-    label: "Time in Negotiate & Close"
-  }
-
-  measure: median_discovery {
-    type: median
-    sql: ${time_in_discovery} ;;
-    drill_fields: [detail*]
-  }
-
-  measure: mean_discovery {
-    type: average
-    sql: ${time_in_discovery} ;;
-    drill_fields: [detail*]
-  }
-
-  measure: min_discovery {
-    type: min
-    sql: ${time_in_discovery} ;;
-    drill_fields: [detail*]
-  }
-
-  measure: max_discovery {
-    type: max
-    sql: ${time_in_discovery} ;;
-    drill_fields: [detail*]
-  }
-
-  measure: percentile_25_discovery{
-    type: percentile
-    percentile:  25
-    sql: ${time_in_discovery} ;;
-    drill_fields: [detail*]
-  }
-
-  measure: percentile_75_discovery {
-    type: percentile
-    percentile:  75
-    sql: ${time_in_discovery};;
-    drill_fields: [detail*]
-  }
 
   set: detail {
     fields: [
