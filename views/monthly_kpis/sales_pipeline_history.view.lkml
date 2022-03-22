@@ -302,7 +302,7 @@ view: sales_pipeline_history {
   measure: percent_new_opps {
     type:  number
     sql: 100 * ${num_new_opps} / ${total_pipeline_opps} ;;
-    value_format: "#0.00\%"
+    value_format: "#0\%"
   }
 
 
