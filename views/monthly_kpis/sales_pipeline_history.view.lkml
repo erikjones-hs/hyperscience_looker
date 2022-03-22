@@ -148,6 +148,11 @@ view: sales_pipeline_history {
     }
   }
 
+  dimension: is_opp_new_flag {
+    type:  number
+    sql: CASE WHEN ${opp_created_dte_month} = ${date_ran_month} THEN 1 ELSE 0 END ;;
+  }
+
   measure: total_pipeline_opps {
     type: count_distinct
     sql: ${opp_id} ;;
@@ -288,6 +293,18 @@ view: sales_pipeline_history {
     drill_fields: [detail*]
     value_format: "#0.00\%"
   }
+
+  measure: num_new_opps {
+    type:  sum
+    sql: ${is_opp_new_flag} ;;
+  }
+
+  measure: percent_pipeline_opps {
+    type:  number
+    sql: ${num_new_opps} / ${total_pipeline_opps} ;;
+    value_format: "#0.00\%"
+  }
+
 
   set: detail {
     fields: [
