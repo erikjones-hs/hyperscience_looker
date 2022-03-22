@@ -52,6 +52,40 @@ view: prev_next_stage {
     sql: CASE WHEN ${opp_stage_name} != ${next_month_stage_name} AND ${next_month_stage_name} not in ('Opp DQed') then 1 else 0 end ;;
  }
 
+  dimension: stage_custom_sort {
+    label: "Stage (custom sort)"
+    case: {
+      when: {
+        sql: ${opp_stage_name} = 'AE Discovery' ;;
+        label: "Discovery"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'Value/Fit' ;;
+        label: "Value/Fit"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'TDD' ;;
+        label: "TDD"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'EB Go/No-Go' ;;
+        label: "EB Go/No-Go"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'TVE' ;;
+        label: "POC"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'EB Revisit' ;;
+        label: "EB Review"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'Negotiate and Close' ;;
+        label: "Negotiate & Close"
+      }
+    }
+  }
+
   measure: num_opps {
     type: count_distinct
     sql_distinct_key: ${opp_id} ;;
