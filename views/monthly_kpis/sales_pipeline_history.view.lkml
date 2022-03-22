@@ -299,7 +299,7 @@ view: sales_pipeline_history {
     sql: ${is_opp_new_flag} ;;
   }
 
-  measure: percent_pipeline_opps {
+  measure: percent_new_opps {
     type:  number
     sql: ${num_new_opps} / ${total_pipeline_opps} ;;
     value_format: "#0.00\%"
