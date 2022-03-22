@@ -57,31 +57,31 @@ view: prev_next_stage {
     case: {
       when: {
         sql: ${opp_stage_name} = 'AE Discovery' ;;
-        label: "Discovery"
+        label: "1. Discovery"
       }
       when: {
         sql: ${opp_stage_name} = 'Value/Fit' ;;
-        label: "Value/Fit"
+        label: "2. Value/Fit"
       }
       when: {
         sql: ${opp_stage_name} = 'TDD' ;;
-        label: "TDD"
+        label: "3. TDD"
       }
       when: {
         sql: ${opp_stage_name} = 'EB Go/No-Go' ;;
-        label: "EB Go/No-Go"
+        label: "4. EB Go/No-Go"
       }
       when: {
         sql: ${opp_stage_name} = 'TVE' ;;
-        label: "POC"
+        label: "5. POC"
       }
       when: {
         sql: ${opp_stage_name} = 'EB Revisit' ;;
-        label: "EB Review"
+        label: "6. EB Review"
       }
       when: {
         sql: ${opp_stage_name} = 'Negotiate and Close' ;;
-        label: "Negotiate & Close"
+        label: "7. Negotiate & Close"
       }
     }
   }
