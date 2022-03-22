@@ -77,6 +77,29 @@ view: prev_next_stage {
     label: "# Opportunities Moved Stages"
   }
 
+  measure: percent_same_stage {
+    type:  number
+    sql: 100 * ${num_opps_same_stage} / ${num_opps} ;;
+    value_format: "#0\%"
+    label: "% Opportunities Same Stage"
+  }
+
+  measure: percent_dq {
+    type:  number
+    sql: 100 * ${num_opps_dq} / ${num_opps} ;;
+    value_format: "#0\%"
+    label: "% Opportunities DQed"
+  }
+
+  measure: percent_moved_stages {
+    type:  number
+    sql: 100 * ${num_opps_moved_stage} / ${num_opps} ;;
+    value_format: "#0\%"
+    label: "% Opportunities Moved Stages"
+  }
+
+
+
   set: detail {
     fields: [
       date_ran_time,
