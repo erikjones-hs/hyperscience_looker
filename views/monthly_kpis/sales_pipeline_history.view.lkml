@@ -64,6 +64,11 @@ view: sales_pipeline_history {
     sql: ${TABLE}."OPP_IS_MARKETING_INFLUENCED_FLAG" ;;
   }
 
+  dimension_group: opp_created_dte {
+    type: time
+    sql: ${TABLE}."OPP_CREATED_DTE" ;;
+  }
+
   dimension_group: opp_close_dte {
     type: time
     sql: ${TABLE}."OPP_CLOSE_DTE" ;;
