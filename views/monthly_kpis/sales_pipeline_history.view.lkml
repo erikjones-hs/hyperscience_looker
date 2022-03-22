@@ -187,6 +187,11 @@ view: sales_pipeline_history {
   }
 }
 
+  dimension: is_new_customer_flag {
+    type:  number
+    sql: CASE WHEN ${opp_revenue_type} = 'New Customer' then 1 else 0 end ;;
+  }
+
   measure: total_pipeline_opps {
     type: count_distinct
     sql: ${opp_id} ;;
@@ -336,6 +341,17 @@ view: sales_pipeline_history {
   measure: percent_new_opps {
     type:  number
     sql: 100 * ${num_new_opps} / ${total_pipeline_opps} ;;
+    value_format: "#0\%"
+  }
+
+  measure: num_new_customer_opps {
+    type:  sum
+    sql: ${is_new_customer_flag} ;;
+  }
+
+  measure: percent_new_customer_opps {
+    type:  number
+    sql: 100 * ${num_new_customer_opps} / ${total_pipeline_opps} ;;
     value_format: "#0\%"
   }
 
