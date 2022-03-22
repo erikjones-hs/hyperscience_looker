@@ -153,6 +153,40 @@ view: sales_pipeline_history {
     sql: CASE WHEN ${opp_created_dte_month} = ${date_ran_month} THEN 1 ELSE 0 END ;;
   }
 
+  dimension: revenue_type_category {
+    label: "Revenue Type (bucketed)"
+    case: {
+      when: {
+        sql: ${opp_revenue_type} = 'New Customer' ;;
+        label: "New Customer"
+      }
+      when: {
+        sql: ${opp_revenue_type} = 'Data Deal' ;;
+        label: "Renewal / Expansion / Data Deal"
+      }
+      when: {
+        sql: ${opp_revenue_type} = 'Expansion' ;;
+        label: "Renewal / Expansion / Data Deal"
+      }
+      when: {
+        sql: ${opp_revenue_type} = 'Renewal' ;;
+        label: "Renewal / Expansion / Data Deal"
+      }
+      when: {
+        sql: ${opp_revenue_type} = 'Renewal w/ Upsell' ;;
+        label: "Renewal / Expansion / Data Deal"
+      }
+      when: {
+        sql: ${opp_revenue_type} = 'Partnership' ;;
+        label: "Renewal / Expansion / Data Deal"
+      }
+      when: {
+        sql: ${opp_revenue_type} = 'Upsell' ;;
+        label: "Renewal / Expansion / Data Deal"
+    }
+  }
+}
+
   measure: total_pipeline_opps {
     type: count_distinct
     sql: ${opp_id} ;;
