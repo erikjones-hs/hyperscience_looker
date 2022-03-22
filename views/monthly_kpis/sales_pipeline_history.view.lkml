@@ -44,6 +44,11 @@ view: sales_pipeline_history {
     sql: ${TABLE}."PARTNER_ACCOUNT_NAME" ;;
   }
 
+  dimension: opp_revenue_type {
+    type: string
+    sql: ${TABLE}."OPP_REVENUE_TYPE" ;;
+  }
+
   dimension: opp_stage_name {
     type: string
     sql: ${TABLE}."OPP_STAGE_NAME" ;;
