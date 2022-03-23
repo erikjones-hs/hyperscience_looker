@@ -269,6 +269,28 @@
     sql: ${discovery_to_closed_won_days} ;;
   }
 
+    measure: min_neg_and_close_to_closed_won {
+      type: min
+      sql: ${neg_and_close_to_closed_won_days} ;;
+    }
+
+    measure: max_neg_and_close_to_closed_won {
+      type: max
+      sql: ${neg_and_close_to_closed_won_days} ;;
+    }
+
+    measure: percentile_25_neg_and_close_to_closed_won {
+      type: percentile
+      percentile: 25
+      sql: ${neg_and_close_to_closed_won_days} ;;
+    }
+
+    measure: percentile_75_neg_and_close_to_closed_won {
+      type: percentile
+      percentile: 75
+      sql: ${neg_and_close_to_closed_won_days} ;;
+    }
+
   set: detail {
     fields: [
       opp_id,
