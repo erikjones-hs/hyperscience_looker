@@ -192,6 +192,36 @@ view: sales_pipeline_history {
     sql: CASE WHEN ${opp_revenue_type} = 'New Customer' then 1 else 0 end ;;
   }
 
+  dimension: is_data_deal_flag {
+    type:  number
+    sql: CASE WHEN ${opp_revenue_type} = 'Data Deal' then 1 else 0 end ;;
+  }
+
+  dimension: is_expansion_flag {
+    type:  number
+    sql: CASE WHEN ${opp_revenue_type} = 'Expansion' then 1 else 0 end ;;
+  }
+
+  dimension: is_renewal_flag {
+    type:  number
+    sql: CASE WHEN ${opp_revenue_type} = 'Renewal' then 1 else 0 end ;;
+  }
+
+  dimension: is_renewal_upsell_flag {
+    type:  number
+    sql: CASE WHEN ${opp_revenue_type} = 'Renewal w/ Upsell' then 1 else 0 end ;;
+  }
+
+  dimension: is_partnership_flag {
+    type:  number
+    sql: CASE WHEN ${opp_revenue_type} = 'Partnership' then 1 else 0 end ;;
+  }
+
+  dimension: is_upsell_flag {
+    type:  number
+    sql: CASE WHEN ${opp_revenue_type} = 'Upsell' then 1 else 0 end ;;
+  }
+
   measure: total_pipeline_opps {
     type: count_distinct
     sql: ${opp_id} ;;
@@ -347,6 +377,48 @@ view: sales_pipeline_history {
   measure: num_new_customer_opps {
     type:  sum
     sql: ${is_new_customer_flag} ;;
+  }
+
+  measure: num_data_deal_opps {
+    type:  sum
+    sql: ${is_data_deal_flag};;
+  }
+
+  measure: num_expansion_opps {
+    type:  sum
+    sql: ${is_expansion_flag} ;;
+  }
+
+  measure: num_renewal_opps {
+    type:  sum
+    sql: ${is_renewal_flag} ;;
+  }
+
+  measure: num_renewal_upsell_opps {
+    type:  sum
+    sql: ${is_renewal_upsell_flag} ;;
+  }
+
+  measure: num_upsell_opps {
+    type:  sum
+    sql: ${is_upsell_flag} ;;
+  }
+
+  measure: num_partnership_opps {
+    type:  sum
+    sql: ${is_partnership_flag} ;;
+  }
+
+  measure: all_opps {
+    type: number
+    sql: ${is_data_deal_flag} + ${is_expansion_flag} + ${is_new_customer_flag} + ${is_partnership_flag} + ${is_renewal_flag} + ${is_renewal_upsell_flag} + ${is_upsell_flag} ;;
+  }
+
+  measure: percent_new_customers {
+    type: number
+    sql: 100 * (${is_new_customer_flag} / ${all_opps}) ;;
+    value_format: "#0\%"
+    label: "% New Customers"
   }
 
   measure: percent_new_customer_opps {
