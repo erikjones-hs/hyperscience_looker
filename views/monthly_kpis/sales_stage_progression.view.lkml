@@ -119,9 +119,12 @@
     sql: ${TABLE}."OPP_REVENUE_TYPE" ;;
   }
 
-  measure: count {
-    type: count
+  measure: num_opps {
+    type: count_distinct
+    sql_distinct_key: ${opp_id} ;;
+    sql: ${opp_id} ;;
     drill_fields: [detail*]
+    label: "# Opportunities"
   }
 
   measure: had_discovery {
