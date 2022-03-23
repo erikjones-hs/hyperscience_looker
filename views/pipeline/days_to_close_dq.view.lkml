@@ -22,6 +22,11 @@
     sql: ${TABLE}."ACCOUNT_NAME" ;;
   }
 
+  dimension: opp_revenue_type {
+    type: string
+    sql: ${TABLE}."OPP_REVENUE_TYPE" ;;
+  }
+
   dimension_group: opp_created_dte {
     type: time
     sql: ${TABLE}."OPP_CREATED_DTE" ;;
