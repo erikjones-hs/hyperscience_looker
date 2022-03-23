@@ -113,6 +113,11 @@ view: sales_funnel {
     sql: ${TABLE}."OPPORTUNITY_OWNER" ;;
   }
 
+  dimension: opp_revenue_type {
+    type: string
+    sql: ${TABLE}."OPP_REVENUE_TYPE" ;;
+  }
+
   measure: num_had_discovery_call {
     type:  count_distinct
     sql: ${opp_id} ;;
