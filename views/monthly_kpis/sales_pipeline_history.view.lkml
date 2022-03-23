@@ -148,6 +148,45 @@ view: sales_pipeline_history {
     }
   }
 
+  dimension: stage_custom_sort_1 {
+    label: "Stage (custom sort 1)"
+    case: {
+      when: {
+        sql: ${opp_stage_name} = 'AE Discovery' ;;
+        label: "1. Discovery"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'Value/Fit' ;;
+        label: "2. Value/Fit"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'TDD' ;;
+        label: "3. TDD"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'EB Go/No-Go' ;;
+        label: "4. EB Go/No-Go"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'TVE' ;;
+        label: "5. POC"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'EB Revisit' ;;
+        label: "6. EB Review"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'Negotiate and Close' ;;
+        label: "7. Negotiate & Close"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'Closed Won' ;;
+        label: "8. Closed Won"
+      }
+
+    }
+  }
+
   dimension: is_opp_new_flag {
     type:  number
     sql: CASE WHEN ${opp_created_dte_month} = ${date_ran_month} THEN 1 ELSE 0 END ;;
