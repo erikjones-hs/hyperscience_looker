@@ -114,6 +114,11 @@
     sql: ${TABLE}."OPPORTUNITY_OWNER" ;;
   }
 
+  dimension: opp_revenue_type {
+    type: string
+    sql: ${TABLE}."OPP_REVENUE_TYPE" ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
