@@ -6,3 +6,4 @@ fiscal_month_offset:  2
 explore: from_to {}
 explore: time_in_current_stage {}
 explore: prev_next_stage {}
+explore: days_to_close_dq {}
