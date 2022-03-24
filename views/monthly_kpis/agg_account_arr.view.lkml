@@ -143,7 +143,7 @@ view: agg_account_arr {
   measure: arr_acct_change {
     type:  sum
     sql: ${mrr_change_acct};;
-    value_format: "$0.00"
+    value_format: "$#,##0"
     drill_fields: [detail*]
   }
 
