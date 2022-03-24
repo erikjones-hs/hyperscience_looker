@@ -1,5 +1,5 @@
 view: time_in_current_stage {
-  sql_table_name: (select * from DEV.ERIKJONES.PIPELINE_TIME_IN_STAGE);;
+  sql_table_name: (select * from DEV.ERIKJONES.PIPELINE_TIME_IN_CURRENT_STAGE);;
   drill_fields: [detail*]
 
   dimension_group: date_ran {
