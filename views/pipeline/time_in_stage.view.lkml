@@ -32,29 +32,63 @@
     sql: ${TABLE}."TOUCHPOINT_ORDER" ;;
   }
 
-    dimension: opp_name {
-      type: string
-      sql: ${TABLE}."OPP_NAME" ;;
-    }
+  dimension: opp_name {
+    type: string
+    sql: ${TABLE}."OPP_NAME" ;;
+  }
 
-    dimension: account_id {
-      type: string
-      sql: ${TABLE}."ACCOUNT_ID" ;;
-    }
+  dimension: account_id {
+    type: string
+    sql: ${TABLE}."ACCOUNT_ID" ;;
+  }
 
-    dimension: account_name {
-      type: string
-      sql: ${TABLE}."ACCOUNT_NAME" ;;
-    }
+  dimension: account_name {
+    type: string
+    sql: ${TABLE}."ACCOUNT_NAME" ;;
+  }
 
-    dimension: opp_revenue_type {
-      type: string
-      sql: ${TABLE}."OPP_REVENUE_TYPE" ;;
-    }
+  dimension: opp_revenue_type {
+    type: string
+    sql: ${TABLE}."OPP_REVENUE_TYPE" ;;
+  }
 
-    dimension: opp_pipeline_category {
-      type: string
-      sql: ${TABLE}."OPP_PIPELINE_CATEGORY" ;;
+  dimension: opp_pipeline_category {
+    type: string
+    sql: ${TABLE}."OPP_PIPELINE_CATEGORY" ;;
+  }
+
+  dimension: stage_custom {
+    label: "Stage (custom sort)"
+    case: {
+      when: {
+        sql: ${stage} = 'discovery' ;;
+        label: "1. Discovery"
+      }
+      when: {
+        sql: ${stage} = 'fit' ;;
+        label: "2. Value/Fit"
+      }
+      when: {
+        sql: ${stage} = 'tdd' ;;
+        label: "3. TDD"
+      }
+      when: {
+        sql: ${stage} = 'go_no' ;;
+        label: "4. EB Go/No-Go"
+      }
+      when: {
+        sql: ${stage} = 'poc' ;;
+        label: "5. POC"
+      }
+      when: {
+        sql: ${stage} = 'eb_review' ;;
+        label: "6. EB Review"
+      }
+      when: {
+        sql: ${stage} = 'neg_close' ;;
+        label: "7. Negotiate & Close"
+      }
+    }
     }
 
   measure: num_opps {
