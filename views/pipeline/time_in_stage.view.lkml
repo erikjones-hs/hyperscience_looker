@@ -134,6 +134,12 @@
     label: "75th Percentile Time in Stage"
   }
 
+  measure: mean_time_in_stage {
+    type: average
+    sql: ${time_in_stage};;
+    label: "Mean Time in Stage"
+  }
+
   set: detail {
     fields: [opp_id, stage, dte_time, time_in_stage, touchpoint_order]
   }
