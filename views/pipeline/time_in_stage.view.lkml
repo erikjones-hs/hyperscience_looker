@@ -32,6 +32,31 @@
     sql: ${TABLE}."TOUCHPOINT_ORDER" ;;
   }
 
+    dimension: opp_name {
+      type: string
+      sql: ${TABLE}."OPP_NAME" ;;
+    }
+
+    dimension: account_id {
+      type: string
+      sql: ${TABLE}."ACCOUNT_ID" ;;
+    }
+
+    dimension: account_name {
+      type: string
+      sql: ${TABLE}."ACCOUNT_NAME" ;;
+    }
+
+    dimension: opp_revenue_type {
+      type: string
+      sql: ${TABLE}."OPP_REVENUE_TYPE" ;;
+    }
+
+    dimension: opp_pipeline_category {
+      type: string
+      sql: ${TABLE}."OPP_PIPELINE_CATEGORY" ;;
+    }
+
   measure: num_opps {
     type: count_distinct
     sql_distinct_key: ${opp_id} ;;
