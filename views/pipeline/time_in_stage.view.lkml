@@ -57,6 +57,11 @@
     sql: ${TABLE}."OPP_PIPELINE_CATEGORY" ;;
   }
 
+  dimension: opp_stage_name {
+    type: string
+    sql: ${TABLE}."OPP_STAGE_NAME" ;;
+  }
+
   dimension: stage_custom {
     label: "Stage (custom sort)"
     case: {
