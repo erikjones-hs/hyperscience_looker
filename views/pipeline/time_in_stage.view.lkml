@@ -65,7 +65,7 @@
         label: "1. Discovery"
       }
       when: {
-        sql: ${stage} = 'fit' ;;
+        sql: ${stage} = 'vf' ;;
         label: "2. Value/Fit"
       }
       when: {
@@ -87,6 +87,10 @@
       when: {
         sql: ${stage} = 'neg_close' ;;
         label: "7. Negotiate & Close"
+      }
+      when: {
+        sql: ${stage} = 'created' ;;
+        label: "8. Created"
       }
     }
     }
