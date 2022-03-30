@@ -47,6 +47,44 @@ view: time_in_current_stage {
     sql: ${TABLE}."OPP_STAGE_NAME" ;;
   }
 
+  dimension: stage_custom {
+    label: "Stage (custom sort)"
+    case: {
+      when: {
+        sql: ${opp_stage_name} = 'discovery' ;;
+        label: "1. Discovery"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'vf' ;;
+        label: "2. Value/Fit"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'tdd' ;;
+        label: "3. TDD"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'go_no' ;;
+        label: "4. EB Go/No-Go"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'poc' ;;
+        label: "5. POC"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'eb_review' ;;
+        label: "6. EB Review"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'neg_close' ;;
+        label: "7. Negotiate & Close"
+      }
+      when: {
+        sql: ${opp_stage_name} = 'created' ;;
+        label: "8. Created"
+      }
+    }
+  }
+
   dimension: opp_lead_source {
     type: string
     sql: ${TABLE}."OPP_LEAD_SOURCE" ;;
