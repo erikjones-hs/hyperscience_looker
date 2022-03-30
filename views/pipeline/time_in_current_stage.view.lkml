@@ -51,35 +51,35 @@ view: time_in_current_stage {
     label: "Stage (custom sort)"
     case: {
       when: {
-        sql: ${opp_stage_name} = 'discovery' ;;
+        sql: lower(${opp_stage_name}) = 'ae discovery' ;;
         label: "1. Discovery"
       }
       when: {
-        sql: ${opp_stage_name} = 'vf' ;;
+        sql: lower(${opp_stage_name}) = 'value/fit' ;;
         label: "2. Value/Fit"
       }
       when: {
-        sql: ${opp_stage_name} = 'tdd' ;;
+        sql: lower(${opp_stage_name}) = 'tdd' ;;
         label: "3. TDD"
       }
       when: {
-        sql: ${opp_stage_name} = 'go_no' ;;
+        sql: lower(${opp_stage_name}) = 'eb go/no-go' ;;
         label: "4. EB Go/No-Go"
       }
       when: {
-        sql: ${opp_stage_name} = 'poc' ;;
+        sql: lower(${opp_stage_name}) = 'tve' ;;
         label: "5. POC"
       }
       when: {
-        sql: ${opp_stage_name} = 'eb_review' ;;
+        sql: lower(${opp_stage_name}) = 'eb revisit' ;;
         label: "6. EB Review"
       }
       when: {
-        sql: ${opp_stage_name} = 'neg_close' ;;
+        sql: lower(${opp_stage_name}) = 'negotiate and close' ;;
         label: "7. Negotiate & Close"
       }
       when: {
-        sql: ${opp_stage_name} = 'created' ;;
+        sql: lower(${opp_stage_name}) = 'created' ;;
         label: "8. Created"
       }
     }
