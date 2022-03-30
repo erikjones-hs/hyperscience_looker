@@ -8,6 +8,7 @@ view: closed_won_sources {
 
   dimension_group: dte {
     type: time
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
     sql: ${TABLE}."DTE" ;;
   }
 
@@ -42,10 +43,6 @@ view: closed_won_sources {
     type: sum
     sql: ${total_arr} ;;
     label: "Total ARR"
-  }
-
-  set: detail {
-    fields: [fy_year, dte_time, net_new_arr, total_arr, num_opps]
   }
 
 }
