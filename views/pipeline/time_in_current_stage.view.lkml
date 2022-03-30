@@ -78,10 +78,6 @@ view: time_in_current_stage {
         sql: lower(${opp_stage_name}) = 'negotiate and close' ;;
         label: "7. Negotiate & Close"
       }
-      when: {
-        sql: lower(${opp_stage_name}) = 'created' ;;
-        label: "8. Created"
-      }
     }
   }
 
