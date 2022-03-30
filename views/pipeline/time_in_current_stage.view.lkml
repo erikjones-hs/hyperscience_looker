@@ -132,6 +132,11 @@ view: time_in_current_stage {
     sql: ${TABLE}."OPP_PIPELINE_CATEGORY" ;;
   }
 
+  dimension: time_in_pipeline {
+    type: number
+    sql: ${TABLE}."TIME_IN_PIPELINE" ;;
+  }
+
   dimension: time_in_discovery {
     type: number
     sql: ${TABLE}."TIME_IN_DISCOVERY" ;;
@@ -447,7 +452,43 @@ view: time_in_current_stage {
     sql: ${time_in_neg_and_close} ;;
   }
 
+  measure: mean_time_in_pipeline {
+    type: average
+    sql: ${time_in_pipeline} ;;
+    label: "Mean Time in Pipeline"
+  }
 
+  measure: median_time_in_pipeline {
+    type: median
+    sql: ${time_in_pipeline} ;;
+    label: "Median Time in Pipeline"
+  }
+
+  measure: min_time_in_pipeline {
+    type: min
+    sql: ${time_in_pipeline} ;;
+    label: "Min. Time in Pipeline"
+  }
+
+  measure: max_time_in_pipeline {
+    type: max
+    sql: ${time_in_pipeline} ;;
+    label: "Max. Time in Pipeline"
+  }
+
+  measure: percentile_25_time_in_pipeline {
+    type: percentile
+    percentile: 25
+    sql: ${time_in_pipeline} ;;
+    label: "25th Percentile Time in Pipeline"
+  }
+
+  measure: percentile_75_time_in_pipeline {
+    type: percentile
+    percentile: 75
+    sql: ${time_in_pipeline} ;;
+    label: "75th Percentile Time in Pipeline"
+  }
 
   measure: num_opps {
     type:  count_distinct
