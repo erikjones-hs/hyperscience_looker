@@ -1,5 +1,5 @@
 view: closed_won_sources {
-    sql_table_name: (select * from dev.erikjones.monthly_kpis_closed_won_lead_scource);;
+    sql_table_name: (select * from prod.monthly_kpis.closed_won_sourced);;
 
   dimension: fy_year {
     type: number
@@ -25,6 +25,11 @@ view: closed_won_sources {
   dimension: num_opps {
     type: number
     sql: ${TABLE}."NUM_OPPS" ;;
+  }
+
+  dimension: opp_lead_source {
+    type: string
+    sql: ${TABLE}."OPP_LEAD_SOURCE" ;;
   }
 
   measure: number_opportunities {
