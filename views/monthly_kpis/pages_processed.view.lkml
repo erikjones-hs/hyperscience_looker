@@ -99,7 +99,7 @@ view: pages_processed {
   }
 
   measure: avg_percent_change {
-    type: average
+    type: median
     sql: ${perc_change_monthly_pages} ;;
     label: "Average Monthly Percent Change"
   }
