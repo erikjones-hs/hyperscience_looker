@@ -1,9 +1,9 @@
   view: balance_sheet {
     sql_table_name: (select * from dev.erikjones.pipeline_balance_sheet);;
-    drill_fields: [detail*]
 
-  dimension: dte_month {
-    type: date
+  dimension_group: dte_month {
+    type: time
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
     sql: ${TABLE}."DTE_MONTH" ;;
   }
 
@@ -52,9 +52,14 @@
     sql: ${TABLE}."ENDING_OPPS" ;;
   }
 
+  dimension_group: current_date {
+    type: time
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
+    sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
+  }
+
   measure: count {
     type: count
-    drill_fields: [detail*]
   }
 
   measure: opps_beginning {
@@ -85,20 +90,5 @@
     type:  sum
     sql: ${ending_opps_int};;
     label: "Ending Opportunities"
-  }
-
-  set: detail {
-    fields: [
-      dte_month,
-      beginning_opps,
-      new_opps,
-      closed_opps,
-      dq_opps,
-      tot_dq_opps,
-      pipeline_opps,
-      ending_opps_int,
-      deleted_opps,
-      ending_opps
-    ]
   }
 }
