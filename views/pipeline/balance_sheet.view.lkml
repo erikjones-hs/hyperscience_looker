@@ -71,7 +71,7 @@
 
   measure: opps_dq {
     type:  sum
-    sql: ${tot_dq_opps}_opps} ;;
+    sql: ${tot_dq_opps} ;;
     label: "DQed Opportunities"
   }
 
