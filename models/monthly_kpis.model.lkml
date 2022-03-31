@@ -45,3 +45,4 @@ explore: rev_per_emp {persist_for: "12 hours"}
 explore: avg_arr_customer {persist_for: "12 hours"}
 explore: closed_won_sources {persist_for: "12 hours"}
 explore: cash_balance {persist_for: "12 hours"}
+explore: pages_processed_growth {persist_for: "12 hours"}
