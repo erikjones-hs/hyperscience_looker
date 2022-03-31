@@ -98,6 +98,12 @@ view: pages_processed {
     }
   }
 
+  measure: avg_percent_change {
+    type: average
+    sql: ${perc_change_monthly_pages} ;;
+    label: "Average Monthly Percent Change"
+  }
+
     set: detail {
       fields: [
         customer,
