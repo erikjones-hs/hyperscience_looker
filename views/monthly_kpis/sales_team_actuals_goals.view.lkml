@@ -25,7 +25,7 @@
 
   measure: arr_new {
     type:  sum
-    sql: ${new_arr} ;;
+    sql: ZEROIFNULL(${new_arr}) ;;
     value_format: "$#,##0.00"
     label: "New ARR"
   }
