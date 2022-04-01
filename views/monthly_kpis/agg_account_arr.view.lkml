@@ -86,6 +86,16 @@ view: agg_account_arr {
     sql: ${TABLE}."MONTHS_SINCE_START" ;;
   }
 
+  dimension: churn_category {
+    type: string
+    sql: CASE
+         WHEN ${customer_category} = 'active' then 'Revenue Churn'
+         WHEN ${customer_category} = 'churn' then 'Logo Churn'
+         ELSE 'Other'
+        END;;
+    label: "Churn Category"
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
