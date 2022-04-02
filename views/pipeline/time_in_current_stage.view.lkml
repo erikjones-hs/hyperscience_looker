@@ -612,6 +612,13 @@ view: time_in_current_stage {
     label: "# Fresh Opps"
   }
 
+  measure: percent_fresh_opps {
+    type:  number
+    sql: 100 * ${num_fresh_opps} / NULLIFZERO(${num_opps});;
+    value_format: "#0\%"
+    label: "% Fresh Opps"
+  }
+
 
   set: detail {
     fields: [
