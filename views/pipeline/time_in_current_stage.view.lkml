@@ -530,6 +530,69 @@ view: time_in_current_stage {
     sql: ${opp_id} ;;
   }
 
+  measure: fresh_discovery {
+    type:  count_distinct
+    sql_distinct_key: ${opp_id} ;;
+    sql:  ${opp_id};;
+    filters: [time_in_pipeline: "<= 60", opp_stage_name: "AE Discovery"]
+    drill_fields: [detail*]
+    label: "Fresh Discovery Opps"
+  }
+
+  measure: fresh_vf {
+    type:  count_distinct
+    sql_distinct_key: ${opp_id} ;;
+    sql:  ${opp_id};;
+    filters: [time_in_pipeline: "<= 60", opp_stage_name: "Value/Fit"]
+    drill_fields: [detail*]
+    label: "Fresh Value/Fit Opps"
+  }
+
+  measure: fresh_tdd {
+    type:  count_distinct
+    sql_distinct_key: ${opp_id} ;;
+    sql:  ${opp_id};;
+    filters: [time_in_pipeline: "<= 60", opp_stage_name: "TDD"]
+    drill_fields: [detail*]
+    label: "Fresh TDD Opps"
+  }
+
+  measure: fresh_go_no {
+    type:  count_distinct
+    sql_distinct_key: ${opp_id} ;;
+    sql:  ${opp_id};;
+    filters: [time_in_pipeline: "<= 60", opp_stage_name: "EB Go/No-Go"]
+    drill_fields: [detail*]
+    label: "Fresh EB Go/No-Go Opps"
+  }
+
+  measure: fresh_poc {
+    type:  count_distinct
+    sql_distinct_key: ${opp_id} ;;
+    sql:  ${opp_id};;
+    filters: [time_in_pipeline: "<= 180", opp_stage_name: "TVE"]
+    drill_fields: [detail*]
+    label: "Fresh POC Opps"
+  }
+
+  measure: fresh_review {
+    type:  count_distinct
+    sql_distinct_key: ${opp_id} ;;
+    sql:  ${opp_id};;
+    filters: [time_in_pipeline: "<= 180", opp_stage_name: "EB Revisit"]
+    drill_fields: [detail*]
+    label: "Fresh EB Review Opps"
+  }
+
+  measure: fresh_neg_and_close {
+    type:  count_distinct
+    sql_distinct_key: ${opp_id} ;;
+    sql:  ${opp_id};;
+    filters: [time_in_pipeline: "<= 180", opp_stage_name: "EB Negotiate and Close"]
+    drill_fields: [detail*]
+    label: "Fresh Negotiate and Close Opps"
+  }
+
 
   set: detail {
     fields: [
