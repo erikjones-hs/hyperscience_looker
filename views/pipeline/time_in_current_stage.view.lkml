@@ -416,6 +416,19 @@ view: time_in_current_stage {
     }
   }
 
+  dimension: fresh_opp_flag {
+    sql:  CASE
+          WHEN ${stage_custom} = '1. Discovery' and ${time_in_pipeline} <= 60 then 1
+          WHEN ${stage_custom} = '2. Value/Fit' and ${time_in_pipeline} <= 60 then 1
+          WHEN ${stage_custom} = '3. TDD' and ${time_in_pipeline} <= 60 then 1
+          WHEN ${stage_custom} = '4. EB Go/No-Go' and ${time_in_pipeline} <= 60 then 1
+          WHEN ${stage_custom} = '5. POC' and ${time_in_pipeline} <= 180 then 1
+          WHEN ${stage_custom} = '6. EB Review' and ${time_in_pipeline} <= 180 then 1
+          WHEN ${stage_custom} = '7. Negotiate and Close' and ${time_in_pipeline} <= 180 then 1
+          ELSE 0
+          END;;
+  }
+
   measure: median_discovery {
     type: median
     sql: ${time_in_discovery} ;;
@@ -591,6 +604,12 @@ view: time_in_current_stage {
     filters: [time_in_pipeline: "<= 180", opp_stage_name: "EB Negotiate and Close"]
     drill_fields: [detail*]
     label: "Fresh Negotiate and Close Opps"
+  }
+
+  measure: num_fresh_opps {
+    type: sum
+    sql: ${fresh_opp_flag} ;;
+    label: "# Fresh Opps"
   }
 
 
