@@ -27,7 +27,7 @@
     sql: ${TABLE}."MOMENTUM_8" ;;
   }
 
-  dimension: momentum_8_ratio {
+  dimension: momentum_4_ratio {
     type: number
     sql: ${TABLE}."MOMENTUM_8_RATIO" ;;
   }
