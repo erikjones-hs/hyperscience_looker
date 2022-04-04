@@ -46,3 +46,4 @@ explore: avg_arr_customer {persist_for: "12 hours"}
 explore: closed_won_sources {persist_for: "12 hours"}
 explore: cash_balance {persist_for: "12 hours"}
 explore: pages_processed_growth {persist_for: "12 hours"}
+explore: customer_count {persist_for: "12 hours"}
