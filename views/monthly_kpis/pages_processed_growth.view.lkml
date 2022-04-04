@@ -29,7 +29,7 @@
 
   dimension: momentum_4_ratio {
     type: number
-    sql: ${TABLE}."MOMENTUM_8_RATIO" ;;
+    sql: ${TABLE}."MOMENTUM_4_RATIO" ;;
   }
 
   set: detail {
