@@ -27,6 +27,11 @@
     sql: ${TABLE}."MOMENTUM_8" ;;
   }
 
+  dimension: momentum_8_ratio {
+    type: number
+    sql: ${TABLE}."MOMENTUM_8_RATIO" ;;
+  }
+
   set: detail {
     fields: [dte_week_time, customer, momentum_4, momentum_8]
   }
