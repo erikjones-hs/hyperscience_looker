@@ -25,21 +25,21 @@
   measure: capacity {
     type: sum
     sql: ${total_capacity} ;;
-    value_format: "$0.0,,\"M\""
+    value_format: "$0,,\"M\""
     label: "Capacity"
   }
 
   measure: budget {
     type: sum
     sql: ${new_arr_budget} ;;
-    value_format: "$0.0,,\"M\""
+    value_format: "$0,,\"M\""
     label: "ARR Budget"
   }
 
   measure: net_new_arr {
     type: sum
     sql: ${cum_sum_net_new_arr} ;;
-    value_format: "$0.0,,\"M\""
+    value_format: "$0,,\"M\""
     label: "Pipeline ARR"
   }
 }
