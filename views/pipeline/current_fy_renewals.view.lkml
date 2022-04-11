@@ -137,10 +137,10 @@
     label: "Churn Renewal ARR"
   }
 
-  measure: renewal_arr {
+  measure: recurring_arr {
     type: number
     sql: (-1*${churn_potential}) - ${open_flat_arr} - ${open_expansion_arr} - ${open_churn_arr} ;;
-    label: "No Open Opportunity (ARR)"
+    label: "Recurring ARR"
   }
 
   set: detail {
