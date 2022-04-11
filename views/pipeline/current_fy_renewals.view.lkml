@@ -134,7 +134,7 @@
     type: sum
     sql: ${open_opp_arr} ;;
     filters: [renewal_type: "churn"]
-    label: "Flat Renewal ARR"
+    label: "Churn Renewal ARR"
   }
 
   measure: no_open_opp {
