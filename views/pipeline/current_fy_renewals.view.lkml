@@ -116,6 +116,33 @@
     label: "Open Net New ARR"
   }
 
+  measure: open_flat_arr {
+    type: sum
+    sql: ${open_opp_arr} ;;
+    filters: [renewal_type: "flat"]
+    label: "Flat Renewal ARR"
+  }
+
+  measure: open_expansion_arr {
+    type: sum
+    sql: ${open_opp_arr} ;;
+    filters: [renewal_type: "expansion"]
+    label: "Expansion Renewal ARR"
+  }
+
+  measure: open_churn_arr {
+    type: sum
+    sql: ${open_opp_arr} ;;
+    filters: [renewal_type: "churn"]
+    label: "Flat Renewal ARR"
+  }
+
+  measure: no_open_opp {
+    type: number
+    sql: ${churn_potential} + ${open_flat_arr} + ${open_expansion_arr} - ${open_churn_arr} ;;
+    label: "No Open Opportunity (ARR)"
+  }
+
   set: detail {
     fields: [
       renewal_month_date,
