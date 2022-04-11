@@ -125,21 +125,21 @@
 
   measure: open_expansion_arr {
     type: sum
-    sql: ${open_opp_arr} ;;
+    sql: ${net_new_arr} ;;
     filters: [renewal_type: "expansion"]
     label: "Expansion Renewal ARR"
   }
 
   measure: open_churn_arr {
     type: sum
-    sql: ${open_opp_arr} ;;
+    sql: ${net_new_arr} ;;
     filters: [renewal_type: "churn"]
     label: "Churn Renewal ARR"
   }
 
-  measure: no_open_opp {
+  measure: renewal_arr {
     type: number
-    sql: ${churn_potential} + ${open_flat_arr} + ${open_expansion_arr} + ${open_churn_arr} ;;
+    sql: (-1*${churn_potential}) - ${open_flat_arr} - ${open_expansion_arr} - ${open_churn_arr} ;;
     label: "No Open Opportunity (ARR)"
   }
 
