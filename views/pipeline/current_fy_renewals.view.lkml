@@ -11,6 +11,11 @@
   dimension: account_id {
     type: string
     sql: ${TABLE}."ACCOUNT_ID" ;;
+    link: {
+      label: "Salesforce"
+      url: "https://hyperscience.lightning.force.com/lightning/r/Account/{{ value }}/view"
+      icon_url: "http://salesforce.com/favicon.ico"
+    }
   }
 
   dimension: account_name {
@@ -21,6 +26,11 @@
   dimension: existing_opp_id {
     type: string
     sql: ${TABLE}."EXISTING_OPP_ID" ;;
+    link: {
+      label: "Salesforce"
+      url: "https://hyperscience.lightning.force.com/lightning/r/Opportunity/{{ value }}/view"
+      icon_url: "http://salesforce.com/favicon.ico"
+    }
   }
 
   dimension: existing_opp_name {
@@ -42,6 +52,11 @@
   dimension: open_opp_id {
     type: string
     sql: ${TABLE}."OPEN_OPP_ID" ;;
+    link: {
+      label: "Salesforce"
+      url: "https://hyperscience.lightning.force.com/lightning/r/Opportunity/{{ value }}/view"
+      icon_url: "http://salesforce.com/favicon.ico"
+    }
   }
 
   dimension: open_opp_name {
