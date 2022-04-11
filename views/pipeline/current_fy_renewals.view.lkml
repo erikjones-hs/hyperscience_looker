@@ -139,7 +139,7 @@
 
   measure: no_open_opp {
     type: number
-    sql: ${churn_potential} + ${open_flat_arr} + ${open_expansion_arr} - ${open_churn_arr} ;;
+    sql: ${churn_potential} + ${open_flat_arr} + ${open_expansion_arr} + ${open_churn_arr} ;;
     label: "No Open Opportunity (ARR)"
   }
 
