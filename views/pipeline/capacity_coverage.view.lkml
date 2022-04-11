@@ -22,6 +22,11 @@
     sql: ${TABLE}."CUM_SUM_NET_NEW_ARR" ;;
   }
 
+  dimension: opp_pipeline_category {
+    type: string
+    sql: ${TABLE}."OPP_PIPELINE_CATEGORY" ;;
+  }
+
   measure: capacity {
     type: sum
     sql: ${total_capacity} ;;
