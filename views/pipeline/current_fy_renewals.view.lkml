@@ -100,7 +100,7 @@
 
   measure: churn_potential {
     type: sum
-    sql: ${potential_churn_amount} ;;
+    sql: -1*${potential_churn_amount} ;;
     label: "Potential ARR Churn"
   }
 
@@ -132,7 +132,7 @@
 
   measure: open_churn_arr {
     type: sum
-    sql: ${net_new_arr} ;;
+    sql: -1*${net_new_arr} ;;
     filters: [renewal_type: "churn"]
     label: "Churn Renewal ARR"
   }
@@ -142,6 +142,12 @@
     sql: ${open_opp_arr} ;;
     filters: [renewal_type: "churn"]
     label: "Recurring ARR"
+  }
+
+  measure: no_open_arr {
+    type: number
+    sql: ${churn_potential} - ${open_flat_arr} - ${open_expansion_arr} - ${open_churn_arr} - ${recurring_arr} ;;
+    label: "No Open Opp (ARR)"
   }
 
   set: detail {
