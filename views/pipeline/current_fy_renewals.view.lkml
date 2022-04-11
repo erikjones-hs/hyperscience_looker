@@ -138,8 +138,9 @@
   }
 
   measure: recurring_arr {
-    type: number
-    sql: (-1*${churn_potential}) - ${open_flat_arr} - ${open_expansion_arr} - ${open_churn_arr} ;;
+    type: sum
+    sql: ${open_opp_arr} ;;
+    filters: [renewal_type: "churn"]
     label: "Recurring ARR"
   }
 
