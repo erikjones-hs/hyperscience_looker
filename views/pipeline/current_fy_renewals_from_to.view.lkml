@@ -26,7 +26,7 @@
     type: sum
     sql: ${tot_amount} ;;
     label: "Total ARR"
-    value_format: "$0.0,,\"M\""
+    value_format: "$0.00,,\"M\""
   }
 
 }
