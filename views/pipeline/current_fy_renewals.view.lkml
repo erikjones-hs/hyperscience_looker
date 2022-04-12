@@ -141,7 +141,14 @@
     type: sum
     sql: ${open_opp_arr} ;;
     filters: [renewal_type: "churn"]
-    label: "Recurring ARR"
+    label: "Recurring w/ Churn ARR"
+  }
+
+  measure: recurring_of_expansion_arr {
+    type: sum
+    sql: ${open_opp_arr} + ${potential_churn_amount} ;;
+    filters: [renewal_type: "expansion"]
+    label: "Recurring w/ Expansion ARR"
   }
 
   measure: no_open_arr {
