@@ -146,7 +146,7 @@
 
   measure: recurring_of_expansion_arr {
     type: sum
-    sql: ${open_opp_arr} + ${potential_churn_amount} ;;
+    sql: -1 * ${potential_churn_amount} ;;
     filters: [renewal_type: "expansion"]
     label: "Recurring w/ Expansion ARR"
   }
