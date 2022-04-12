@@ -25,8 +25,8 @@
   measure: arr {
     type: sum
     sql: ${tot_amount} ;;
-    label: "TOtal ARR"
-    value_format: "$#,##0.0"
+    label: "Total ARR"
+    value_format: "$0.0,,\"M\""
   }
 
 }
