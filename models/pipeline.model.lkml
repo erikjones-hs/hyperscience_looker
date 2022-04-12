@@ -11,3 +11,4 @@ explore: time_in_stage {}
 explore: balance_sheet {}
 explore: capacity_coverage {}
 explore: current_fy_renewals {}
+explore: current_fy_renewals_from_to {}
