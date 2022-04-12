@@ -137,7 +137,7 @@
     label: "Churn Renewal ARR"
   }
 
-  measure: recurring_arr {
+  measure: recurring_of_churn_arr {
     type: sum
     sql: ${open_opp_arr} ;;
     filters: [renewal_type: "churn"]
@@ -149,6 +149,12 @@
     sql: ${open_opp_arr} + ${potential_churn_amount} ;;
     filters: [renewal_type: "expansion"]
     label: "Recurring w/ Expansion ARR"
+  }
+
+  measure: total_recurring {
+    type:  number
+    sql: ${recurring_of_expansion_arr} + ${recurring_of_churn_arr} ;;
+    label: "Recurring ARR"
   }
 
   measure: no_open_arr {
