@@ -90,6 +90,11 @@
     sql: ${TABLE}."RENEWAL_TYPE" ;;
   }
 
+  dimension: open_opp_stage_name {
+    type: string
+    sql: ${TABLE}."OPP_STAGE_NAME" ;;
+  }
+
   measure: num_opps {
     type: count_distinct
     sql_distinct_key: ${existing_opp_id} ;;
