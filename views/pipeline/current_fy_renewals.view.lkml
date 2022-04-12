@@ -145,8 +145,8 @@
   }
 
   measure: no_open_arr {
-    type: number
-    sql: ${churn_potential} - ${open_flat_arr} - ${open_expansion_arr} - ${open_churn_arr} - ${recurring_arr} ;;
+    type: sum
+    sql: CASE WHEN ${open_opp_arr} IS NULL then (-1 * ${potential_churn_amount}) else 0 END;;
     label: "No Open Opp (ARR)"
   }
 
