@@ -90,6 +90,7 @@
   measure: num_users {
     type: count_distinct
     sql_distinct_key: ${user_id} ;;
+    sql: ${user_id} ;;
     label: "# Users"
     drill_fields: [detail*]
   }
@@ -97,6 +98,7 @@
   measure: num_events {
     type: count_distinct
     sql_distinct_key: ${event_id} ;;
+    sql: ${event_id} ;;
     label: "# Events"
     drill_fields: [detail*]
   }
@@ -104,6 +106,7 @@
   measure: num_sessions {
     type: count_distinct
     sql_distinct_key: ${session_id} ;;
+    sql: ${session_id} ;;
     label: "# Sessions"
     drill_fields: [detail*]
   }
