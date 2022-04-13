@@ -22,1172 +22,776 @@ view: saas_usage {
     sql: ${TABLE}."PERIOD_START" ;;
   }
 
-  dimension: submissions_created_count {
+  dimension: number_of_submissions_created {
     type: number
-    sql: ${TABLE}."SUBMISSIONS_CREATED_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_SUBMISSIONS_CREATED" ;;
   }
 
-  dimension: submissions_count {
+  dimension: number_of_submissions_completed {
     type: number
-    sql: ${TABLE}."SUBMISSIONS_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_SUBMISSIONS_COMPLETED" ;;
   }
 
-  dimension: forms_created_count {
+  dimension: number_of_documents_created {
     type: number
-    sql: ${TABLE}."FORMS_CREATED_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_DOCUMENTS_CREATED" ;;
   }
 
-  dimension: forms_count {
+  dimension: number_of_documents_completed {
     type: number
-    sql: ${TABLE}."FORMS_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_DOCUMENTS_COMPLETED" ;;
   }
 
-  dimension: submission_page_created_count {
+  dimension: number_of_pages_created {
     type: number
-    sql: ${TABLE}."SUBMISSION_PAGE_CREATED_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_PAGES_CREATED" ;;
   }
 
-  dimension: submission_page_count {
+  dimension: number_of_pages_completed {
     type: number
-    sql: ${TABLE}."SUBMISSION_PAGE_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_PAGES_COMPLETED" ;;
   }
 
-  dimension: pages_created_structured_count {
+  dimension: number_of_pages_matched_to_form_layouts_created {
     type: number
-    sql: ${TABLE}."PAGES_CREATED_STRUCTURED_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_PAGES_MATCHED_TO_FORM_LAYOUTS_CREATED" ;;
   }
 
-  dimension: pages_structured_count {
+  dimension: number_of_pages_matched_to_form_layouts_completed {
     type: number
-    sql: ${TABLE}."PAGES_STRUCTURED_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_PAGES_MATCHED_TO_FORM_LAYOUTS_COMPLETED" ;;
   }
 
-  dimension: pages_created_variable_count {
+  dimension: number_of_pages_matched_to_flex_layouts_created {
     type: number
-    sql: ${TABLE}."PAGES_CREATED_VARIABLE_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_PAGES_MATCHED_TO_FLEX_LAYOUTS_CREATED" ;;
   }
 
-  dimension: pages_variable_count {
+  dimension: number_of_pages_matched_to_flex_layouts_completed {
     type: number
-    sql: ${TABLE}."PAGES_VARIABLE_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_PAGES_MATCHED_TO_FLEX_LAYOUTS_COMPLETED" ;;
   }
 
-  dimension: pages_with_fields_created_count {
+  dimension: number_of_pages_with_fields_on_them_created {
     type: number
-    sql: ${TABLE}."PAGES_WITH_FIELDS_CREATED_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_PAGES_WITH_FIELDS_ON_THEM_CREATED" ;;
   }
 
-  dimension: pages_with_fields_count {
+  dimension: number_of_pages_with_fields_on_them_completed {
     type: number
-    sql: ${TABLE}."PAGES_WITH_FIELDS_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_PAGES_WITH_FIELDS_ON_THEM_COMPLETED" ;;
   }
 
-  dimension: fields_created_count {
+  dimension: number_of_fields_created {
     type: number
-    sql: ${TABLE}."FIELDS_CREATED_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_FIELDS_CREATED" ;;
   }
 
-  dimension: fields_completed_count {
+  dimension: number_of_fields_completed {
     type: number
-    sql: ${TABLE}."FIELDS_COMPLETED_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_FIELDS_COMPLETED" ;;
   }
 
-  dimension: transcription_characters_count {
+  dimension: number_of_characters_completed {
     type: number
-    sql: ${TABLE}."TRANSCRIPTION_CHARACTERS_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_CHARACTERS_COMPLETED" ;;
   }
 
-  dimension: login_count {
+  dimension: seats {
     type: number
-    sql: ${TABLE}."LOGIN_COUNT" ;;
+    sql: ${TABLE}."SEATS" ;;
   }
 
-  dimension: submissions_files_created_count {
+  dimension: number_of_filed_submitted {
     type: number
-    sql: ${TABLE}."SUBMISSIONS_FILES_CREATED_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_FILED_SUBMITTED" ;;
   }
 
-  dimension: machine_transcribed_entries_count {
+  dimension: number_of_fields_machine_transcribed {
     type: number
-    sql: ${TABLE}."MACHINE_TRANSCRIBED_ENTRIES_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_FIELDS_MACHINE_TRANSCRIBED" ;;
   }
 
-  dimension: human_transcribed_entries_count {
+  dimension: number_of_fields_manually_transcribed {
     type: number
-    sql: ${TABLE}."HUMAN_TRANSCRIBED_ENTRIES_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_FIELDS_MANUALLY_TRANSCRIBED" ;;
   }
 
-  dimension: machine_identified_fields_count {
+  dimension: number_of_fields_machine_identified {
     type: number
-    sql: ${TABLE}."MACHINE_IDENTIFIED_FIELDS_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_FIELDS_MACHINE_IDENTIFIED" ;;
   }
 
-  dimension: human_identified_fields_count {
+  dimension: number_of_fields_manually_indentified {
     type: number
-    sql: ${TABLE}."HUMAN_IDENTIFIED_FIELDS_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_FIELDS_MANUALLY_INDENTIFIED" ;;
   }
 
-  dimension: pages_count_machine_sum {
+  dimension: number_of_pages_classified_automatically {
     type: number
-    sql: ${TABLE}."PAGES_COUNT_MACHINE_SUM" ;;
+    sql: ${TABLE}."NUMBER_OF_PAGES_CLASSIFIED_AUTOMATICALLY" ;;
   }
 
-  dimension: pages_count_manual_sum {
+  dimension: number_of_pages_classified_manually {
     type: number
-    sql: ${TABLE}."PAGES_COUNT_MANUAL_SUM" ;;
+    sql: ${TABLE}."NUMBER_OF_PAGES_CLASSIFIED_MANUALLY" ;;
   }
 
-  dimension: template_count_match {
+  dimension: number_of_unique_layouts_matched {
     type: number
-    sql: ${TABLE}."TEMPLATE_COUNT_MATCH" ;;
+    sql: ${TABLE}."NUMBER_OF_UNIQUE_LAYOUTS_MATCHED" ;;
   }
 
-  dimension: manual_checked_transcriptions_count {
+  dimension: number_of_qa_responses_on_manual_transcription {
     type: number
-    sql: ${TABLE}."MANUAL_CHECKED_TRANSCRIPTIONS_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_QA_RESPONSES_ON_MANUAL_TRANSCRIPTION" ;;
   }
 
-  dimension: manual_correct_transcriptions_count {
+  dimension: number_of_qa_correct_responses_on_manual_transcription {
     type: number
-    sql: ${TABLE}."MANUAL_CORRECT_TRANSCRIPTIONS_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_QA_CORRECT_RESPONSES_ON_MANUAL_TRANSCRIPTION" ;;
   }
 
-  dimension: system_checked_transcriptions_count {
+  dimension: number_of_qa_responses_on_system_transcription {
     type: number
-    sql: ${TABLE}."SYSTEM_CHECKED_TRANSCRIPTIONS_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_QA_RESPONSES_ON_SYSTEM_TRANSCRIPTION" ;;
   }
 
-  dimension: system_correct_transcriptions_count {
+  dimension: number_of_qa_correct_responses_on_system_transcription {
     type: number
-    sql: ${TABLE}."SYSTEM_CORRECT_TRANSCRIPTIONS_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_QA_CORRECT_RESPONSES_ON_SYSTEM_TRANSCRIPTION" ;;
   }
 
-  dimension: machine_checked_transcriptions_count {
+  dimension: number_of_qa_responses_on_machine_transcription {
     type: number
-    sql: ${TABLE}."MACHINE_CHECKED_TRANSCRIPTIONS_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_QA_RESPONSES_ON_MACHINE_TRANSCRIPTION" ;;
   }
 
-  dimension: machine_correct_transcriptions_count {
+  dimension: number_of_qa_correct_responses_on_machine_transcription {
     type: number
-    sql: ${TABLE}."MACHINE_CORRECT_TRANSCRIPTIONS_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_QA_CORECT_RESPONSES_ON_MACHINE_TRANSCRIPTION" ;;
   }
 
-  dimension: manual_checked_field_id_count {
+  dimension: number_of_qa_responses_on_manual_field_identification {
     type: number
-    sql: ${TABLE}."MANUAL_CHECKED_FIELD_ID_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_QA_RESPONSES_ON_MANUAL_FIELD_IDENTIFICATION" ;;
   }
 
-  dimension: manual_correct_field_id_count {
+  dimension: number_of_qa_correct_responses_on_manual_field_identification {
     type: number
-    sql: ${TABLE}."MANUAL_CORRECT_FIELD_ID_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_QA_CORRECT_RESPONSES_ON_MANUAL_FIELD_IDENTIFICATION" ;;
   }
 
-  dimension: system_checked_field_id_count {
+  dimension: number_of_qa_responses_on_system_field_identification {
     type: number
-    sql: ${TABLE}."SYSTEM_CHECKED_FIELD_ID_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_QA_RESPONSES_ON_SYSTEM_FIELD_IDENTIFICATION" ;;
   }
 
-  dimension: system_correct_field_id_count {
+  dimension: number_of_qa_correct_responses_on_system_field_identification {
     type: number
-    sql: ${TABLE}."SYSTEM_CORRECT_FIELD_ID_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_QA_CORRECT_RESPONSES_ON_SYSTEM_FIELD_IDENTIFICATION" ;;
   }
 
-  dimension: machine_checked_field_id_count {
+  dimension: number_of_qa_responses_on_machine_field_identification {
     type: number
-    sql: ${TABLE}."MACHINE_CHECKED_FIELD_ID_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_QA_RESPONSES_ON_MACHINE_FIELD_IDENTIFICATION" ;;
   }
 
-  dimension: machine_correct_field_id_count {
+  dimension: number_of_qa_correct_responses_on_machine_field_identification {
     type: number
-    sql: ${TABLE}."MACHINE_CORRECT_FIELD_ID_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_QA_CORRECT_RESPONSES_ON_MACHINE_FIELD_IDENTIFICATION" ;;
   }
 
-  dimension: fields_inc_machine_transcribed_count {
+  dimension: number_of_incremental_fields_machine_transcribed {
     type: number
-    sql: ${TABLE}."FIELDS_INC_MACHINE_TRANSCRIBED_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_INCREMENTAL_FIELDS_MACHINE_TRANSCRIBED" ;;
   }
 
-  dimension: organize_docs_tasks_count {
+  dimension: organize_documents_number_of_tasks_performed {
     type: number
-    sql: ${TABLE}."ORGANIZE_DOCS_TASKS_COUNT" ;;
+    sql: ${TABLE}."ORGANIZE_DOCUMENTS_NUMBER_OF_TASKS_PERFORMED" ;;
   }
 
-  dimension: organize_docs_pages_shown_count {
+  dimension: organize_documents_number_of_pages_shown_in_step_1 {
     type: number
-    sql: ${TABLE}."ORGANIZE_DOCS_PAGES_SHOWN_COUNT" ;;
+    sql: ${TABLE}."ORGANIZE_DOCUMENTS_NUMBER_OF_PAGES_SHOWN_IN_STEP_1" ;;
   }
 
-  dimension: organize_docs_pages_processed_count {
+  dimension: organize_documents_number_of_pages_categorized_in_step_1 {
     type: number
-    sql: ${TABLE}."ORGANIZE_DOCS_PAGES_PROCESSED_COUNT" ;;
+    sql: ${TABLE}."ORGANIZE_DOCUMENTS_NUMBER_OF_PAGES_CATEGORIZED_IN_STEP_1" ;;
   }
 
-  dimension: organize_docs_docs_created_count {
+  dimension: organize_documents_number_of_documents_created_in_step_1 {
     type: number
-    sql: ${TABLE}."ORGANIZE_DOCS_DOCS_CREATED_COUNT" ;;
+    sql: ${TABLE}."ORGANIZE_DOCUMENTS_NUMBER_OF_DOCUMENTS_CREATED_IN_STEP_1" ;;
   }
 
-  dimension: organize_docs_docs_count {
+  dimension: organize_documents_number_of_documents_outputted_in_step_1 {
     type: number
-    sql: ${TABLE}."ORGANIZE_DOCS_DOCS_COUNT" ;;
+    sql: ${TABLE}."ORGANIZE_DOCUMENTS_NUMBER_OF_DOCUMENTS_OUTPUTTED_IN_STEP_1" ;;
   }
 
-  dimension: organize_docs_folders_count {
+  dimension: organize_documents_number_of_folders_created_in_step_2 {
     type: number
-    sql: ${TABLE}."ORGANIZE_DOCS_FOLDERS_COUNT" ;;
+    sql: ${TABLE}."ORGANIZE_DOCUMENTS_NUMBER_OF_FOLDERS_CREATED_IN_STEP_2" ;;
   }
 
-  dimension: live_layouts_count {
+  dimension: number_of_live_layouts {
     type: number
-    sql: ${TABLE}."LIVE_LAYOUTS_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_LIVE_LAYOUTS" ;;
   }
 
-  dimension: forms_version {
+  dimension: software_version {
     type: string
-    sql: ${TABLE}."FORMS_VERSION" ;;
+    sql: ${TABLE}."SOFTWARE_VERSION" ;;
   }
 
-  dimension: machine_match_nlc_page_count {
+  dimension: number_of_correct_machine_predicted_non_structured_pages {
     type: number
-    sql: ${TABLE}."MACHINE_MATCH_NLC_PAGE_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_CORRECT_MACHINE_PREDICTED_NON_STRUCTURED_PAGES" ;;
   }
 
-  dimension: human_match_nlc_page_count {
+  dimension: number_of_incorrect_machine_predicted_non_structured_pages {
     type: number
-    sql: ${TABLE}."HUMAN_MATCH_NLC_PAGE_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_INCORRECT_MACHINE_PREDICTED_NON_STRUCTURED_PAGES" ;;
   }
 
-  dimension: releases_count {
+  dimension: number_of_releases {
     type: number
-    sql: ${TABLE}."RELEASES_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_RELEASES" ;;
   }
 
-  dimension: archived_releases_count {
+  dimension: number_of_archived_releases {
     type: number
-    sql: ${TABLE}."ARCHIVED_RELEASES_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_ARCHIVED_RELEASES" ;;
   }
 
-  dimension: layouts_count {
+  dimension: number_of_layouts {
     type: number
-    sql: ${TABLE}."LAYOUTS_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_LAYOUTS" ;;
   }
 
-  dimension: archived_layouts_count {
+  dimension: number_of_archived_layouts {
     type: number
-    sql: ${TABLE}."ARCHIVED_LAYOUTS_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_ARCHIVED_LAYOUTS" ;;
   }
 
-  dimension: layout_versions_count {
+  dimension: number_of_layout_versions {
     type: number
-    sql: ${TABLE}."LAYOUT_VERSIONS_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_LAYOUT_VERSIONS" ;;
   }
 
-  dimension: live_idp_flows_count {
+  dimension: number_of_release_deploys {
     type: number
-    sql: ${TABLE}."LIVE_IDP_FLOWS_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_RELEASE_DEPLOYS" ;;
   }
 
-  dimension: cells_created_count {
+  dimension: number_of_table_cells_created {
     type: number
-    sql: ${TABLE}."CELLS_CREATED_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_TABLE_CELLS_CREATED" ;;
   }
 
-  dimension: cells_completed_count {
+  dimension: number_of_table_cells_completed {
     type: number
-    sql: ${TABLE}."CELLS_COMPLETED_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_TABLE_CELLS_COMPLETED" ;;
   }
 
-  dimension: machine_identified_cells_count {
+  dimension: number_of_table_cells_machine_identified {
     type: number
-    sql: ${TABLE}."MACHINE_IDENTIFIED_CELLS_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_TABLE_CELLS_MACHINE_IDENTIFIED" ;;
   }
 
-  dimension: human_identified_cells_count {
+  dimension: number_of_table_cells_manually_identified {
     type: number
-    sql: ${TABLE}."HUMAN_IDENTIFIED_CELLS_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_CELLS_MANUALLY_IDENTIFIED" ;;
   }
 
-  dimension: manual_checked_nlc_page_count {
+  dimension: qa_responses_on_manual_non_structured_classification {
     type: number
-    sql: ${TABLE}."MANUAL_CHECKED_NLC_PAGE_COUNT" ;;
+    sql: ${TABLE}."QA_RESPONSES_ON_MANUAL_NON_STRUCTURED_CLASSIFICATION" ;;
   }
 
-  dimension: manual_correct_nlc_page_count {
+  dimension: qa_correct_responses_on_manual_non_structured_classification {
     type: number
-    sql: ${TABLE}."MANUAL_CORRECT_NLC_PAGE_COUNT" ;;
+    sql: ${TABLE}."QA_CORRECT_RESPONSES_ON_MANUAL_NON_STRUCTURED_CLASSIFICATION" ;;
   }
 
-  dimension: system_checked_nlc_page_count {
+  dimension: qa_responses_on_system_non_structured_classification {
     type: number
-    sql: ${TABLE}."SYSTEM_CHECKED_NLC_PAGE_COUNT" ;;
+    sql: ${TABLE}."QA_RESPONSES_ON_SYSTEM_NON_STRUCTURED_CLASSIFICATION" ;;
   }
 
-  dimension: system_correct_nlc_page_count {
+  dimension: qa_correct_responses_on_system_non_structured_classification {
     type: number
-    sql: ${TABLE}."SYSTEM_CORRECT_NLC_PAGE_COUNT" ;;
+    sql: ${TABLE}."QA_CORRECT_RESPONSES_ON_SYSTEM_NON_STRUCTURED_CLASSIFICATION" ;;
   }
 
-  dimension: machine_checked_nlc_page_count {
+  dimension: qa_responses_on_machine_non_structured_classification {
     type: number
-    sql: ${TABLE}."MACHINE_CHECKED_NLC_PAGE_COUNT" ;;
+    sql: ${TABLE}."QA_RESPONSES_ON_MACHINE_NON_STRUCTURED_CLASSIFICATION" ;;
   }
 
-  dimension: machine_correct_nlc_page_count {
+  dimension: qa_correct_responses_on_machine_non_structured_classification {
     type: number
-    sql: ${TABLE}."MACHINE_CORRECT_NLC_PAGE_COUNT" ;;
+    sql: ${TABLE}."QA_CORRECT_RESPONSES_ON_MACHINE_NON_STRUCTURED_CLASSIFICATION" ;;
   }
 
-  dimension: fleex_transcribed_fields_count {
+  dimension: number_of_fields_extracted_in_flexible_extraction {
     type: number
-    sql: ${TABLE}."FLEEX_TRANSCRIBED_FIELDS_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_FIELDS_EXTRACTED_IN_FLEXIBLE_EXTRACTION" ;;
   }
 
-  dimension: fleex_transcribed_table_cells_count {
+  dimension: number_of_table_cells_extracted_in_flexible_extraction {
     type: number
-    sql: ${TABLE}."FLEEX_TRANSCRIBED_TABLE_CELLS_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_TABLE_CELLS_EXTRACTED_IN_FLEXIBLE_EXTRACTION" ;;
   }
 
-  dimension: custom_supervision_transcribed_fields_count {
+  dimension: number_of_fields_extracted_in_custom_supervision {
     type: number
-    sql: ${TABLE}."CUSTOM_SUPERVISION_TRANSCRIBED_FIELDS_COUNT" ;;
+    sql: ${TABLE}."NUMBER_OF_FIELDS_EXTRACTED_IN_CUSTOM_SUPERVISION" ;;
   }
 
-  measure: submissions_created {
-    type: sum
-    sql: ${TABLE}."SUBMISSIONS_CREATED_COUNT" ;;
-  }
-
-  measure: submissions {
-    type: sum
-    sql: ${TABLE}."SUBMISSIONS_COUNT" ;;
-  }
-
-  measure: forms_created {
-    type: sum
-    sql: ${TABLE}."FORMS_CREATED_COUNT" ;;
-  }
-
-  measure: forms {
-    type: sum
-    sql: ${TABLE}."FORMS_COUNT" ;;
-  }
-
-  measure: submission_page_created {
-    type: sum
-    sql: ${TABLE}."SUBMISSION_PAGE_CREATED_COUNT" ;;
-  }
-
-  measure: submission_page {
-    type: sum
-    sql: ${TABLE}."SUBMISSION_PAGE_COUNT" ;;
-  }
-
-  measure: pages_created_structured {
-    type: sum
-    sql: ${TABLE}."PAGES_CREATED_STRUCTURED_COUNT" ;;
-  }
-
-  measure: pages_structured {
-    type: sum
-    sql: ${TABLE}."PAGES_STRUCTURED_COUNT" ;;
-  }
-
-  measure: pages_created_variable {
-    type: sum
-    sql: ${TABLE}."PAGES_CREATED_VARIABLE_COUNT" ;;
-  }
-
-  measure: pages_variable {
-    type: sum
-    sql: ${TABLE}."PAGES_VARIABLE_COUNT" ;;
-  }
-
-  measure: pages_with_fields_created {
-    type: sum
-    sql: ${TABLE}."PAGES_WITH_FIELDS_CREATED_COUNT" ;;
-  }
 
-  measure: pages_with_fields {
+  measure: total_pages_created {
+    group_label: "Page Details"
     type: sum
-    sql: ${TABLE}."PAGES_WITH_FIELDS_COUNT" ;;
+    sql: ${number_of_pages_created}  ;;
+    # value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    link: {
+      label: "Detailed View of pages Created"
+      url: "{{drill_pages_created._link}}&sorts=user_defied_usage_data.usage_date+asc"
+    }
   }
 
-  measure: fields_created {
+  measure: total_pages_matched_to_form_layouts_created {
+    group_label: "Page Details"
+    # hidden: yes
     type: sum
-    sql: ${TABLE}."FIELDS_CREATED_COUNT" ;;
+    drill_fields: [details*, number_of_pages_matched_to_form_layouts_created]
+    sql: ${number_of_pages_matched_to_form_layouts_created}*1.0 ;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: fields_completed {
+  measure: total_pages_matched_to_flex_layouts_created {
+    group_label: "Page Details"
+    # hidden: yes
     type: sum
-    sql: ${TABLE}."FIELDS_COMPLETED_COUNT" ;;
+    drill_fields: [details*, number_of_pages_matched_to_flex_layouts_created]
+    sql: ${number_of_pages_matched_to_flex_layouts_created}*1.0 ;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: transcription_characters {
-    type: sum
-    sql: ${TABLE}."TRANSCRIPTION_CHARACTERS_COUNT" ;;
-  }
-
-  measure: num_logins {
-    type: sum
-    sql: ${TABLE}."LOGIN_COUNT" ;;
+  measure: percent_pages_matched_to_layout {
+    group_label: "Page Details"
+    label: "% Pages Matched to Layout"
+    type: number
+    drill_fields: [details*, total_pages_matched_to_flex_layouts_created, total_pages_matched_to_form_layouts_created]
+    sql: (${total_pages_matched_to_form_layouts_created} + ${total_pages_matched_to_flex_layouts_created})
+      /nullif(${total_pages_created}::real,0);;
+    value_format_name: percent_2
   }
 
-  measure: submissions_files_created {
+  measure: total_pages_completed {
+    group_label: "Page Details"
+    # hidden: yes
     type: sum
-    sql: ${TABLE}."SUBMISSIONS_FILES_CREATED_COUNT" ;;
+    drill_fields: [details*, number_of_pages_completed]
+    sql: ${number_of_pages_completed} ;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: machine_transcribed_entries {
+  measure: total_documents_completed {
+    group_label: "Page Details"
+    # hidden: yes
     type: sum
-    sql: ${TABLE}."MACHINE_TRANSCRIBED_ENTRIES_COUNT" ;;
+    drill_fields: [details*, number_of_documents_completed]
+    sql: ${number_of_documents_completed} ;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: human_transcribed_entries {
+  measure: total_submissions_completed {
+    group_label: "Page Details"
+    # hidden: yes
     type: sum
-    sql: ${TABLE}."HUMAN_TRANSCRIBED_ENTRIES_COUNT" ;;
+    drill_fields: [details*, number_of_submissions_completed]
+    sql: ${number_of_submissions_completed} ;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: machine_identified_fields {
-    type: sum
-    sql: ${TABLE}."MACHINE_IDENTIFIED_FIELDS_COUNT" ;;
+  measure: average_pages_processed_per_document {
+    group_label: "Page Details"
+    type: number
+    drill_fields: [details*, total_pages_completed, total_documents_completed]
+    sql: ${total_pages_completed}::real/nullif(${total_documents_completed}::real,0) ;;
+    value_format_name: decimal_2
   }
 
-  measure: human_identified_fields {
-    type: sum
-    sql: ${TABLE}."HUMAN_IDENTIFIED_FIELDS_COUNT" ;;
+  measure: average_pages_processed_per_submission {
+    group_label: "Page Details"
+    type: number
+    drill_fields: [details*, total_pages_completed, total_submissions_completed]
+    sql: ${total_pages_completed}::real/nullif(${total_submissions_completed}::real,0) ;;
+    value_format_name: decimal_2
   }
 
-  measure: pages_count_machine {
-    type: sum
-    sql: ${TABLE}."PAGES_COUNT_MACHINE_SUM" ;;
-  }
 
-  measure: pages_count_manual {
+  measure: total_qa_correct_responses_system_transcription {
+    group_label: "Page Details"
     type: sum
-    sql: ${TABLE}."PAGES_COUNT_MANUAL_SUM" ;;
+    drill_fields: [details*, number_of_qa_correct_responses_on_system_transcription]
+    sql: ${number_of_qa_correct_responses_on_system_transcription} ;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: template_match {
+  measure: total_qa_responses_system_transcription {
+    group_label: "Page Details"
     type: sum
-    sql: ${TABLE}."TEMPLATE_COUNT_MATCH" ;;
+    drill_fields: [details*, number_of_qa_responses_on_system_transcription]
+    sql: ${number_of_qa_responses_on_system_transcription} ;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: manual_checked_transcriptions {
+  measure: total_fields_machine_transcribed {
+    group_label: "Page Details"
     type: sum
-    sql: ${TABLE}."MANUAL_CHECKED_TRANSCRIPTIONS_COUNT" ;;
+    drill_fields: [details*, number_of_fields_machine_transcribed]
+    sql: ${number_of_fields_machine_transcribed} ;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: manual_correct_transcriptions {
+  measure: total_fields_manually_transcribed {
+    group_label: "Page Details"
     type: sum
-    sql: ${TABLE}."MANUAL_CORRECT_TRANSCRIPTIONS_COUNT" ;;
+    drill_fields: [details*, number_of_fields_manually_transcribed]
+    sql: ${number_of_fields_manually_transcribed} ;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: system_checked_transcriptions {
-    type: sum
-    sql: ${TABLE}."SYSTEM_CHECKED_TRANSCRIPTIONS_COUNT" ;;
+  measure: percent_of_fields_auto_transcribed {
+    group_label: "Page Details"
+    type: number
+    drill_fields: [details*, total_fields_machine_transcribed, total_fields_manually_transcribed]
+    sql: (${total_fields_machine_transcribed}::real)
+      /nullif((${total_fields_machine_transcribed}::real + ${total_fields_manually_transcribed}::real),0) ;;
+    value_format_name: percent_2
   }
 
-  measure: system_correct_transcriptions {
-    type: sum
-    sql: ${TABLE}."SYSTEM_CORRECT_TRANSCRIPTIONS_COUNT" ;;
+  measure: percent_correct_of_system_transcription {
+    group_label: "Page Details"
+    label: "System Transcription Output Accuracy %"
+    type: number
+    drill_fields: [details*, total_qa_correct_responses_system_transcription, total_qa_responses_system_transcription]
+    sql: ${total_qa_correct_responses_system_transcription}::real/nullif(${total_qa_responses_system_transcription}::real,0) ;;
+    value_format_name: percent_2
   }
 
-  measure: machine_checked_transcriptions {
+  measure: total_qa_correct_responses_manual_transcription {
+    group_label: "Page Details"
     type: sum
-    sql: ${TABLE}."MACHINE_CHECKED_TRANSCRIPTIONS_COUNT" ;;
+    drill_fields: [details*, number_of_qa_correct_responses_on_manual_transcription]
+    sql: ${number_of_qa_correct_responses_on_manual_transcription} ;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: machine_correct_transcriptions {
+  measure: total_qa_responses_manual_transcription {
+    group_label: "Page Details"
     type: sum
-    sql: ${TABLE}."MACHINE_CORRECT_TRANSCRIPTIONS_COUNT" ;;
+    drill_fields: [details*, number_of_qa_responses_on_manual_transcription]
+    sql: ${number_of_qa_responses_on_manual_transcription} ;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: manual_checked_field_id {
-    type: sum
-    sql: ${TABLE}."MANUAL_CHECKED_FIELD_ID_COUNT" ;;
+  measure: percent_correct_of_manual_transcription {
+    group_label: "Page Details"
+    label: "Manual Transcription Output Accuracy %"
+    type: number
+    drill_fields: [details*, total_qa_correct_responses_manual_transcription, total_qa_responses_manual_transcription]
+    sql: ${total_qa_correct_responses_manual_transcription}::real/nullif(${total_qa_responses_manual_transcription}::real,0) ;;
+    value_format_name: percent_2
   }
 
-  measure: manual_correct_field_id {
+  measure: total_qa_correct_responses_machine_transcription {
+    group_label: "Page Details"
     type: sum
-    sql: ${TABLE}."MANUAL_CORRECT_FIELD_ID_COUNT" ;;
+    drill_fields: [details*, number_of_qa_correct_responses_on_machine_transcription]
+    sql: ${number_of_qa_correct_responses_on_machine_transcription} ;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: system_checked_field_id {
+  measure: total_qa_responses_machine_transcription {
+    group_label: "Page Details"
     type: sum
-    sql: ${TABLE}."SYSTEM_CHECKED_FIELD_ID_COUNT" ;;
+    drill_fields: [details*, number_of_qa_responses_on_machine_transcription]
+    sql: ${number_of_qa_responses_on_machine_transcription} ;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: system_correct_field_id {
-    type: sum
-    sql: ${TABLE}."SYSTEM_CORRECT_FIELD_ID_COUNT" ;;
+  measure: percent_correct_of_machine_transcription {
+    group_label: "Page Details"
+    label: "Machine Transcription Output Accuracy %"
+    type: number
+    drill_fields: [details*, total_qa_correct_responses_machine_transcription, total_qa_responses_machine_transcription]
+    sql: ${total_qa_correct_responses_machine_transcription}::real/nullif(${total_qa_responses_machine_transcription}::real,0) ;;
+    value_format_name: percent_2
   }
 
-  measure: machine_checked_field_id {
-    type: sum
-    sql: ${TABLE}."MACHINE_CHECKED_FIELD_ID_COUNT" ;;
+  measure: percent_field_qa {
+    group_label: "Page Details"
+    label: "Field QA %"
+    type: number
+    drill_fields: [details*, total_qa_responses_system_transcription, total_fields_machine_transcribed, total_fields_manually_transcribed]
+    sql: ${total_qa_responses_system_transcription}::real
+      /nullif((${total_fields_machine_transcribed}::real + ${total_fields_manually_transcribed}::real),0);;
+    value_format_name: percent_2
   }
 
-  measure: machine_correct_field_id {
+  measure: total_fields_created {
+    group_label: "Page Details"
     type: sum
-    sql: ${TABLE}."MACHINE_CORRECT_FIELD_ID_COUNT" ;;
+    drill_fields: [details*, number_of_fields_completed]
+    sql: ${number_of_fields_created} ;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: fields_inc_machine_transcribed {
+  measure: total_fields_completed {
+    group_label: "Page Details"
     type: sum
-    sql: ${TABLE}."FIELDS_INC_MACHINE_TRANSCRIBED_COUNT" ;;
+    drill_fields: [details*, number_of_fields_completed]
+    sql: ${number_of_fields_completed} ;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: organize_docs_tasks {
+  measure: total_characters_completed {
+    group_label: "Page Details"
     type: sum
-    sql: ${TABLE}."ORGANIZE_DOCS_TASKS_COUNT" ;;
+    drill_fields: [details*, number_of_characters_completed]
+    sql: ${number_of_characters_completed} ;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: organize_docs_pages_shown {
-    type: sum
-    sql: ${TABLE}."ORGANIZE_DOCS_PAGES_SHOWN_COUNT" ;;
+  measure: fields_per_page {
+    group_label: "Page Details"
+    label: "Number of Fields per Page"
+    type: number
+    drill_fields: [details*, total_fields_completed, total_pages_matched_to_form_layouts_created, total_pages_matched_to_flex_layouts_created]
+    sql: ${total_fields_completed}::real/nullif((${total_pages_matched_to_form_layouts_created}::real + ${total_pages_matched_to_flex_layouts_created}::real),0);;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: organize_docs_pages_processed {
-    type: sum
-    sql: ${TABLE}."ORGANIZE_DOCS_PAGES_PROCESSED_COUNT" ;;
+  measure: characters_per_page {
+    group_label: "Page Details"
+    label: "Number of Characters per Page"
+    type: number
+    drill_fields: [details*, total_characters_completed, total_pages_matched_to_form_layouts_created, total_pages_matched_to_flex_layouts_created]
+    sql: ${total_characters_completed}::real/nullif((${total_pages_matched_to_form_layouts_created}::real + ${total_pages_matched_to_flex_layouts_created}::real),0);;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: organize_docs_docs_created {
+  measure: total_table_cells_created {
+    group_label: "Page Details"
     type: sum
-    sql: ${TABLE}."ORGANIZE_DOCS_DOCS_CREATED_COUNT" ;;
+    drill_fields: [details*, number_of_table_cells_created]
+    sql: ${number_of_table_cells_created} ;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: organize_docs_docs {
+  measure: total_table_cells_machine_identified {
+    group_label: "Page Details"
     type: sum
-    sql: ${TABLE}."ORGANIZE_DOCS_DOCS_COUNT" ;;
+    drill_fields: [details*, number_of_table_cells_machine_identified]
+    sql: ${number_of_table_cells_machine_identified} ;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: organize_docs_folders {
+  measure: total_table_cells_manually_identified {
+    group_label: "Page Details"
     type: sum
-    sql: ${TABLE}."ORGANIZE_DOCS_FOLDERS_COUNT" ;;
+    drill_fields: [details*, number_of_table_cells_manually_identified]
+    sql: ${number_of_table_cells_manually_identified} ;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: live_layouts {
-    type: sum
-    sql: ${TABLE}."LIVE_LAYOUTS_COUNT" ;;
+  measure: percent_table_automation {
+    group_label: "Page Details"
+    type: number
+    drill_fields: [details*, total_table_cells_machine_identified, total_table_cells_manually_identified]
+    sql: ${total_table_cells_machine_identified}::real
+      /nullif(${total_table_cells_machine_identified}::real + ${total_table_cells_manually_identified}::real,0) ;;
+    value_format_name: percent_2
   }
 
-
-  measure: machine_match_nlc_page {
-    type: sum
-    sql: ${TABLE}."MACHINE_MATCH_NLC_PAGE_COUNT" ;;
+  measure: machine_qa_sampling_rate {
+    group_label: "Page Details"
+    type: number
+    drill_fields: [details*, total_qa_responses_machine_transcription, total_fields_machine_transcribed]
+    sql: ${total_qa_responses_machine_transcription}::real/isnull(${total_fields_machine_transcribed}::real,0) ;;
+    value_format_name: percent_2
   }
 
-  measure: human_match_nlc_page {
+  measure: total_live_layouts {
+    group_label: "Page Details"
     type: sum
-    sql: ${TABLE}."HUMAN_MATCH_NLC_PAGE_COUNT" ;;
+    drill_fields: [details*, number_of_live_layouts]
+    sql: ${number_of_live_layouts} ;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: releases {
-    type: sum
-    sql: ${TABLE}."RELEASES_COUNT" ;;
-  }
 
-  measure: archived_releases {
+  ########### ERIK ADDITIONS 7/7/2021
+  measure: total_qa_responses_on_system_non_structured_classification {
+    group_label: "Page Details"
     type: sum
-    sql: ${TABLE}."ARCHIVED_RELEASES_COUNT" ;;
+    drill_fields: [details*, qa_responses_on_system_non_structured_classification]
+    sql: ${qa_responses_on_system_non_structured_classification}  ;;
+    # value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: layouts {
+  measure: total_pages_classified_manually{
+    group_label: "Page Details"
+    # hidden: yes
     type: sum
-    sql: ${TABLE}."LAYOUTS_COUNT" ;;
+    drill_fields: [details*, number_of_pages_classified_manually]
+    sql: ${number_of_pages_classified_manually}*1.0;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: archived_layouts {
+  measure: total_pages_classified_automatically{
+    group_label: "Page Details"
+    # hidden: yes
     type: sum
-    sql: ${TABLE}."ARCHIVED_LAYOUTS_COUNT" ;;
+    drill_fields: [details*, number_of_pages_classified_automatically]
+    sql: ${number_of_pages_classified_automatically}*1.0;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: layout_versions {
-    type: sum
-    sql: ${TABLE}."LAYOUT_VERSIONS_COUNT" ;;
-  }
 
-  measure: live_idp_flows {
-    type: sum
-    sql: ${TABLE}."LIVE_IDP_FLOWS_COUNT" ;;
+  measure: percent_classification_qa {
+    group_label: "Page Details"
+    label: "% Classification QA"
+    type: number
+    drill_fields: [details*, total_pages_classified_manually, total_pages_classified_automatically, total_qa_responses_on_system_non_structured_classification]
+    sql: (${total_qa_responses_on_system_non_structured_classification}::real)
+      /nullif(${total_pages_classified_manually}::real + ${total_pages_classified_automatically}::real,0);;
+    value_format_name: percent_2
   }
 
-  measure: cells_created {
-    type: sum
-    sql: ${TABLE}."CELLS_CREATED_COUNT" ;;
+  measure: percent_classification_automation {
+    group_label: "Page Details"
+    label: "% Classification Automation"
+    type: number
+    drill_fields: [details*, total_pages_classified_manually, total_pages_classified_automatically]
+    sql: (${total_pages_classified_automatically}::real)
+      /nullif(${total_pages_classified_manually}::real + ${total_pages_classified_automatically}::real,0);;
+    value_format_name: percent_2
   }
 
-  measure: cells_completed {
+  measure: total_qa_correct_responses_on_system_non_structured_classification {
+    group_label: "Page Details"
     type: sum
-    sql: ${TABLE}."CELLS_COMPLETED_COUNT" ;;
+    drill_fields: [details*, qa_correct_responses_on_system_non_structured_classification]
+    sql: ${qa_correct_responses_on_system_non_structured_classification}  ;;
+    # value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: machine_identified_cells {
-    type: sum
-    sql: ${TABLE}."MACHINE_IDENTIFIED_CELLS_COUNT" ;;
+  measure: percent_classification_accuracy {
+    group_label: "Page Details"
+    label: "% Classification Accuracy"
+    type: number
+    drill_fields: [details*, total_qa_correct_responses_on_system_non_structured_classification, total_qa_responses_on_system_non_structured_classification]
+    sql: (${total_qa_correct_responses_on_system_non_structured_classification}::real)
+      /nullif(${total_qa_responses_on_system_non_structured_classification}::real,0);;
+    value_format_name: percent_2
   }
 
-  measure: human_identified_cells {
+  measure: total_qa_responses_on_system_field_identification {
+    group_label: "Page Details"
     type: sum
-    sql: ${TABLE}."HUMAN_IDENTIFIED_CELLS_COUNT" ;;
+    drill_fields: [details*, number_of_qa_responses_on_system_field_identification]
+    sql: ${number_of_qa_responses_on_system_field_identification}  ;;
+    # value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: manual_checked_nlc_page {
+  measure: total_number_fields_machine_identified{
+    group_label: "Page Details"
+    # hidden: yes
     type: sum
-    sql: ${TABLE}."MANUAL_CHECKED_NLC_PAGE_COUNT" ;;
+    drill_fields: [details*, number_of_fields_machine_identified]
+    sql: ${number_of_fields_machine_identified}*1.0;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: manual_correct_nlc_page {
+  measure: total_number_fields_manually_identified{
+    group_label: "Page Details"
+    # hidden: yes
     type: sum
-    sql: ${TABLE}."MANUAL_CORRECT_NLC_PAGE_COUNT" ;;
+    sql: ${number_of_fields_manually_indentified}*1.0;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: system_checked_nlc_page {
-    type: sum
-    sql: ${TABLE}."SYSTEM_CHECKED_NLC_PAGE_COUNT" ;;
+  measure: percent_identification_qa {
+    group_label: "Page Details"
+    label: "% Identification QA"
+    type: number
+    drill_fields: [details*, total_number_fields_machine_identified, total_number_fields_manually_identified,total_qa_responses_on_system_field_identification]
+    sql: (${total_qa_responses_on_system_field_identification}::real)
+      /nullif(${total_number_fields_machine_identified}::real + ${total_number_fields_manually_identified}::real,0);;
+    value_format_name: percent_2
   }
 
-  measure: system_correct_nlc_page {
-    type: sum
-    sql: ${TABLE}."SYSTEM_CORRECT_NLC_PAGE_COUNT" ;;
+  measure: percent_identification_automation {
+    group_label: "Page Details"
+    label: "% Identification Automation"
+    type: number
+    drill_fields: [details*, total_number_fields_machine_identified, total_number_fields_manually_identified]
+    sql: (${total_number_fields_machine_identified}::real)
+      /nullif(${total_number_fields_machine_identified}::real + ${total_number_fields_manually_identified}::real,0);;
+    value_format_name: percent_2
   }
 
-  measure: machine_checked_nlc_page {
+  measure: total_qa_correct_responses_on_system_field_identification {
+    group_label: "Page Details"
     type: sum
-    sql: ${TABLE}."MACHINE_CHECKED_NLC_PAGE_COUNT" ;;
+    drill_fields: [details*, number_of_qa_correct_responses_on_system_field_identification]
+    sql: ${number_of_qa_correct_responses_on_system_field_identification}  ;;
+    # value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: machine_correct_nlc_page {
-    type: sum
-    sql: ${TABLE}."MACHINE_CORRECT_NLC_PAGE_COUNT" ;;
+  measure: percent_identification_accuracy {
+    group_label: "Page Details"
+    label: "% Identification Accuracy"
+    type: number
+    drill_fields: [details*, total_qa_correct_responses_on_system_field_identification, total_qa_responses_on_system_field_identification]
+    sql: (${total_qa_correct_responses_on_system_field_identification}::real)
+      /nullif(${total_qa_responses_on_system_field_identification}::real,0);;
+    value_format_name: percent_2
   }
 
-  measure: fleex_transcribed_fields {
-    type: sum
-    sql: ${TABLE}."FLEEX_TRANSCRIBED_FIELDS_COUNT" ;;
+  measure: fields_id_per_page {
+    group_label: "Page Details"
+    label: "Fields IDed Per Page"
+    type: number
+    drill_fields: [details*, total_number_fields_machine_identified, total_number_fields_manually_identified, total_pages_matched_to_flex_layouts_created]
+    sql: (${total_number_fields_machine_identified}::real + ${total_number_fields_manually_identified}::real)
+      /nullif(${total_pages_matched_to_flex_layouts_created}::real,0);;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
-  measure: fleex_transcribed_table_cells {
-    type: sum
-    sql: ${TABLE}."FLEEX_TRANSCRIBED_TABLE_CELLS_COUNT" ;;
+  measure: customer_count {
+    group_label: "Page Details"
+    type: count_distinct
+    #drill_fields: [details*, main_version]
+    sql: (${customer}) ;;
+    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
-
-  measure: custom_supervision_transcribed_fields {
-    type: sum
-    sql: ${TABLE}."CUSTOM_SUPERVISION_TRANSCRIBED_FIELDS_COUNT" ;;
-  }
-
-  # measure: total_pages_created {
-  #   group_label: "Page Details"
-  #   type: sum
-  #   sql: ${number_of_pages_created}  ;;
-  #   # value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  #   link: {
-  #     label: "Detailed View of pages Created"
-  #     url: "{{drill_pages_created._link}}&sorts=user_defied_usage_data.usage_date+asc"
-  #   }
-  # }
-
-  # measure: total_pages_matched_to_form_layouts_created {
-  #   group_label: "Page Details"
-  #   # hidden: yes
-  #   type: sum
-  #   drill_fields: [details*, number_of_pages_matched_to_form_layouts_created]
-  #   sql: ${number_of_pages_matched_to_form_layouts_created}*1.0 ;;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: total_pages_matched_to_flex_layouts_created {
-  #   group_label: "Page Details"
-  #   # hidden: yes
-  #   type: sum
-  #   drill_fields: [details*, number_of_pages_matched_to_flex_layouts_created]
-  #   sql: ${number_of_pages_matched_to_flex_layouts_created}*1.0 ;;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: percent_pages_matched_to_layout {
-  #   group_label: "Page Details"
-  #   label: "% Pages Matched to Layout"
-  #   type: number
-  #   drill_fields: [details*, total_pages_matched_to_flex_layouts_created, total_pages_matched_to_form_layouts_created]
-  #   sql: (${total_pages_matched_to_form_layouts_created} + ${total_pages_matched_to_flex_layouts_created})
-  #     /nullif(${total_pages_created}::real,0);;
-  #   value_format_name: percent_2
-  # }
-
-  # measure: total_pages_completed {
-  #   group_label: "Page Details"
-  #   # hidden: yes
-  #   type: sum
-  #   drill_fields: [details*, number_of_pages_completed]
-  #   sql: ${number_of_pages_completed} ;;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: total_documents_completed {
-  #   group_label: "Page Details"
-  #   # hidden: yes
-  #   type: sum
-  #   drill_fields: [details*, number_of_documents_completed]
-  #   sql: ${number_of_documents_completed} ;;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: total_submissions_completed {
-  #   group_label: "Page Details"
-  #   # hidden: yes
-  #   type: sum
-  #   drill_fields: [details*, number_of_submissions_completed]
-  #   sql: ${number_of_submissions_completed} ;;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: average_pages_processed_per_document {
-  #   group_label: "Page Details"
-  #   type: number
-  #   drill_fields: [details*, total_pages_completed, total_documents_completed]
-  #   sql: ${total_pages_completed}::real/nullif(${total_documents_completed}::real,0) ;;
-  #   value_format_name: decimal_2
-  # }
-
-  # measure: average_pages_processed_per_submission {
-  #   group_label: "Page Details"
-  #   type: number
-  #   drill_fields: [details*, total_pages_completed, total_submissions_completed]
-  #   sql: ${total_pages_completed}::real/nullif(${total_submissions_completed}::real,0) ;;
-  #   value_format_name: decimal_2
-  # }
-
-
-  # measure: total_qa_correct_responses_system_transcription {
-  #   group_label: "Page Details"
-  #   type: sum
-  #   drill_fields: [details*, number_of_qa_correct_responses_on_system_transcription]
-  #   sql: ${number_of_qa_correct_responses_on_system_transcription} ;;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: total_qa_responses_system_transcription {
-  #   group_label: "Page Details"
-  #   type: sum
-  #   drill_fields: [details*, number_of_qa_responses_on_system_transcription]
-  #   sql: ${number_of_qa_responses_on_system_transcription} ;;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: total_fields_machine_transcribed {
-  #   group_label: "Page Details"
-  #   type: sum
-  #   drill_fields: [details*, number_of_fields_machine_transcribed]
-  #   sql: ${number_of_fields_machine_transcribed} ;;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: total_fields_manually_transcribed {
-  #   group_label: "Page Details"
-  #   type: sum
-  #   drill_fields: [details*, number_of_fields_manually_transcribed]
-  #   sql: ${number_of_fields_manually_transcribed} ;;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: percent_of_fields_auto_transcribed {
-  #   group_label: "Page Details"
-  #   type: number
-  #   drill_fields: [details*, total_fields_machine_transcribed, total_fields_manually_transcribed]
-  #   sql: (${total_fields_machine_transcribed}::real)
-  #     /nullif((${total_fields_machine_transcribed}::real + ${total_fields_manually_transcribed}::real),0) ;;
-  #   value_format_name: percent_2
-  # }
-
-  # measure: percent_correct_of_system_transcription {
-  #   group_label: "Page Details"
-  #   label: "System Transcription Output Accuracy %"
-  #   type: number
-  #   drill_fields: [details*, total_qa_correct_responses_system_transcription, total_qa_responses_system_transcription]
-  #   sql: ${total_qa_correct_responses_system_transcription}::real/nullif(${total_qa_responses_system_transcription}::real,0) ;;
-  #   value_format_name: percent_2
-  # }
-
-  # measure: total_qa_correct_responses_manual_transcription {
-  #   group_label: "Page Details"
-  #   type: sum
-  #   drill_fields: [details*, number_of_qa_correct_responses_on_manual_transcription]
-  #   sql: ${number_of_qa_correct_responses_on_manual_transcription} ;;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: total_qa_responses_manual_transcription {
-  #   group_label: "Page Details"
-  #   type: sum
-  #   drill_fields: [details*, number_of_qa_responses_on_manual_transcription]
-  #   sql: ${number_of_qa_responses_on_manual_transcription} ;;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: percent_correct_of_manual_transcription {
-  #   group_label: "Page Details"
-  #   label: "Manual Transcription Output Accuracy %"
-  #   type: number
-  #   drill_fields: [details*, total_qa_correct_responses_manual_transcription, total_qa_responses_manual_transcription]
-  #   sql: ${total_qa_correct_responses_manual_transcription}::real/nullif(${total_qa_responses_manual_transcription}::real,0) ;;
-  #   value_format_name: percent_2
-  # }
-
-  # measure: total_qa_correct_responses_machine_transcription {
-  #   group_label: "Page Details"
-  #   type: sum
-  #   drill_fields: [details*, number_of_qa_correct_responses_on_machine_transcription]
-  #   sql: ${number_of_qa_correct_responses_on_machine_transcription} ;;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: total_qa_responses_machine_transcription {
-  #   group_label: "Page Details"
-  #   type: sum
-  #   drill_fields: [details*, number_of_qa_responses_on_machine_transcription]
-  #   sql: ${number_of_qa_responses_on_machine_transcription} ;;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: percent_correct_of_machine_transcription {
-  #   group_label: "Page Details"
-  #   label: "Machine Transcription Output Accuracy %"
-  #   type: number
-  #   drill_fields: [details*, total_qa_correct_responses_machine_transcription, total_qa_responses_machine_transcription]
-  #   sql: ${total_qa_correct_responses_machine_transcription}::real/nullif(${total_qa_responses_machine_transcription}::real,0) ;;
-  #   value_format_name: percent_2
-  # }
-
-  # measure: percent_field_qa {
-  #   group_label: "Page Details"
-  #   label: "Field QA %"
-  #   type: number
-  #   drill_fields: [details*, total_qa_responses_system_transcription, total_fields_machine_transcribed, total_fields_manually_transcribed]
-  #   sql: ${total_qa_responses_system_transcription}::real
-  #     /nullif((${total_fields_machine_transcribed}::real + ${total_fields_manually_transcribed}::real),0);;
-  #   value_format_name: percent_2
-  # }
-
-  # measure: total_fields_created {
-  #   group_label: "Page Details"
-  #   type: sum
-  #   drill_fields: [details*, number_of_fields_completed]
-  #   sql: ${number_of_fields_created} ;;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: total_fields_completed {
-  #   group_label: "Page Details"
-  #   type: sum
-  #   drill_fields: [details*, number_of_fields_completed]
-  #   sql: ${number_of_fields_completed} ;;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: total_characters_completed {
-  #   group_label: "Page Details"
-  #   type: sum
-  #   drill_fields: [details*, number_of_characters_completed]
-  #   sql: ${number_of_characters_completed} ;;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: fields_per_page {
-  #   group_label: "Page Details"
-  #   label: "Number of Fields per Page"
-  #   type: number
-  #   drill_fields: [details*, total_fields_completed, total_pages_matched_to_form_layouts_created, total_pages_matched_to_flex_layouts_created]
-  #   sql: ${total_fields_completed}::real/nullif((${total_pages_matched_to_form_layouts_created}::real + ${total_pages_matched_to_flex_layouts_created}::real),0);;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: characters_per_page {
-  #   group_label: "Page Details"
-  #   label: "Number of Characters per Page"
-  #   type: number
-  #   drill_fields: [details*, total_characters_completed, total_pages_matched_to_form_layouts_created, total_pages_matched_to_flex_layouts_created]
-  #   sql: ${total_characters_completed}::real/nullif((${total_pages_matched_to_form_layouts_created}::real + ${total_pages_matched_to_flex_layouts_created}::real),0);;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: total_table_cells_created {
-  #   group_label: "Page Details"
-  #   type: sum
-  #   drill_fields: [details*, number_of_table_cells_created]
-  #   sql: ${number_of_table_cells_created} ;;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: total_table_cells_machine_identified {
-  #   group_label: "Page Details"
-  #   type: sum
-  #   drill_fields: [details*, number_of_table_cells_machine_identified]
-  #   sql: ${number_of_table_cells_machine_identified} ;;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: total_table_cells_manually_identified {
-  #   group_label: "Page Details"
-  #   type: sum
-  #   drill_fields: [details*, number_of_table_cells_manually_identified]
-  #   sql: ${number_of_table_cells_manually_identified} ;;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: percent_table_automation {
-  #   group_label: "Page Details"
-  #   type: number
-  #   drill_fields: [details*, total_table_cells_machine_identified, total_table_cells_manually_identified]
-  #   sql: ${total_table_cells_machine_identified}::real
-  #     /nullif(${total_table_cells_machine_identified}::real + ${total_table_cells_manually_identified}::real,0) ;;
-  #   value_format_name: percent_2
-  # }
-
-  # measure: machine_qa_sampling_rate {
-  #   group_label: "Page Details"
-  #   type: number
-  #   drill_fields: [details*, total_qa_responses_machine_transcription, total_fields_machine_transcribed]
-  #   sql: ${total_qa_responses_machine_transcription}::real/isnull(${total_fields_machine_transcribed}::real,0) ;;
-  #   value_format_name: percent_2
-  # }
-
-  # measure: total_live_layouts {
-  #   group_label: "Page Details"
-  #   type: sum
-  #   drill_fields: [details*, number_of_live_layouts]
-  #   sql: ${number_of_live_layouts} ;;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-
-  # ########### ERIK ADDITIONS 7/7/2021
-  # measure: total_qa_responses_on_system_non_structured_classification {
-  #   group_label: "Page Details"
-  #   type: sum
-  #   drill_fields: [details*, qa_responses_on_system_non_structured_classification]
-  #   sql: ${qa_responses_on_system_non_structured_classification}  ;;
-  #   # value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: total_pages_classified_manually{
-  #   group_label: "Page Details"
-  #   # hidden: yes
-  #   type: sum
-  #   drill_fields: [details*, number_of_pages_classified_manually]
-  #   sql: ${number_of_pages_classified_manually}*1.0;;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: total_pages_classified_automatically{
-  #   group_label: "Page Details"
-  #   # hidden: yes
-  #   type: sum
-  #   drill_fields: [details*, number_of_pages_classified_automatically]
-  #   sql: ${number_of_pages_classified_automatically}*1.0;;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-
-  # measure: percent_classification_qa {
-  #   group_label: "Page Details"
-  #   label: "% Classification QA"
-  #   type: number
-  #   drill_fields: [details*, total_pages_classified_manually, total_pages_classified_automatically, total_qa_responses_on_system_non_structured_classification]
-  #   sql: (${total_qa_responses_on_system_non_structured_classification}::real)
-  #     /nullif(${total_pages_classified_manually}::real + ${total_pages_classified_automatically}::real,0);;
-  #   value_format_name: percent_2
-  # }
-
-  # measure: percent_classification_automation {
-  #   group_label: "Page Details"
-  #   label: "% Classification Automation"
-  #   type: number
-  #   drill_fields: [details*, total_pages_classified_manually, total_pages_classified_automatically]
-  #   sql: (${total_pages_classified_automatically}::real)
-  #     /nullif(${total_pages_classified_manually}::real + ${total_pages_classified_automatically}::real,0);;
-  #   value_format_name: percent_2
-  # }
-
-  # measure: total_qa_correct_responses_on_system_non_structured_classification {
-  #   group_label: "Page Details"
-  #   type: sum
-  #   drill_fields: [details*, qa_correct_responses_on_system_non_structured_classification]
-  #   sql: ${qa_correct_responses_on_system_non_structured_classification}  ;;
-  #   # value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: percent_classification_accuracy {
-  #   group_label: "Page Details"
-  #   label: "% Classification Accuracy"
-  #   type: number
-  #   drill_fields: [details*, total_qa_correct_responses_on_system_non_structured_classification, total_qa_responses_on_system_non_structured_classification]
-  #   sql: (${total_qa_correct_responses_on_system_non_structured_classification}::real)
-  #     /nullif(${total_qa_responses_on_system_non_structured_classification}::real,0);;
-  #   value_format_name: percent_2
-  # }
-
-  # measure: total_qa_responses_on_system_field_identification {
-  #   group_label: "Page Details"
-  #   type: sum
-  #   drill_fields: [details*, number_of_qa_responses_on_system_field_identification]
-  #   sql: ${number_of_qa_responses_on_system_field_identification}  ;;
-  #   # value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: total_number_fields_machine_identified{
-  #   group_label: "Page Details"
-  #   # hidden: yes
-  #   type: sum
-  #   drill_fields: [details*, number_of_fields_machine_identified]
-  #   sql: ${number_of_fields_machine_identified}*1.0;;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: total_number_fields_manually_identified{
-  #   group_label: "Page Details"
-  #   # hidden: yes
-  #   type: sum
-  #   drill_fields: [details*, number_of_fields_manually_identified]
-  #   sql: ${number_of_fields_manually_identified}*1.0;;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: percent_identification_qa {
-  #   group_label: "Page Details"
-  #   label: "% Identification QA"
-  #   type: number
-  #   drill_fields: [details*, total_number_fields_machine_identified, total_number_fields_manually_identified,total_qa_responses_on_system_field_identification]
-  #   sql: (${total_qa_responses_on_system_field_identification}::real)
-  #     /nullif(${total_number_fields_machine_identified}::real + ${total_number_fields_manually_identified}::real,0);;
-  #   value_format_name: percent_2
-  # }
-
-  # measure: percent_identification_automation {
-  #   group_label: "Page Details"
-  #   label: "% Identification Automation"
-  #   type: number
-  #   drill_fields: [details*, total_number_fields_machine_identified, total_number_fields_manually_identified]
-  #   sql: (${total_number_fields_machine_identified}::real)
-  #     /nullif(${total_number_fields_machine_identified}::real + ${total_number_fields_manually_identified}::real,0);;
-  #   value_format_name: percent_2
-  # }
-
-  # measure: total_qa_correct_responses_on_system_field_identification {
-  #   group_label: "Page Details"
-  #   type: sum
-  #   drill_fields: [details*, number_of_qa_correct_responses_on_system_field_identification]
-  #   sql: ${number_of_qa_correct_responses_on_system_field_identification}  ;;
-  #   # value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: percent_identification_accuracy {
-  #   group_label: "Page Details"
-  #   label: "% Identification Accuracy"
-  #   type: number
-  #   drill_fields: [details*, total_qa_correct_responses_on_system_field_identification, total_qa_responses_on_system_field_identification]
-  #   sql: (${total_qa_correct_responses_on_system_field_identification}::real)
-  #     /nullif(${total_qa_responses_on_system_field_identification}::real,0);;
-  #   value_format_name: percent_2
-  # }
-
-  # measure: fields_id_per_page {
-  #   group_label: "Page Details"
-  #   label: "Fields IDed Per Page"
-  #   type: number
-  #   drill_fields: [details*, total_number_fields_machine_identified, total_number_fields_manually_identified, total_pages_matched_to_flex_layouts_created]
-  #   sql: (${total_number_fields_machine_identified}::real + ${total_number_fields_manually_identified}::real)
-  #     /nullif(${total_pages_matched_to_flex_layouts_created}::real,0);;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
-  # measure: customer_count {
-  #   group_label: "Page Details"
-  #   type: count_distinct
-  #   #drill_fields: [details*, main_version]
-  #   sql: (${customer}) ;;
-  #   value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-  # }
-
 
   set: details {
-    fields: [
-      report_id,
-      submissions_created_count,
-      submissions_count,
-      forms_created_count,
-      forms_count,
-      submission_page_created_count,
-      submission_page_count,
-      pages_created_structured_count,
-      pages_structured_count,
-      pages_created_variable_count,
-      pages_variable_count,
-      pages_with_fields_created_count,
-      pages_with_fields_count,
-      fields_created_count,
-      fields_completed_count,
-      transcription_characters_count,
-      login_count,
-      submissions_files_created_count,
-      machine_transcribed_entries_count,
-      human_transcribed_entries_count,
-      machine_identified_fields_count,
-      human_identified_fields_count,
-      pages_count_machine_sum,
-      pages_count_manual_sum,
-      template_count_match,
-      manual_checked_transcriptions_count,
-      manual_correct_transcriptions_count,
-      system_checked_transcriptions_count,
-      system_correct_transcriptions_count,
-      machine_checked_transcriptions_count,
-      machine_correct_transcriptions_count,
-      manual_checked_field_id_count,
-      manual_correct_field_id_count,
-      system_checked_field_id_count,
-      system_correct_field_id_count,
-      machine_checked_field_id_count,
-      machine_correct_field_id_count,
-      fields_inc_machine_transcribed_count,
-      organize_docs_tasks_count,
-      organize_docs_pages_shown_count,
-      organize_docs_pages_processed_count,
-      organize_docs_docs_created_count,
-      organize_docs_docs_count,
-      organize_docs_folders_count,
-      live_layouts_count,
-      forms_version,
-      machine_match_nlc_page_count,
-      human_match_nlc_page_count,
-      releases_count,
-      archived_releases_count,
-      layouts_count,
-      archived_layouts_count,
-      layout_versions_count,
-      live_idp_flows_count,
-      cells_created_count,
-      cells_completed_count,
-      machine_identified_cells_count,
-      human_identified_cells_count,
-      manual_checked_nlc_page_count,
-      manual_correct_nlc_page_count,
-      system_checked_nlc_page_count,
-      system_correct_nlc_page_count,
-      machine_checked_nlc_page_count,
-      machine_correct_nlc_page_count,
-      fleex_transcribed_fields_count,
-      fleex_transcribed_table_cells_count,
-      custom_supervision_transcribed_fields_count,
-      customer_int,
-      customer
-    ]
+    fields: [customer]
   }
+
 }
