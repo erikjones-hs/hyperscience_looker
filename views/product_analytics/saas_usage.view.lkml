@@ -18,7 +18,7 @@ view: saas_usage {
 
   dimension_group: period_start {
     type: time
-    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
+    timeframes: [raw, date, week, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
     sql: ${TABLE}."PERIOD_START" ;;
   }
 
