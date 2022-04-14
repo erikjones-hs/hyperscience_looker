@@ -356,13 +356,8 @@ view: saas_usage {
   measure: total_pages_created {
     group_label: "Page Details"
     type: sum
-    sql: ${number_of_pages_created}  ;;
+    sql: ${number_of_pages_created} ;;
     # value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
-    link: {
-      label: "Detailed View of pages Created"
-      url: "{{drill_pages_created._link}}&sorts=user_defied_usage_data.usage_date+asc"
-    }
   }
 
   measure: total_pages_matched_to_form_layouts_created {
