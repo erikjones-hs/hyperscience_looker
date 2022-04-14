@@ -382,7 +382,7 @@ view: saas_usage {
     type: number
     sql: (${total_pages_matched_to_form_layouts_created} + ${total_pages_matched_to_flex_layouts_created})
       /nullif(${total_pages_created}::real,0);;
-    value_format_name: percent_2
+    value_format_name: percent_1
   }
 
   measure: total_pages_completed {
