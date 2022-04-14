@@ -365,7 +365,7 @@ view: saas_usage {
     # hidden: yes
     type: sum
     sql: ${number_of_pages_matched_to_form_layouts_created}*1.0 ;;
-    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    #value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
   measure: total_pages_matched_to_flex_layouts_created {
@@ -373,7 +373,7 @@ view: saas_usage {
     # hidden: yes
     type: sum
     sql: ${number_of_pages_matched_to_flex_layouts_created}*1.0 ;;
-    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    #value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
   measure: percent_pages_matched_to_layout {
