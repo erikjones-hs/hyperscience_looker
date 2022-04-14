@@ -479,7 +479,7 @@ view: saas_usage {
     group_label: "Page Details"
     type: sum
     sql: ${number_of_qa_responses_on_manual_transcription} ;;
-    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    #value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
   measure: percent_correct_of_manual_transcription {
@@ -501,7 +501,7 @@ view: saas_usage {
     group_label: "Page Details"
     type: sum
     sql: ${number_of_qa_responses_on_machine_transcription} ;;
-    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    #value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
   measure: percent_correct_of_machine_transcription {
@@ -518,7 +518,7 @@ view: saas_usage {
     type: number
     sql: ${total_qa_responses_system_transcription}::real
       /nullif((${total_fields_machine_transcribed}::real + ${total_fields_manually_transcribed}::real),0);;
-    value_format_name: percent_2
+    value_format_name: percent_1
   }
 
   measure: total_fields_created {
