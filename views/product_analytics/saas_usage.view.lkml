@@ -369,7 +369,6 @@ view: saas_usage {
     group_label: "Page Details"
     # hidden: yes
     type: sum
-    drill_fields: [details*, number_of_pages_matched_to_form_layouts_created]
     sql: ${number_of_pages_matched_to_form_layouts_created}*1.0 ;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
@@ -378,7 +377,6 @@ view: saas_usage {
     group_label: "Page Details"
     # hidden: yes
     type: sum
-    drill_fields: [details*, number_of_pages_matched_to_flex_layouts_created]
     sql: ${number_of_pages_matched_to_flex_layouts_created}*1.0 ;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
@@ -387,7 +385,6 @@ view: saas_usage {
     group_label: "Page Details"
     label: "% Pages Matched to Layout"
     type: number
-    drill_fields: [details*, total_pages_matched_to_flex_layouts_created, total_pages_matched_to_form_layouts_created]
     sql: (${total_pages_matched_to_form_layouts_created} + ${total_pages_matched_to_flex_layouts_created})
       /nullif(${total_pages_created}::real,0);;
     value_format_name: percent_2
@@ -397,7 +394,6 @@ view: saas_usage {
     group_label: "Page Details"
     # hidden: yes
     type: sum
-    drill_fields: [details*, number_of_pages_completed]
     sql: ${number_of_pages_completed} ;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
@@ -406,7 +402,6 @@ view: saas_usage {
     group_label: "Page Details"
     # hidden: yes
     type: sum
-    drill_fields: [details*, number_of_documents_completed]
     sql: ${number_of_documents_completed} ;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
@@ -415,7 +410,6 @@ view: saas_usage {
     group_label: "Page Details"
     # hidden: yes
     type: sum
-    drill_fields: [details*, number_of_submissions_completed]
     sql: ${number_of_submissions_completed} ;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
@@ -423,7 +417,6 @@ view: saas_usage {
   measure: average_pages_processed_per_document {
     group_label: "Page Details"
     type: number
-    drill_fields: [details*, total_pages_completed, total_documents_completed]
     sql: ${total_pages_completed}::real/nullif(${total_documents_completed}::real,0) ;;
     value_format_name: decimal_2
   }
@@ -431,7 +424,6 @@ view: saas_usage {
   measure: average_pages_processed_per_submission {
     group_label: "Page Details"
     type: number
-    drill_fields: [details*, total_pages_completed, total_submissions_completed]
     sql: ${total_pages_completed}::real/nullif(${total_submissions_completed}::real,0) ;;
     value_format_name: decimal_2
   }
@@ -440,7 +432,6 @@ view: saas_usage {
   measure: total_qa_correct_responses_system_transcription {
     group_label: "Page Details"
     type: sum
-    drill_fields: [details*, number_of_qa_correct_responses_on_system_transcription]
     sql: ${number_of_qa_correct_responses_on_system_transcription} ;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
@@ -448,7 +439,6 @@ view: saas_usage {
   measure: total_qa_responses_system_transcription {
     group_label: "Page Details"
     type: sum
-    drill_fields: [details*, number_of_qa_responses_on_system_transcription]
     sql: ${number_of_qa_responses_on_system_transcription} ;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
@@ -456,7 +446,6 @@ view: saas_usage {
   measure: total_fields_machine_transcribed {
     group_label: "Page Details"
     type: sum
-    drill_fields: [details*, number_of_fields_machine_transcribed]
     sql: ${number_of_fields_machine_transcribed} ;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
@@ -464,7 +453,6 @@ view: saas_usage {
   measure: total_fields_manually_transcribed {
     group_label: "Page Details"
     type: sum
-    drill_fields: [details*, number_of_fields_manually_transcribed]
     sql: ${number_of_fields_manually_transcribed} ;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
@@ -472,7 +460,6 @@ view: saas_usage {
   measure: percent_of_fields_auto_transcribed {
     group_label: "Page Details"
     type: number
-    drill_fields: [details*, total_fields_machine_transcribed, total_fields_manually_transcribed]
     sql: (${total_fields_machine_transcribed}::real)
       /nullif((${total_fields_machine_transcribed}::real + ${total_fields_manually_transcribed}::real),0) ;;
     value_format_name: percent_2
@@ -482,7 +469,6 @@ view: saas_usage {
     group_label: "Page Details"
     label: "System Transcription Output Accuracy %"
     type: number
-    drill_fields: [details*, total_qa_correct_responses_system_transcription, total_qa_responses_system_transcription]
     sql: ${total_qa_correct_responses_system_transcription}::real/nullif(${total_qa_responses_system_transcription}::real,0) ;;
     value_format_name: percent_2
   }
@@ -490,7 +476,6 @@ view: saas_usage {
   measure: total_qa_correct_responses_manual_transcription {
     group_label: "Page Details"
     type: sum
-    drill_fields: [details*, number_of_qa_correct_responses_on_manual_transcription]
     sql: ${number_of_qa_correct_responses_on_manual_transcription} ;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
@@ -498,7 +483,6 @@ view: saas_usage {
   measure: total_qa_responses_manual_transcription {
     group_label: "Page Details"
     type: sum
-    drill_fields: [details*, number_of_qa_responses_on_manual_transcription]
     sql: ${number_of_qa_responses_on_manual_transcription} ;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
@@ -507,7 +491,6 @@ view: saas_usage {
     group_label: "Page Details"
     label: "Manual Transcription Output Accuracy %"
     type: number
-    drill_fields: [details*, total_qa_correct_responses_manual_transcription, total_qa_responses_manual_transcription]
     sql: ${total_qa_correct_responses_manual_transcription}::real/nullif(${total_qa_responses_manual_transcription}::real,0) ;;
     value_format_name: percent_2
   }
@@ -515,7 +498,6 @@ view: saas_usage {
   measure: total_qa_correct_responses_machine_transcription {
     group_label: "Page Details"
     type: sum
-    drill_fields: [details*, number_of_qa_correct_responses_on_machine_transcription]
     sql: ${number_of_qa_correct_responses_on_machine_transcription} ;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
@@ -523,7 +505,6 @@ view: saas_usage {
   measure: total_qa_responses_machine_transcription {
     group_label: "Page Details"
     type: sum
-    drill_fields: [details*, number_of_qa_responses_on_machine_transcription]
     sql: ${number_of_qa_responses_on_machine_transcription} ;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
@@ -532,7 +513,6 @@ view: saas_usage {
     group_label: "Page Details"
     label: "Machine Transcription Output Accuracy %"
     type: number
-    drill_fields: [details*, total_qa_correct_responses_machine_transcription, total_qa_responses_machine_transcription]
     sql: ${total_qa_correct_responses_machine_transcription}::real/nullif(${total_qa_responses_machine_transcription}::real,0) ;;
     value_format_name: percent_2
   }
@@ -541,7 +521,6 @@ view: saas_usage {
     group_label: "Page Details"
     label: "Field QA %"
     type: number
-    drill_fields: [details*, total_qa_responses_system_transcription, total_fields_machine_transcribed, total_fields_manually_transcribed]
     sql: ${total_qa_responses_system_transcription}::real
       /nullif((${total_fields_machine_transcribed}::real + ${total_fields_manually_transcribed}::real),0);;
     value_format_name: percent_2
@@ -550,7 +529,6 @@ view: saas_usage {
   measure: total_fields_created {
     group_label: "Page Details"
     type: sum
-    drill_fields: [details*, number_of_fields_completed]
     sql: ${number_of_fields_created} ;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
@@ -558,7 +536,6 @@ view: saas_usage {
   measure: total_fields_completed {
     group_label: "Page Details"
     type: sum
-    drill_fields: [details*, number_of_fields_completed]
     sql: ${number_of_fields_completed} ;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
@@ -566,7 +543,7 @@ view: saas_usage {
   measure: total_characters_completed {
     group_label: "Page Details"
     type: sum
-    drill_fields: [details*, number_of_characters_completed]
+    #drill_fields: [details*, number_of_characters_completed]
     sql: ${number_of_characters_completed} ;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
@@ -575,7 +552,7 @@ view: saas_usage {
     group_label: "Page Details"
     label: "Number of Fields per Page"
     type: number
-    drill_fields: [details*, total_fields_completed, total_pages_matched_to_form_layouts_created, total_pages_matched_to_flex_layouts_created]
+    #drill_fields: [details*, total_fields_completed, total_pages_matched_to_form_layouts_created, total_pages_matched_to_flex_layouts_created]
     sql: ${total_fields_completed}::real/nullif((${total_pages_matched_to_form_layouts_created}::real + ${total_pages_matched_to_flex_layouts_created}::real),0);;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
@@ -584,7 +561,7 @@ view: saas_usage {
     group_label: "Page Details"
     label: "Number of Characters per Page"
     type: number
-    drill_fields: [details*, total_characters_completed, total_pages_matched_to_form_layouts_created, total_pages_matched_to_flex_layouts_created]
+    #drill_fields: [details*, total_characters_completed, total_pages_matched_to_form_layouts_created, total_pages_matched_to_flex_layouts_created]
     sql: ${total_characters_completed}::real/nullif((${total_pages_matched_to_form_layouts_created}::real + ${total_pages_matched_to_flex_layouts_created}::real),0);;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
@@ -592,7 +569,7 @@ view: saas_usage {
   measure: total_table_cells_created {
     group_label: "Page Details"
     type: sum
-    drill_fields: [details*, number_of_table_cells_created]
+    #drill_fields: [details*, number_of_table_cells_created]
     sql: ${number_of_table_cells_created} ;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
@@ -600,7 +577,7 @@ view: saas_usage {
   measure: total_table_cells_machine_identified {
     group_label: "Page Details"
     type: sum
-    drill_fields: [details*, number_of_table_cells_machine_identified]
+    #drill_fields: [details*, number_of_table_cells_machine_identified]
     sql: ${number_of_table_cells_machine_identified} ;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
@@ -608,7 +585,7 @@ view: saas_usage {
   measure: total_table_cells_manually_identified {
     group_label: "Page Details"
     type: sum
-    drill_fields: [details*, number_of_table_cells_manually_identified]
+    #drill_fields: [details*, number_of_table_cells_manually_identified]
     sql: ${number_of_table_cells_manually_identified} ;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
@@ -616,7 +593,7 @@ view: saas_usage {
   measure: percent_table_automation {
     group_label: "Page Details"
     type: number
-    drill_fields: [details*, total_table_cells_machine_identified, total_table_cells_manually_identified]
+    #drill_fields: [details*, total_table_cells_machine_identified, total_table_cells_manually_identified]
     sql: ${total_table_cells_machine_identified}::real
       /nullif(${total_table_cells_machine_identified}::real + ${total_table_cells_manually_identified}::real,0) ;;
     value_format_name: percent_2
@@ -625,7 +602,7 @@ view: saas_usage {
   measure: machine_qa_sampling_rate {
     group_label: "Page Details"
     type: number
-    drill_fields: [details*, total_qa_responses_machine_transcription, total_fields_machine_transcribed]
+    #drill_fields: [details*, total_qa_responses_machine_transcription, total_fields_machine_transcribed]
     sql: ${total_qa_responses_machine_transcription}::real/isnull(${total_fields_machine_transcribed}::real,0) ;;
     value_format_name: percent_2
   }
@@ -633,7 +610,7 @@ view: saas_usage {
   measure: total_live_layouts {
     group_label: "Page Details"
     type: sum
-    drill_fields: [details*, number_of_live_layouts]
+    #drill_fields: [details*, number_of_live_layouts]
     sql: ${number_of_live_layouts} ;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
@@ -643,7 +620,7 @@ view: saas_usage {
   measure: total_qa_responses_on_system_non_structured_classification {
     group_label: "Page Details"
     type: sum
-    drill_fields: [details*, qa_responses_on_system_non_structured_classification]
+    #drill_fields: [details*, qa_responses_on_system_non_structured_classification]
     sql: ${qa_responses_on_system_non_structured_classification}  ;;
     # value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
@@ -653,7 +630,7 @@ view: saas_usage {
     group_label: "Page Details"
     # hidden: yes
     type: sum
-    drill_fields: [details*, number_of_pages_classified_manually]
+    #drill_fields: [details*, number_of_pages_classified_manually]
     sql: ${number_of_pages_classified_manually}*1.0;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
@@ -662,7 +639,7 @@ view: saas_usage {
     group_label: "Page Details"
     # hidden: yes
     type: sum
-    drill_fields: [details*, number_of_pages_classified_automatically]
+    #drill_fields: [details*, number_of_pages_classified_automatically]
     sql: ${number_of_pages_classified_automatically}*1.0;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
@@ -672,7 +649,7 @@ view: saas_usage {
     group_label: "Page Details"
     label: "% Classification QA"
     type: number
-    drill_fields: [details*, total_pages_classified_manually, total_pages_classified_automatically, total_qa_responses_on_system_non_structured_classification]
+    #drill_fields: [details*, total_pages_classified_manually, total_pages_classified_automatically, total_qa_responses_on_system_non_structured_classification]
     sql: (${total_qa_responses_on_system_non_structured_classification}::real)
       /nullif(${total_pages_classified_manually}::real + ${total_pages_classified_automatically}::real,0);;
     value_format_name: percent_2
@@ -682,7 +659,7 @@ view: saas_usage {
     group_label: "Page Details"
     label: "% Classification Automation"
     type: number
-    drill_fields: [details*, total_pages_classified_manually, total_pages_classified_automatically]
+    #drill_fields: [details*, total_pages_classified_manually, total_pages_classified_automatically]
     sql: (${total_pages_classified_automatically}::real)
       /nullif(${total_pages_classified_manually}::real + ${total_pages_classified_automatically}::real,0);;
     value_format_name: percent_2
@@ -691,7 +668,7 @@ view: saas_usage {
   measure: total_qa_correct_responses_on_system_non_structured_classification {
     group_label: "Page Details"
     type: sum
-    drill_fields: [details*, qa_correct_responses_on_system_non_structured_classification]
+    #drill_fields: [details*, qa_correct_responses_on_system_non_structured_classification]
     sql: ${qa_correct_responses_on_system_non_structured_classification}  ;;
     # value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
@@ -701,7 +678,7 @@ view: saas_usage {
     group_label: "Page Details"
     label: "% Classification Accuracy"
     type: number
-    drill_fields: [details*, total_qa_correct_responses_on_system_non_structured_classification, total_qa_responses_on_system_non_structured_classification]
+    #drill_fields: [details*, total_qa_correct_responses_on_system_non_structured_classification, total_qa_responses_on_system_non_structured_classification]
     sql: (${total_qa_correct_responses_on_system_non_structured_classification}::real)
       /nullif(${total_qa_responses_on_system_non_structured_classification}::real,0);;
     value_format_name: percent_2
@@ -710,7 +687,7 @@ view: saas_usage {
   measure: total_qa_responses_on_system_field_identification {
     group_label: "Page Details"
     type: sum
-    drill_fields: [details*, number_of_qa_responses_on_system_field_identification]
+    #drill_fields: [details*, number_of_qa_responses_on_system_field_identification]
     sql: ${number_of_qa_responses_on_system_field_identification}  ;;
     # value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
@@ -720,7 +697,7 @@ view: saas_usage {
     group_label: "Page Details"
     # hidden: yes
     type: sum
-    drill_fields: [details*, number_of_fields_machine_identified]
+    #drill_fields: [details*, number_of_fields_machine_identified]
     sql: ${number_of_fields_machine_identified}*1.0;;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
@@ -737,7 +714,7 @@ view: saas_usage {
     group_label: "Page Details"
     label: "% Identification QA"
     type: number
-    drill_fields: [details*, total_number_fields_machine_identified, total_number_fields_manually_identified,total_qa_responses_on_system_field_identification]
+    #drill_fields: [details*, total_number_fields_machine_identified, total_number_fields_manually_identified,total_qa_responses_on_system_field_identification]
     sql: (${total_qa_responses_on_system_field_identification}::real)
       /nullif(${total_number_fields_machine_identified}::real + ${total_number_fields_manually_identified}::real,0);;
     value_format_name: percent_2
@@ -747,7 +724,7 @@ view: saas_usage {
     group_label: "Page Details"
     label: "% Identification Automation"
     type: number
-    drill_fields: [details*, total_number_fields_machine_identified, total_number_fields_manually_identified]
+    #drill_fields: [details*, total_number_fields_machine_identified, total_number_fields_manually_identified]
     sql: (${total_number_fields_machine_identified}::real)
       /nullif(${total_number_fields_machine_identified}::real + ${total_number_fields_manually_identified}::real,0);;
     value_format_name: percent_2
@@ -756,7 +733,7 @@ view: saas_usage {
   measure: total_qa_correct_responses_on_system_field_identification {
     group_label: "Page Details"
     type: sum
-    drill_fields: [details*, number_of_qa_correct_responses_on_system_field_identification]
+    #drill_fields: [details*, number_of_qa_correct_responses_on_system_field_identification]
     sql: ${number_of_qa_correct_responses_on_system_field_identification}  ;;
     # value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
@@ -766,7 +743,7 @@ view: saas_usage {
     group_label: "Page Details"
     label: "% Identification Accuracy"
     type: number
-    drill_fields: [details*, total_qa_correct_responses_on_system_field_identification, total_qa_responses_on_system_field_identification]
+    #drill_fields: [details*, total_qa_correct_responses_on_system_field_identification, total_qa_responses_on_system_field_identification]
     sql: (${total_qa_correct_responses_on_system_field_identification}::real)
       /nullif(${total_qa_responses_on_system_field_identification}::real,0);;
     value_format_name: percent_2
@@ -776,7 +753,7 @@ view: saas_usage {
     group_label: "Page Details"
     label: "Fields IDed Per Page"
     type: number
-    drill_fields: [details*, total_number_fields_machine_identified, total_number_fields_manually_identified, total_pages_matched_to_flex_layouts_created]
+    #drill_fields: [details*, total_number_fields_machine_identified, total_number_fields_manually_identified, total_pages_matched_to_flex_layouts_created]
     sql: (${total_number_fields_machine_identified}::real + ${total_number_fields_manually_identified}::real)
       /nullif(${total_pages_matched_to_flex_layouts_created}::real,0);;
     value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
