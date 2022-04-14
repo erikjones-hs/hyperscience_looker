@@ -607,7 +607,7 @@ view: saas_usage {
     type: sum
     #drill_fields: [details*, number_of_live_layouts]
     sql: ${number_of_live_layouts} ;;
-    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    #value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
 
