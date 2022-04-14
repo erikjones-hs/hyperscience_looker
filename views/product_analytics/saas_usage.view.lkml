@@ -558,7 +558,7 @@ view: saas_usage {
     type: number
     #drill_fields: [details*, total_characters_completed, total_pages_matched_to_form_layouts_created, total_pages_matched_to_flex_layouts_created]
     sql: ${total_characters_completed}::real/nullif((${total_pages_matched_to_form_layouts_created}::real + ${total_pages_matched_to_flex_layouts_created}::real),0);;
-    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    #value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
   measure: total_table_cells_created {
