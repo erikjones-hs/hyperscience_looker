@@ -398,7 +398,7 @@ view: saas_usage {
     # hidden: yes
     type: sum
     sql: ${number_of_documents_completed} ;;
-    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    #value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
   measure: total_submissions_completed {
@@ -413,7 +413,7 @@ view: saas_usage {
     group_label: "Page Details"
     type: number
     sql: ${total_pages_completed}::real/nullif(${total_documents_completed}::real,0) ;;
-    value_format_name: decimal_2
+    value_format_name: decimal_1
   }
 
   measure: average_pages_processed_per_submission {
