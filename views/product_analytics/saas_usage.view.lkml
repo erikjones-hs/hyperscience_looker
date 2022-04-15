@@ -627,7 +627,7 @@ view: saas_usage {
     type: sum
     #drill_fields: [details*, number_of_pages_classified_manually]
     sql: ${number_of_pages_classified_manually}*1.0;;
-    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    #value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
   measure: total_pages_classified_automatically{
@@ -636,7 +636,7 @@ view: saas_usage {
     type: sum
     #drill_fields: [details*, number_of_pages_classified_automatically]
     sql: ${number_of_pages_classified_automatically}*1.0;;
-    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    #value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
 
