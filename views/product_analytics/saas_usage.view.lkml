@@ -694,7 +694,7 @@ view: saas_usage {
     type: sum
     #drill_fields: [details*, number_of_fields_machine_identified]
     sql: ${number_of_fields_machine_identified}*1.0;;
-    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    #value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
   measure: total_number_fields_manually_identified{
@@ -702,7 +702,7 @@ view: saas_usage {
     # hidden: yes
     type: sum
     sql: ${number_of_fields_manually_indentified}*1.0;;
-    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    #value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
   measure: percent_identification_qa {
@@ -722,7 +722,7 @@ view: saas_usage {
     #drill_fields: [details*, total_number_fields_machine_identified, total_number_fields_manually_identified]
     sql: (${total_number_fields_machine_identified}::real)
       /nullif(${total_number_fields_machine_identified}::real + ${total_number_fields_manually_identified}::real,0);;
-    value_format_name: percent_2
+    value_format_name: percent_1
   }
 
   measure: total_qa_correct_responses_on_system_field_identification {
