@@ -566,7 +566,7 @@ view: saas_usage {
     type: sum
     #drill_fields: [details*, number_of_table_cells_created]
     sql: ${number_of_table_cells_created} ;;
-    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    #value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
   measure: total_table_cells_machine_identified {
@@ -574,7 +574,7 @@ view: saas_usage {
     type: sum
     #drill_fields: [details*, number_of_table_cells_machine_identified]
     sql: ${number_of_table_cells_machine_identified} ;;
-    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    #value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
   measure: total_table_cells_manually_identified {
@@ -582,7 +582,7 @@ view: saas_usage {
     type: sum
     #drill_fields: [details*, number_of_table_cells_manually_identified]
     sql: ${number_of_table_cells_manually_identified} ;;
-    value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
+    #value_format: "[>=1000000000]#.00,,,\"B\";[>=1000000]#.00,,\"M\";[>=1000]#.00,\"K\";0"
   }
 
   measure: percent_table_automation {
@@ -591,7 +591,7 @@ view: saas_usage {
     #drill_fields: [details*, total_table_cells_machine_identified, total_table_cells_manually_identified]
     sql: ${total_table_cells_machine_identified}::real
       /nullif(${total_table_cells_machine_identified}::real + ${total_table_cells_manually_identified}::real,0) ;;
-    value_format_name: percent_2
+    value_format_name: percent_1
   }
 
   measure: machine_qa_sampling_rate {
