@@ -95,6 +95,13 @@
     sql: ${TABLE}."OPP_STAGE_NAME" ;;
   }
 
+    dimension_group: current_date {
+      type: time
+      timeframes: [date, month, quarter, year]
+      sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
+    }
+
+
   measure: num_opps {
     type: count_distinct
     sql_distinct_key: ${existing_opp_id} ;;
