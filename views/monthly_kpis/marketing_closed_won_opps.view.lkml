@@ -1,6 +1,6 @@
 
 view: marketing_closed_won_opps {
-  sql_table_name: (select * from dev.erikjones.monthly_kpis_marketing_closed_won_opps);;
+  sql_table_name: (select * from "PROD"."MONTHLY_KPIS"."MARKETING_INFLUENCED_CLOSED_WON_OPPS");;
   drill_fields: [detail*]
 
   dimension: account_id {
