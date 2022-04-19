@@ -28,14 +28,16 @@
   }
 
   measure: capacity {
-    type: sum
+    type: sum_distinct
+    sql_distinct_key: ${dte_fiscal_quarter};;
     sql: ${total_capacity} ;;
     value_format: "$0,,\"M\""
     label: "Capacity"
   }
 
   measure: budget {
-    type: sum
+    type: sum_distinct
+    sql_distinct_key: ${dte_fiscal_quarter};;
     sql: ${new_arr_budget} ;;
     value_format: "$0,,\"M\""
     label: "ARR Budget"
