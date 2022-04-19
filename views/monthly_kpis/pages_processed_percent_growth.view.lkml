@@ -34,6 +34,7 @@
   measure: percent_growth {
     type: sum
     sql:  ${perc_growth} ;;
+    value_format: "0%"
   }
 
   set: detail {
