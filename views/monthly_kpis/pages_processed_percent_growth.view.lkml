@@ -1,11 +1,6 @@
  view: pages_processed_percent_growth {
   sql_table_name: (select * from dev.erikjones.monthly_kpis_pages_processed_cum_sum);;
 
-  measure: count {
-    type: count
-    drill_fields: [detail*]
-  }
-
   dimension: customer {
     type: string
     sql: ${TABLE}."CUSTOMER" ;;
@@ -34,6 +29,11 @@
   dimension: perc_growth {
     type: number
     sql: ${TABLE}."PERC_GROWTH" ;;
+  }
+
+  measure: percent_growth {
+    type: sum
+    sql:  ${perc_growth} ;;
   }
 
   set: detail {
