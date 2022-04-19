@@ -6,3 +6,4 @@ include: "/views/product_analytics/*.view.lkml"
 explore: user_defined_usage_data {}
 explore: pageviews {}
 explore: saas_usage {}
+explore: saas_meta_data {}
