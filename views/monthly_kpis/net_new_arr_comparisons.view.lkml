@@ -1,5 +1,5 @@
   view: net_new_arr_comparisons {
-    sql_table_name: (select * from "PROD"."MONTHLY_KPIS"."NET_NEW_ARR_COMPARISONS");;
+    sql_table_name: (select * from prod.monthly_kpis.net_new_arr_comparisons);;
 
   dimension_group: date_month {
     type: time
