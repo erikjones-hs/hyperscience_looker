@@ -87,6 +87,23 @@
     sql: ${TABLE}."PAGEVIEW" ;;
   }
 
+  dimension_group: session_start_time {
+    type: time
+    sql: ${TABLE}."SESSION_START_TIME" ;;
+  }
+
+  dimension_group: session_end_time {
+    type: time
+    sql: ${TABLE}."SESSION_END_TIME" ;;
+  }
+
+  dimension_group: time_between_sessions {
+    type: duration
+    sql_start: ${session_start_time_minute} ;;
+    sql_end:  ${session_end_time_minute} ;;
+    intervals: [minute, hour]
+  }
+
   measure: num_users {
     type: count_distinct
     sql_distinct_key: ${user_id} ;;
@@ -110,6 +127,20 @@
     label: "# Sessions"
     drill_fields: [detail*]
   }
+
+  measure: session_per_user {
+    type: number
+    sql: ${num_sessions} / ${num_users} ;;
+    label: "Session / User"
+  }
+
+  measure: avg_time_between_sessions{
+    type:  average
+    sql: ${minutes_time_between_sessions} ;;
+    label: "Avg. Time Between Sessions"
+  }
+
+
 
   set: detail {
     fields: [
