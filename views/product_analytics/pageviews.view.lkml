@@ -97,7 +97,7 @@
     sql: ${TABLE}."SESSION_END_TIME" ;;
   }
 
-  dimension_group: time_between_sessions {
+  dimension_group: time_of_session {
     type: duration
     sql_start: ${session_start_time_minute} ;;
     sql_end:  ${session_end_time_minute} ;;
@@ -134,10 +134,10 @@
     label: "Session / User"
   }
 
-  measure: avg_time_between_sessions{
+  measure: avg_time_of_session{
     type:  average
-    sql: ${minutes_time_between_sessions} ;;
-    label: "Avg. Time Between Sessions"
+    sql: ${minutes_time_of_session} ;;
+    label: "Avg. Session Time"
   }
 
   measure: activity_days {
