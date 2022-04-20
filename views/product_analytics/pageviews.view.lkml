@@ -140,6 +140,13 @@
     label: "Avg. Time Between Sessions"
   }
 
+  measure: activity_days {
+    type: count_distinct
+    sql_distinct_key: ${time_date} ;;
+    sql: ${time_date} ;;
+    label: "# Activity Days"
+  }
+
 
 
   set: detail {
