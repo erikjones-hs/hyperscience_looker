@@ -80,25 +80,25 @@
 
   measure: num_flex_extract_events {
     type: sum
-    sql: ${flex_extract_fl}_fl} ;;
+    sql: ${flex_extract_fl};;
     label: "# Flexible Extraction Events"
   }
 
   measure: num_document_classification_events {
     type: sum
-    sql: ${document_classification_fl}_fl} ;;
+    sql: ${document_classification_fl};;
     label: "# Document Classification Events"
   }
 
   measure: num_identification_events {
     type: sum
-    sql: ${identification_fl}_fl} ;;
+    sql: ${identification_fl};;
     label: "# Identification Events"
   }
 
   measure: num_qa_document_classification_events {
     type: sum
-    sql: ${qa_document_classification_fl}_fl} ;;
+    sql: ${qa_document_classification_fl};;
     label: "# QA Document Classification Events"
   }
 
