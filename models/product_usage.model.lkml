@@ -7,3 +7,4 @@ explore: user_defined_usage_data {}
 explore: pageviews {}
 explore: saas_usage {}
 explore: saas_meta_data {}
+explore: clicks_tasks {}

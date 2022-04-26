@@ -1,5 +1,5 @@
-  view: pageviews {
-    sql_table_name: (select * from dev.erikjones.heap_pageviews);;
+view: pageviews {
+  sql_table_name: (select * from "DEV"."ERIKJONES"."HEAP_PAGEVIEWS");;
 
   dimension: user_id {
     type: number
