@@ -145,6 +145,13 @@
     label: "Committed + Closed QTR"
   }
 
+  measure: budget_running_tot {
+    type: sum
+    sql: ${sales_budget_running_total} ;;
+    value_format: "$0.00"
+    label: "Sales Budget Running Total"
+  }
+
 
 
 
