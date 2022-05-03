@@ -17,14 +17,26 @@
     sql: ${TABLE}."BUDGET" ;;
   }
 
+  dimension: sales_budget_running_total {
+    type: number
+    sql: ${TABLE}."SALES_BUDGET_RUNNING_TOTAL" ;;
+  }
+
+
   dimension: new_arr_actuals {
     type: number
     sql: ${TABLE}."NEW_ARR_ACTUALS" ;;
   }
 
-  dimension: low {
+  dimension: actuals_running_total {
     type: number
-    sql: ${TABLE}."LOW" ;;
+    sql: ${TABLE}."ACTUALS_RUNNING_TOTAL" ;;
+  }
+
+
+  dimension: arr_low {
+    type: number
+    sql: ${TABLE}."ARR_LOW" ;;
   }
 
   dimension: arr_committed {
@@ -32,9 +44,14 @@
     sql: ${TABLE}."ARR_COMMITTED" ;;
   }
 
-  dimension: high {
+  dimension: arr_best_case {
     type: number
-    sql: ${TABLE}."HIGH" ;;
+    sql: ${TABLE}."ARR_BEST_CASE" ;;
+  }
+
+  dimension: high_best_case {
+    type: number
+    sql: ${TABLE}."HIGH_BEST_CASE" ;;
   }
 
   dimension: forecast_plan {
@@ -62,9 +79,9 @@
     label: "(New) ARR Actuals"
   }
 
-  measure: arr_low  {
+  measure: low_arr  {
     type:  sum
-    sql:  ${low};;
+    sql:  ${arr_low};;
     value_format: "$0.00"
     label: "Low"
   }
@@ -78,7 +95,7 @@
 
   measure: arr_high  {
     type:  sum
-    sql:  ${high};;
+    sql:  ${high_best_case};;
     value_format: "$0.00"
     label: "High"
   }
@@ -103,10 +120,7 @@
       dte_month,
       sales_team,
       budget,
-      new_arr_actuals,
-      low,
       arr_committed,
-      high,
       forecast_plan
     ]
   }
