@@ -59,6 +59,16 @@
     sql: ${TABLE}."FORECAST_PLAN" ;;
   }
 
+  dimension: arr_committed_running_total {
+    type: number
+    sql: ${TABLE}."ARR_COMMITTED_RUNNING_TOTAL" ;;
+  }
+
+  dimension: best_case_high_running_total {
+    type: number
+    sql: ${TABLE}."BEST_CASE_HIGH_RUNNING_TOTAL" ;;
+  }
+
   dimension_group: current_date {
     type: time
     timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
@@ -112,6 +122,27 @@
     sql: ${committed_arr} + ${arr_actuals} ;;
     value_format: "$0.00"
     label: "Committed + Closed"
+  }
+
+  measure: arr_commit_running_tot {
+    type: sum
+    sql: ${arr_committed_running_total} ;;
+    value_format: "$0.00"
+    label: "Committed Running Total"
+  }
+
+  measure: arr_best_case_high_running_tot {
+    type: sum
+    sql: ${best_case_high_running_total} ;;
+    value_format: "$0.00"
+    label: "Best Case High Running Total"
+  }
+
+  measure: committed_closed_qtr {
+    type: number
+    sql: ${arr_commit_running_tot} + ${arr_best_case_high_running_tot} ;;
+    value_format: "$0.00"
+    label: "Committed + Closed QTR"
   }
 
 
