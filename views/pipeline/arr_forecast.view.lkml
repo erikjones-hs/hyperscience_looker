@@ -107,6 +107,13 @@
     label: "FCST Plan"
   }
 
+  measure: committed_closed {
+    type: number
+    sql: ${committed_arr} + ${arr_actuals} ;;
+    value_format: "$0.00"
+    label: "Committed + Closed"
+  }
+
 
 
 
