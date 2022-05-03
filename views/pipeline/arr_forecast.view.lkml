@@ -152,6 +152,13 @@
     label: "Sales Budget Running Total"
   }
 
+  measure: actuals_running_tot {
+    type: sum
+    sql: ${actuals_running_total} ;;
+    value_format: "$0.00"
+    label: "ARR Actuals Running Total"
+  }
+
 
 
 
