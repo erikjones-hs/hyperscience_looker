@@ -134,6 +134,13 @@ view: arr_sales_team_closed_won {
     sql: ${TABLE}."CLOSE_DTE" ;;
   }
 
+  dimension_group: current_date {
+    type: time
+    timeframes: [raw, date, month, month_name, month_num, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
+    sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
+  }
+
+
   measure: new_arr {
     type: sum
     sql: CASE WHEN ${revenue_category} = 'new' OR ${revenue_category} = 'expansion'
