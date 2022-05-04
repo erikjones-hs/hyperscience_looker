@@ -77,7 +77,7 @@
 
   dimension: today_dte {
     type: string
-    sql: monthname(date_trunc(month,to_date(current_date()))) ;;
+    sql: to_char(date_trunc(month,to_date(current_date())), 'MMMM') ;;
   }
 
   dimension: next_month_dte {
