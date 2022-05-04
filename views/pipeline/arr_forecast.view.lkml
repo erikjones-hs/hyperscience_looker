@@ -75,6 +75,11 @@
     sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
   }
 
+  dimension: today_dte {
+    type: string
+    sql: monthname(date_trunc(month,to_date(current_date()))) ;;
+  }
+
   measure: boy_budget  {
     type:  sum
     sql:  ${budget};;
