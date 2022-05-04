@@ -278,4 +278,18 @@ view: arr_churn_net_new {
     label: "Net New ARR Forecast Plan"
   }
 
+  measure: budget_churn {
+    type:  sum
+    sql: ${churn_budget} ;;
+    value_format: "$0.00"
+    label: "Churn Budget"
+  }
+
+  measure: actuals_churn {
+    type:  sum
+    sql: ${actual_churn_amount} ;;
+    value_format: "$0.00"
+    label: "Churn Actuals"
+  }
+
 }
