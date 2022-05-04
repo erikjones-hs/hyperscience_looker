@@ -34,13 +34,13 @@
   dimension: sales_team_sort {
     type: number
     sql: CASE
-        WHEN ${sales_team} = 'US East' then 1
-        WHEN ${sales_team} = 'US West' then 2
-        WHEN ${sales_team} = 'Federal' then 3
+        WHEN ${sales_team} = 'US East' then 7
+        WHEN ${sales_team} = 'US West' then 6
+        WHEN ${sales_team} = 'Federal' then 5
         WHEN ${sales_team} = 'APAC' then 4
-        WHEN ${sales_team} = 'Channel' then 5
-        WHEN ${sales_team} = 'EMEA' then 6
-        WHEN ${sales_team} = 'Other' then 7
+        WHEN ${sales_team} = 'Channel' then 3
+        WHEN ${sales_team} = 'EMEA' then 2
+        WHEN ${sales_team} = 'Other' then 1
         END;;
     hidden:  yes
   }
