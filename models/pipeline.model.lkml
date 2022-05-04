@@ -13,3 +13,4 @@ explore: capacity_coverage {}
 explore: current_fy_renewals {}
 explore: current_fy_renewals_from_to {}
 explore: arr_forecast {}
+explore: arr_sales_team_closed_won {}
