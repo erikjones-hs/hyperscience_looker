@@ -7,6 +7,60 @@ view: arr_churn_net_new {
     sql: ${TABLE}."DTE" ;;
   }
 
+  dimension: month_custom_sort {
+    label: "Month (Custom Sort)"
+    case: {
+      when: {
+        sql: ${dte_month} = '2022-03' ;;
+        label: "March"
+      }
+      when: {
+        sql: ${dte_month} = '2022-04' ;;
+        label: "April"
+      }
+      when: {
+        sql: ${dte_month} = '2022-05' ;;
+        label: "May"
+      }
+      when: {
+        sql: ${dte_month} = '2022-06' ;;
+        label: "June"
+      }
+      when: {
+        sql: ${dte_month} = '2022-07' ;;
+        label: "July"
+      }
+      when: {
+        sql: ${dte_month} = '2022-08' ;;
+        label: "August"
+      }
+      when: {
+        sql: ${dte_month} = '2022-09' ;;
+        label: "September"
+      }
+      when: {
+        sql: ${dte_month} = '2022-10' ;;
+        label: "October"
+      }
+      when: {
+        sql: ${dte_month} = '2022-11' ;;
+        label: "November"
+      }
+      when: {
+        sql: ${dte_month} = '2022-12' ;;
+        label: "December"
+      }
+      when: {
+        sql: ${dte_month} = '2023-01' ;;
+        label: "January"
+      }
+      when: {
+        sql: ${dte_month} = '2023-02' ;;
+        label: "February"
+      }
+    }
+  }
+
   dimension: forecast_plan {
     type: number
     sql: ${TABLE}."FORECAST_PLAN" ;;
@@ -111,6 +165,13 @@ view: arr_churn_net_new {
     type: number
     sql: ${TABLE}."NET_NEW_ARR_FORECAST" ;;
   }
+
+  dimension_group: current_date {
+    type: time
+    timeframes: [raw, date, month, month_name, month_num, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
+    sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
+  }
+
 
   measure: arr_forecast_plan {
     type:  sum
