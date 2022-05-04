@@ -7,9 +7,42 @@
     sql: ${TABLE}."DTE" ;;
   }
 
+  dimension: month_custom_sort {
+    label: "Month (Custom Sort)"
+    case: {
+      when: {
+        sql: ${dte_month} = '2022-03' ;;
+        label: "March"
+      }
+        when: {
+          sql: ${dte_month} = '2022-04' ;;
+          label: "April"
+        }
+        when: {
+          sql: ${dte_month} = '2022-05' ;;
+          label: "May"
+        }
+      }
+  }
+
   dimension: sales_team {
     type: string
     sql: ${TABLE}."SALES_TEAM" ;;
+    order_by_field: sales_team_sort
+  }
+
+  dimension: sales_team_sort {
+    type: number
+    sql: CASE
+        WHEN ${sales_team} = 'US East' then 1
+        WHEN ${sales_team} = 'US West' then 2
+        WHEN ${sales_team} = 'Federal' then 3
+        WHEN ${sales_team} = 'APAC' then 4
+        WHEN ${sales_team} = 'Channel' then 5
+        WHEN ${sales_team} = 'EMEA' then 6
+        WHEN ${sales_team} = 'Other' then 7
+        END;;
+    hidden:  yes
   }
 
   dimension: budget {
