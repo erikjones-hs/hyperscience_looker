@@ -82,7 +82,7 @@
 
   dimension: next_month_dte {
     type: string
-    sql: monthname(date_trunc(month,to_date(current_date() + 31))) ;;
+    sql: to_char(date_trunc(month,to_date(current_date() + 31)),'MMMM') ;;
   }
 
   measure: boy_budget  {
