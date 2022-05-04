@@ -22,7 +22,43 @@
           sql: ${dte_month} = '2022-05' ;;
           label: "May"
         }
+      when: {
+        sql: ${dte_month} = '2022-06' ;;
+        label: "June"
       }
+      when: {
+        sql: ${dte_month} = '2022-07' ;;
+        label: "July"
+      }
+      when: {
+        sql: ${dte_month} = '2022-08' ;;
+        label: "August"
+      }
+      when: {
+        sql: ${dte_month} = '2022-09' ;;
+        label: "September"
+      }
+      when: {
+        sql: ${dte_month} = '2022-10' ;;
+        label: "October"
+      }
+      when: {
+        sql: ${dte_month} = '2022-11' ;;
+        label: "November"
+      }
+      when: {
+        sql: ${dte_month} = '2022-12' ;;
+        label: "December"
+      }
+      when: {
+        sql: ${dte_month} = '2023-01' ;;
+        label: "January"
+      }
+      when: {
+        sql: ${dte_month} = '2023-02' ;;
+        label: "February"
+      }
+    }
   }
 
   dimension: sales_team {
