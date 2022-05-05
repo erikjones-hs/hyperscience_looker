@@ -292,4 +292,39 @@ view: arr_churn_net_new {
     label: "Churn Actuals"
   }
 
+  measure: net_new_arr_low {
+    type: number
+    sql: ${arr_low} - ${total_potential_churn_amount} ;;
+    value_format: "$0.00"
+    label: "Net New ARR Low"
+  }
+
+  measure: net_new_arr_committed {
+    type: number
+    sql: ${arr_committed} - ${committed_potetial_churn} ;;
+    value_format: "$0.00"
+    label: "Net New ARR Committed"
+  }
+
+  measure: net_new_arr_high {
+    type: number
+    sql: ${arr_high} - ${low_potetial_churn} ;;
+    value_format: "$0.00"
+    label: "Net New ARR High"
+  }
+
+  measure: net_new_arr_mtd_actuals {
+    type: number
+    sql: ${arr_mtd_actuals} - ${actual_churn_amount} ;;
+    value_format: "$0.00"
+    label: "Net New ARR MTD Actuals"
+  }
+
+  measure: net_new_arr_commit_actuals {
+    type: number
+    sql: ${arr_committed_plus_actuals} - ${lowest_potential_churn_actuals} ;;
+    value_format: "$0.00"
+    label: "Net New ARR Committed + Actuals"
+  }
+
 }
