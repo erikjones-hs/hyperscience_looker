@@ -161,9 +161,24 @@ view: arr_churn_net_new {
     sql: ${TABLE}."CHURN_FORECAST_ACTUALS" ;;
   }
 
-  dimension: net_new_arr_forecast {
+  dimension: net_new_arr_low {
     type: number
-    sql: ${TABLE}."NET_NEW_ARR_FORECAST" ;;
+    sql: ${TABLE}."NET_NEW_ARR_LOW" ;;
+  }
+
+  dimension: net_new_arr_committed {
+    type: number
+    sql: ${TABLE}."NET_NEW_ARR_COMMITTED" ;;
+  }
+
+  dimension: net_new_arr_high {
+    type: number
+    sql: ${TABLE}."NET_NEW_ARR_HIGH" ;;
+  }
+
+  dimension: net_new_arr_committed_plus_actuals {
+    type: number
+    sql: ${TABLE}."NET_NEW_ARR_COMMITTED_PLUS_ACTUALS" ;;
   }
 
   dimension_group: current_date {
@@ -292,37 +307,37 @@ view: arr_churn_net_new {
     label: "Churn Actuals"
   }
 
-  measure: net_new_arr_low {
-    type: number
-    sql: ${arr_low} - ${total_potential_churn_amount} ;;
+  measure: low_net_new_arr {
+    type: sum
+    sql:  ${net_new_arr_low};;
     value_format: "$0.00"
     label: "Net New ARR Low"
   }
 
-  measure: net_new_arr_committed {
-    type: number
-    sql: ${arr_committed} - ${committed_potetial_churn} ;;
+  measure: committed_net_new_arr {
+    type: sum
+    sql: ${net_new_arr_committed} ;;
     value_format: "$0.00"
     label: "Net New ARR Committed"
   }
 
-  measure: net_new_arr_high {
-    type: number
-    sql: ${arr_high} - ${low_potetial_churn} ;;
+  measure: high_net_new_arr {
+    type: sum
+    sql: ${net_new_arr_high} ;;
     value_format: "$0.00"
     label: "Net New ARR High"
   }
 
   measure: net_new_arr_mtd_actuals {
-    type: number
-    sql: ${arr_mtd_actuals} - ${actual_churn_amount} ;;
+    type: sum
+    sql: ${net_new_arr_actuals} ;;
     value_format: "$0.00"
     label: "Net New ARR MTD Actuals"
   }
 
   measure: net_new_arr_commit_actuals {
-    type: number
-    sql: ${arr_committed_plus_actuals} - ${lowest_potential_churn_actuals} ;;
+    type: sum
+    sql: ${net_new_arr_committed_plus_actuals} ;;
     value_format: "$0.00"
     label: "Net New ARR Committed + Actuals"
   }
