@@ -379,4 +379,11 @@ view: arr_churn_net_new {
     label: "Churn Budget Running Total"
   }
 
+  measure: actual_churn_runing_total {
+    type: sum
+    sql: ${actual_churn_running_total_fq} ;;
+    value_format: "$0.00"
+    label: "Churn Actuals Running Total"
+  }
+
 }
