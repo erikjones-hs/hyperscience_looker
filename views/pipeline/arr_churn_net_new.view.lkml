@@ -365,4 +365,11 @@ view: arr_churn_net_new {
     label: "Lowest Potential Churn Running Total"
   }
 
+  measure: churn_budget_running_total {
+    type:  sum
+    sql: ${churn_budget_running_total_fq} ;;
+    value_format: "$0.00"
+    label: "Churn Budget Running Total"
+  }
+
 }
