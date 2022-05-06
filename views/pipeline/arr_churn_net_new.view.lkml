@@ -411,6 +411,13 @@ view: arr_churn_net_new {
     label: "Churn Actuals Running Total"
   }
 
+  measure: churn_actuals_committed_running_total {
+    type:  number
+    sql: ${actual_churn_runing_total} + ${churn_commit_running_total};;
+    value_format: "$0.00"
+    label: "Churn Committed + Actuals Running Total"
+  }
+
   measure: arr_og_plan_running_total {
     type: sum
     sql: ${original_plan_running_total_fq} ;;
@@ -446,6 +453,13 @@ view: arr_churn_net_new {
     label: "ARR Actuals Running Total"
   }
 
+  measure: arr_actuals_committed_running_total {
+    type: number
+    sql: ${arr_actuals_running_total} + ${arr_committed_running_total} ;;
+    value_format: "$0.00"
+    label: "ARR Committed + Actuals Running Total"
+  }
+
   measure: net_new_arr_forecast_plan_qtr {
     type: number
     sql: ${arr_og_plan_running_total} - ${churn_budget_running_total} ;;
@@ -479,6 +493,13 @@ view: arr_churn_net_new {
     sql: ${arr_actuals_running_total} - ${actual_churn_runing_total};;
     value_format: "$0.00"
     label: "Net New ARR Actuals QTR"
+  }
+
+  measure: net_new_committed_actuals_running_total_qtr {
+    type: number
+    sql: ${arr_actuals_committed_running_total} - ${churn_actuals_committed_running_total} ;;
+    value_format: "$0.00"
+    label: "Net New ARR Committed + Actuals QTR"
   }
 
 }
