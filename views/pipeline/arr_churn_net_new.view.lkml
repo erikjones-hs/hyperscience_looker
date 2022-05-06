@@ -197,6 +197,31 @@ view: arr_churn_net_new {
     sql: ${TABLE}."POTENTIAL_CHURN_NON_COMMIT_RUNNING_TOTAL_FQ" ;;
   }
 
+  dimension: original_plan_running_total_fq {
+    type: number
+    sql: ${TABLE}."ORIGINAL_PLAN_RUNNING_TOTAL_FQ" ;;
+  }
+
+  dimension: arr_low_running_total_fq {
+    type: number
+    sql: ${TABLE}."ARR_LOW_RUNNING_TOTAL_FQ" ;;
+  }
+
+  dimension: arr_committed_running_total_fq {
+    type: number
+    sql: ${TABLE}."ARR_COMMITTED_RUNNING_TOTAL_FQ" ;;
+  }
+
+  dimension: arr_high_running_total_fq {
+    type: number
+    sql: ${TABLE}."ARR_HIGH_RUNNING_TOTAL_FQ" ;;
+  }
+
+  dimension: arr_actuals_running_total_fq {
+    type: number
+    sql: ${TABLE}."ARR_ACTUALS_RUNNING_TOTAL_FQ" ;;
+  }
+
   measure: arr_forecast_plan {
     type:  sum
     sql: ${forecast_plan} ;;
@@ -384,6 +409,76 @@ view: arr_churn_net_new {
     sql: ${actual_churn_running_total_fq} ;;
     value_format: "$0.00"
     label: "Churn Actuals Running Total"
+  }
+
+  measure: arr_og_plan_running_total {
+    type: sum
+    sql: ${original_plan_running_total_fq} ;;
+    value_format: "$0.00"
+    label: "ARR Original Plan Running Total"
+  }
+
+  measure: arr_low_running_total {
+    type:  sum
+    sql: ${arr_low_running_total_fq} ;;
+    value_format: "$0.00"
+    label: "ARR Low Running Total"
+  }
+
+  measure: arr_committed_running_total {
+    type:  sum
+    sql: ${arr_committed_running_total_fq} ;;
+    value_format: "$0.00"
+    label: "ARR Committed Running Total"
+  }
+
+  measure: arr_high_running_total {
+    type:  sum
+    sql: ${arr_high_running_total_fq} ;;
+    value_format: "$0.00"
+    label: "ARR High Running Total"
+  }
+
+  measure: arr_actuals_running_total {
+    type:  sum
+    sql: ${arr_actuals_running_total_fq} ;;
+    value_format: "$0.00"
+    label: "ARR Actuals Running Total"
+  }
+
+  measure: net_new_arr_forecast_plan_qtr {
+    type: number
+    sql: ${arr_og_plan_running_total} - ${churn_budget_running_total} ;;
+    value_format: "$0.00"
+    label: "Net New ARR Forecast Plan"
+  }
+
+  measure: net_new_arr_low_qtr {
+    type: number
+    sql: ${arr_low_running_total} - ${total_potential_churn_running_total};;
+    value_format: "$0.00"
+    label: "Net New ARR Low"
+  }
+
+  measure: net_new_arr_committed_qtr {
+    type: number
+    sql: ${arr_committed_running_total} - ${churn_commit_running_total};;
+    value_format: "$0.00"
+    label: "Net New ARR Committed"
+  }
+
+  measure: net_new_arr_high_qtr {
+    type: number
+    sql: ${arr_high_running_total} - ${potential_churn_non_commit_running_total};;
+    value_format: "$0.00"
+    label: "Net New ARR High"
+  }
+
+  measure: net_new_actuals_qtr {
+    type: number
+    sql: ${arr_actuals_running_total} - ${actual_churn_runing_total};;
+    value_format: "$0.00"
+    label: "Net New ARR Actuals"
   }
 
 }
