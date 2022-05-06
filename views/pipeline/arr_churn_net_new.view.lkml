@@ -455,21 +455,21 @@ view: arr_churn_net_new {
 
   measure: net_new_arr_low_qtr {
     type: number
-    sql: ${arr_low_running_total} - ${total_potential_churn_running_total};;
+    sql: (${arr_low_running_total} + ${arr_actuals_running_total}) - (${total_potential_churn_running_total} + ${actual_churn_runing_total});;
     value_format: "$0.00"
     label: "Net New ARR Low QTR"
   }
 
   measure: net_new_arr_committed_qtr {
     type: number
-    sql: ${arr_committed_running_total} - ${churn_commit_running_total};;
+    sql: (${arr_committed_running_total} + ${arr_actuals_running_total}) - (${churn_commit_running_total} + ${actual_churn_runing_total});;
     value_format: "$0.00"
     label: "Net New ARR Committed QTR"
   }
 
   measure: net_new_arr_high_qtr {
     type: number
-    sql: ${arr_high_running_total} - ${potential_churn_non_commit_running_total};;
+    sql: (${arr_high_running_total} + ${arr_actuals_running_total}) - (${potential_churn_non_commit_running_total} + ${actual_churn_runing_total});;
     value_format: "$0.00"
     label: "Net New ARR High QTR"
   }
