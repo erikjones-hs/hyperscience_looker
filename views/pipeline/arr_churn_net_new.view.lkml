@@ -187,6 +187,15 @@ view: arr_churn_net_new {
     sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
   }
 
+  dimension: total_potential_churn_running_total_fq {
+    type: number
+    sql: ${TABLE}."TOTAL_POTENTIAL_CHURN_RUNNING_TOTAL_FQ" ;;
+  }
+
+  dimension: potential_churn_non_commit_running_total_fq {
+    type: number
+    sql: ${TABLE}."POTENTIAL_CHURN_NON_COMMIT_RUNNING_TOTAL_FQ" ;;
+  }
 
   measure: arr_forecast_plan {
     type:  sum
@@ -340,6 +349,20 @@ view: arr_churn_net_new {
     sql: ${net_new_arr_committed_plus_actuals} ;;
     value_format: "$0.00"
     label: "Net New ARR Committed + Actuals"
+  }
+
+  measure: total_potential_churn_running_total {
+    type:  sum
+    sql:  ${total_potential_churn_running_total_fq} ;;
+    value_format: "$0.00"
+    label: "Total Potential Churn Running Total"
+  }
+
+  measure: potential_churn_non_commit_running_total {
+    type:  sum
+    sql: ${potential_churn_non_commit_running_total_fq} ;;
+    value_format: "$0.00"
+    label: "Lowest Potential Churn Running Total"
   }
 
 }
