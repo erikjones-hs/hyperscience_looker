@@ -17,3 +17,4 @@ explore: arr_sales_team_closed_won {}
 explore: arr_sales_team_pipeline {}
 explore: arr_churn_net_new {}
 explore: arr_forecast_nrr {}
+explore: arr_forecast_nrr_opps {}
