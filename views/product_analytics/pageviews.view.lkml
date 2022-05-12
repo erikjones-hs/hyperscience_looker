@@ -62,6 +62,11 @@ view: pageviews {
     sql: ${TABLE}."DOMAIN" ;;
   }
 
+  dimension: heap_previous_page {
+    type: string
+    sql: ${TABLE}."HEAP_PREVIOUS_PAGE" ;;
+  }
+
   dimension: customer_int {
     type: string
     sql: ${TABLE}."CUSTOMER_INT" ;;
