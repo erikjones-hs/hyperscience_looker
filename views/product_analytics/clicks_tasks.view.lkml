@@ -72,6 +72,17 @@
     sql: CASE WHEN ${product_event} = 'identification qa' then 1 else 0 end ;;
   }
 
+  dimension: complete_task_queue_fl {
+    type: number
+    sql: CASE WHEN ${product_event} = 'task queue complete task' then 1 else 0 end ;;
+  }
+
+  measure: num_task_queue_complete {
+  type:sum
+  sql: ${complete_task_queue_fl} ;;
+  label: "# Tasks Completed from Task Queue"
+  }
+
   measure: num_transcription_events {
     type: sum
     sql: ${transcription_fl} ;;
