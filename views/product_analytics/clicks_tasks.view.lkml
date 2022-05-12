@@ -1,5 +1,5 @@
   view: clicks_tasks {
-    sql_table_name: (select * from dev.erikjones.product_analytics_tasks);;
+    sql_table_name: (select * from dev.erikjones.product_analytics_tasks_perform_tasks);;
 
   dimension: user_id {
     type: number
