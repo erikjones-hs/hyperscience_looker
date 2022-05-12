@@ -39,37 +39,37 @@
 
   dimension: transcription_fl {
     type: number
-    sql: CASE WHEN ${product_event} = 'perform_tasks_transcription' then 1 else 0 end ;;
+    sql: CASE WHEN ${product_event} = 'transcription' then 1 else 0 end ;;
   }
 
   dimension: flex_extract_fl {
     type: number
-    sql: CASE WHEN ${product_event} = 'perform_tasks_flexible_extraction' then 1 else 0 end ;;
+    sql: CASE WHEN ${product_event} = 'flexible extraction' then 1 else 0 end ;;
   }
 
   dimension: document_classification_fl {
     type: number
-    sql: CASE WHEN ${product_event} = 'perform_tasks_document_classification' then 1 else 0 end ;;
+    sql: CASE WHEN ${product_event} = 'document classification' then 1 else 0 end ;;
   }
 
   dimension: identification_fl {
     type: number
-    sql: CASE WHEN ${product_event} = 'perform_tasks_identification' then 1 else 0 end ;;
+    sql: CASE WHEN ${product_event} = 'identification' then 1 else 0 end ;;
   }
 
   dimension: qa_document_classification_fl {
     type: number
-    sql: CASE WHEN ${product_event} = 'perform_tasks_qa_document_classification' then 1 else 0 end ;;
+    sql: CASE WHEN ${product_event} = 'document classification qa' then 1 else 0 end ;;
   }
 
   dimension: qa_transcription_fl {
     type: number
-    sql: CASE WHEN ${product_event} = 'perform_tasks_qa_transcription' then 1 else 0 end ;;
+    sql: CASE WHEN ${product_event} = 'transcription qa' then 1 else 0 end ;;
   }
 
   dimension: qa_identification_fl {
     type: number
-    sql: CASE WHEN ${product_event} = 'perform_tasks_qa_identification' then 1 else 0 end ;;
+    sql: CASE WHEN ${product_event} = 'identification qa' then 1 else 0 end ;;
   }
 
   measure: num_transcription_events {
