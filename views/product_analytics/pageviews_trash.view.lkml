@@ -176,7 +176,7 @@ view: pageviews_trash {
 
   dimension: click_perform_task_from_submission_fl {
     type: number
-    sql:  CASE WHEN ${path} like '/supervision/submissions' then 1 else 0 end ;;
+    sql:  CASE WHEN ${path} like '/supervision/submission/%' then 1 else 0 end ;;
   }
 
   dimension: click_perform_task_from_tasks_fl {
