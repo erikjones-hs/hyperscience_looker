@@ -175,10 +175,23 @@ view: issues_components_versions {
     sql: split_part(${version_name},'.',1) ;;
   }
 
+  dimension_group: time_to_resolution {
+    type: duration
+    intervals: [day, hour, minute]
+    sql_start: ${created_dte_raw} ;;
+    sql_end: ${resolution_dte_raw} ;;
+  }
+
   measure: num_tickets {
     type: count_distinct
     sql: ${issue_id} ;;
     label: "# Tickets"
+  }
+
+  measure: mean_time_to_resolution {
+    type: average
+    sql: ${minutes_time_to_resolution} ;;
+    label: "Mean Time to Resolution (Minutes)"
   }
 
   set: detail {
