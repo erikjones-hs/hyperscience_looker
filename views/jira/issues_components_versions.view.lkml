@@ -104,6 +104,25 @@ view: issues_components_versions {
     sql: ${TABLE}."CREATED_DTE" ;;
   }
 
+  parameter: timeframe_picker {
+    label: "Date Granularity"
+    type: string
+    allowed_value: { value: "Date" }
+    allowed_value: { value: "Week" }
+    allowed_value: { value: "Month" }
+    default_value: "Week"
+  }
+
+  dimension: dynamic_timeframe {
+    type: string
+    sql:
+    CASE
+    WHEN {% parameter timeframe_picker %} = 'Date' THEN ${created_dte_date}
+    WHEN {% parameter timeframe_picker %} = 'Week' THEN ${created_dte_week}
+    WHEN{% parameter timeframe_picker %} = 'Month' THEN ${created_dte_month}
+    END ;;
+  }
+
   dimension: component {
     type: string
     sql: ${TABLE}."COMPONENT" ;;
