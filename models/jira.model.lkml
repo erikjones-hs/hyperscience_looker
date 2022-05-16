@@ -4,3 +4,4 @@ include: "/views/jira/*.view.lkml"                # include all views in the vie
 fiscal_month_offset:  2
 
 explore: issues_components_versions {}
+explore: escalation_engineer_ratio {}
