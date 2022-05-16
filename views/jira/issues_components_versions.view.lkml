@@ -190,8 +190,8 @@ view: issues_components_versions {
 
   measure: mean_time_to_resolution {
     type: average
-    sql: ${minutes_time_to_resolution} ;;
-    label: "Mean Time to Resolution (Minutes)"
+    sql: ${hours_time_to_resolution};;
+    label: "Mean Time to Resolution (Hours)"
   }
 
   set: detail {
