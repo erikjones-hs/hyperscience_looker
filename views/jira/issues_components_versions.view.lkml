@@ -35,11 +35,13 @@ view: issues_components_versions {
   dimension: priority {
     type: number
     sql: ${TABLE}."PRIORITY" ;;
+    order_by_field: priority_ordering
   }
 
   dimension: priority_name {
     type: string
     sql: ${TABLE}."PRIORITY_NAME" ;;
+    order_by_field: priority_ordering
   }
 
   dimension: assignee_id {
@@ -121,6 +123,21 @@ view: issues_components_versions {
     WHEN {% parameter timeframe_picker %} = 'Week' THEN ${created_dte_week}
     WHEN{% parameter timeframe_picker %} = 'Month' THEN ${created_dte_month}
     END ;;
+  }
+
+  dimension: priority_ordering {
+    type: number
+    sql:
+      CASE
+        WHEN ${priority_name} = 'Lowest' THEN 1
+        WHEN ${priority_name} = 'Low' THEN 2
+        WHEN ${priority_name} = 'Medium' THEN 3
+        WHEN ${priority_name} = 'High' THEN 4
+        WHEN ${priority_name} = 'Highest' THEN 5
+        ELSE 6
+      END ;;
+    hidden: yes
+    description: "This dimension is used to force sort the priority dimension."
   }
 
   dimension: component {
