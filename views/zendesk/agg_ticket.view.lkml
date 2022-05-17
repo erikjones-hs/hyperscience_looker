@@ -408,6 +408,12 @@ view: agg_ticket {
     sql: ${ticket_resolution_code} = 'duplicate_ticket';;
   }
 
+  dimension_group: current_date {
+    type: time
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
+    sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
+  }
+
   measure: num_tse_tickets  {
     type: number
     sql:  SUM(${is_tse_fl}) ;;
