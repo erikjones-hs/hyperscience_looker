@@ -29,8 +29,27 @@ view: agg_ticket {
 
   dimension_group: ticket_created_at {
     type: time
-    timeframes: [time, date, week, month, quarter]
+    timeframes: [raw, date, week, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
     sql: ${TABLE}."TICKET_CREATED_AT" ;;
+  }
+
+  parameter: timeframe_picker {
+    label: "Date Granularity"
+    type: string
+    allowed_value: { value: "Date" }
+    allowed_value: { value: "Week" }
+    allowed_value: { value: "Month" }
+    default_value: "Week"
+  }
+
+  dimension: dynamic_timeframe {
+    type: string
+    sql:
+    CASE
+    WHEN {% parameter timeframe_picker %} = 'Date' THEN ${ticket_created_at_date}
+    WHEN {% parameter timeframe_picker %} = 'Week' THEN ${ticket_created_at_week}
+    WHEN{% parameter timeframe_picker %} = 'Month' THEN ${ticket_created_at_month}
+    END ;;
   }
 
   dimension_group: ticket_updated_at {
@@ -472,7 +491,7 @@ view: agg_ticket {
       ticket_via_channel,
       ticket_source_from_address,
       ticket_source_to_address,
-      ticket_created_at_time,
+      ticket_created_at_date,
       ticket_updated_at_time,
       ticket_type,
       ticket_subject,
