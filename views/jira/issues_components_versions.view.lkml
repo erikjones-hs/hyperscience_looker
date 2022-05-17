@@ -194,6 +194,12 @@ view: issues_components_versions {
     label: "Mean Time to Resolution (Hours)"
   }
 
+  measure: time_to_resolution_hours {
+    type: sum
+    sql: ${hours_time_to_resolution};;
+    label: "Mean Time to Resolution (Hours)"
+  }
+
   set: detail {
     fields: [
       issue_key,
