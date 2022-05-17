@@ -155,9 +155,9 @@ view: issues_components_versions {
     sql: ${TABLE}."VERSION_NAME" ;;
   }
 
-  dimension: version_is_active {
-    type: yesno
-    sql: ${TABLE}."VERSION_IS_ACTIVE" ;;
+  dimension: fix_version_name {
+    type: string
+    sql: ${TABLE}."FIX_VERSION_NAME" ;;
   }
 
   dimension: feedback_category {
@@ -173,6 +173,11 @@ view: issues_components_versions {
   dimension: version_category {
     type: string
     sql: split_part(${version_name},'.',1) ;;
+  }
+
+  dimension: fix_version_category {
+    type: string
+    sql: split_part(${fix_version_name},'.',1) ;;
   }
 
   dimension_group: time_to_resolution {
@@ -217,7 +222,6 @@ view: issues_components_versions {
       component,
       component_is_active,
       version_name,
-      version_is_active,
       feedback_category,
       customer_name
     ]
