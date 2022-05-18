@@ -106,6 +106,12 @@ view: issues_components_versions {
     sql: ${TABLE}."CREATED_DTE" ;;
   }
 
+  dimension_group: current_date {
+    type: time
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
+    sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
+  }
+
   parameter: timeframe_picker {
     label: "Date Granularity"
     type: string
@@ -195,6 +201,13 @@ view: issues_components_versions {
     intervals: [day, hour, minute]
     sql_start: ${created_dte_raw} ;;
     sql_end: ${resolution_dte_raw} ;;
+  }
+
+  dimension_group: time_open {
+    type: duration
+    sql_start: ${created_dte_date} ;;
+    sql_end: ${current_date_date} ;;
+    intervals: [day]
   }
 
   measure: num_tickets {
