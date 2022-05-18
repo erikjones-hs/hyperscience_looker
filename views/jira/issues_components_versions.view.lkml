@@ -239,7 +239,6 @@ view: issues_components_versions {
       resolution_stage,
       resolution_dte_date,
       created_dte_date,
-      customer_name
     ]
   }
 }
