@@ -231,21 +231,16 @@ view: issues_components_versions {
   set: detail {
     fields: [
       issue_key,
-      priority,
       priority_name,
       assignee_name,
       status,
-      status_category_name,
       creator_name,
       project_key,
-      project_name,
       resolution_stage,
       resolution_dte_date,
       created_dte_date,
       component,
-      component_is_active,
       version_name,
-      feedback_category,
       customer_name
     ]
   }
