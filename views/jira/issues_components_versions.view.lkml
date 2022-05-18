@@ -118,7 +118,7 @@ view: issues_components_versions {
     allowed_value: { value: "Date" }
     allowed_value: { value: "Week" }
     allowed_value: { value: "Month" }
-    default_value: "Week"
+    default_value: "Month"
   }
 
   dimension: dynamic_timeframe {
