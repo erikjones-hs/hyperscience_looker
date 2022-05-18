@@ -125,6 +125,16 @@ view: issues_components_versions {
     END ;;
   }
 
+  dimension: dynamic_timeframe_resolution {
+    type: string
+    sql:
+    CASE
+    WHEN {% parameter timeframe_picker %} = 'Date' THEN ${resolution_dte_date}
+    WHEN {% parameter timeframe_picker %} = 'Week' THEN ${resolution_dte_week}
+    WHEN{% parameter timeframe_picker %} = 'Month' THEN ${resolution_dte_month}
+    END ;;
+  }
+
   dimension: priority_ordering {
     type: number
     sql:
