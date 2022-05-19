@@ -134,22 +134,17 @@ view: worklogs_escalations {
 
   set: detail {
     fields: [
-      issue_id,
-      started_dte_date,
-      updated_dte_date,
-      time_spent_seconds,
-      author_id,
-      author_name,
       issue_key,
+      author_name,
+      started_dte_raw,
+      updated_dte_raw,
+      time_spent_seconds,
       resolution_stage,
       priority_name,
       assignee_name,
       status,
       status_category_name,
-      creator_name,
-      issue_type_name,
       project_key,
-      project_name,
       resolution_dte_date,
       created_dte_date
     ]
