@@ -5,3 +5,4 @@ fiscal_month_offset:  2
 
 explore: issues_components_versions {}
 explore: escalation_engineer_ratio {}
+explore: worklogs_escalations {}
