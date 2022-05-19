@@ -128,8 +128,8 @@ view: worklogs_escalations {
 
   measure: total_time_spent {
     type: sum
-    sql: ${time_spent_seconds} / 60 ;;
-    label: "Total Time Spent (Minutes)"
+    sql: ${time_spent_seconds} / 360 ;;
+    label: "Total Time Spent (Hours)"
   }
 
   set: detail {
