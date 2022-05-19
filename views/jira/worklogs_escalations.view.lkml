@@ -101,6 +101,31 @@ view: worklogs_escalations {
     sql: ${TABLE}."CREATED_DTE" ;;
   }
 
+  dimension_group: current_date {
+    type: time
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
+    sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
+  }
+
+  parameter: timeframe_picker {
+    label: "Date Granularity"
+    type: string
+    allowed_value: { value: "Date" }
+    allowed_value: { value: "Week" }
+    allowed_value: { value: "Month" }
+    default_value: "Month"
+  }
+
+  dimension: dynamic_timeframe {
+    type: string
+    sql:
+    CASE
+    WHEN {% parameter timeframe_picker %} = 'Date' THEN ${started_dte_date}
+    WHEN {% parameter timeframe_picker %} = 'Week' THEN ${started_dte_week}
+    WHEN{% parameter timeframe_picker %} = 'Month' THEN ${started_dte_month}
+    END ;;
+  }
+
   measure: total_time_spent {
     type: sum_distinct
     sql_distinct_key: ${issue_id} ;;
