@@ -127,10 +127,9 @@ view: worklogs_escalations {
   }
 
   measure: total_time_spent {
-    type: sum_distinct
-    sql_distinct_key: ${issue_id} ;;
-    sql: ${time_spent_seconds} ;;
-    label: "Total Time Spent (Seconds)"
+    type: sum
+    sql: ${time_spent_seconds} / 60 ;;
+    label: "Total Time Spent (Minutes)"
   }
 
   set: detail {
