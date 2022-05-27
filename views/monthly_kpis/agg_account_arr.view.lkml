@@ -150,6 +150,14 @@ view: agg_account_arr {
     drill_fields: [detail*]
   }
 
+  measure: recurring_arr_true {
+    type:  number
+    sql:  ${total_arr} + ${churn_arr} - ${new_arr} - ${expansion_arr};;
+    value_format: "$#,##0"
+    label: "Recurring (True)"
+    drill_fields: [detail*]
+  }
+
   measure: arr_acct_change {
     type:  sum
     sql: ${mrr_change_acct};;
