@@ -123,15 +123,6 @@ view: agg_account_arr {
     drill_fields: [detail*]
   }
 
-  measure: recurring_arr {
-    type:  sum
-    sql:  ${mrr_acct};;
-    value_format: "$#,##0"
-    filters: [revenue_category: "recurring"]
-    label: "Recurring"
-    drill_fields: [detail*]
-  }
-
   measure: expansion_arr {
     type:  sum
     sql:  ${mrr_change_acct};;
@@ -150,11 +141,11 @@ view: agg_account_arr {
     drill_fields: [detail*]
   }
 
-  measure: recurring_arr_true {
+  measure: recurring_arr {
     type:  number
     sql: lag(${total_arr},1,0) over (order by ${date_month_month} asc);;
     value_format: "$#,##0"
-    label: "Recurring (True)"
+    label: "Recurring"
     drill_fields: [detail*]
   }
 
