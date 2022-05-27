@@ -152,7 +152,7 @@ view: agg_account_arr {
 
   measure: recurring_arr_true {
     type:  number
-    sql:  ${total_arr} + ${churn_arr} - ${new_arr} - ${expansion_arr};;
+    sql: lag(${total_arr},1,0) over (order by ${date_month_month} asc);;
     value_format: "$#,##0"
     label: "Recurring (True)"
     drill_fields: [detail*]
