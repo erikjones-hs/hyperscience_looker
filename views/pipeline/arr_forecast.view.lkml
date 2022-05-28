@@ -154,6 +154,21 @@
     sql: to_char(date_trunc(month,to_date(current_date() + 31)),'MMMM') ;;
   }
 
+  dimension: two_month_out_dte {
+    type: string
+    sql: to_char(date_trunc(month,to_date(current_date() + 61)),'MMMM') ;;
+  }
+
+  dimension: three_month_out_dte {
+    type: string
+    sql: to_char(date_trunc(month,to_date(current_date() + 91)),'MMMM') ;;
+  }
+
+  dimension: four_month_out_dte {
+    type: string
+    sql: to_char(date_trunc(month,to_date(current_date() + 121)),'MMMM') ;;
+  }
+
   measure: boy_budget  {
     type:  sum
     sql:  ${budget};;
