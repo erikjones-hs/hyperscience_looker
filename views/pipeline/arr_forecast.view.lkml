@@ -151,22 +151,22 @@
 
   dimension: next_month_dte {
     type: string
-    sql: to_char(date_trunc(month,to_date(current_date() + 31)),'MMMM') ;;
+    sql: to_char(date_trunc(month,to_date(current_date() + 30)),'MMMM') ;;
   }
 
   dimension: two_month_out_dte {
     type: string
-    sql: to_char(date_trunc(month,to_date(current_date() + 61)),'MMMM') ;;
+    sql: to_char(date_trunc(month,to_date(current_date() + 60)),'MMMM') ;;
   }
 
   dimension: three_month_out_dte {
     type: string
-    sql: to_char(date_trunc(month,to_date(current_date() + 91)),'MMMM') ;;
+    sql: to_char(date_trunc(month,to_date(current_date() + 90)),'MMMM') ;;
   }
 
   dimension: four_month_out_dte {
     type: string
-    sql: to_char(date_trunc(month,to_date(current_date() + 121)),'MMMM') ;;
+    sql: to_char(date_trunc(month,to_date(current_date() + 120)),'MMMM') ;;
   }
 
   measure: boy_budget  {
