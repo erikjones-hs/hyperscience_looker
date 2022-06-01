@@ -146,27 +146,27 @@
 
   dimension: today_dte {
     type: string
-    sql: to_char(date_trunc(month,to_date(current_date())), 'MMMM') ;;
+    sql: to_char(date_trunc(month,add_months(to_date(current_date()),0)), 'MMMM') ;;
   }
 
   dimension: next_month_dte {
     type: string
-    sql: to_char(date_trunc(month,to_date(current_date() + 30)),'MMMM') ;;
+    sql: to_char(date_trunc(month,add_months(to_date(current_date()),1)), 'MMMM') ;;
   }
 
   dimension: two_month_out_dte {
     type: string
-    sql: to_char(date_trunc(month,to_date(current_date() + 60)),'MMMM') ;;
+    sql: to_char(date_trunc(month,add_months(to_date(current_date()),2)), 'MMMM') ;;
   }
 
   dimension: three_month_out_dte {
     type: string
-    sql: to_char(date_trunc(month,to_date(current_date() + 90)),'MMMM') ;;
+    sql: to_char(date_trunc(month,add_months(to_date(current_date()),3)), 'MMMM') ;;
   }
 
   dimension: four_month_out_dte {
     type: string
-    sql: to_char(date_trunc(month,to_date(current_date() + 120)),'MMMM') ;;
+    sql: to_char(date_trunc(month,add_months(to_date(current_date()),4)), 'MMMM') ;;
   }
 
   measure: boy_budget  {
