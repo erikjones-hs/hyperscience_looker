@@ -16,7 +16,7 @@ view: saas_metrics {
 
   measure: arr_percent_growth {
     type: sum
-    sql: ${TABLE}."ARR_PERCENT_GROWTH" ;;
+    sql: 100 * ${TABLE}."ARR_PERCENT_GROWTH" ;;
     value_format: "0.00\%"
     label: "ARR % Growth"
   }
@@ -30,7 +30,7 @@ view: saas_metrics {
 
   measure: revenue_percent_growth {
     type: sum
-    sql: ${TABLE}."REVENUE_PERCENT_GROWTH" ;;
+    sql: 100 * ${TABLE}."REVENUE_PERCENT_GROWTH" ;;
     value_format: "0.00\%"
     label: "Revenue % Growth"
   }
@@ -44,14 +44,14 @@ view: saas_metrics {
 
   measure: net_dollar_retention {
     type: sum
-    sql: ${TABLE}."NET_DOLLAR_RETENTION" ;;
+    sql: 100 * ${TABLE}."NET_DOLLAR_RETENTION" ;;
     value_format: "0.00\%"
     label: "Net $$ Retention"
   }
 
   measure: gross_dollar_retention {
     type: sum
-    sql: ${TABLE}."GROSS_DOLLAR_RETENTION" ;;
+    sql: 100 * ${TABLE}."GROSS_DOLLAR_RETENTION" ;;
     value_format: "0.00\%"
     label: "Gross $$ Retention"
   }
@@ -72,14 +72,14 @@ view: saas_metrics {
 
   measure: gross_margin {
     type: sum
-    sql: ${TABLE}."GROSS_MARGIN" ;;
+    sql: 100 * ${TABLE}."GROSS_MARGIN" ;;
     value_format: "0.00\%"
     label: "Gross Margin"
   }
 
   measure: net_logo_churn {
     type: sum
-    sql: ${TABLE}."NET_LOGO_CHURN" ;;
+    sql: 100 * ${TABLE}."NET_LOGO_CHURN" ;;
     value_format: "0.00\%"
     label: "Net Logo Churn"
   }
@@ -112,14 +112,14 @@ view: saas_metrics {
 
   measure: fcf_margin {
     type: sum
-    sql: ${TABLE}."FCF_MARGIN" ;;
+    sql: 100 * ${TABLE}."FCF_MARGIN" ;;
     value_format: "0.00\%"
     label: "FCF Margin"
   }
 
   measure: rule_of_40 {
     type: sum
-    sql: ${TABLE}."RULE_OF_40" ;;
+    sql: 100 * ${TABLE}."RULE_OF_40" ;;
     value_format: "0.00\%"
     label: "Rule of 40"
   }
