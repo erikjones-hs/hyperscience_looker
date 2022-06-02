@@ -1,5 +1,5 @@
 view: saas_metrics {
-    sql_table_name: (select * from dev.erikjones.saas_metrics_revenue);;
+    sql_table_name: (select * from prod.saas_metrics.saas_metrics);;
 
   dimension_group: dte {
     type: time
