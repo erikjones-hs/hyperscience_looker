@@ -104,7 +104,7 @@ view: saas_metrics {
 
   measure: net_burn {
     type: sum
-    sql: ${TABLE}."NET_BURN" ;;
+    sql: -1 * ${TABLE}."NET_BURN" ;;
     value_format: "$#,##0.00"
     label: "Net Burn"
   }
