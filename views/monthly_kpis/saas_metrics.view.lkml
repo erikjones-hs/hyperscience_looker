@@ -132,109 +132,109 @@ view: saas_metrics {
 
   measure: arr_growth_percent_goal_25 {
     type: sum
-    sql: ${TABLE}."ARR_GROWTH_PERCENT_GOAL_25" ;;
+    sql: 100 * ${TABLE}."ARR_GROWTH_PERCENT_GOAL_25" ;;
     value_format: "0.00\%"
   }
 
   measure: arr_growth_percent_goal_median {
     type: sum
-    sql: ${TABLE}."ARR_GROWTH_PERCENT_GOAL_MEDIAN" ;;
+    sql: 100 * ${TABLE}."ARR_GROWTH_PERCENT_GOAL_MEDIAN" ;;
     value_format: "0.00\%"
   }
 
   measure: arr_growth_percent_goal_75 {
     type: sum
-    sql: ${TABLE}."ARR_GROWTH_PERCENT_GOAL_75" ;;
+    sql: 100 * ${TABLE}."ARR_GROWTH_PERCENT_GOAL_75" ;;
     value_format: "0.00\%"
   }
 
   measure: revenue_growth_percent_25 {
     type: sum
-    sql: ${TABLE}."REVENUE_GROWTH_PERCENT_25" ;;
+    sql: 100 * ${TABLE}."REVENUE_GROWTH_PERCENT_25" ;;
     value_format: "0.00\%"
   }
 
   measure: revenue_growth_percent_median {
     type: sum
-    sql: ${TABLE}."REVENUE_GROWTH_PERCENT_MEDIAN" ;;
+    sql: 100 * ${TABLE}."REVENUE_GROWTH_PERCENT_MEDIAN" ;;
     value_format: "0.00\%"
   }
 
   measure: revenue_growth_percent_75 {
     type: sum
-    sql: ${TABLE}."REVENUE_GROWTH_PERCENT_75" ;;
+    sql: 100 * ${TABLE}."REVENUE_GROWTH_PERCENT_75" ;;
     value_format: "0.00\%"
   }
 
   measure: net_dollar_retention_25 {
     type: sum
-    sql: ${TABLE}."NET_DOLLAR_RETENTION_25" ;;
+    sql: 100 * ${TABLE}."NET_DOLLAR_RETENTION_25" ;;
     value_format: "0.00\%"
   }
 
   measure: net_dollar_retention_median {
     type: sum
-    sql: ${TABLE}."NET_DOLLAR_RETENTION_MEDIAN" ;;
+    sql: 100 * ${TABLE}."NET_DOLLAR_RETENTION_MEDIAN" ;;
     value_format: "0.00\%"
   }
 
   measure: net_dollar_retention_75 {
     type: sum
-    sql: ${TABLE}."NET_DOLLAR_RETENTION_75" ;;
+    sql: 100 * ${TABLE}."NET_DOLLAR_RETENTION_75" ;;
     value_format: "0.00\%"
   }
 
   measure: gross_dollar_retention_25 {
     type: sum
-    sql: ${TABLE}."GROSS_DOLLAR_RETENTION_25" ;;
+    sql: 100 * ${TABLE}."GROSS_DOLLAR_RETENTION_25" ;;
     value_format: "0.00\%"
   }
 
   measure: gross_dollar_retention_median {
     type: sum
-    sql: ${TABLE}."GROSS_DOLLAR_RETENTION_MEDIAN" ;;
+    sql: 100 * ${TABLE}."GROSS_DOLLAR_RETENTION_MEDIAN" ;;
     value_format: "0.00\%"
   }
 
   measure: gross_dollar_retention_75 {
     type: sum
-    sql: ${TABLE}."GROSS_DOLLAR_RETENTION_75" ;;
+    sql: 100 * ${TABLE}."GROSS_DOLLAR_RETENTION_75" ;;
     value_format: "0.00\%"
   }
 
   measure: gross_margin_25 {
     type: sum
-    sql: ${TABLE}."GROSS_MARGIN_25" ;;
+    sql: 100 * ${TABLE}."GROSS_MARGIN_25" ;;
     value_format: "0.00\%"
   }
 
   measure: gross_margin_median {
     type: sum
-    sql: ${TABLE}."GROSS_MARGIN_MEDIAN" ;;
+    sql: 100 * ${TABLE}."GROSS_MARGIN_MEDIAN" ;;
     value_format: "0.00\%"
   }
 
   measure: gross_margin_75 {
     type: sum
-    sql: ${TABLE}."GROSS_MARGIN_75" ;;
+    sql: 100 * ${TABLE}."GROSS_MARGIN_75" ;;
     value_format: "0.00\%"
   }
 
   measure: net_logo_churn_25 {
     type: sum
-    sql: ${TABLE}."NET_LOGO_CHURN_25" ;;
+    sql: 100 * ${TABLE}."NET_LOGO_CHURN_25" ;;
     value_format: "0.00\%"
   }
 
   measure: net_logo_churn_median {
     type: sum
-    sql: ${TABLE}."NET_LOGO_CHURN_MEDIAN" ;;
+    sql: 100 * ${TABLE}."NET_LOGO_CHURN_MEDIAN" ;;
     value_format: "0.00\%"
   }
 
   measure: net_logo_churn_75 {
     type: sum
-    sql: ${TABLE}."NET_LOGO_CHURN_75" ;;
+    sql: 100 * ${TABLE}."NET_LOGO_CHURN_75" ;;
     value_format: "0.00\%"
   }
 
@@ -260,24 +260,25 @@ view: saas_metrics {
 
   measure: fcf_25 {
     type: sum
-    sql: ${TABLE}."FCF_25" ;;
+    sql: 100 * ${TABLE}."FCF_25" ;;
+    value_format: "0.00\%"
   }
 
   measure: fcf_median {
     type: sum
-    sql: ${TABLE}."FCF_MEDIAN" ;;
+    sql: 100 * ${TABLE}."FCF_MEDIAN" ;;
     value_format: "0.00\%"
   }
 
   measure: fcf_75 {
     type: sum
-    sql: ${TABLE}."FCF_75" ;;
+    sql: 100 * ${TABLE}."FCF_75" ;;
     value_format: "0.00\%"
   }
 
   measure: rule_of_40_median {
     type: sum
-    sql: ${TABLE}."RULE_OF_40_MEDIAN" ;;
+    sql: 100 * ${TABLE}."RULE_OF_40_MEDIAN" ;;
     value_format: "0.00\%"
   }
 
