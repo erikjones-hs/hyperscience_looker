@@ -23,7 +23,7 @@ view: saas_metrics {
   measure: arr_percent_growth {
     type: sum
     sql: 100 * ${TABLE}."ARR_PERCENT_GROWTH" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
     label: "ARR % Growth"
   }
 
@@ -37,7 +37,7 @@ view: saas_metrics {
   measure: revenue_percent_growth {
     type: sum
     sql: 100 * ${TABLE}."REVENUE_PERCENT_GROWTH" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
     label: "Revenue % Growth"
   }
 
@@ -51,14 +51,14 @@ view: saas_metrics {
   measure: net_dollar_retention {
     type: sum
     sql: 100 * ${TABLE}."NET_DOLLAR_RETENTION" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
     label: "Net $$ Retention"
   }
 
   measure: gross_dollar_retention {
     type: sum
     sql: 100 * ${TABLE}."GROSS_DOLLAR_RETENTION" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
     label: "Gross $$ Retention"
   }
 
@@ -79,14 +79,14 @@ view: saas_metrics {
   measure: gross_margin {
     type: sum
     sql: 100 * ${TABLE}."GROSS_MARGIN" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
     label: "Gross Margin"
   }
 
   measure: net_logo_churn {
     type: sum
     sql: 100 * ${TABLE}."NET_LOGO_CHURN" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
     label: "Net Logo Churn"
   }
 
@@ -119,14 +119,14 @@ view: saas_metrics {
   measure: fcf_margin {
     type: sum
     sql: 100 * ${TABLE}."FCF_MARGIN" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
     label: "FCF Margin"
   }
 
   measure: rule_of_40 {
     type: sum
     sql: 100 * ${TABLE}."RULE_OF_40" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
     label: "Rule of 40"
   }
 
@@ -139,109 +139,109 @@ view: saas_metrics {
   measure: arr_growth_percent_goal_25 {
     type: sum
     sql: 100 * ${TABLE}."ARR_GROWTH_PERCENT_GOAL_25" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
   }
 
   measure: arr_growth_percent_goal_median {
     type: sum
     sql: 100 * ${TABLE}."ARR_GROWTH_PERCENT_GOAL_MEDIAN" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
   }
 
   measure: arr_growth_percent_goal_75 {
     type: sum
     sql: 100 * ${TABLE}."ARR_GROWTH_PERCENT_GOAL_75" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
   }
 
   measure: revenue_growth_percent_25 {
     type: sum
     sql: 100 * ${TABLE}."REVENUE_GROWTH_PERCENT_25" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
   }
 
   measure: revenue_growth_percent_median {
     type: sum
     sql: 100 * ${TABLE}."REVENUE_GROWTH_PERCENT_MEDIAN" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
   }
 
   measure: revenue_growth_percent_75 {
     type: sum
     sql: 100 * ${TABLE}."REVENUE_GROWTH_PERCENT_75" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
   }
 
   measure: net_dollar_retention_25 {
     type: sum
     sql: 100 * ${TABLE}."NET_DOLLAR_RETENTION_25" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
   }
 
   measure: net_dollar_retention_median {
     type: sum
     sql: 100 * ${TABLE}."NET_DOLLAR_RETENTION_MEDIAN" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
   }
 
   measure: net_dollar_retention_75 {
     type: sum
     sql: 100 * ${TABLE}."NET_DOLLAR_RETENTION_75" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
   }
 
   measure: gross_dollar_retention_25 {
     type: sum
     sql: 100 * ${TABLE}."GROSS_DOLLAR_RETENTION_25" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
   }
 
   measure: gross_dollar_retention_median {
     type: sum
     sql: 100 * ${TABLE}."GROSS_DOLLAR_RETENTION_MEDIAN" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
   }
 
   measure: gross_dollar_retention_75 {
     type: sum
     sql: 100 * ${TABLE}."GROSS_DOLLAR_RETENTION_75" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
   }
 
   measure: gross_margin_25 {
     type: sum
     sql: 100 * ${TABLE}."GROSS_MARGIN_25" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
   }
 
   measure: gross_margin_median {
     type: sum
     sql: 100 * ${TABLE}."GROSS_MARGIN_MEDIAN" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
   }
 
   measure: gross_margin_75 {
     type: sum
     sql: 100 * ${TABLE}."GROSS_MARGIN_75" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
   }
 
   measure: net_logo_churn_25 {
     type: sum
     sql: 100 * ${TABLE}."NET_LOGO_CHURN_25" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
   }
 
   measure: net_logo_churn_median {
     type: sum
     sql: 100 * ${TABLE}."NET_LOGO_CHURN_MEDIAN" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
   }
 
   measure: net_logo_churn_75 {
     type: sum
     sql: 100 * ${TABLE}."NET_LOGO_CHURN_75" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
   }
 
   measure: cac_payback_median {
@@ -267,25 +267,25 @@ view: saas_metrics {
   measure: fcf_25 {
     type: sum
     sql: 100 * ${TABLE}."FCF_25" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
   }
 
   measure: fcf_median {
     type: sum
     sql: 100 * ${TABLE}."FCF_MEDIAN" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
   }
 
   measure: fcf_75 {
     type: sum
     sql: 100 * ${TABLE}."FCF_75" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
   }
 
   measure: rule_of_40_median {
     type: sum
     sql: 100 * ${TABLE}."RULE_OF_40_MEDIAN" ;;
-    value_format: "0.00\%"
+    value_format: "0\%"
   }
 
 }
