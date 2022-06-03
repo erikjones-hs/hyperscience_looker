@@ -49,3 +49,4 @@ explore: pages_processed_growth {persist_for: "12 hours"}
 explore: customer_count {persist_for: "12 hours"}
 explore: pages_processed_percent_growth {persist_for: "12 hours"}
 explore: saas_metrics {persist_for: "12 hours"}
+explore: ae_report {persist_for: "12 hours"}
