@@ -131,7 +131,8 @@
   }
 
   measure: mrr_acct {
-    type: sum
+    type: sum_distinct
+    sql_distinct_key: ${account_id} ;;
     sql: ${TABLE}."MRR_ACCT" ;;
     value_format: "$#,##0"
   }
