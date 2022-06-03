@@ -121,16 +121,19 @@
   measure: mrr {
     type: sum
     sql: ${TABLE}."MRR" ;;
+    value_format: "$0"
   }
 
   measure: mrr_change {
     type: sum
     sql: ${TABLE}."MRR_CHANGE" ;;
+    value_format: "$0"
   }
 
   measure: mrr_acct {
     type: sum
     sql: ${TABLE}."MRR_ACCT" ;;
+    value_format: "$0"
   }
 
   set: detail {
