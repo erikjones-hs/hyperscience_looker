@@ -61,6 +61,16 @@
     }
   }
 
+  dimension: qtr_end_dte {
+    type: date
+    sql: ${TABLE}."QTR_END_DTE" ;;
+  }
+
+  dimension: current_qtr {
+    type: date
+    sql: ${TABLE}."CURRENT_QTR" ;;
+  }
+
   dimension: sales_team {
     type: string
     sql: ${TABLE}."SALES_TEAM" ;;
@@ -86,6 +96,11 @@
     sql: ${TABLE}."BUDGET" ;;
   }
 
+  dimension: budget_rollover {
+    type: number
+    sql: ${TABLE}."BUDGET_ROLLOVER" ;;
+  }
+
   dimension: sales_budget_running_total {
     type: number
     sql: ${TABLE}."SALES_BUDGET_RUNNING_TOTAL" ;;
@@ -95,6 +110,32 @@
   dimension: new_arr_actuals {
     type: number
     sql: ${TABLE}."NEW_ARR_ACTUALS" ;;
+  }
+
+  dimension: budget_variance {
+    type: number
+    sql: ${TABLE}."BUDGET_VARIANCE" ;;
+  }
+
+  dimension: budget_variance_running_total {
+    type: number
+    sql: ${TABLE}."BUDGET_VARIANCE_RUNNING_TOTAL" ;;
+  }
+
+
+  dimension: num_months_to_end_of_qtr {
+    type: number
+    sql: ${TABLE}."NUM_MONTHS_TO_END_OF_QTR" ;;
+  }
+
+  dimension: forecast_plan_rollover_int {
+    type: number
+    sql: ${TABLE}."FORECAST_PLAN_ROLLOVER_INT" ;;
+  }
+
+  dimension: rollover_current {
+    type: number
+    sql: ${TABLE}."ROLLOVER_CURRENT" ;;
   }
 
   dimension: actuals_running_total {
@@ -126,6 +167,11 @@
   dimension: forecast_plan {
     type: number
     sql: ${TABLE}."FORECAST_PLAN" ;;
+  }
+
+  dimension: forecast_plan_rollover {
+    type: number
+    sql: ${TABLE}."FORECAST_PLAN_ROLLOVER" ;;
   }
 
   dimension: arr_committed_running_total {
@@ -253,13 +299,40 @@
     label: "ARR Actuals Running Total"
   }
 
+  measure: rollover_budget {
+    type: sum
+    sql: ${budget_rollover} ;;
+    value_format: "$0.00"
+    label: "BUDGET + ROLLOVER"
+  }
 
+  measure: variance_budget {
+    type: sum
+    sql: ${budget_variance} ;;
+    value_format: "$0.00"
+    label: "BUDGET VARIANCE"
+  }
 
+  measure: budget_variance_running_tot {
+    type: sum
+    sql: ${budget_variance_running_total} ;;
+    value_format: "$0.00"
+    label: "BUDGET VARIANCE RUNNING TOTAL"
+  }
 
+  measure: rollover_curr {
+    type: sum
+    sql:  ${rollover_current};;
+    value_format: "$0.00"
+    label: "ROLLOVER CURRENT"
+  }
 
-
-
-
+  measure: fcst_plan_rollover {
+  type: sum
+  sql: ${forecast_plan_rollover} ;;
+  value_format: "$0.00"
+  label: "FORECAST PLAN + ROLLOVER"
+  }
 
   set: detail {
     fields: [
