@@ -15,6 +15,7 @@
   measure: forecast {
     type: sum
     sql: ${TABLE}."FORECAST" ;;
+    value_format: "$0.0,,\"M\""
   }
 
 }
