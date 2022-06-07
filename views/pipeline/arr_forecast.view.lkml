@@ -101,6 +101,11 @@
     sql: ${TABLE}."BUDGET_ROLLOVER" ;;
   }
 
+    dimension: budget_rollover_month {
+      type: number
+      sql: ${TABLE}."BUDGET_ROLLOVER_MONTH" ;;
+    }
+
   dimension: sales_budget_running_total {
     type: number
     sql: ${TABLE}."SALES_BUDGET_RUNNING_TOTAL" ;;
@@ -304,6 +309,13 @@
     sql: ${budget_rollover} ;;
     value_format: "$0.00"
     label: "BUDGET + ROLLOVER"
+  }
+
+  measure: rollover_budget_month {
+    type: sum
+    sql: ${budget_rollover_month} ;;
+    value_format: "$0.00"
+    label: "BUDGET + ROLLOVER (Month)"
   }
 
   measure: variance_budget {
