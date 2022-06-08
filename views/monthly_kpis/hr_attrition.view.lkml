@@ -210,9 +210,17 @@ view: hr_attrition {
 
   measure: churned_employees_temp {
     type:  number
-    sql: CASE WHEN ${date_month_month} = '2022-04' then (${churned_employees} + 2)
-              WHEN ${date_month_month} = '2022-05' then (${churned_employees} + 15)
-              WHEN ${date_month_month} = '2022-06' then (${churned_employees} + 6)
+    sql: CASE WHEN ${date_month_month} = '2022-04' then -1*(${churned_employees} + 2)
+              WHEN ${date_month_month} = '2022-05' then -1*(${churned_employees} + 15)
+              WHEN ${date_month_month} = '2022-06' then -1*(${churned_employees} + 6)
+              ELSE ${churned_employees} end;;
+  }
+
+  measure: active_employees_temp {
+    type:  number
+    sql: CASE WHEN ${date_month_month} = '2022-04' then (${active_employees} + 2)
+              WHEN ${date_month_month} = '2022-05' then (${active_employees} + 3)
+              WHEN ${date_month_month} = '2022-06' then (${active_employees} + 3)
               ELSE ${churned_employees} end;;
   }
 
