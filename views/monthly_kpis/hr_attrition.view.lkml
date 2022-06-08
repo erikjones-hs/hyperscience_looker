@@ -219,8 +219,8 @@ view: hr_attrition {
   measure: active_employees_temp {
     type:  number
     sql: CASE WHEN ${date_month_month} = '2022-04' then (${active_employees_true} + 2)
-              WHEN ${date_month_month} = '2022-05' then (${active_employees_true} + 5)
-              WHEN ${date_month_month} = '2022-06' then (${active_employees_true} + 10)
+              WHEN ${date_month_month} = '2022-05' then (${active_employees_true} + 3)
+              WHEN ${date_month_month} = '2022-06' then (${active_employees_true} + 5)
               ELSE ${active_employees_true} end;;
   }
 
