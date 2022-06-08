@@ -208,6 +208,14 @@ view: hr_attrition {
     drill_fields: [detail*]
   }
 
+  measure: churned_employees_temp {
+    type:  number
+    sql: CASE WHEN ${date_month_month} = '2022-04-01' then ${churned_employees} + 2
+              WHEN ${date_month_month} = '2022-05-01' then ${churned_employees} + 15
+              WHEN ${date_month_month} = '2022-06-01' then ${churned_employees} + 6
+              ELSE ${churned_employees};;
+  }
+
   measure: total_employees {
     type:  number
     sql:  ${active_employees} + ${churned_employees_int};;
