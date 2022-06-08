@@ -186,7 +186,7 @@ view: hr_attrition {
     drill_fields: [detail*]
   }
 
-  measure: active_employees {
+  measure: active_employees_true {
     type:  count_distinct
     sql_distinct_key: ${employee_eid} ;;
     sql:  ${employee_eid};;
@@ -194,7 +194,7 @@ view: hr_attrition {
     drill_fields: [detail*]
   }
 
-  measure: churned_employees_int {
+  measure: churned_employees_int_true {
     type:  count_distinct
     sql_distinct_key: ${employee_eid} ;;
     sql:  ${employee_eid};;
@@ -202,26 +202,36 @@ view: hr_attrition {
     drill_fields: [detail*]
   }
 
-  measure: churned_employees {
+  measure: churned_employees_true {
     type:  number
-    sql:  -1 * ${churned_employees_int} ;;
+    sql:  -1 * ${churned_employees_int_true} ;;
     drill_fields: [detail*]
   }
 
   measure: churned_employees_temp {
     type:  number
-    sql: CASE WHEN ${date_month_month} = '2022-04' then -1*(${churned_employees} + 2)
-              WHEN ${date_month_month} = '2022-05' then -1*(${churned_employees} + 15)
-              WHEN ${date_month_month} = '2022-06' then -1*(${churned_employees} + 6)
-              ELSE ${churned_employees} end;;
+    sql: CASE WHEN ${date_month_month} = '2022-04' then -1*(${churned_employees_true} + 2)
+              WHEN ${date_month_month} = '2022-05' then -1*(${churned_employees_true} + 15)
+              WHEN ${date_month_month} = '2022-06' then -1*(${churned_employees_true} + 6)
+              ELSE ${churned_employees_true} end;;
   }
 
   measure: active_employees_temp {
     type:  number
-    sql: CASE WHEN ${date_month_month} = '2022-04' then (${active_employees} + 2)
-              WHEN ${date_month_month} = '2022-05' then (${active_employees} + 3)
-              WHEN ${date_month_month} = '2022-06' then (${active_employees} + 3)
-              ELSE ${churned_employees} end;;
+    sql: CASE WHEN ${date_month_month} = '2022-04' then (${active_employees_true} + 2)
+              WHEN ${date_month_month} = '2022-05' then (${active_employees_true} + 5)
+              WHEN ${date_month_month} = '2022-06' then (${active_employees_true} + 10)
+              ELSE ${active_employees_true} end;;
+  }
+
+  measure: active_employees {
+    type:  number
+    sql: ${active_employees_temp} ;;
+  }
+
+  measure: churned_employees_int {
+    type: number
+    sql: -1*${churned_employees_temp} ;;
   }
 
   measure: total_employees {
