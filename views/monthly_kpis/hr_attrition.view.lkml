@@ -220,7 +220,7 @@ view: hr_attrition {
     type:  number
     sql: CASE WHEN ${date_month_month} = '2022-04' then (${active_employees_true})
               WHEN ${date_month_month} = '2022-05' then (${active_employees_true} - 15)
-              WHEN ${date_month_month} = '2022-06' then (${active_employees_true} - 21)
+              WHEN ${date_month_month} = '2022-06' then (${active_employees_true} - 20)
               ELSE ${active_employees_true} end;;
   }
 
