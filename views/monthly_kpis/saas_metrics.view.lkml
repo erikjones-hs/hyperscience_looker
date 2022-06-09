@@ -85,7 +85,7 @@ view: saas_metrics {
 
   measure: net_logo_churn {
     type: sum
-    sql: 100 * ${TABLE}."NET_LOGO_CHURN" ;;
+    sql: (100 * ${TABLE}."NET_LOGO_CHURN") + 100 ;;
     value_format: "0\%"
     label: "Net Logo Churn"
   }
@@ -228,19 +228,19 @@ view: saas_metrics {
 
   measure: net_logo_churn_25 {
     type: sum
-    sql: 100 * ${TABLE}."NET_LOGO_CHURN_25" ;;
+    sql: (100 * ${TABLE}."NET_LOGO_CHURN_25") + 100 ;;
     value_format: "0\%"
   }
 
   measure: net_logo_churn_median {
     type: sum
-    sql: 100 * ${TABLE}."NET_LOGO_CHURN_MEDIAN" ;;
+    sql: (100 * ${TABLE}."NET_LOGO_CHURN_MEDIAN") + 100 ;;
     value_format: "0\%"
   }
 
   measure: net_logo_churn_75 {
     type: sum
-    sql: 100 * ${TABLE}."NET_LOGO_CHURN_75" ;;
+    sql: (100 * ${TABLE}."NET_LOGO_CHURN_75") + 100 ;;
     value_format: "0\%"
   }
 
