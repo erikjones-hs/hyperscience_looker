@@ -675,227 +675,227 @@ view: saas_metrics {
   }
 
   measure: real_estate_spend_25 {
-    type: sum
+    type: average
     sql: ${TABLE}."REAL_ESTATE_SPEND_25" ;;
   }
 
   measure: real_estate_spend_median {
-    type: sum
+    type: average
     sql: ${TABLE}."REAL_ESTATE_SPEND_MEDIAN" ;;
   }
 
   measure: real_estate_spend_75 {
-    type: sum
+    type: average
     sql: ${TABLE}."REAL_ESTATE_SPEND_75" ;;
   }
 
   measure: r_d_25 {
-    type: sum
+    type: average
     sql: ${TABLE}."R_D_25" ;;
   }
 
   measure: r_d_median {
-    type: sum
+    type: average
     sql: ${TABLE}."R_D_MEDIAN" ;;
   }
 
   measure: r_d_75 {
-    type: sum
+    type: average
     sql: ${TABLE}."R_D_75" ;;
   }
 
   measure: s_m_25 {
-    type: sum
+    type: average
     sql: ${TABLE}."S_M_25" ;;
   }
 
   measure: s_m_median {
-    type: sum
+    type: average
     sql: ${TABLE}."S_M_MEDIAN" ;;
   }
 
   measure: s_m_75 {
-    type: sum
+    type: average
     sql: ${TABLE}."S_M_75" ;;
   }
 
   measure: g_a_25 {
-    type: sum
+    type: average
     sql: ${TABLE}."G_A_25" ;;
   }
 
   measure: g_a_median {
-    type: sum
+    type: average
     sql: ${TABLE}."G_A_MEDIAN" ;;
   }
 
   measure: g_a_75 {
-    type: sum
+    type: average
     sql: ${TABLE}."G_A_75" ;;
   }
 
   measure: opex_25_sector {
-    type: sum
+    type: average
     sql: ${TABLE}."OPEX_25_SECTOR" ;;
   }
 
   measure: opex_median_sector {
-    type: sum
+    type: average
     sql: ${TABLE}."OPEX_MEDIAN_SECTOR" ;;
   }
 
   measure: opex_75_sector {
-    type: sum
+    type: average
     sql: ${TABLE}."OPEX_75_SECTOR" ;;
   }
 
   measure: opex_25_rev_range {
-    type: sum
+    type: average
     sql: ${TABLE}."OPEX_25_REV_RANGE" ;;
   }
 
   measure: opex_median_rev_range {
-    type: sum
+    type: average
     sql: ${TABLE}."OPEX_MEDIAN_REV_RANGE" ;;
   }
 
   measure: opex_75_rev_range {
-    type: sum
+    type: average
     sql: ${TABLE}."OPEX_75_REV_RANGE" ;;
   }
 
   measure: eng_25 {
-    type: sum
+    type: average
     sql: ${TABLE}."ENG_25" ;;
   }
 
   measure: eng_med {
-    type: sum
+    type: average
     sql: ${TABLE}."ENG_MED" ;;
   }
 
   measure: eng_75 {
-    type: sum
+    type: average
     sql: ${TABLE}."ENG_75" ;;
   }
 
   measure: sales_25 {
-    type: sum
+    type: average
     sql: ${TABLE}."SALES_25" ;;
   }
 
   measure: sales_med {
-    type: sum
+    type: average
     sql: ${TABLE}."SALES_MED" ;;
   }
 
   measure: sales_75 {
-    type: sum
+    type: average
     sql: ${TABLE}."SALES_75" ;;
   }
 
   measure: cx_25 {
-    type: sum
+    type: average
     sql: ${TABLE}."CX_25" ;;
   }
 
   measure: cx_median {
-    type: sum
+    type: average
     sql: ${TABLE}."CX_MEDIAN" ;;
   }
 
   measure: cx_75 {
-    type: sum
+    type: average
     sql: ${TABLE}."CX_75" ;;
   }
 
   measure: people_25 {
-    type: sum
+    type: average
     sql: ${TABLE}."PEOPLE_25" ;;
   }
 
   measure: people_median {
-    type: sum
+    type: average
     sql: ${TABLE}."PEOPLE_MEDIAN" ;;
   }
 
   measure: people_75 {
-    type: sum
+    type: average
     sql: ${TABLE}."PEOPLE_75" ;;
   }
 
   measure: product_25 {
-    type: sum
+    type: average
     sql: ${TABLE}."PRODUCT_25" ;;
   }
 
   measure: product_median {
-    type: sum
+    type: average
     sql: ${TABLE}."PRODUCT_MEDIAN" ;;
   }
 
   measure: product_75 {
-    type: sum
+    type: average
     sql: ${TABLE}."PRODUCT_75" ;;
   }
 
   measure: marketing_25 {
-    type: sum
+    type: average
     sql: ${TABLE}."MARKETING_25" ;;
   }
 
   measure: marketing_median {
-    type: sum
+    type: average
     sql: ${TABLE}."MARKETING_MEDIAN" ;;
   }
 
   measure: marketing_75 {
-    type: sum
+    type: average
     sql: ${TABLE}."MARKETING_75" ;;
   }
 
   measure: corp_dev_25 {
-    type: sum
+    type: average
     sql: ${TABLE}."CORP_DEV_25" ;;
   }
 
   measure: corp_dev_median {
-    type: sum
+    type: average
     sql: ${TABLE}."CORP_DEV_MEDIAN" ;;
   }
 
   measure: corp_dev_75 {
-    type: sum
+    type: average
     sql: ${TABLE}."CORP_DEV_75" ;;
   }
 
   measure: finance_25 {
-    type: sum
+    type: average
     sql: ${TABLE}."FINANCE_25" ;;
   }
 
   measure: finance_median {
-    type: sum
+    type: average
     sql: ${TABLE}."FINANCE_MEDIAN" ;;
   }
 
   measure: finance_75 {
-    type: sum
+    type: average
     sql: ${TABLE}."FINANCE_75" ;;
   }
 
   measure: legal_25 {
-    type: sum
+    type: average
     sql: ${TABLE}."LEGAL_25" ;;
   }
 
   measure: legal_median {
-    type: sum
+    type: average
     sql: ${TABLE}."LEGAL_MEDIAN" ;;
   }
 
   measure: legal_75 {
-    type: sum
+    type: average
     sql: ${TABLE}."LEGAL_75" ;;
   }
 
