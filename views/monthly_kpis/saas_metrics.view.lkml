@@ -420,6 +420,20 @@ view: saas_metrics {
     value_format: "$#,##0.00"
   }
 
+  measure: opex {
+    type: number
+    sql: ${all_dept_expense} - ${g_and_a_stock_expense} ;;
+    value_format: "$#,##0.00"
+    label: "Opex Spend"
+  }
+
+  measure: opex_percent_revenue {
+    type: number
+    sql: ${opex} / ${revenue} ;;
+    value_format: "0\%"
+    label: "Opex % of revenue"
+  }
+
   measure: eng_fte {
     type: sum
     sql: ${TABLE}."ENG_FTE" ;;
