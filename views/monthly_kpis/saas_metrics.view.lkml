@@ -660,17 +660,17 @@ view: saas_metrics {
   }
 
   measure: cloud_spend_25 {
-    type: sum
+    type: average
     sql: ${TABLE}."CLOUD_SPEND_25" ;;
   }
 
   measure: cloud_spend_median {
-    type: sum
+    type: average
     sql: ${TABLE}."CLOUD_SPEND_MEDIAN" ;;
   }
 
   measure: cloud_spend_75 {
-    type: sum
+    type: average
     sql: ${TABLE}."CLOUD_SPEND_75" ;;
   }
 
