@@ -607,7 +607,7 @@ view: saas_metrics {
   measure: corp_dev_ops_fte {
     type: number
     sql: ${corp_dev_fte} + ${operations_fte} + 7 ;;
-    label: "Coro. Dev + Operations Headcount"
+    label: "Corp. Dev + Operations Headcount"
   }
 
   measure: eng_percent_total_fte {
