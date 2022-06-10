@@ -925,4 +925,55 @@ view: saas_metrics {
     sql: ${TABLE}."LEGAL_75" ;;
   }
 
+  measure: magic_number {
+    type: sum
+    sql: ${TABLE}."MAGIC_NUMBER" ;;
+    label: "Magic Number"
+  }
+
+  measure: magic_number_median {
+    type: average
+    sql: ${TABLE}."MAGIC_NUMBER_MEDIAN" ;;
+  }
+
+  measure: new_arr {
+    type: sum
+    sql: ${TABLE}."NEW_ARR" ;;
+    value_format: "$#,##0.00"
+  }
+
+  measure: upsell_arr {
+    type: sum
+    sql: ${TABLE}."UPSELL_ARR" ;;
+    value_format: "$#,##0.00"
+  }
+
+  measure: new_arr_total {
+    type: number
+    sql: ${new_arr} + ${upsell_arr} ;;
+    label: "New ARR"
+    value_format: "$#,##0.00"
+  }
+
+  measure: burn_multiple {
+    type: number
+    sql: ${net_burn} / ${new_arr_total} ;;
+    label: "Burn Multiple"
+  }
+
+  measure: burn_multiple_25 {
+    type: average
+    sql: ${TABLE}."BURN_MULTIPLE_25" ;;
+  }
+
+  measure: burn_multiple_median {
+    type: average
+    sql: ${TABLE}."BURN_MULTIPLE_MEDIAN" ;;
+  }
+
+  measure: burn_multiple_75 {
+    type: average
+    sql: ${TABLE}."BURN_MULTIPLE_75" ;;
+  }
+
 }
