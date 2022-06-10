@@ -957,7 +957,7 @@ view: saas_metrics {
 
   measure: burn_multiple {
     type: number
-    sql: ${net_burn} / ${new_arr_total} ;;
+    sql: ${net_burn} / NULLIFZERO(${new_arr_total}) ;;
     label: "Burn Multiple"
   }
 
