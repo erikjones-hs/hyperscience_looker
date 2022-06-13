@@ -948,16 +948,23 @@ view: saas_metrics {
     value_format: "$#,##0.00"
   }
 
-  measure: new_arr_total {
+  measure: churn_arr {
+    type: sum
+    sql: ${TABLE}."CHURN_ARR" ;;
+    value_format: "$#,##0.00"
+    label: "Churn ARR"
+  }
+
+  measure: net_new_arr {
     type: number
-    sql: ${new_arr} + ${upsell_arr} ;;
-    label: "New ARR"
+    sql: ${new_arr} + ${upsell_arr} + ${churn_arr} ;;
+    label: "Net New ARR"
     value_format: "$#,##0.00"
   }
 
   measure: burn_multiple {
     type: number
-    sql: ${net_burn} / NULLIFZERO(${new_arr_total}) ;;
+    sql: ${net_burn} / NULLIFZERO(${net_new_arr}) ;;
     label: "Burn Multiple"
   }
 
@@ -975,5 +982,4 @@ view: saas_metrics {
     type: average
     sql: ${TABLE}."BURN_MULTIPLE_75" ;;
   }
-
 }
