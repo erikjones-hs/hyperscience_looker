@@ -257,19 +257,13 @@
 
   measure: low_plan_attainment {
     type: number
-    sql: ${arr_low} / ${forecast} ;;
+    sql: ${low_actuals} / ${forecast} ;;
     label: "NRR Low Plan Attainment"
-  }
-
-  measure: committed_plan_attainment {
-    type: number
-    sql: ${committed_arr} / ${forecast} ;;
-    label: "NRR Committed Plan Attainment"
   }
 
   measure: high_plan_attainment {
     type: number
-    sql: ${arr_high} / ${forecast} ;;
+    sql: ${high_actuals} / ${forecast} ;;
     label: "NRR High Plan Attainment"
   }
 
@@ -283,6 +277,20 @@
     type: number
     sql: ${committed_actuals} / ${forecast} ;;
     label: "NRR Committed + Actuals Plan Attainment"
+  }
+
+  measure: low_actuals {
+    type: number
+    sql: ${arr_low} + ${arr_actuals} ;;
+    value_format: "$0.00"
+    label: "Committed + Actuals"
+  }
+
+  measure: high_actuals {
+    type: number
+    sql: ${arr_high} + ${arr_actuals} ;;
+    value_format: "$0.00"
+    label: "Committed + Actuals"
   }
 
   set: detail {
