@@ -255,42 +255,36 @@
     label: "ROLLOVER CURRENT"
   }
 
-  measure: fcst_plan_rollover {
-  type: number
-  sql: ${forecast} + ${rollover_curr} ;;
-  value_format: "$0.00"
-  label: "FORECAST PLAN + ROLLOVER"
+
+  measure: low_plan_attainment {
+    type: number
+    sql: ${arr_low} / ${forecast} ;;
+    label: "NRR Low Plan Attainment"
   }
 
-    measure: low_plan_attainment {
-      type: number
-      sql: ${arr_low} / ${fcst_plan_rollover} ;;
-      label: "NRR Low Plan Attainment"
-    }
+  measure: committed_plan_attainment {
+    type: number
+    sql: ${committed_arr} / ${forecast} ;;
+    label: "NRR Committed Plan Attainment"
+  }
 
-    measure: committed_plan_attainment {
-      type: number
-      sql: ${committed_arr} / ${fcst_plan_rollover} ;;
-      label: "NRR Committed Plan Attainment"
-    }
+  measure: high_plan_attainment {
+    type: number
+    sql: ${arr_high} / ${forecast} ;;
+    label: "NRR High Plan Attainment"
+  }
 
-    measure: high_plan_attainment {
-      type: number
-      sql: ${arr_high} / ${fcst_plan_rollover} ;;
-      label: "NRR High Plan Attainment"
-    }
+  measure: actuals_plan_attainment {
+    type: number
+    sql: ${arr_actuals} / ${forecast} ;;
+    label: "NRR Actuals Plan Attainment"
+  }
 
-    measure: actuals_plan_attainment {
-      type: number
-      sql: ${arr_actuals} / ${fcst_plan_rollover} ;;
-      label: "NRR Actuals Plan Attainment"
-    }
-
-    measure: committed_actuals_plan_attainment {
-      type: number
-      sql: ${committed_actuals} / ${fcst_plan_rollover} ;;
-      label: "NRR Committed + Actuals Plan Attainment"
-    }
+  measure: committed_actuals_plan_attainment {
+    type: number
+    sql: ${committed_actuals} / ${forecast} ;;
+    label: "NRR Committed + Actuals Plan Attainment"
+  }
 
   set: detail {
     fields: [
