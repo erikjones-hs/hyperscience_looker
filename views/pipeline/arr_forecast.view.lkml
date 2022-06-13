@@ -248,8 +248,7 @@
   }
 
   measure: rollover_curr {
-    type: sum_distinct
-    sql_distinct_key: ${qtr_end_dte} ;;
+    type: sum
     sql:  ${rollover_current_month};;
     value_format: "$0.00"
     label: "ROLLOVER CURRENT"
