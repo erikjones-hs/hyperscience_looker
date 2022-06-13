@@ -96,22 +96,6 @@
     sql: ${TABLE}."BUDGET" ;;
   }
 
-  dimension: budget_rollover {
-    type: number
-    sql: ${TABLE}."BUDGET_ROLLOVER" ;;
-  }
-
-    dimension: budget_rollover_month {
-      type: number
-      sql: ${TABLE}."BUDGET_ROLLOVER_MONTH" ;;
-    }
-
-  dimension: sales_budget_running_total {
-    type: number
-    sql: ${TABLE}."SALES_BUDGET_RUNNING_TOTAL" ;;
-  }
-
-
   dimension: new_arr_actuals {
     type: number
     sql: ${TABLE}."NEW_ARR_ACTUALS" ;;
@@ -138,14 +122,14 @@
     sql: ${TABLE}."FORECAST_PLAN_ROLLOVER_INT" ;;
   }
 
-  dimension: rollover_current {
+  dimension: rollover_current_month {
     type: number
-    sql: ${TABLE}."ROLLOVER_CURRENT" ;;
+    sql: ${TABLE}."ROLLOVER_CURRENT_MONTH" ;;
   }
 
-  dimension: actuals_running_total {
+  dimension: forecast_plan {
     type: number
-    sql: ${TABLE}."ACTUALS_RUNNING_TOTAL" ;;
+    sql: ${TABLE}."FORECAST_PLAN" ;;
   }
 
 
@@ -164,29 +148,9 @@
     sql: ${TABLE}."ARR_BEST_CASE" ;;
   }
 
-  dimension: high_best_case {
+  dimension: arr_high {
     type: number
-    sql: ${TABLE}."HIGH_BEST_CASE" ;;
-  }
-
-  dimension: forecast_plan {
-    type: number
-    sql: ${TABLE}."FORECAST_PLAN" ;;
-  }
-
-  dimension: forecast_plan_rollover {
-    type: number
-    sql: ${TABLE}."FORECAST_PLAN_ROLLOVER" ;;
-  }
-
-  dimension: arr_committed_running_total {
-    type: number
-    sql: ${TABLE}."ARR_COMMITTED_RUNNING_TOTAL" ;;
-  }
-
-  dimension: best_case_high_running_total {
-    type: number
-    sql: ${TABLE}."BEST_CASE_HIGH_RUNNING_TOTAL" ;;
+    sql: ${TABLE}."ARR_HIGH" ;;
   }
 
   dimension_group: current_date {
@@ -248,9 +212,9 @@
     label: "Committed"
   }
 
-  measure: arr_high  {
+  measure: high_arr  {
     type:  sum
-    sql:  ${high_best_case};;
+    sql:  ${arr_high};;
     value_format: "$0.00"
     label: "High"
   }
@@ -262,60 +226,11 @@
     label: "FCST Plan"
   }
 
-  measure: committed_closed {
+  measure: committed_actuals {
     type: number
     sql: ${committed_arr} + ${arr_actuals} ;;
     value_format: "$0.00"
-    label: "Committed + Closed"
-  }
-
-  measure: arr_commit_running_tot {
-    type: sum
-    sql: ${arr_committed_running_total} ;;
-    value_format: "$0.00"
-    label: "Committed Running Total"
-  }
-
-  measure: arr_best_case_high_running_tot {
-    type: sum
-    sql: ${best_case_high_running_total} ;;
-    value_format: "$0.00"
-    label: "Best Case High Running Total"
-  }
-
-  measure: committed_closed_qtr {
-    type: number
-    sql: ${arr_commit_running_tot} + ${arr_best_case_high_running_tot} ;;
-    value_format: "$0.00"
-    label: "Committed + Closed QTR"
-  }
-
-  measure: budget_running_tot {
-    type: sum
-    sql: ${sales_budget_running_total} ;;
-    value_format: "$0.00"
-    label: "Sales Budget Running Total"
-  }
-
-  measure: actuals_running_tot {
-    type: sum
-    sql: ${actuals_running_total} ;;
-    value_format: "$0.00"
-    label: "ARR Actuals Running Total"
-  }
-
-  measure: rollover_budget {
-    type: sum
-    sql: ${budget_rollover} ;;
-    value_format: "$0.00"
-    label: "BUDGET + ROLLOVER"
-  }
-
-  measure: rollover_budget_month {
-    type: sum
-    sql: ${budget_rollover_month} ;;
-    value_format: "$0.00"
-    label: "BUDGET + ROLLOVER (Month)"
+    label: "Committed + Actuals"
   }
 
   measure: variance_budget {
@@ -334,17 +249,47 @@
 
   measure: rollover_curr {
     type: sum
-    sql:  ${rollover_current};;
+    sql:  ${rollover_current_month};;
     value_format: "$0.00"
     label: "ROLLOVER CURRENT"
   }
 
   measure: fcst_plan_rollover {
-  type: sum
-  sql: ${forecast_plan_rollover} ;;
+  type: number
+  sql: ${forecast} + ${rollover_curr} ;;
   value_format: "$0.00"
   label: "FORECAST PLAN + ROLLOVER"
   }
+
+    measure: low_plan_attainment {
+      type: number
+      sql: ${arr_low} / ${fcst_plan_rollover} ;;
+      label: "NRR Low Plan Attainment"
+    }
+
+    measure: committed_plan_attainment {
+      type: number
+      sql: ${committed_arr} / ${fcst_plan_rollover} ;;
+      label: "NRR Committed Plan Attainment"
+    }
+
+    measure: high_plan_attainment {
+      type: number
+      sql: ${arr_high} / ${fcst_plan_rollover} ;;
+      label: "NRR High Plan Attainment"
+    }
+
+    measure: actuals_plan_attainment {
+      type: number
+      sql: ${arr_actuals} / ${fcst_plan_rollover} ;;
+      label: "NRR Actuals Plan Attainment"
+    }
+
+    measure: committed_actuals_plan_attainment {
+      type: number
+      sql: ${committed_actuals} / ${fcst_plan_rollover} ;;
+      label: "NRR Committed + Actuals Plan Attainment"
+    }
 
   set: detail {
     fields: [
