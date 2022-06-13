@@ -281,14 +281,14 @@
 
   measure: low_actuals {
     type: number
-    sql: ${arr_low} + ${arr_actuals} ;;
+    sql: ${low_arr} + ${arr_actuals} ;;
     value_format: "$0.00"
     label: "Low + Actuals"
   }
 
   measure: high_actuals {
     type: number
-    sql: ${arr_high} + ${arr_actuals} ;;
+    sql: ${high_arr} + ${arr_actuals} ;;
     value_format: "$0.00"
     label: "High + Actuals"
   }
