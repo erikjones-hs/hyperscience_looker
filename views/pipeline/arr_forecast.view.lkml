@@ -283,14 +283,14 @@
     type: number
     sql: ${arr_low} + ${arr_actuals} ;;
     value_format: "$0.00"
-    label: "Committed + Actuals"
+    label: "Low + Actuals"
   }
 
   measure: high_actuals {
     type: number
     sql: ${arr_high} + ${arr_actuals} ;;
     value_format: "$0.00"
-    label: "Committed + Actuals"
+    label: "High + Actuals"
   }
 
   set: detail {
