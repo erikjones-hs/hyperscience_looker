@@ -425,7 +425,7 @@ view: arr_churn_net_new {
   measure: actuals_plan_attainment_net_new_arr {
     type: number
     sql: ${net_new_arr_mtd_actuals} / ${forecast_plan_net_new_arr} ;;
-    label: "Actuals Churn Plan Attainament"
+    label: "Actuals Net New ARR Plan Attainament"
   }
 
 }
