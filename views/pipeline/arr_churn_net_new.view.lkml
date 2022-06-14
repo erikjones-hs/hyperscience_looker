@@ -232,6 +232,20 @@ view: arr_churn_net_new {
     label: "ARR Actuals"
   }
 
+  measure: budget_churn {
+    type:  sum
+    sql: ${churn_budget} ;;
+    value_format: "$0.00"
+    label: "Churn Budget"
+  }
+
+  measure: actuals_churn {
+    type:  sum
+    sql: ${actual_churn_amount} ;;
+    value_format: "$0.00"
+    label: "Churn Actuals"
+  }
+
   measure: forecast_plan_churn {
     type:  sum
     sql: ${churn_forecast_plan} ;;
@@ -246,18 +260,63 @@ view: arr_churn_net_new {
     label: "Total Potential Churn"
   }
 
-  measure: low_potetial_churn {
+  measure: low_potential_churn {
     type:  sum
     sql: ${potential_churn_amount_non_commit};;
     value_format: "$0.00"
     label: "Lowest Potential Churn"
   }
 
-  measure: committed_potetial_churn {
+  measure: committed_potential_churn {
     type:  sum
     sql: ${potential_churn_amount_non_commit};;
     value_format: "$0.00"
     label: "Committed Potential Churn"
+  }
+
+  measure: low_actuals_churn {
+    type: number
+    sql: ${low_potential_churn} + ${actuals_churn} ;;
+    value_format: "$0.00"
+    label: "Low + Actuals"
+  }
+
+  measure: committed_actuals_churn {
+    type: number
+    sql: ${committed_potential_churn} + ${actuals_churn} ;;
+    value_format: "$0.00"
+    label: "Committed + Actuals"
+  }
+
+  measure: high_actuals_churn {
+    type: number
+    sql: ${total_potential_churn} + ${actuals_churn} ;;
+    value_format: "$0.00"
+    label: "High + Actuals"
+  }
+
+  measure: low_plan_attainment_churn {
+    type: number
+    sql: ${low_actuals_churn} / ${forecast_plan_churn} ;;
+    label: "Low Churn Plan Attainament"
+  }
+
+  measure: committed_plan_attainment_churn {
+    type: number
+    sql: ${committed_actuals_churn} / ${forecast_plan_churn} ;;
+    label: "Committed Plan Churn Attainament"
+  }
+
+  measure: high_plan_attainment_churn {
+    type: number
+    sql: ${high_actuals_churn} / ${forecast_plan_churn} ;;
+    label: "High Churn Plan Attainament"
+  }
+
+  measure: actuals_plan_attainment_churn {
+    type: number
+    sql: ${actuals_churn} / ${forecast_plan_churn} ;;
+    label: "Actuals Churn Plan Attainament"
   }
 
   measure: actuals_net_new_arr {
@@ -272,20 +331,6 @@ view: arr_churn_net_new {
     sql: ${arr_forecast_plan} - ${churn_forecast_plan} ;;
     value_format: "$0.00"
     label: "Net New ARR Forecast Plan"
-  }
-
-  measure: budget_churn {
-    type:  sum
-    sql: ${churn_budget} ;;
-    value_format: "$0.00"
-    label: "Churn Budget"
-  }
-
-  measure: actuals_churn {
-    type:  sum
-    sql: ${actual_churn_amount} ;;
-    value_format: "$0.00"
-    label: "Churn Actuals"
   }
 
   measure: low_net_new_arr {
@@ -321,6 +366,13 @@ view: arr_churn_net_new {
     sql: ${net_new_arr_committed_plus_actuals} ;;
     value_format: "$0.00"
     label: "Net New ARR Committed + Actuals"
+  }
+
+  measure: rollover_curr {
+    type: sum
+    sql: ${rollover_current_month} ;;
+    value_format: "$0.00"
+    label: "Churn Rollover"
   }
 
 }
