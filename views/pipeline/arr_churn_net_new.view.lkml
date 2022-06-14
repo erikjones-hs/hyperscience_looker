@@ -197,6 +197,14 @@ view: arr_churn_net_new {
     sql: ${TABLE}."ORIGINAL_PLAN_RUNNING_TOTAL_FQ" ;;
   }
 
+
+  measure: budget_arr {
+    type:  sum
+    sql: ${arr_budget} ;;
+    value_format: "$0.00"
+    label: "ARR Budget"
+  }
+
   measure: forecast_plan_arr {
     type:  sum
     sql: ${arr_forecast_plan} ;;
@@ -373,6 +381,13 @@ view: arr_churn_net_new {
     sql: ${rollover_current_month} ;;
     value_format: "$0.00"
     label: "Churn Rollover"
+  }
+
+  measure: net_new_arr_budget {
+    type: number
+    sql: ${budget_arr} - ${budget_churn}  ;;
+    value_format: "$0.00"
+    label: "Net New ARR Budget"
   }
 
 }
