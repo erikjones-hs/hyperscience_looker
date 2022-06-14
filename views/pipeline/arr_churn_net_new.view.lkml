@@ -369,13 +369,6 @@ view: arr_churn_net_new {
     label: "Net New ARR MTD Actuals"
   }
 
-  measure: net_new_arr_commit_actuals {
-    type: sum
-    sql: ${net_new_arr_committed_plus_actuals} ;;
-    value_format: "$0.00"
-    label: "Net New ARR Committed + Actuals"
-  }
-
   measure: rollover_curr {
     type: sum
     sql: ${rollover_current_month} ;;
@@ -388,6 +381,51 @@ view: arr_churn_net_new {
     sql: ${budget_arr} - ${budget_churn}  ;;
     value_format: "$0.00"
     label: "Net New ARR Budget"
+  }
+
+  measure: low_actuals_net_new_arr {
+    type: number
+    sql: ${low_net_new_arr} + ${net_new_arr_mtd_actuals} ;;
+    value_format: "$0.00"
+    label: "Low + Actuals Net New ARR"
+  }
+
+  measure: committed_actuals_net_new_arr {
+    type: number
+    sql: ${committed_net_new_arr} + ${net_new_arr_mtd_actuals} ;;
+    value_format: "$0.00"
+    label: "Committed + Actuals Net New ARR"
+  }
+
+  measure: high_actuals_net_new_arr {
+    type: number
+    sql: sql: ${high_net_new_arr} + ${net_new_arr_mtd_actuals} ;;
+    value_format: "$0.00"
+    label: "High + Actuals Net New ARR"
+  }
+
+  measure: low_plan_attainment_net_new_arr {
+    type: number
+    sql: ${low_actuals_net_new_arr} / ${forecast_plan_net_new_arr} ;;
+    label: "Low Net New ARR Plan Attainament"
+  }
+
+  measure: committed_plan_attainment_net_new_arr {
+    type: number
+    sql: ${committed_actuals_net_new_arr} / ${forecast_plan_net_new_arr} ;;
+    label: "Committed Net New ARR Plan Attainament"
+  }
+
+  measure: high_plan_attainment_net_new_arr {
+    type: number
+    sql: ${high_actuals_net_new_arr} / ${forecast_plan_net_new_arr} ;;
+    label: "High Net New ARR Plan Attainament"
+  }
+
+  measure: actuals_plan_attainment_net_new_arr {
+    type: number
+    sql: ${net_new_arr_mtd_actuals} / ${forecast_plan_net_new_arr} ;;
+    label: "Actuals Churn Plan Attainament"
   }
 
 }
