@@ -399,7 +399,7 @@ view: arr_churn_net_new {
 
   measure: high_actuals_net_new_arr {
     type: number
-    sql: sql: ${high_net_new_arr} + ${net_new_arr_mtd_actuals} ;;
+    sql: ${high_net_new_arr} + ${net_new_arr_mtd_actuals} ;;
     value_format: "$0.00"
     label: "High + Actuals Net New ARR"
   }
