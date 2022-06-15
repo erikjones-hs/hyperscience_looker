@@ -62,6 +62,16 @@ view: arr_forecast_nrr {
     }
   }
 
+  dimension: qtr_end_dte {
+    type: date
+    sql: ${TABLE}."QTR_END_DTE" ;;
+  }
+
+  dimension: current_qtr {
+    type: date
+    sql: ${TABLE}."CURRENT_QTR" ;;
+  }
+
   dimension: nrr_budget {
     type: number
     sql: ${TABLE}."NRR_BUDGET" ;;
@@ -179,7 +189,21 @@ view: arr_forecast_nrr {
     type: sum
     sql: ${rollover_current_month} ;;
     value_format: "$0.00"
-    label: "NRR Rollover (Current Month)"
+    label: "NRR Rollover"
+  }
+
+  measure: low_actuals {
+    type: number
+    sql: ${low_nrr} + ${nrr_actuals} ;;
+    value_format: "$0.00"
+    label: "Low + Actuals"
+  }
+
+  measure: high_actuals {
+    type: number
+    sql: ${high_nrr} + ${nrr_actuals} ;;
+    value_format: "$0.00"
+    label: "High + Actuals"
   }
 
   measure: committed_actuals {
@@ -189,43 +213,28 @@ view: arr_forecast_nrr {
     label: "Committed + Actuals"
   }
 
-  measure: fcst_plan_rollover {
-    type: number
-    sql: ${forecast_plan_nrr} + ${rollover_nrr} ;;
-    value_format: "$0.00"
-    label: "FORECAST PLAN + ROLLOVER"
-  }
-
   measure: low_plan_attainment {
     type: number
-    sql: ${nrr_low} / ${fcst_plan_rollover} ;;
+    sql: ${low_actuals} / ${forecast_plan_nrr} ;;
     label: "NRR Low Plan Attainment"
   }
 
   measure: committed_plan_attainment {
     type: number
-    sql: ${committed_nrr} / ${fcst_plan_rollover} ;;
+    sql: ${committed_actuals} / ${forecast_plan_nrr} ;;
     label: "NRR Committed Plan Attainment"
   }
 
   measure: high_plan_attainment {
     type: number
-    sql: ${nrr_high} / ${fcst_plan_rollover} ;;
+    sql: ${high_actuals} / ${forecast_plan_nrr} ;;
     label: "NRR High Plan Attainment"
   }
 
   measure: actuals_plan_attainment {
     type: number
-    sql: ${actuals_nrr} / ${fcst_plan_rollover} ;;
+    sql: ${actuals_nrr} / ${forecast_plan_nrr} ;;
     label: "NRR Actuals Plan Attainment"
   }
-
-  measure: committed_actuals_plan_attainment {
-    type: number
-    sql: ${committed_actuals} / ${fcst_plan_rollover} ;;
-    label: "NRR Committed + Actuals Plan Attainment"
-  }
-
-
 
 }
