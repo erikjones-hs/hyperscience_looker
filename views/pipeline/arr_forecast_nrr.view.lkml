@@ -194,14 +194,14 @@ view: arr_forecast_nrr {
 
   measure: low_actuals {
     type: number
-    sql: ${low_nrr} + ${nrr_actuals} ;;
+    sql: ${low_nrr} + ${actuals_nrr} ;;
     value_format: "$0.00"
     label: "Low + Actuals"
   }
 
   measure: high_actuals {
     type: number
-    sql: ${high_nrr} + ${nrr_actuals} ;;
+    sql: ${high_nrr} + ${actuals_nrr} ;;
     value_format: "$0.00"
     label: "High + Actuals"
   }
