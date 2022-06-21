@@ -261,23 +261,44 @@ view: arr_churn_net_new {
     label: "Churn Forecast Plan"
   }
 
-  measure: total_potential_churn {
+  measure: total_potential_churn_int {
     type:  sum
-    sql: ${total_potential_churn_amount} ;;
+    sql: ${total_potential_churn_amount};;
     value_format: "$0.00"
     label: "Total Potential Churn"
   }
 
-  measure: low_potential_churn {
+  measure: low_potential_churn_int {
     type:  sum
     sql: ${potential_churn_amount_non_commit};;
     value_format: "$0.00"
     label: "Lowest Potential Churn"
   }
 
-  measure: committed_potential_churn {
+  measure: committed_potential_churn_int {
     type:  sum
     sql: ${potential_churn_amount_non_commit};;
+    value_format: "$0.00"
+    label: "Committed Potential Churn"
+  }
+
+  measure: total_potential_churn {
+    type:  number
+    sql: ${total_potential_churn_int} - ${actuals_churn} ;;
+    value_format: "$0.00"
+    label: "Total Potential Churn"
+  }
+
+  measure: low_potential_churn {
+    type:  number
+    sql: ${low_potential_churn_int} - ${actuals_churn};;
+    value_format: "$0.00"
+    label: "Lowest Potential Churn"
+  }
+
+  measure: committed_potential_churn {
+    type:  number
+    sql: ${committed_potential_churn_int} - ${actuals_churn};;
     value_format: "$0.00"
     label: "Committed Potential Churn"
   }
