@@ -12,9 +12,9 @@ explore: balance_sheet {}
 explore: capacity_coverage {}
 explore: current_fy_renewals {}
 explore: current_fy_renewals_from_to {}
-explore: arr_forecast {}
-explore: arr_sales_team_closed_won {}
-explore: arr_sales_team_pipeline {}
-explore: arr_churn_net_new {}
-explore: arr_forecast_nrr {}
-explore: arr_forecast_nrr_opps {}
+explore: arr_forecast {persist_for: "12 hours"}
+explore: arr_sales_team_closed_won {persist_for: "12 hours"}
+explore: arr_sales_team_pipeline {persist_for: "12 hours"}
+explore: arr_churn_net_new {persist_for: "12 hours"}
+explore: arr_forecast_nrr {persist_for: "12 hours"}
+explore: arr_forecast_nrr_opps {persist_for: "12 hours"}
