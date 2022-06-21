@@ -1,5 +1,5 @@
 view: arr_sales_team_closed_won {
-  sql_table_name: (select * from dev.erikjones.arr_sales_team_opps);;
+  sql_table_name: (select * from prod.arr_forecast.arr_sales_team_opps);;
 
 
   dimension_group: date_month {

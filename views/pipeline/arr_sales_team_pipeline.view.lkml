@@ -1,6 +1,6 @@
 
 view: arr_sales_team_pipeline {
-  sql_table_name: (select * from dev.erikjones.arr_sales_team_opps_pipeline);;
+  sql_table_name: (select * from prod.arr_forecast.arr_sales_team_opps_pipeline);;
 
   dimension: account_id {
     type: string
