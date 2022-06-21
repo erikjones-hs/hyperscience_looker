@@ -1,5 +1,5 @@
   view: current_fy_renewals {
-    sql_table_name: (select * from dev.erikjones.renewals_current_fy_opps);;
+    sql_table_name: (select * from prod.renewals.renewals_current_fy_opps);;
     drill_fields: [detail*]
 
   dimension_group: renewal_month {
