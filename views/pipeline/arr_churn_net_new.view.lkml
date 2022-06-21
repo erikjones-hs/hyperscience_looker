@@ -1,5 +1,5 @@
 view: arr_churn_net_new {
-  sql_table_name: (select * from dev.erikjones.arr_forecast_churn_net_new_arr);;
+  sql_table_name: (select * from prod.arr_forecast.arr_forecast_churn_net_new_arr);;
 
   dimension_group: dte {
     type: time

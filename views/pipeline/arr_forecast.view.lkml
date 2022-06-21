@@ -1,5 +1,5 @@
   view: arr_forecast {
-    sql_table_name: (select * from dev.erikjones.arr_forecast_sales_teams);;
+    sql_table_name: (select * from prod.arr_forecast.arr_forecast_sales_teams);;
 
   dimension_group: dte {
     type: time

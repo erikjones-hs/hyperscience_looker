@@ -1,5 +1,5 @@
 view: arr_forecast_nrr {
-    sql_table_name: (select * from dev.erikjones.arr_forecast_nrr);;
+    sql_table_name: (select * from prod.arr_forecast.arr_forecast_nrr);;
 
 
   dimension_group: dte {
