@@ -100,10 +100,31 @@ view: issues_components_versions {
     sql: ${TABLE}."PROJECT_CATEGORY" ;;
   }
 
-  dimension_group: resolution_dte {
+  dimension_group: resolution_dte_raw {
     type: time
     timeframes: [raw, date, week, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
-    sql: ${TABLE}."RESOLUTION_DTE" ;;
+    sql: ${TABLE}."RESOLUTION_DTE_RAW" ;;
+  }
+
+  dimension_group: resolution_dte_transformed {
+    type: time
+    timeframes: [raw, date, week, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
+    sql: ${TABLE}."RESOLUTION_DTE_TRANSFORMED" ;;
+  }
+
+  dimension: open_ticket_fl {
+    type: number
+    sql: ${TABLE}."OPEN_TICKET_FL" ;;
+  }
+
+  dimension: closed_ticket_fl {
+    type: number
+    sql: ${TABLE}."CLOSED_TICKET_FL" ;;
+  }
+
+  dimension: ticket_resolution_category {
+    type: string
+    sql: ${TABLE}."TICKET_RESOLUTION_CATEGORY" ;;
   }
 
   dimension_group: created_dte {
@@ -141,9 +162,9 @@ view: issues_components_versions {
     type: string
     sql:
     CASE
-    WHEN {% parameter timeframe_picker %} = 'Date' THEN ${resolution_dte_date}
-    WHEN {% parameter timeframe_picker %} = 'Week' THEN ${resolution_dte_week}
-    WHEN{% parameter timeframe_picker %} = 'Month' THEN ${resolution_dte_month}
+    WHEN {% parameter timeframe_picker %} = 'Date' THEN ${resolution_dte_raw_date}
+    WHEN {% parameter timeframe_picker %} = 'Week' THEN ${resolution_dte_raw_week}
+    WHEN{% parameter timeframe_picker %} = 'Month' THEN ${resolution_dte_raw_month}
     END ;;
   }
 
@@ -206,7 +227,7 @@ view: issues_components_versions {
     type: duration
     intervals: [day, hour, minute]
     sql_start: ${created_dte_raw} ;;
-    sql_end: ${resolution_dte_raw} ;;
+    sql_end: ${resolution_dte_raw_raw} ;;
   }
 
   dimension_group: time_open {
@@ -243,7 +264,7 @@ view: issues_components_versions {
       creator_name,
       project_key,
       resolution_stage,
-      resolution_dte_date,
+      resolution_dte_raw_date,
       created_dte_date,
     ]
   }
