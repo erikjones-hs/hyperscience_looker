@@ -127,6 +127,36 @@ view: issues_components_versions {
     sql: ${TABLE}."TICKET_RESOLUTION_CATEGORY" ;;
   }
 
+  dimension: created_dte_fl {
+    type: number
+    sql: ${TABLE}."CREATED_DTE_FL" ;;
+  }
+
+  dimension: resolved_dte_fl {
+    type: number
+    sql: ${TABLE}."RESOLVED_DTE_FL" ;;
+  }
+
+  dimension: created_week_fl {
+    type: number
+    sql: ${TABLE}."CREATED_WEEK_FL" ;;
+  }
+
+  dimension: resolved_week_fl {
+    type: number
+    sql: ${TABLE}."RESOLVED_WEEK_FL" ;;
+  }
+
+  dimension: created_month_fl {
+    type: number
+    sql: ${TABLE}."CREATED_MONTH_FL" ;;
+  }
+
+  dimension: resolved_month_fl {
+    type: number
+    sql: ${TABLE}."RESOLVED_MONTH_FL" ;;
+  }
+
   dimension_group: created_dte {
     type: time
     timeframes: [raw, date, week, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
@@ -243,18 +273,32 @@ view: issues_components_versions {
     label: "# Tickets"
   }
 
-  measure: num_created_tickets {
+  measure: num_created_tickets_weeks {
     type: count_distinct
     sql: ${issue_id} ;;
-    filters: [open_ticket_fl: "= 1"]
-    label: "# Created Tickets"
+    filters: [created_week_fl: "= 1"]
+    label: "# Created Tickets (weeks)"
   }
 
-  measure: num_closed_tickets {
+  measure: num_closed_tickets_weeks {
     type: count_distinct
     sql: ${issue_id} ;;
-    filters: [closed_ticket_fl: "= 1"]
-    label: "# Closed Tickets"
+    filters: [resolved_week_fl: "= 1"]
+    label: "# Closed Tickets (weeks)"
+  }
+
+  measure: num_created_tickets_months {
+    type: count_distinct
+    sql: ${issue_id} ;;
+    filters: [created_month_fl: "= 1"]
+    label: "# Created Tickets (months)"
+  }
+
+  measure: num_closed_tickets_months {
+    type: count_distinct
+    sql: ${issue_id} ;;
+    filters: [resolved_month_fl: "= 1"]
+    label: "# Closed Tickets (months)"
   }
 
   measure: mean_time_to_resolution {
