@@ -1,6 +1,12 @@
 view: issues_components_versions {
-  sql_table_name: (select * from prod.jira.fct_jira_issues_components_versions);;
+  sql_table_name: (select * from prod.jira.fct_jira_history);;
   drill_fields: [detail*]
+
+  dimension_group: dte {
+    type: time
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
+    sql: ${TABLE}."DTE" ;;
+  }
 
   dimension: issue_id {
     type: number
