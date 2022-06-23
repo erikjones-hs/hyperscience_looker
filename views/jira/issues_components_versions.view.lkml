@@ -243,6 +243,20 @@ view: issues_components_versions {
     label: "# Tickets"
   }
 
+  measure: num_created_tickets {
+    type: count_distinct
+    sql: ${issue_id} ;;
+    filters: [open_ticket_fl: "= 1"]
+    label: "# Created Tickets"
+  }
+
+  measure: num_closed_tickets {
+    type: count_distinct
+    sql: ${issue_id} ;;
+    filters: [closed_ticket_fl: "= 1"]
+    label: "# Closed Tickets"
+  }
+
   measure: mean_time_to_resolution {
     type: average
     sql: ${hours_time_to_resolution};;
