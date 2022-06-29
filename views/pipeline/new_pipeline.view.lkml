@@ -91,6 +91,7 @@
   measure: num_opps {
     type:count_distinct
     sql_distinct_key: ${opp_id} ;;
+    sql: ${opp_id} ;;
     label: "# Opportunities"
   }
 
