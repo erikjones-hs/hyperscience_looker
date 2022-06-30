@@ -330,7 +330,7 @@ view: issues_components_versions {
 
   dimension: fix_version_filter {
     type: string
-    sql: CASE WHEN (split_part(${fix_version_name},'.',1) rlike '[0-9][0-9]' AND split_part(${fix_version_name},'.',1) >=28) then fix_version_name else 'Older Version' end ;;
+    sql: CASE WHEN (split_part(${fix_version_name},'.',1) rlike '[0-9][0-9]' AND split_part(${fix_version_name},'.',1) >=30) then fix_version_name else 'Older Version' end ;;
   }
 
 
