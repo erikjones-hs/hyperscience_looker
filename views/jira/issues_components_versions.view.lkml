@@ -310,7 +310,7 @@ view: issues_components_versions {
   measure: time_to_resolution_hours {
     type: sum
     sql: ${hours_time_to_resolution};;
-    label: "Mean Time to Resolution (Hours)"
+    label: "Time to Resolution (Hours)"
   }
 
 
