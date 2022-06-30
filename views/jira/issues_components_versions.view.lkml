@@ -313,14 +313,9 @@ view: issues_components_versions {
     label: "Mean Time to Resolution (Hours)"
   }
 
-  dimension: fix_version_filter_int {
-    type: number
-    sql: CASE WHEN split_part(${fix_version_name},'.',1) rlike '[0-9][0-9]' then split_part(${fix_version_name},'.',1) else 1 end ;;
-  }
-
   dimension: fix_version_filter {
     type: number
-    sql: CASE WHEN ${fix_version_filter_int} >= 34 then ${fix_version_name} else 1 end ;;
+    sql: CASE WHEN (split_part(${fix_version_name},'.',1) rlike '[0-9][0-9]' AND split_part(${fix_version_name},'.',1) >=34) then fix_version_name else 'Older Version' end ;;
   }
 
   set: detail {
