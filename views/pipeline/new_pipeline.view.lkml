@@ -77,14 +77,14 @@
   measure: opp_net_new_arr {
     type: sum
     sql: ${TABLE}."OPP_NET_NEW_ARR" ;;
-    value_format: "$#,##0.00"
+    value_format: "$#,##0"
     label:"Net New ARR"
   }
 
   measure: opp_arr {
     type: sum
     sql: ${TABLE}."OPP_ARR" ;;
-    value_format: "$#,##0.00"
+    value_format: "$#,##0"
     label:"ARR"
   }
 
