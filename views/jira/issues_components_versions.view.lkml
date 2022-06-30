@@ -320,7 +320,7 @@ view: issues_components_versions {
 
   dimension: fix_version_filter {
     type: number
-    sql: CASE WHEN ${fix_version_filter_int} >= 34 then ${fix_version_filter_int} else 1 end ;;
+    sql: CASE WHEN ${fix_version_filter_int} >= 34 then ${fix_version_name} else 1 end ;;
   }
 
   set: detail {
