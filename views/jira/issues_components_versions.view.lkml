@@ -313,6 +313,11 @@ view: issues_components_versions {
     label: "Mean Time to Resolution (Hours)"
   }
 
+  measure: fix_version_filter {
+    type: number
+    sql: CASE WHEN split_part(${fix_version_name},'.',1) rlike '[0-9][0-9]' then split_part(${fix_version_name},'.',1) else 1 end ;;
+  }
+
   set: detail {
     fields: [
       issue_key,
