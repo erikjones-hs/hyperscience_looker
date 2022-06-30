@@ -301,6 +301,20 @@ view: issues_components_versions {
     label: "# Closed Tickets (months)"
   }
 
+  measure: num_open_tickets_months {
+    type: count_distinct
+    sql: ${issue_id} ;;
+    filters: [ticket_resolution_category: "= open"]
+    label: "# Open Tickets (months)"
+  }
+
+  measure: num_open_tickets_weeks {
+    type: count_distinct
+    sql: ${issue_id} ;;
+    filters: [ticket_resolution_category: "= open"]
+    label: "# Open Tickets (weeks)"
+  }
+
   measure: mean_time_to_resolution {
     type: average
     sql: ${hours_time_to_resolution};;
