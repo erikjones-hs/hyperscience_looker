@@ -302,7 +302,7 @@
 
     measure: forecast_plan_qtr {
       type: number
-      sql: ${forecast_plan} + ${rollover_qtr} ;;
+      sql: ${forecast} + ${rollover_qtr} ;;
       value_format: "$0.00"
       label: "Forecast Plan (QTR)"
     }
