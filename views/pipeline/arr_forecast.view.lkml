@@ -293,9 +293,17 @@
     label: "High + Actuals"
   }
 
+
+  #measure: rollover_qtr {
+  #  type: number
+  #  sql: ${budget_variance_running_tot} / 3 ;;
+  #  value_format: "$0.00"
+  #  label: "Rollover (QTR)"
+  #}
+
   measure: rollover_qtr {
-    type: number
-    sql: ${budget_variance_running_tot} / 3 ;;
+    type: sum
+    sql: CASE WHEN ${dte_month} = last_day(date_trunc(month,to_date(current_date()))) then (${rollover_current_month} * ${num_months_to_end_of_qtr}) else 0 end ;;
     value_format: "$0.00"
     label: "Rollover (QTR)"
   }
