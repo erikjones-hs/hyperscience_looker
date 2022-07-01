@@ -294,8 +294,8 @@
   }
 
   measure: rollover_qtr {
-    type: sum
-    sql: ${rollover_current_month} * ${num_months_to_end_of_qtr} ;;
+    type: number
+    sql: ${budget_variance_running_tot} / 3 ;;
     value_format: "$0.00"
     label: "Rollover (QTR)"
   }
