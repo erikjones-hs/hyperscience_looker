@@ -294,7 +294,7 @@
   }
 
   measure: rollover_qtr {
-    type: number
+    type: sum
     sql: ${rollover_current_month} * ${num_months_to_end_of_qtr} ;;
     value_format: "$0.00"
     label: "Rollover (QTR)"
