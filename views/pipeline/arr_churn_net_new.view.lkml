@@ -453,14 +453,14 @@ view: arr_churn_net_new {
     type: sum
     sql: CASE WHEN ${dte_date} = last_day(date_trunc(month,to_date(current_date()))) then (${rollover_current_month} * ${num_months_to_end_of_qtr}) else 0 end ;;
     value_format: "$0.00"
-    label: "Rollover (QTR)"
+    label: "Churn Rollover (QTR)"
   }
 
   measure: forecast_plan_churn_qtr {
     type: number
     sql: ${budget_churn} + ${rollover_qtr} ;;
     value_format: "$0.00"
-    label: "Forecast Plan (QTR)"
+    label: "Churn Forecast Plan (QTR)"
   }
 
   measure: low_plan_attainment_qtr {
