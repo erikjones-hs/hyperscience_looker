@@ -197,6 +197,11 @@ view: arr_churn_net_new {
     sql: ${TABLE}."ORIGINAL_PLAN_RUNNING_TOTAL_FQ" ;;
   }
 
+  dimension: arr_rollover_qtr {
+    type: number
+    sql: ${TABLE}."ARR_ROLLOVER_QTR" ;;
+  }
+
 
   measure: budget_arr {
     type:  sum
@@ -211,6 +216,21 @@ view: arr_churn_net_new {
     value_format: "$0.00"
     label: "ARR Forecast Plan"
   }
+
+  measure: rollover_qtr_arr {
+    type: sum
+    sql: ${arr_rollover_qtr};;
+    value_format: "$0.00"
+    label: "ARR Rollover (QTR)"
+  }
+
+  measure: forecast_plan_arr_qtr {
+    type: number
+    sql: ${budget_arr} + ${rollover_qtr_arr} ;;
+    value_format: "$0.00"
+    label: "ARR Forecast Plan (QTR)"
+  }
+
 
   measure: low_arr {
     type:  sum
@@ -356,8 +376,15 @@ view: arr_churn_net_new {
   }
 
   measure: forecast_plan_net_new_arr {
-    type:  sum
+    type:  number
     sql: ${arr_forecast_plan} - ${churn_forecast_plan} ;;
+    value_format: "$0.00"
+    label: "Net New ARR Forecast Plan"
+  }
+
+  measure: forecast_plan_net_new_arr_qtr {
+    type:  number
+    sql: ${forecast_plan_arr_qtr} - ${forecast_plan_churn_qtr} ;;
     value_format: "$0.00"
     label: "Net New ARR Forecast Plan"
   }
