@@ -237,4 +237,42 @@ view: arr_forecast_nrr {
     label: "NRR Actuals Plan Attainment"
   }
 
+  measure: rollover_qtr {
+    type: sum
+    sql: CASE WHEN ${dte_date} = last_day(date_trunc(month,to_date(current_date()))) then (${rollover_current_month} * ${num_months_to_end_of_qtr}) else 0 end ;;
+    value_format: "$0.00"
+    label: "Rollover (QTR)"
+  }
+
+  measure: forecast_plan_qtr {
+    type: number
+    sql: ${budget_nrr} + ${rollover_qtr} ;;
+    value_format: "$0.00"
+    label: "Forecast Plan (QTR)"
+  }
+
+  measure: low_plan_attainment_qtr {
+    type: number
+    sql: ${low_actuals} / ${forecast_plan_qtr} ;;
+    label: "NRR Low Plan Attainment (QTR)"
+  }
+
+  measure: high_plan_attainment_qtr {
+    type: number
+    sql: ${high_actuals} / ${forecast_plan_qtr} ;;
+    label: "NRR High Plan Attainment (QTR)"
+  }
+
+  measure: actuals_plan_attainment_qtr {
+    type: number
+    sql: ${actuals_nrr} / ${forecast_plan_qtr} ;;
+    label: "NRR Actuals Plan Attainment (QTR)"
+  }
+
+  measure: committed_actuals_plan_attainment_qtr {
+    type: number
+    sql: ${committed_actuals} / ${forecast_plan_qtr} ;;
+    label: "NRR Committed + Actuals Plan Attainment (QTR)"
+  }
+
 }
