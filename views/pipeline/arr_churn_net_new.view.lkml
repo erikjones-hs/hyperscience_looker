@@ -386,7 +386,7 @@ view: arr_churn_net_new {
     type:  number
     sql: ${forecast_plan_arr_qtr} - ${forecast_plan_churn_qtr} ;;
     value_format: "$0.00"
-    label: "Net New ARR Forecast Plan"
+    label: "Net New ARR Forecast Plan (QTR)"
   }
 
   measure: low_net_new_arr {
