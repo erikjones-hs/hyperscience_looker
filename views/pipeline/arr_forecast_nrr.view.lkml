@@ -239,7 +239,7 @@ view: arr_forecast_nrr {
 
   measure: rollover_qtr {
     type: sum
-    sql: CASE WHEN ${dte_date} = last_day(date_trunc(month,to_date(current_date()))) then (${rollover_current_month} * ${num_months_to_end_of_qtr}) else 0 end ;;
+    sql: CASE WHEN ${dte_date} = date_trunc(month,to_date(current_date())) then (${rollover_current_month} * ${num_months_to_end_of_qtr}) else 0 end ;;
     value_format: "$0.00"
     label: "Rollover (QTR)"
   }
