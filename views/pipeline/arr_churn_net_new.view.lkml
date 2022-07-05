@@ -376,7 +376,7 @@ view: arr_churn_net_new {
   }
 
   measure: forecast_plan_net_new_arr {
-    type:  number
+    type:  sum
     sql: ${arr_forecast_plan} - ${churn_forecast_plan} ;;
     value_format: "$0.00"
     label: "Net New ARR Forecast Plan"
