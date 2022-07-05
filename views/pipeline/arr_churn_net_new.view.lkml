@@ -476,6 +476,12 @@ view: arr_churn_net_new {
     label: "Actuals Net New ARR Plan Attainament"
   }
 
+  measure: actuals_plan_attainment_net_new_arr_qtr {
+    type: number
+    sql: ${net_new_arr_mtd_actuals} / ${forecast_plan_net_new_arr_qtr} ;;
+    label: "Actuals Net New ARR Plan Attainament"
+  }
+
   measure: rollover_qtr {
     type: sum
     sql: CASE WHEN ${dte_date} = last_day(date_trunc(month,to_date(current_date()))) then (${rollover_current_month} * ${num_months_to_end_of_qtr}) else 0 end ;;
