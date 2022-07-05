@@ -449,4 +449,42 @@ view: arr_churn_net_new {
     label: "Actuals Net New ARR Plan Attainament"
   }
 
+  measure: rollover_qtr {
+    type: sum
+    sql: CASE WHEN ${dte_date} = last_day(date_trunc(month,to_date(current_date()))) then (${rollover_current_month} * ${num_months_to_end_of_qtr}) else 0 end ;;
+    value_format: "$0.00"
+    label: "Rollover (QTR)"
+  }
+
+  measure: forecast_plan_churn_qtr {
+    type: number
+    sql: ${budget_churn} + ${rollover_qtr} ;;
+    value_format: "$0.00"
+    label: "Forecast Plan (QTR)"
+  }
+
+  measure: low_plan_attainment_qtr {
+    type: number
+    sql: ${low_actuals_churn} / ${forecast_plan_churn_qtr} ;;
+    label: "Churn Low Plan Attainment (QTR)"
+  }
+
+  measure: high_plan_attainment_qtr {
+    type: number
+    sql: ${high_actuals_churn} / ${forecast_plan_churn_qtr} ;;
+    label: "Churn High Plan Attainment (QTR)"
+  }
+
+  measure: actuals_plan_attainment_qtr {
+    type: number
+    sql: ${actuals_churn} / ${forecast_plan_churn_qtr} ;;
+    label: "Churn Actuals Plan Attainment (QTR)"
+  }
+
+  measure: committed_actuals_plan_attainment_qtr {
+    type: number
+    sql: ${committed_actuals_churn} / ${forecast_plan_churn_qtr} ;;
+    label: "Churn Committed + Actuals Plan Attainment (QTR)"
+  }
+
 }
