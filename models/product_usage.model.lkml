@@ -10,3 +10,4 @@ explore: saas_meta_data {}
 explore: clicks_tasks {}
 explore: pageviews_trash {}
 explore: reporting {}
+explore: documents {}
