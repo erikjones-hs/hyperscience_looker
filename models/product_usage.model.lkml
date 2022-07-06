@@ -14,3 +14,4 @@ explore: documents {}
 explore: flows {}
 explore: submissions {}
 explore: layouts {}
+explore: tasks {}
