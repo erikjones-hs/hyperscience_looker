@@ -9,3 +9,4 @@ explore: saas_usage {}
 explore: saas_meta_data {}
 explore: clicks_tasks {}
 explore: pageviews_trash {}
+explore: reporting {}
