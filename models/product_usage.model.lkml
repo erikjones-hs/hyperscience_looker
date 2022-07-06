@@ -11,3 +11,4 @@ explore: clicks_tasks {}
 explore: pageviews_trash {}
 explore: reporting {}
 explore: documents {}
+explore: flows {}
