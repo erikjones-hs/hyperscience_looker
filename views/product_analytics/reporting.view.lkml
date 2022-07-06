@@ -1,5 +1,5 @@
 view: reporting {
-  sql_table_name: (select * from dev.erikjones.product_analytics_tasks_perform_tasks);;
+  sql_table_name: (select * from ddev.erikjones.prana_fct_reporting);;
 
 
   dimension: user_id {
