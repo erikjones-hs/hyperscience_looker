@@ -13,3 +13,4 @@ explore: reporting {}
 explore: documents {}
 explore: flows {}
 explore: submissions {}
+explore: layouts {}
