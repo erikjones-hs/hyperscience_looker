@@ -51,3 +51,4 @@ explore: pages_processed_percent_growth {persist_for: "12 hours"}
 explore: saas_metrics {persist_for: "12 hours"}
 explore: ae_report {persist_for: "12 hours"}
 explore: net_new_arr_comparison_current_qtr {persist_for: "12 hours"}
+explore: ltv_ltm {}
