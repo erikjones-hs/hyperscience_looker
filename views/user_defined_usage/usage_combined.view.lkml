@@ -53,6 +53,18 @@ view: usage_combined {
     label: "Lower Control Limit (Alert)"
   }
 
+  measure: ucl_alert_2 {
+    type: number
+    sql: ${mean_pages_processed} + (1 * ${std_dev_pages_processed}) ;;
+    label: "Upper Control Limit (Alert2)"
+  }
+
+  measure: lcl_alert_2 {
+    type: number
+    sql: ${mean_pages_processed} - (1 * ${std_dev_pages_processed}) ;;
+    label: "Lower Control Limit (Alert2)"
+  }
+
   set: detail {
     fields: [customer, dte_month_date, total_pages_created, mean_pages_processed, std_dev_pages_processed]
   }
