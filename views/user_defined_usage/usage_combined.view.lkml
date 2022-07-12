@@ -20,6 +20,7 @@ view: usage_combined {
 
   dimension_group: latest_month_received {
     type: time
+    timeframes: [raw, date, month]
     sql: max(to_date( ${TABLE}."DTE_MONTH")) ;;
     label: "Latest Month Received"
   }
