@@ -20,7 +20,7 @@ view: usage_combined {
 
   dimension_group: latest_month_received {
     type: time
-    sql: max(${dte_month_month}) ;;
+    sql: max(to_date( ${TABLE}."DTE_MONTH")) ;;
     label: "Latest Month Received"
   }
 
