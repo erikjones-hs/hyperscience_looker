@@ -72,6 +72,12 @@ view: usage_combined {
     label: "Lower Control Limit (Alert2)"
   }
 
+  measure: latest_date_usage_received {
+    type: max
+    sql: ${current_date_month} ;;
+    label: "Latest Month Received"
+  }
+
   set: detail {
     fields: [customer, dte_month_date, total_pages_created, mean_pages_processed, std_dev_pages_processed]
   }
