@@ -18,11 +18,9 @@ view: usage_combined {
     sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
   }
 
-  dimension_group: latest_month_received {
-    type: time
-    timeframes: [raw, date, month]
-    sql: max(to_date( ${TABLE}."DTE_MONTH")) ;;
-    label: "Latest Month Received"
+  dimension: latest_date_received {
+    type: date
+    sql: ${TABLE}."LATEST_DATE_RECEIVED" ;;
   }
 
 
