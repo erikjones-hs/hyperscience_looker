@@ -12,6 +12,13 @@ view: usage_combined {
     sql: ${TABLE}."DTE_MONTH" ;;
   }
 
+  dimension_group: current_date {
+    type: time
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
+    sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
+  }
+
+
   measure: total_pages_created {
     type: sum
     sql: ${TABLE}."TOTAL_PAGES_CREATED" ;;
