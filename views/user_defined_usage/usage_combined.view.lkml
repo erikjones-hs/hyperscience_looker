@@ -87,6 +87,18 @@ view: usage_combined {
     label: "# Months Sending Data"
   }
 
+  measure: above_ucl {
+    type:  number
+    sql: CASE WHEN ${total_pages_created} > ${ucl_alert_2} then 1 else 0 end ;;
+    label: "Above UCL (Flag)"
+  }
+
+  measure: below_ucl {
+    type:  number
+    sql: CASE WHEN ${total_pages_created} < ${lcl_alert_2} then 1 else 0 end ;;
+    label: "Below UCL (Flag)"
+  }
+
 
   set: detail {
     fields: [customer, dte_month_date, total_pages_created, mean_pages_processed, std_dev_pages_processed]
