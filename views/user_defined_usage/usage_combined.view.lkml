@@ -89,7 +89,7 @@ view: usage_combined {
 
   measure: above_ucl {
     type:  number
-    sql: CASE WHEN ${total_pages_created} > ${ucl_alert_2} then 1 else 0 end ;;
+    sql: CASE WHEN ${total_pages_created} > ${ucl_alert} then 1 else 0 end ;;
     label: "Above UCL (Flag)"
   }
 
