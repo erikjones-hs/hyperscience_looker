@@ -23,6 +23,10 @@ view: usage_combined {
     sql: ${TABLE}."LATEST_DATE_RECEIVED" ;;
   }
 
+  dimension: first_date_received {
+    type: date
+    sql: ${TABLE}."FIRST_DATE_RECEIVED" ;;
+  }
 
   measure: total_pages_created {
     type: sum
@@ -75,6 +79,12 @@ view: usage_combined {
     type: number
     sql: ${mean_pages_processed} - (1 * ${std_dev_pages_processed}) ;;
     label: "Lower Control Limit (Alert2)"
+  }
+
+  measure: num_months_sending_data {
+    type: count_distinct
+    sql: ${dte_month_month} ;;
+    label: "# Months Sending Data"
   }
 
 
