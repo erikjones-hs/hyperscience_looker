@@ -213,7 +213,7 @@ view: hr_attrition {
     sql: CASE WHEN ${date_month_month} = '2022-04' then -1*(${churned_employees_true} + 2)
               WHEN ${date_month_month} = '2022-05' then -1*(${churned_employees_true} + 15)
               WHEN ${date_month_month} = '2022-06' then -1*(${churned_employees_true} + 15)
-              WHEN ${date_month_month} = '2022-07' then -1*(${churned_employees_true} + 2)
+              WHEN ${date_month_month} = '2022-07' then -1*(${churned_employees_true} + 43)
               ELSE ${churned_employees_true} end;;
   }
 
@@ -222,7 +222,7 @@ view: hr_attrition {
     sql: CASE WHEN ${date_month_month} = '2022-04' then (${active_employees_true})
               WHEN ${date_month_month} = '2022-05' then (${active_employees_true} - 15)
               WHEN ${date_month_month} = '2022-06' then (${active_employees_true} - 35)
-              WHEN ${date_month_month} = '2022-07' then (${active_employees_true} - 25)
+              WHEN ${date_month_month} = '2022-07' then (${active_employees_true} - 80)
               ELSE ${active_employees_true} end;;
   }
 
