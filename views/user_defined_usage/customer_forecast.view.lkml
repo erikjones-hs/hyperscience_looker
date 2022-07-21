@@ -41,11 +41,4 @@
     sql: ${TABLE}."TOTAL_PAGES" ;;
     label: "Actuals"
   }
-
-  measure: total_pages_prac {
-    type: sum
-    sql: CASE WHEN ${dte_date} < dateadd(month,-2,date_trunc(month,to_date(current_date()))) then ${TABLE}."TOTAL_PAGES" else NULL end;;
-    label: "Actuals Prac"
-  }
-
 }
