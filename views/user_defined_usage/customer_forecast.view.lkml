@@ -7,6 +7,12 @@
     sql: ${TABLE}."DTE" ;;
   }
 
+  dimension_group: current_date {
+    type: time
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
+    sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
+  }
+
   dimension: customer {
     type: string
     sql: ${TABLE}."CUSTOMER" ;;
@@ -34,6 +40,12 @@
     type: sum
     sql: ${TABLE}."TOTAL_PAGES" ;;
     label: "Actuals"
+  }
+
+  measure: total_pages_prac {
+    type: number
+    sql: CASE WHEN ${dte_date} < dateadd(month,-2,date_trunc(month,to_date(current_date()))) then ${total_pages} else NULL end;;
+    label: "Actuals Prac"
   }
 
 }
