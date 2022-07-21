@@ -4,7 +4,7 @@
   dimension_group: dte {
     type: time
     timeframes: [raw, week, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
-    sql: ${TABLE}."DS" ;;
+    sql: ${TABLE}."DTE" ;;
   }
 
   dimension: customer {
