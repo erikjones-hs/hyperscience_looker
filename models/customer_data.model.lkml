@@ -12,3 +12,5 @@ explore: fct_weekly_pages {}
 explore: fct_pages_processed {}
 
 explore: usage_combined {}
+
+explore: customer_forecast {}
