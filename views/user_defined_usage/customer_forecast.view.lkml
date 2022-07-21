@@ -43,8 +43,8 @@
   }
 
   measure: total_pages_prac {
-    type: number
-    sql: CASE WHEN ${dte_date} < dateadd(month,-2,date_trunc(month,to_date(current_date()))) then ${total_pages} else NULL end;;
+    type: sum
+    sql: CASE WHEN ${dte_date} < dateadd(month,-2,date_trunc(month,to_date(current_date()))) then ${TABLE}."TOTAL_PAGES" else NULL end;;
     label: "Actuals Prac"
   }
 
