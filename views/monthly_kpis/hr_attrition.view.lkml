@@ -56,11 +56,13 @@ view: hr_attrition {
   dimension: employee_salary_usd {
     type: number
     sql: ${TABLE}."EMPLOYEE_SALARY_USD" ;;
+    hidden: yes
   }
 
   dimension: salary {
     type: number
     sql: ${TABLE}."SALARY" ;;
+    hidden: yes
   }
 
   dimension: is_employee {
