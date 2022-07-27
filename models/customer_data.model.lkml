@@ -14,3 +14,5 @@ explore: fct_pages_processed {}
 explore: usage_combined {}
 
 explore: customer_forecast {}
+
+explore: fct_usage {}

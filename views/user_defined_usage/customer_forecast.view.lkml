@@ -13,10 +13,26 @@
     sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
   }
 
-  dimension: customer {
+  dimension: opp_id {
     type: string
-    sql: ${TABLE}."CUSTOMER" ;;
+    sql: ${TABLE}."OPP_ID" ;;
   }
+
+  dimension: opp_name {
+    type: string
+    sql: ${TABLE}."OPP_NAME" ;;
+  }
+
+  dimension: account_id {
+    type: string
+    sql: ${TABLE}."ACCOUNT_ID" ;;
+  }
+
+  dimension: account_name {
+    type: string
+    sql: ${TABLE}."ACCOUNT_NAME" ;;
+  }
+
 
   measure: yhat {
     type: sum
