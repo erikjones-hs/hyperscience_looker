@@ -50,6 +50,12 @@
     label: "Contract Length (Months)"
   }
 
+  dimension: total_pages_processed {
+    type: number
+    sql: ${TABLE}."TOTAL_PAGES" ;;
+    label: "Total Pages"
+  }
+
 
   measure: contract_pages_annual {
     type: sum
