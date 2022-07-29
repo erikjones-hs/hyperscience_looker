@@ -44,6 +44,13 @@
     sql: ${TABLE}."IS_OPP_ACTIVE_FL" ;;
   }
 
+  dimension: contract_length {
+    type: number
+    sql: ${TABLE}."CONTRACT_LENGTH_MONTHS" ;;
+    label: "Contract Length (Months)"
+  }
+
+
   measure: contract_pages_annual {
     type: sum
     sql: ${TABLE}."CONTRACT_PAGES_ANNUAL" ;;
