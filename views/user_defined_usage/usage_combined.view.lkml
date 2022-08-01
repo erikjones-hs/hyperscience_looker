@@ -1,5 +1,5 @@
 view: usage_combined {
-  sql_table_name: (select * from dev.erikjones.usage_all_customers);;
+  sql_table_name: (select * from prod.customer_usage.usage_all_customers);;
 
   dimension: customer {
     type: string

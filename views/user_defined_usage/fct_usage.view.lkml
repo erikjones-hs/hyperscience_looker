@@ -1,5 +1,5 @@
   view: fct_usage {
-    sql_table_name: (select * from dev.erikjones.fct_usage);;
+    sql_table_name: (select * from prod.customer_usage.fct_usage);;
 
   dimension_group: dte_month {
     type: time
