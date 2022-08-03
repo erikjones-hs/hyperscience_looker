@@ -225,6 +225,7 @@ view: hr_attrition {
               WHEN ${date_month_month} = '2022-05' then (${active_employees_true} - 15)
               WHEN ${date_month_month} = '2022-06' then (${active_employees_true} - 35)
               WHEN ${date_month_month} = '2022-07' then (${active_employees_true} - 80)
+              WHEN ${date_month_month} = '2022-08' then (${active_employees_true} - 72)
               ELSE ${active_employees_true} end;;
   }
 
