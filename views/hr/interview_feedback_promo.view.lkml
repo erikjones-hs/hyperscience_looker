@@ -55,7 +55,7 @@
 
   dimension_group: employee_hire_dte {
     type: time
-    timeframes: [week, month, quarter, fiscal_quarter, fiscal_year]
+    timeframes: [date, week, month, quarter, fiscal_quarter, fiscal_year]
     sql: ${TABLE}."EMPLOYEE_HIRE_DTE" ;;
   }
 
