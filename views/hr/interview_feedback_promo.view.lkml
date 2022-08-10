@@ -28,11 +28,13 @@
 
   dimension_group: opportunity_created_dte {
     type: time
+    timeframes: [week, month, quarter, fiscal_quarter, fiscal_year]
     sql: ${TABLE}."OPPORTUNITY_CREATED_DTE" ;;
   }
 
   dimension_group: opportunity_archive_dte {
     type: time
+    timeframes: [week, month, quarter, fiscal_quarter, fiscal_year]
     sql: ${TABLE}."OPPORTUNITY_ARCHIVE_DTE" ;;
   }
 
@@ -53,6 +55,7 @@
 
   dimension_group: employee_hire_dte {
     type: time
+    timeframes: [week, month, quarter, fiscal_quarter, fiscal_year]
     sql: ${TABLE}."EMPLOYEE_HIRE_DTE" ;;
   }
 
