@@ -118,4 +118,10 @@
     percentile:  75
     sql: ${avg_feedback};;
   }
+
+  measure: feedback_score {
+    type: sum
+    sql: ${avg_feedback} ;;
+    label: "Feedback Score (Avg)"
+  }
 }
