@@ -124,4 +124,10 @@
     sql: ${avg_feedback} ;;
     label: "Feedback Score (Avg)"
   }
+
+  measure: mode_feedback {
+    type: average
+    sql: mode(${avg_feedback} ;;
+    label: "Feedback (Mode Avg)"
+  }
 }
