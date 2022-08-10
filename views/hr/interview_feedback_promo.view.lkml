@@ -81,6 +81,12 @@
     sql: CASE WHEN ${num_level_changes} >=1 then 1 else 0 end ;;
   }
 
+  dimension_group: current_date {
+    type: time
+    timeframes: [date, week, month, quarter, year]
+    sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
+  }
+
   measure: median_feedback {
     type: median
     sql: ${avg_feedback} ;;
