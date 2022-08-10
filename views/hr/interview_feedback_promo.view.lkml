@@ -128,9 +128,10 @@
     label: "Feedback Score (Avg)"
   }
 
-  measure: mode_feedback {
-    type: average
-    sql: mode(${avg_feedback} ;;
-    label: "Feedback (Mode Avg)"
+  measure: employee_name_count {
+    type: count_distinct
+    sql_distinct_key: ${opportunity_id} ;;
+    sql: ${opportunity_id} ;;
+    label: "Employee Count"
   }
 }
