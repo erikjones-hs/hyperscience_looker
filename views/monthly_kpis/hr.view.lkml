@@ -40,7 +40,7 @@ view: hr {
 
     dimension: employee_department {
       type: string
-      sql: ${TABLE}."EMPLOYEE_DEPARTMENT" ;;
+      sql: CASE WHEN ${TABLE}."EMPLOYEE_DEPARTMENT" in ('Corporate Development','Sales') then 'Sales' else ${TABLE}."EMPLOYEE_DEPARTMENT" end ;;
     }
 
     dimension: employee_work_email {
