@@ -201,6 +201,12 @@
     sql: ${TABLE}."HEAP_DEVICE" ;;
   }
 
+  dimension: prod_env_flag {
+    type: number
+    sql: CASE WHEN ${domain} ilike '%prod.%' then 1 else 0 end;;
+    label: "Prod Environment (1/0)"
+  }
+
   measure: num_pageviews {
     type: count_distinct
     sql_distinct_key: ${event_id} ;;
