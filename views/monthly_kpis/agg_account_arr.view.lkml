@@ -236,6 +236,12 @@ view: agg_account_arr {
     drill_fields: [detail*]
   }
 
+  measure: percent_expansion {
+    type:  number
+    sql:  ${expansion_arr} / (${new_arr} + ${expansion_arr}) ;;
+    label: "% Expansion"
+  }
+
   set: detail {
     fields: [
       date_month_month,
