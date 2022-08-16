@@ -240,6 +240,7 @@ view: agg_account_arr {
     type:  number
     sql:  ${expansion_arr} / NULLIFZERO((${new_arr} + ${expansion_arr})) ;;
     label: "% Expansion"
+    value_format: "0%"
   }
 
   set: detail {
