@@ -209,8 +209,8 @@
   }
 
   measure: most_recet_pageview {
-    type: max
-    sql: ${time_date} ;;
+    type: number
+    sql: max(to_date(${time_date})) ;;
     label: "Most Recent Activity"
   }
 }
