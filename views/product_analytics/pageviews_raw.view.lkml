@@ -202,8 +202,7 @@
   }
 
   measure: num_pageviews {
-    type: sum_distinct
-    sql_distinct_key: ${event_id} ;;
+    type: sum
     sql: ${event_id} ;;
     label: "# Pageviews"
   }
