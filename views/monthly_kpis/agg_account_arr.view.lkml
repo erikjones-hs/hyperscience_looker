@@ -238,7 +238,7 @@ view: agg_account_arr {
 
   measure: percent_expansion {
     type:  number
-    sql:  ${expansion_arr} / (${new_arr} + ${expansion_arr}) ;;
+    sql:  ${expansion_arr} / NULLIFZERO((${new_arr} + ${expansion_arr})) ;;
     label: "% Expansion"
   }
 
