@@ -15,3 +15,4 @@ explore: flows {}
 explore: submissions {}
 explore: layouts {}
 explore: tasks {}
+explore: pageviews_raw {}
