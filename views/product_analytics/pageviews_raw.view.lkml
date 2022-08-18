@@ -219,4 +219,10 @@
     sql: max(to_date(${time_date})) ;;
     label: "Most Recent Activity"
   }
+
+  measure: first_pageview {
+    type: date
+    sql: min(to_date(${time_date})) ;;
+    label: "Date of 1st Activity"
+  }
 }
