@@ -18,3 +18,4 @@ explore: layouts {}
 explore: tasks {}
 explore: pageviews_raw {}
 explore: software_version{}
+explore: arr_usage {}
