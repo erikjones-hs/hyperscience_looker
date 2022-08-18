@@ -2,6 +2,7 @@ connection: "looker-snowflake"
 
 include: "/views/user_defined_usage/*.view.lkml" # include all views in the views/ folder in this project
 include: "/views/product_analytics/*.view.lkml"
+include: "/views/customer_data/*.view.lkml"
 
 explore: user_defined_usage_data {}
 explore: pageviews {}
@@ -16,3 +17,4 @@ explore: submissions {}
 explore: layouts {}
 explore: tasks {}
 explore: pageviews_raw {}
+explore: software_version{}
