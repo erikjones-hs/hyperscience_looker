@@ -4,6 +4,8 @@ include: "/views/user_defined_usage/*.view.lkml" # include all views in the view
 include: "/views/product_analytics/*.view.lkml"
 include: "/views/customer_data/*.view.lkml"
 
+fiscal_month_offset:  2
+
 explore: user_defined_usage_data {}
 explore: pageviews {}
 explore: saas_usage {}
@@ -20,3 +22,4 @@ explore: pageviews_raw {}
 explore: software_version{}
 explore: arr_usage {}
 explore: most_recent_saas_usage {}
+explore: blended_pages {}
