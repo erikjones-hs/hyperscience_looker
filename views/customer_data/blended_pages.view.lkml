@@ -25,6 +25,12 @@
     label: "# Matched Semi-Structured Pages"
   }
 
+  measure: num_matched_structured_pages {
+    type: sum
+    sql: ${TABLE}."NUM_MATCHED_STRUCTURED_PAGES" ;;
+    label: "# Matched Structured Pages"
+  }
+
   measure: num_pages_created {
     type: sum
     sql: ${TABLE}."NUM_PAGES_CREATED" ;;
@@ -43,6 +49,7 @@
       dte_date,
       num_pages_with_fields_completed,
       num_matched_semi_structured_pages,
+      num_matched_structured_pages,
       num_pages_created,
       blended_pages
     ]
