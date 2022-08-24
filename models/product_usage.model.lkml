@@ -23,3 +23,4 @@ explore: software_version{}
 explore: arr_usage {}
 explore: most_recent_saas_usage {}
 explore: blended_pages {}
+explore: usage_no_lookup {}
