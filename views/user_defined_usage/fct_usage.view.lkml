@@ -50,6 +50,12 @@
     sql: ${TABLE}."IS_OPP_ACTIVE_FL" ;;
   }
 
+  dimension: currently_active {
+    type: string
+    sql:  CASE WHEN ${is_opp_active_fl} = 1 then 'Yes' else 'No' end ;;
+    label: "Currently Active Opp"
+  }
+
   dimension: contract_length {
     type: number
     sql: ${TABLE}."CONTRACT_LENGTH_MONTHS" ;;
