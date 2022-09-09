@@ -26,3 +26,4 @@ explore: blended_pages {}
 explore: usage_no_lookup {}
 explore: actuals_forecast_adoption {}
 explore: fct_usage_daily {}
+explore: customer_growth {}
