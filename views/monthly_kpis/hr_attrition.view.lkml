@@ -217,7 +217,7 @@ view: hr_attrition {
               WHEN ${date_month_month} = '2022-06' then -1*(${churned_employees_true} + 15)
               WHEN ${date_month_month} = '2022-07' then -1*(${churned_employees_true} + 43)
               WHEN ${date_month_month} = '2022-08' then -1*(${churned_employees_true} + 21)
-              WHEN ${date_month_month} = '2022-08' then -1*(${churned_employees_true} + 7)
+              WHEN ${date_month_month} = '2022-09' then -1*(${churned_employees_true} + 7)
               ELSE ${churned_employees_true} end;;
   }
 
