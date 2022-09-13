@@ -68,6 +68,13 @@
     label: "Total Pages"
   }
 
+  measure: num_customers {
+    type: count_distinct
+    sql_distinct_key: ${account_id} ;;
+    sql: ${account_id} ;;
+    label: "# Customers"
+  }
+
 
   measure: contract_pages_annual {
     type: sum
