@@ -26,6 +26,11 @@ view: arr_usage {
     sql: ${TABLE}."MONTHS_SINCE_ARR_START" ;;
   }
 
+  dimension: arr {
+    type: number
+    sql: ${TABLE}."ARR" ;;
+  }
+
   measure: num_accounts {
     type: count_distinct
     sql: ${account_id} ;;
