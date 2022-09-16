@@ -955,6 +955,13 @@ view: saas_metrics {
     label: "Churn ARR"
   }
 
+  measure: cost_of_revenue {
+    type: sum
+    sql: ${TABLE}."COST_OF_REVENUE" ;;
+    value_format: "$#,##0.00"
+    label: "Cost of Revenue"
+  }
+
   measure: net_new_arr {
     type: number
     sql: ${new_arr} + ${upsell_arr} + ${churn_arr} ;;
