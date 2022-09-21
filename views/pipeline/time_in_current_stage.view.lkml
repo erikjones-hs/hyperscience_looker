@@ -81,6 +81,32 @@ view: time_in_current_stage {
     }
   }
 
+  dimension: stage_custom_new {
+    label: "New Stage (custom sort)"
+    case: {
+      when: {
+        sql: lower(${opp_stage_name}) = 'discovery & qualification' ;;
+        label: "1. Discovery & Qualification"
+      }
+      when: {
+        sql: lower(${opp_stage_name}) = 'alignment' ;;
+        label: "2. Alignment"
+      }
+      when: {
+        sql: lower(${opp_stage_name}) = 'eb sponsorship' ;;
+        label: "3. EB Sponsorship"
+      }
+      when: {
+        sql: lower(${opp_stage_name}) = 'value & validation' ;;
+        label: "4. Value & Validation"
+      }
+      when: {
+        sql: lower(${opp_stage_name}) = 'eb signoff & contracts' ;;
+        label: "5. EB Sign-Off & Contracts"
+      }
+    }
+  }
+
   dimension: opp_lead_source {
     type: string
     sql: ${TABLE}."OPP_LEAD_SOURCE" ;;
