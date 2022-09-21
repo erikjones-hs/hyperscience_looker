@@ -112,6 +112,11 @@ view: sales_pipeline_current {
     sql: ${TABLE}."OPP_REVENUE_TYPE" ;;
   }
 
+  dimension: opp_commit_status {
+    type: string
+    sql: ${TABLE}."OPP_COMMIT_STATUS" ;;
+  }
+
   measure: total_pipeline_opps {
     type: count_distinct
     sql: ${opp_id} ;;
