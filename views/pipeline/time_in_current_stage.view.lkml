@@ -636,7 +636,8 @@ view: time_in_current_stage {
   }
 
   measure: num_fresh_opps {
-    type: sum
+    type: sum_distinct
+    sql_distinct_key: ${opp_id} ;;
     sql: ${fresh_opp_flag} ;;
     label: "# Fresh Opps"
   }
