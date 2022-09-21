@@ -85,24 +85,28 @@ view: time_in_current_stage {
     label: "New Stage (custom sort)"
     case: {
       when: {
+        sql: lower(${opp_stage_name}) = 'pipeline generation' ;;
+        label: "1. Pipeline Generation"
+      }
+      when: {
         sql: lower(${opp_stage_name}) = 'discovery & qualification' ;;
-        label: "1. Discovery & Qualification"
+        label: "2. Discovery & Qualification"
       }
       when: {
         sql: lower(${opp_stage_name}) = 'alignment' ;;
-        label: "2. Alignment"
+        label: "3. Alignment"
       }
       when: {
         sql: lower(${opp_stage_name}) = 'eb sponsorship' ;;
-        label: "3. EB Sponsorship"
+        label: "4. EB Sponsorship"
       }
       when: {
         sql: lower(${opp_stage_name}) = 'value & validation' ;;
-        label: "4. Value & Validation"
+        label: "5. Value & Validation"
       }
       when: {
         sql: lower(${opp_stage_name}) = 'eb signoff & contracts' ;;
-        label: "5. EB Sign-Off & Contracts"
+        label: "6. EB Sign-Off & Contracts"
       }
     }
   }
