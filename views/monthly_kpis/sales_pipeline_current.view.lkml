@@ -152,6 +152,22 @@ view: sales_pipeline_current {
     drill_fields: [detail*]
   }
 
+  measure: total_arr {
+    type: sum_distinct
+    sql_distinct_key: ${opp_id} ;;
+    sql: ${opp_arr} ;;
+    label: "Total ARR"
+    drill_fields: [detail*]
+  }
+
+  measure: total_net_new_arr {
+    type: sum_distinct
+    sql_distinct_key: ${opp_id} ;;
+    sql: ${opp_net_new_arr} ;;
+    label: "Total Net New ARR"
+    drill_fields: [detail*]
+  }
+
   measure: total_non_qual_pipeline_opps {
     type: count_distinct
     sql: ${opp_id} ;;
