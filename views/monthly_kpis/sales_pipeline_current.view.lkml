@@ -267,6 +267,12 @@ view: sales_pipeline_current {
     drill_fields: [detail*]
   }
 
+  measure: pipeline_type {
+    type: sum
+    sql: CASE WHEN lower(${opp_commit_status} in ('best case','committed') then 'Best Case / Committed' else 'Pipeline' end;;
+    label: "Pipeline Category (New)"
+  }
+
 
 
   set: detail {
