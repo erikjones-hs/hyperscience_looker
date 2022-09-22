@@ -8,7 +8,6 @@ view: sales_pipeline_current {
     sql: ${TABLE}."DATE_RAN" ;;
   }
 
-
   dimension: opp_id {
     type: string
     sql: ${TABLE}."OPP_ID" ;;
@@ -48,17 +47,46 @@ view: sales_pipeline_current {
     type: number
     sql:
       CASE
-        WHEN ${opp_stage_name} = 'AE Discovery' THEN 1
-        WHEN ${opp_stage_name} = 'Value/Fit' THEN 2
-        WHEN ${opp_stage_name} = 'TDD' THEN 3
-        WHEN ${opp_stage_name} = 'EB Go/No-Go' THEN 4
-        WHEN ${opp_stage_name} = 'TVE' THEN 5
-        WHEN ${opp_stage_name} = 'EB Revisit' THEN 6
-        WHEN ${opp_stage_name} = 'Negotiate and Close' THEN 7
+        WHEN lower(${opp_stage_name}) = 'pipeline generation' THEN 1
+        WHEN lower(${opp_stage_name}) = 'discovery & qualification' THEN 2
+        WHEN lower(${opp_stage_name}) = 'alignment' THEN 3
+        WHEN lower(${opp_stage_name}) = 'eb sponsorship' THEN 4
+        WHEN lower(${opp_stage_name}) = 'value & validation' THEN 5
+        WHEN lower(${opp_stage_name}) = 'eb signoff & contracts' THEN 6
         ELSE 8
       END ;;
     hidden: yes
     description: "This dimension is used to force sort the stage name dimension."
+  }
+
+  dimension: stage_custom_new {
+    label: "New Stage (custom sort)"
+    case: {
+      when: {
+        sql: lower(${opp_stage_name}) = 'pipeline generation' ;;
+        label: "1. Pipeline Generation"
+      }
+      when: {
+        sql: lower(${opp_stage_name}) = 'discovery & qualification' ;;
+        label: "2. Discovery & Qualification"
+      }
+      when: {
+        sql: lower(${opp_stage_name}) = 'alignment' ;;
+        label: "3. Alignment"
+      }
+      when: {
+        sql: lower(${opp_stage_name}) = 'eb sponsorship' ;;
+        label: "4. EB Sponsorship"
+      }
+      when: {
+        sql: lower(${opp_stage_name}) = 'value & validation' ;;
+        label: "5. Value & Validation"
+      }
+      when: {
+        sql: lower(${opp_stage_name}) = 'eb signoff & contracts' ;;
+        label: "6. EB Sign-Off & Contracts"
+      }
+    }
   }
 
   dimension: opp_stage_name {
@@ -206,6 +234,24 @@ view: sales_pipeline_current {
     drill_fields: [detail*]
     value_format: "#0.00\%"
   }
+
+  measure: total_pipeline_opps_new {
+    type: count_distinct
+    sql: ${opp_id} ;;
+    label: "Total Pipeline Opportunities (New)"
+    filters: [opp_commit_status: "Pipeline"]
+    drill_fields: [detail*]
+  }
+
+  measure: total_qual_pipeline_opps_new {
+    type: count_distinct
+    sql: ${opp_id} ;;
+    label: "Total Qualified Pipeline Opportunities (New)"
+    filters: [opp_commit_status: "Best Case, Committed"]
+    drill_fields: [detail*]
+  }
+
+
 
   set: detail {
     fields: [
