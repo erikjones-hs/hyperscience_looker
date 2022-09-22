@@ -105,6 +105,11 @@ view: sales_pipeline_current {
     sql: ${TABLE}."OPP_IS_MARKETING_INFLUENCED_FLAG" ;;
   }
 
+  dimension: opp_is_partner_influenced_flag {
+    type: number
+    sql: ${TABLE}."OPP_IS_PARTNER_INFLUENCED_FLAG" ;;
+  }
+
   dimension_group: opp_close_dte {
     type: time
     timeframes: [raw, date, month, month_name, month_num, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
@@ -175,6 +180,24 @@ view: sales_pipeline_current {
     value_format: "$#,##0"
     label: "Total Net New ARR"
     drill_fields: [detail*]
+  }
+
+  measure: total_arr_pipeline_mktg {
+    type:  sum
+    sql:  ${opp_arr};;
+    value_format: "$#,##0"
+    filters: [opp_is_marketing_influenced_flag: "1"]
+    drill_fields: [detail*]
+    label: "Total ARR Marketing Influenced"
+  }
+
+  measure: total_arr_pipeline_partner {
+    type:  sum
+    sql:  ${opp_arr};;
+    value_format: "$#,##0"
+    filters: [opp_is_partner_influenced_flag: "1"]
+    drill_fields: [detail*]
+    label: "Total ARR Partner Influenced"
   }
 
   measure: total_non_qual_pipeline_opps {
