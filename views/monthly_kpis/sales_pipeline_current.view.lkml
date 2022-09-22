@@ -205,7 +205,7 @@ view: sales_pipeline_current {
     sql: 100* ${total_arr_pipeline_mktg} / ${total_arr};;
     label: "% Marketing Influenced Pipeline"
     drill_fields: [detail*]
-    value_format: "#0.00\%"
+    value_format: "#0\%"
   }
 
   measure: percent_total_arr_partner {
@@ -213,7 +213,7 @@ view: sales_pipeline_current {
     sql: 100* ${total_arr_pipeline_partner} / ${total_arr};;
     label: "% Partner Influenced Pipeline"
     drill_fields: [detail*]
-    value_format: "#0.00\%"
+    value_format: "#0\%"
   }
 
   measure: total_non_qual_pipeline_opps {
