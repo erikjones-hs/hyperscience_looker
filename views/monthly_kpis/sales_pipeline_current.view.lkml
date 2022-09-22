@@ -147,7 +147,7 @@ view: sales_pipeline_current {
 
   dimension: pipeline_type {
     type: string
-    sql: CASE WHEN lower(${opp_commit_status} in ('best case','committed') then 'Best Case / Committed' else 'Pipeline' end;;
+    sql: CASE WHEN lower(${opp_commit_status}) in ('best case','committed') then 'Best Case / Committed' else 'Pipeline' end;;
     label: "Pipeline Category (New)"
   }
 
