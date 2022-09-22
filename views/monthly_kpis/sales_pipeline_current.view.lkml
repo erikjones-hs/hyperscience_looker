@@ -163,6 +163,7 @@ view: sales_pipeline_current {
     type: sum_distinct
     sql_distinct_key: ${opp_id} ;;
     sql: ${opp_arr} ;;
+    value_format: "$#,##0"
     label: "Total ARR"
     drill_fields: [detail*]
   }
@@ -171,6 +172,7 @@ view: sales_pipeline_current {
     type: sum_distinct
     sql_distinct_key: ${opp_id} ;;
     sql: ${opp_net_new_arr} ;;
+    value_format: "$#,##0"
     label: "Total Net New ARR"
     drill_fields: [detail*]
   }
