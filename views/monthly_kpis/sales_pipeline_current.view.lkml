@@ -107,6 +107,7 @@ view: sales_pipeline_current {
 
   dimension_group: opp_close_dte {
     type: time
+    timeframes: [raw, date, month, month_name, month_num, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
     sql: ${TABLE}."OPP_CLOSE_DTE" ;;
   }
 
@@ -285,7 +286,7 @@ view: sales_pipeline_current {
       opp_stage_name,
       opp_lead_source,
       opp_is_marketing_influenced_flag,
-      opp_close_dte_time,
+      opp_close_dte_date,
       opp_arr,
       opp_net_new_arr,
       opportunity_owner,
