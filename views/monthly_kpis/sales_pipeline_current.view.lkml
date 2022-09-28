@@ -333,6 +333,14 @@ view: sales_pipeline_current {
     drill_fields: [detail*]
   }
 
+  measure: total_new_business_opps_new {
+    type: count_distinct
+    sql: ${opp_id} ;;
+    label: "Total New Business Pipeline Opportunities (New)"
+    filters: [opp_revenue_type: "New Business, Pilot"]
+    drill_fields: [detail*]
+  }
+
   set: detail {
     fields: [
       date_ran_date,
