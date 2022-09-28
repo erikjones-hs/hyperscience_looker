@@ -200,6 +200,24 @@ view: sales_pipeline_current {
     label: "Total ARR Partner Influenced"
   }
 
+  measure: total_arr_pipeline {
+    type:  sum
+    sql:  ${opp_arr};;
+    value_format: "$#,##0"
+    filters: [opp_commit_status: "Pipeline"]
+    drill_fields: [detail*]
+    label: "Total ARR Pipeline (New)"
+  }
+
+  measure: total_arr_best_case_committed {
+    type:  sum
+    sql:  ${opp_arr};;
+    value_format: "$#,##0"
+    filters: [opp_commit_status: "Best Case, Committed"]
+    drill_fields: [detail*]
+    label: "Total ARR Best Case / Committed (New)"
+  }
+
   measure: percent_total_arr_mktg {
     type:  number
     sql: 100* ${total_arr_pipeline_mktg} / ${total_arr};;
