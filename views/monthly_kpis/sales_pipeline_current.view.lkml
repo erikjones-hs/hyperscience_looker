@@ -337,7 +337,7 @@ view: sales_pipeline_current {
     type: count_distinct
     sql: ${opp_id} ;;
     label: "Total New Business Pipeline Opportunities (New)"
-    filters: [opp_revenue_type: "New Business, Pilot"]
+    filters: [opp_revenue_type: "New Customer, Pilot"]
     drill_fields: [detail*]
   }
 
