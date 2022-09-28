@@ -8,6 +8,12 @@
     sql: ${TABLE}."QTR_END_DTE" ;;
   }
 
+  dimension_group: current_date {
+    type: time
+    timeframes: [raw, date, month, month_name, month_num, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
+    sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
+  }
+
   measure: beginning_opps {
     type: sum
     sql: ${TABLE}."BEGINNING_OPPS" ;;
