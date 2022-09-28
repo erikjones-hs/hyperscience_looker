@@ -86,6 +86,10 @@ view: sales_pipeline_current {
         sql: lower(${opp_stage_name}) = 'eb signoff & contracts' ;;
         label: "6. EB Sign-Off & Contracts"
       }
+      when: {
+        sql: lower(${opp_stage_name}) IS NULL ;;
+        label: "7. NULL"
+      }
     }
   }
 
