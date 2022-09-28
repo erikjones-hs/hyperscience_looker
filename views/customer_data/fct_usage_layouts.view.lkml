@@ -56,4 +56,10 @@
     sql: ${TABLE}."NUM_LAYOUTS" ;;
     label: "Avg. # Layouts"
   }
+
+  measure: med_layouts {
+    type: median
+    sql: ${TABLE}."NUM_LAYOUTS" ;;
+    label: "Median # Layouts"
+  }
 }
