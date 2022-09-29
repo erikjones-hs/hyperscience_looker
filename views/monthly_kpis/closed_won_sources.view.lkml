@@ -41,12 +41,14 @@ view: closed_won_sources {
   measure: arr_net_new {
     type: sum
     sql: ${net_new_arr} ;;
+    value_format: "$#,##0"
     label: "Net New ARR"
   }
 
   measure: arr_total {
     type: sum
     sql: ${total_arr} ;;
+    value_format: "$#,##0"
     label: "Total ARR"
   }
 
