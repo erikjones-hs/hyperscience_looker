@@ -72,6 +72,7 @@ view: software_version {
       opp_name,
       sfdc_account_id,
       sfdc_account_name,
+      customer
     ]
   }
 }
