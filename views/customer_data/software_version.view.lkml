@@ -58,7 +58,7 @@ view: software_version {
 
   measure: num_customers{
     type: count_distinct
-    sql: ${sfdc_account_id} ;;
+    sql: ${customer} ;;
     drill_fields: [detail*]
   }
 
