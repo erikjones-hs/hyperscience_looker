@@ -149,6 +149,13 @@
     label: "Churn Renewal ARR"
   }
 
+  measure: no_open_opp_arr {
+    type: sum
+    sql: -1*${net_new_arr} ;;
+    filters: [renewal_type: "no open opp"]
+    label: "No Open Opp Renewal ARR"
+  }
+
   measure: recurring_of_churn_arr {
     type: sum
     sql: ${open_opp_arr} ;;
