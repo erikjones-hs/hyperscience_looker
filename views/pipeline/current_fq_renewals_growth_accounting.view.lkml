@@ -205,6 +205,12 @@
     label: "Net Renewal Amount"
   }
 
+  measure: expected_renewal_amt {
+    type: number
+    sql: ${total_potential_churn} + ${net_renewal_amount} ;;
+    label: "EOQ Renewal Amount"
+  }
+
   measure: current_quarter_renewal_retention {
     type: number
     sql: ${net_renewal_amount} / ${total_potential_churn} ;;
