@@ -76,7 +76,7 @@
 
   measure: total_potential_churn {
     type: sum
-    sql: ${potential_churn_amount} ;;
+    sql: -1*${potential_churn_amount} ;;
     label: "Total ARR up for Renewal"
   }
 
@@ -91,7 +91,7 @@
 
   measure: churned_arr {
     type: sum
-    sql: ${potential_churn_amount} ;;
+    sql: -1*${potential_churn_amount} ;;
     filters: [has_churned_flag: "1"]
     drill_fields: [detail*]
     label: "Total ARR Churned"
@@ -108,7 +108,7 @@
 
   measure: flat_arr {
     type: sum
-    sql: ${potential_churn_amount} ;;
+    sql: -1*${potential_churn_amount} ;;
     filters: [renewal_type: "renewal_flat"]
     drill_fields: [detail*]
     label: "Total ARR Flat Renewals"
@@ -125,7 +125,7 @@
 
   measure: arr_churn_arr {
     type: sum
-    sql: ${potential_churn_amount} ;;
+    sql: -1${potential_churn_amount} ;;
     filters: [renewal_type: "renewal_churn"]
     drill_fields: [detail*]
     label: "Total ARR Renewal Churn"
@@ -133,7 +133,7 @@
 
   measure: arr_churn_amount {
     type: sum
-    sql: ${renewal_arr_change} ;;
+    sql: -1*${renewal_arr_change} ;;
     filters: [renewal_type: "renewal_churn"]
     drill_fields: [detail*]
     label: "Total ARR Renewal Churn Amount "
@@ -150,7 +150,7 @@
 
   measure: expansion_arr {
     type: sum
-    sql: ${potential_churn_amount} ;;
+    sql: -1*${potential_churn_amount} ;;
     filters: [renewal_type: "renewal_expansion"]
     drill_fields: [detail*]
     label: "Total ARR Renewal Expansion"
@@ -175,7 +175,7 @@
 
   measure: outstanding_arr {
     type: sum
-    sql: ${potential_churn_amount} ;;
+    sql: -1*${potential_churn_amount} ;;
     filters: [outstanding_renewal_flag: "1"]
     drill_fields: [detail*]
     label: "Total Past Renewal ARR"
@@ -192,7 +192,7 @@
 
   measure: upcoming_arr {
     type: sum
-    sql: ${potential_churn_amount} ;;
+    sql: -1*${potential_churn_amount} ;;
     filters: [upcoming_renewal_flag: "1"]
     drill_fields: [detail*]
     label: "Total ARR Upcoming Renewals"
