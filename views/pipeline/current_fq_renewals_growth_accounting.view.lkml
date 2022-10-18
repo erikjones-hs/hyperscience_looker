@@ -49,7 +49,7 @@
 
   dimension: has_churned_flag {
     type: number
-    sql: ${TABLE}."HAS_CHurned_FLAG" ;;
+    sql: ${TABLE}."HAS_CHURNED_FLAG" ;;
   }
 
   dimension: outstanding_renewal_flag {
