@@ -97,6 +97,14 @@
     label: "Total ARR Churned"
   }
 
+  measure: churned_arr_waterfall {
+    type: sum
+    sql: ${potential_churn_amount} ;;
+    filters: [has_churned_flag: "1"]
+    drill_fields: [detail*]
+    label: "Total ARR Churned (Waterfall)"
+  }
+
   measure: flat_opps {
     type: count_distinct
     sql_distinct_key: ${existing_opp_id} ;;
@@ -133,7 +141,7 @@
 
   measure: arr_churn_amount {
     type: sum
-    sql: ${renewal_arr_change} ;;
+    sql: -1*${renewal_arr_change} ;;
     filters: [renewal_type: "renewal_churn"]
     drill_fields: [detail*]
     label: "Total ARR Renewal Churn Amount "
