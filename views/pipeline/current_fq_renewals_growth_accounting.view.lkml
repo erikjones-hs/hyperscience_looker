@@ -125,7 +125,7 @@
 
   measure: arr_churn_arr {
     type: sum
-    sql: -1${potential_churn_amount} ;;
+    sql: -1*${potential_churn_amount} ;;
     filters: [renewal_type: "renewal_churn"]
     drill_fields: [detail*]
     label: "Total ARR Renewal Churn"
@@ -133,7 +133,7 @@
 
   measure: arr_churn_amount {
     type: sum
-    sql: -1*${renewal_arr_change} ;;
+    sql: ${renewal_arr_change} ;;
     filters: [renewal_type: "renewal_churn"]
     drill_fields: [detail*]
     label: "Total ARR Renewal Churn Amount "
