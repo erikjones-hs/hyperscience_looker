@@ -71,13 +71,13 @@
     type: count_distinct
     sql_distinct_key: ${existing_opp_id} ;;
     sql: ${existing_opp_id} ;;
-    label: "# Opps"
+    label: "# Opps up for Renwaal"
   }
 
   measure: total_potential_churn {
     type: sum
     sql: -1*${potential_churn_amount} ;;
-    label: "Total ARR up for Renewal"
+    label: "ARR up for Renewal"
   }
 
   measure: churned_opps {
@@ -94,7 +94,7 @@
     sql: -1*${potential_churn_amount} ;;
     filters: [has_churned_flag: "1"]
     drill_fields: [detail*]
-    label: "Total ARR Churned"
+    label: "ARR Churned"
   }
 
   measure: churned_arr_waterfall {
@@ -102,7 +102,7 @@
     sql: ${potential_churn_amount} ;;
     filters: [has_churned_flag: "1"]
     drill_fields: [detail*]
-    label: "Total ARR Churned (Waterfall)"
+    label: "ARR Churned (Waterfall)"
   }
 
   measure: flat_opps {
@@ -111,7 +111,7 @@
     sql: ${existing_opp_id} ;;
     filters: [renewal_type: "renewal_flat"]
     drill_fields: [detail*]
-    label: "# Flat Renewal Opps"
+    label: "# Flat Opps"
   }
 
   measure: flat_arr {
@@ -119,7 +119,7 @@
     sql: -1*${potential_churn_amount} ;;
     filters: [renewal_type: "renewal_flat"]
     drill_fields: [detail*]
-    label: "Total ARR Flat Renewals"
+    label: "ARR Flat Renewals"
   }
 
   measure: arr_churn_opps {
@@ -128,7 +128,7 @@
     sql: ${existing_opp_id} ;;
     filters: [renewal_type: "renewal_churn"]
     drill_fields: [detail*]
-    label: "Total ARR Renewal Churn Opps"
+    label: "# ARR Churn"
   }
 
   measure: arr_churn_arr {
@@ -136,7 +136,7 @@
     sql: -1*${potential_churn_amount} ;;
     filters: [renewal_type: "renewal_churn"]
     drill_fields: [detail*]
-    label: "Total ARR Renewal Churn"
+    label: "ARR Renewal w/ Churn"
   }
 
   measure: arr_churn_amount {
@@ -144,7 +144,7 @@
     sql: -1*${renewal_arr_change} ;;
     filters: [renewal_type: "renewal_churn"]
     drill_fields: [detail*]
-    label: "Total ARR Renewal Churn Amount "
+    label: "Total ARR Renewal Churn Amount"
   }
 
   measure: expansion_opps {
@@ -153,7 +153,7 @@
     sql: ${existing_opp_id} ;;
     filters: [renewal_type: "renewal_expansion"]
     drill_fields: [detail*]
-    label: "Total # Renewal Expansion"
+    label: "# Renewal w/ Expansion"
   }
 
   measure: expansion_arr {
@@ -161,7 +161,7 @@
     sql: -1*${potential_churn_amount} ;;
     filters: [renewal_type: "renewal_expansion"]
     drill_fields: [detail*]
-    label: "Total ARR Renewal Expansion"
+    label: "ARR Renewal w/ Expansion"
   }
 
   measure: expansion_amount {
@@ -169,24 +169,24 @@
     sql: ${renewal_arr_change} ;;
     filters: [renewal_type: "renewal_expansion"]
     drill_fields: [detail*]
-    label: "Total AR Renewal Expansion Amount"
+    label: "Total ARR Renewal Expansion Amount"
   }
 
-  measure: outstanding_opps {
+  measure: past_due_opps {
     type: count_distinct
     sql_distinct_key: ${existing_opp_id} ;;
     sql: ${existing_opp_id} ;;
     filters: [outstanding_renewal_flag: "1"]
     drill_fields: [detail*]
-    label: "# Past Renewal Date Opps"
+    label: "# Past Due Opps"
   }
 
-  measure: outstanding_arr {
+  measure: past_due_arr {
     type: sum
     sql: -1*${potential_churn_amount} ;;
     filters: [outstanding_renewal_flag: "1"]
     drill_fields: [detail*]
-    label: "Total Past Renewal ARR"
+    label: "ARR Past Due"
   }
 
   measure: upcoming_opps {
@@ -195,7 +195,7 @@
     sql: ${existing_opp_id} ;;
     filters: [upcoming_renewal_flag: "1"]
     drill_fields: [detail*]
-    label: "Total # Upcoming Renewal Opps"
+    label: "# Upcoming Opps"
   }
 
   measure: upcoming_arr {
@@ -203,7 +203,19 @@
     sql: -1*${potential_churn_amount} ;;
     filters: [upcoming_renewal_flag: "1"]
     drill_fields: [detail*]
-    label: "Total ARR Upcoming Renewals"
+    label: "ARR Upcoming"
+  }
+
+  measure: outstanding_opps {
+    type: number
+    sql: ${past_due_opps} + ${upcoming_opps} ;;
+    label: "# Outstanding Renewals"
+  }
+
+  measure: outstanding_arr {
+    type: number
+    sql: ${past_due_arr} + ${upcoming_arr} ;;
+    label: "ARR Outstanding"
   }
 
   measure: net_renewal_amount {
@@ -223,6 +235,18 @@
     type: number
     sql: ${net_renewal_amount} / ${total_potential_churn} ;;
     label: "Current QTR ARR Renewal Retention"
+  }
+
+  measure: ending_renewal_amount {
+    type: number
+    sql: ${total_potential_churn} + ${expansion_amount} - ${arr_churn_amount} - ${arr_churn_arr} ;;
+    label: "Expected EOQ Renewal Amount"
+  }
+
+  measure: current_qtr_renewal_retention {
+    type: number
+    sql: ${ending_renewal_amount} / ${total_potential_churn} ;;
+    label: "Current Qtr. Renewal ARR Retention"
   }
 
 
