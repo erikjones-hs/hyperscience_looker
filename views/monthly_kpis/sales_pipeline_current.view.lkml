@@ -155,10 +155,23 @@ view: sales_pipeline_current {
     sql: ${TABLE}."OPP_COMMIT_STATUS" ;;
   }
 
+  dimension: commit_status_ordering {
+    type: number
+    sql:
+      CASE
+        WHEN lower(${pipeline_type}) = 'pipeline' THEN 1
+        WHEN lower(${pipeline_type}) = 'best case / committed' THEN 2
+        ELSE 3
+      END ;;
+    hidden: yes
+    description: "This dimension is used to force sort the pipeline type name dimension."
+  }
+
   dimension: pipeline_type {
     type: string
     sql: CASE WHEN lower(${opp_commit_status}) in ('best case','committed') then 'Best Case / Committed' else 'Pipeline' end;;
     label: "Pipeline Category (New)"
+    order_by_field: commit_status_ordering
   }
 
   measure: total_pipeline_opps {
