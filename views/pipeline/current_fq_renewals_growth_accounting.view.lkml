@@ -226,25 +226,6 @@
     label: "ARR Outstanding"
   }
 
-  measure: net_renewal_amount {
-    type: sum
-    sql: ${renewal_arr_change} ;;
-    drill_fields: [detail*]
-    label: "Net Renewal Amount"
-  }
-
-  measure: expected_renewal_amt {
-    type: number
-    sql: ${total_potential_churn} + ${net_renewal_amount} ;;
-    label: "EOQ Renewal Amount"
-  }
-
-  measure: current_quarter_renewal_retention {
-    type: number
-    sql: ${net_renewal_amount} / ${total_potential_churn} ;;
-    label: "Current QTR ARR Renewal Retention"
-  }
-
   measure: ending_renewal_amount {
     type: number
     sql: ${total_potential_churn} + ${expansion_amount} + ${arr_churn_amount_waterfall} + ${churned_arr_waterfall} ;;
