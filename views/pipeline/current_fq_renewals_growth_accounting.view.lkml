@@ -147,6 +147,14 @@
     label: "Total ARR Renewal Churn Amount"
   }
 
+  measure: arr_churn_amount_waterfall {
+    type: sum
+    sql: ${renewal_arr_change} ;;
+    filters: [renewal_type: "renewal_churn"]
+    drill_fields: [detail*]
+    label: "Total ARR Renewal Churn Amount (Waterfall)"
+  }
+
   measure: expansion_opps {
     type: count_distinct
     sql_distinct_key: ${existing_opp_id} ;;
