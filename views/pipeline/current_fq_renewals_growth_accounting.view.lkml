@@ -247,7 +247,7 @@
 
   measure: ending_renewal_amount {
     type: number
-    sql: ${total_potential_churn} + ${expansion_amount} - ${arr_churn_amount_waterfall} - ${churned_arr_waterfall} ;;
+    sql: ${total_potential_churn} + ${expansion_amount} + ${arr_churn_amount_waterfall} + ${churned_arr_waterfall} ;;
     label: "Expected EOQ Renewal Amount"
   }
 
