@@ -4,7 +4,7 @@ view: sales_pipeline_history {
 
   dimension_group: date_ran {
     type: time
-    timeframes: [date, month, quarter, year]
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
     sql: ${TABLE}."DATE_RAN" ;;
   }
 
