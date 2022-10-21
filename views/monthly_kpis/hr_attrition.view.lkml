@@ -218,7 +218,7 @@ view: hr_attrition {
               WHEN ${date_month_month} = '2022-07' then -1*(${churned_employees_true} + 43)
               WHEN ${date_month_month} = '2022-08' then -1*(${churned_employees_true} + 21)
               WHEN ${date_month_month} = '2022-09' then -1*(${churned_employees_true} + 9)
-              WHEN ${date_month_month} = '2022-10' then -1*(${churned_employees_true} + 0)
+              WHEN ${date_month_month} = '2022-10' then -1*(${churned_employees_true} + 6)
               ELSE ${churned_employees_true} end;;
   }
 
@@ -230,7 +230,7 @@ view: hr_attrition {
               WHEN ${date_month_month} = '2022-07' then (${active_employees_true} - 80)
               WHEN ${date_month_month} = '2022-08' then (${active_employees_true} - 91)
               WHEN ${date_month_month} = '2022-09' then (${active_employees_true} - 100)
-              WHEN ${date_month_month} = '2022-10' then (${active_employees_true} - 101)
+              WHEN ${date_month_month} = '2022-10' then (${active_employees_true} - 107)
               ELSE ${active_employees_true} end;;
   }
 
