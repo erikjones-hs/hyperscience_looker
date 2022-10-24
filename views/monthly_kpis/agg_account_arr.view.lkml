@@ -229,6 +229,14 @@ view: agg_account_arr {
     drill_fields: [detail*]
   }
 
+  measure: new_bookings_arr {
+    type:  number
+    sql:  ${new_arr} + ${expansion_arr};;
+    value_format: "$#,##0"
+    drill_fields: [detail*]
+    label: "New Bookings ARR"
+  }
+
   measure: arr_churn {
     type:  sum
     sql:  ${mrr_reporting_acct} ;;
