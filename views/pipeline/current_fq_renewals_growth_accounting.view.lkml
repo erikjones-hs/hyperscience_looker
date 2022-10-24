@@ -126,7 +126,7 @@
     type: count_distinct
     sql_distinct_key: ${existing_opp_id} ;;
     sql: ${existing_opp_id} ;;
-    filters: [renewal_type: "renewal_churn"]
+    filters: [renewal_type: "renewal_arr_churn"]
     drill_fields: [detail*]
     label: "# ARR Churn"
   }
@@ -134,7 +134,7 @@
   measure: arr_churn_arr {
     type: sum
     sql: -1*${potential_churn_amount} ;;
-    filters: [renewal_type: "renewal_churn"]
+    filters: [renewal_type: "renewal_arr_churn"]
     drill_fields: [detail*]
     label: "ARR Renewal w/ Churn"
   }
@@ -142,7 +142,7 @@
   measure: arr_churn_amount {
     type: sum
     sql: -1*${renewal_arr_change} ;;
-    filters: [renewal_type: "renewal_churn"]
+    filters: [renewal_type: "renewal_arr_churn"]
     drill_fields: [detail*]
     label: "Total ARR Renewal Churn Amount"
   }
@@ -150,7 +150,7 @@
   measure: arr_churn_amount_waterfall {
     type: sum
     sql: ${renewal_arr_change} ;;
-    filters: [renewal_type: "renewal_churn"]
+    filters: [renewal_type: "renewal_arr_churn"]
     drill_fields: [detail*]
     label: "Total ARR Renewal Churn Amount (Waterfall)"
   }
