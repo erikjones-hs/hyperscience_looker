@@ -30,3 +30,5 @@ explore: customer_growth {}
 explore: customers_pages_monthly_estimate {}
 explore: fct_usage_layouts {}
 explore: time_to_upgrade {}
+explore: sfdc_usage_qc {}
+explore: contracted_pages_qc {}
