@@ -52,7 +52,7 @@
 
   measure: new_perc_beginning {
     type: number
-    sql: ${new_opps} / NULLIFZERO((${beginning_opps});;
+    sql: ${new_opps} / NULLIFZERO(${beginning_opps});;
     label:"% New Opps"
   }
 
