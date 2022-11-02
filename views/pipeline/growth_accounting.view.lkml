@@ -54,17 +54,20 @@
     type: number
     sql: ${new_opps} / NULLIFZERO(${beginning_opps});;
     label:"% New Opps"
+    value_format: "0.0\%"
   }
 
   measure: cw_perc_beginning {
     type: number
     sql: ${closed_won_opps} / NULLIFZERO(${beginning_opps});;
     label:"% Closed Won Opps"
+    value_format: "0.0\%"
   }
 
   measure: cl_perc_beginning {
     type: number
     sql: ${closed_lost_opps} / NULLIFZERO(${beginning_opps});;
     label:"% Closed Lost Opps"
+    value_format: "0.0\%"
   }
 }
