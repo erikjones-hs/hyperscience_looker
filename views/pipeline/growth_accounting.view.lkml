@@ -49,4 +49,22 @@
     sql: ${TABLE}."ENDING_OPPS" ;;
     label:"# Ending Opportunities"
   }
+
+  measure: new_perc_beginning {
+    type: number
+    sql: ${new_opps} / ${beginning_opps};;
+    label:"% New Opps"
+  }
+
+  measure: cw_perc_beginning {
+    type: number
+    sql: ${closed_won_opps} / ${beginning_opps};;
+    label:"% Closed Won Opps"
+  }
+
+  measure: cl_perc_beginning {
+    type: number
+    sql: ${closed_lost_opps} / ${beginning_opps};;
+    label:"% Closed Lost Opps"
+  }
 }
