@@ -240,26 +240,30 @@
 
   measure: perc_expanion_renewals {
     type: number
-    sql: 100*(${expansion_opps} / NILLIFZERO(${num_opps})) ;;
+    sql: 100*(${expansion_opps} / NULLIFZERO(${num_opps})) ;;
     label: "% Expansion"
+    value_format:"0.0\%"
   }
 
   measure: perc_arr_churn_renewals {
     type: number
-    sql: 100*(${arr_churn_opps} / NILLIFZERO(${num_opps})) ;;
+    sql: 100*(${arr_churn_opps} / NULLIFZERO(${num_opps})) ;;
     label: "% ARR Churn"
+    value_format:"0.0\%"
   }
 
   measure: perc_logo_churn_renewals {
     type: number
-    sql: 100*(${churned_opps} / NILLIFZERO(${num_opps})) ;;
+    sql: 100*(${churned_opps} / NULLIFZERO(${num_opps})) ;;
     label: "% Churn"
+    value_format:"0.0\%"
   }
 
   measure: perc_flat_renewals {
     type: number
-    sql: 100*(${flat_opps} / NILLIFZERO(${num_opps})) ;;
+    sql: 100*(${flat_opps} / NULLIFZERO(${num_opps})) ;;
     label: "% Flat"
+    value_format:"0.0\%"
   }
 
     set: detail {
