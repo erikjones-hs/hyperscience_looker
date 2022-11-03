@@ -238,7 +238,29 @@
     label: "Current Qtr. Renewal ARR Retention"
   }
 
+  measure: perc_expanion_renewals {
+    type: number
+    sql: 100*(${expansion_opps} / NILLIFZERO(${num_opps})) ;;
+    label: "% Expansion"
+  }
 
+  measure: perc_arr_churn_renewals {
+    type: number
+    sql: 100*(${arr_churn_opps} / NILLIFZERO(${num_opps})) ;;
+    label: "% ARR Churn"
+  }
+
+  measure: perc_logo_churn_renewals {
+    type: number
+    sql: 100*(${churned_opps} / NILLIFZERO(${num_opps})) ;;
+    label: "% Churn"
+  }
+
+  measure: perc_flat_renewals {
+    type: number
+    sql: 100*(${flat_opps} / NILLIFZERO(${num_opps})) ;;
+    label: "% Churn"
+  }
 
     set: detail {
       fields: [
