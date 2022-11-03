@@ -259,7 +259,7 @@
   measure: perc_flat_renewals {
     type: number
     sql: 100*(${flat_opps} / NILLIFZERO(${num_opps})) ;;
-    label: "% Churn"
+    label: "% Flat"
   }
 
     set: detail {
