@@ -67,6 +67,12 @@
     sql: ${TABLE}."EXISTING_OPP_RENEWAL_DATE" ;;
   }
 
+  dimension_group: current_date {
+    type: time
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
+    sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
+  }
+
   measure: num_opps {
     type: count_distinct
     sql_distinct_key: ${existing_opp_id} ;;
