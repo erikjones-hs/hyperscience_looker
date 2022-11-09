@@ -53,3 +53,4 @@ explore: ae_report {persist_for: "12 hours"}
 explore: net_new_arr_comparison_current_qtr {persist_for: "12 hours"}
 explore: ltv_ltm {}
 explore: arr_actuals_forecast_trash {}
+explore: go_live_history {}
