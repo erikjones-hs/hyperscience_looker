@@ -55,6 +55,25 @@ view: go_live_history {
     sql_distinct_key: account_id ;;
     sql: ${account_id} ;;
     filters: [live_customer_fl: "1"]
+    label: "# Live Customers"
+  }
+
+  measure: num_live_customers_12_months_ago {
+    type: number
+    sql: lag(${num_live_customers},12,0) over (order by ${dte_month} asc);;
+    label: "# Live Customers 12 Months Ago"
+  }
+
+  measure: delta_12_months_ago {
+    type: number
+    sql: ${num_live_customers} - ${num_live_customers_12_months_ago} ;;
+    label: "Live Customer Delta from 12 Months Ago"
+  }
+
+  measure: perc_change_12_months_ago {
+    type: number
+    sql: 100*(${delta_12_months_ago} / ${num_live_customers_12_months_ago}) ;;
+    label: "Live Customer % Change from 12 Months Ago"
   }
 
   set: detail {
