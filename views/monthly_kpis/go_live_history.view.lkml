@@ -72,7 +72,7 @@ view: go_live_history {
 
   measure: perc_change_12_months_ago {
     type: number
-    sql: 100*(${delta_12_months_ago} / ${num_live_customers_12_months_ago}) ;;
+    sql: 100*(${delta_12_months_ago} / NULLIFZERO(${num_live_customers_12_months_ago})) ;;
     label: "Live Customer % Change from 12 Months Ago"
   }
 
