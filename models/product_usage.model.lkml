@@ -32,3 +32,4 @@ explore: fct_usage_layouts {}
 explore: time_to_upgrade {}
 explore: sfdc_usage_qc {}
 explore: contracted_pages_qc {}
+explore: usage_report_full {}
