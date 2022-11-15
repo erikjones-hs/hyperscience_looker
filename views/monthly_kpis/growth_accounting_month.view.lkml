@@ -153,7 +153,7 @@ view: growth_accounting_month {
     type:  sum
     sql:  100 * ${arr_growth_mom} ;;
     value_format: "#0\%"
-    label: "ARR Growth QoQ"
+    label: "ARR Growth MoM"
   }
 
   measure: new_arr_percent_beg {
