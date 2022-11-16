@@ -353,7 +353,7 @@ view: usage_report_full {
 
   dimension: is_last_day_of_month {
     type: yesno
-    sql: last_day(to_date(${date_date})));;
+    sql: last_day(to_date(${date_date}));;
   }
 
   dimension: is_previous_month {
