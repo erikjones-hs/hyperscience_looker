@@ -353,7 +353,7 @@ view: usage_report_full {
 
   dimension: is_previous_month {
     type: yesno
-    sql: ${date_raw} >= date_trunc('month', current_date - interval '1' month)
+    sql: ${date_raw} >= date_trunc('month', add_months(current_date,-1))
       and ${date_raw} < date_trunc('month', current_date);;
   }
 
