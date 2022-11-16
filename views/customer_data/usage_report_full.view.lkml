@@ -351,6 +351,11 @@ view: usage_report_full {
     sql: ${TABLE}."SOFTWARE_VERSION" ;;
   }
 
+  dimension: is_last_day_of_month {
+    type: yesno
+    sql: last_day(${date_raw}, 'day');;
+  }
+
   dimension: is_previous_month {
     type: yesno
     sql: ${date_raw} >= date_trunc('month', add_months(current_date,-1))
