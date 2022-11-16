@@ -21,6 +21,11 @@ view: usage_report_full {
     sql: ${TABLE}."DATE" ;;
   }
 
+  dimension: date_dte {
+    type: date
+    sql: ${TABLE}."DATE" ;;
+  }
+
   dimension: number_of_archived_layouts {
     type: number
     sql: ${TABLE}."NUMBER_OF_ARCHIVED_LAYOUTS" ;;
@@ -353,7 +358,7 @@ view: usage_report_full {
 
   dimension: is_last_day_of_month {
     type: yesno
-    sql: last_day(to_date(${date_raw}));;
+    sql: last_day(${date_dte});;
   }
 
   dimension: is_previous_month {
