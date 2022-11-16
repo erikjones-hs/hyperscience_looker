@@ -853,6 +853,12 @@ view: usage_report_full {
     sql: ${total_pages_classified_automatically} > 0;;
   }
 
+  measure: avg_pages_processed_per_month {
+    type: average
+    sql: ${number_of_pages_created};;
+    label: "AVG Pages / Month"
+  }
+
   set: details {
     fields: [customer, software_version]
   }
