@@ -80,6 +80,13 @@ view: go_live_history {
     label: "# Live Customers"
   }
 
+  measure: num_customers {
+    type: count_distinct
+    sql_distinct_key: account_id ;;
+    sql: ${account_id} ;;
+    label: "# Customers"
+  }
+
   measure: num_live_customers_12_months_ago {
     type: number
     sql: lag(${num_live_customers},12,0) over (order by ${dte_month} asc);;
