@@ -46,6 +46,12 @@ view: go_live_history {
     sql: ${TABLE}."CHURN_MONTH" ;;
   }
 
+  dimension_group: current_date {
+    type: time
+    timeframes: [date, month, quarter, year]
+    sql:  to_timestamp(to_date(current_date())) ;;
+  }
+
   dimension: live_customer_fl {
     type: number
     sql: ${TABLE}."LIVE_CUSTOMER_FL" ;;
