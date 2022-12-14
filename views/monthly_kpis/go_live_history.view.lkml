@@ -116,6 +116,7 @@ view: go_live_history {
     type: median
     sql: ${ttv_months} ;;
     drill_fields: [detail*]
+    value_format: "0.0"
   }
 
   measure: min_ttv {
