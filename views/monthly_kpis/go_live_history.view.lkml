@@ -34,6 +34,12 @@ view: go_live_history {
     sql: ${TABLE}."GO_LIVE_DATE" ;;
   }
 
+  dimension_group: start_date {
+    type: time
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
+    sql: ${TABLE}."START_DATE" ;;
+  }
+
   dimension_group: churn_month {
     type: time
     timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
@@ -48,6 +54,16 @@ view: go_live_history {
   dimension: go_live_date_fl {
     type: number
     sql: ${TABLE}."GO_LIVE_DATE_FL" ;;
+  }
+
+  dimension: ttv_days {
+    type: number
+    sql: ${TABLE}."TTV_DAYS" ;;
+  }
+
+  dimension: ttv_months {
+    type: number
+    sql: ${TABLE}."TTV_MONTHS" ;;
   }
 
   measure: num_live_customers {
@@ -74,6 +90,45 @@ view: go_live_history {
     type: number
     sql: 100*(${delta_12_months_ago} / NULLIFZERO(${num_live_customers_12_months_ago})) ;;
     label: "Live Customer % Change from 12 Months Ago"
+  }
+
+  measure: avg_time_to_value {
+    type: average
+    sql:${ttv_months} ;;
+    value_format: "0.##"
+    drill_fields: [detail*]
+  }
+
+  measure: median_ttv {
+    type: median
+    sql: ${ttv_months} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: min_ttv {
+    type: min
+    sql: ${ttv_months} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: max_ttv {
+    type: max
+    sql:${ttv_months} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: percentile_25_ttv {
+    type: percentile
+    percentile:  25
+    sql: ${ttv_months} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: percentile_75_ttv {
+    type: percentile
+    percentile:  75
+    sql: ${ttv_months} ;;
+    drill_fields: [detail*]
   }
 
   set: detail {
