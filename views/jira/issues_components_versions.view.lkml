@@ -336,8 +336,8 @@ view: issues_components_versions {
 
   measure: mean_time_to_resolution_mpr {
     type: average
-    sql: ${hours_time_to_resolution_mpr};;
-    label: "Mean Time to Resolution (Hours) MPR"
+    sql: ${days_time_to_resolution_mpr};;
+    label: "Mean Time to Resolution (Days) MPR"
   }
 
   measure: time_to_resolution_hours {
