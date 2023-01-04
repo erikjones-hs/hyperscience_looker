@@ -106,6 +106,12 @@ view: issues_components_versions {
     sql: ${TABLE}."RESOLUTION_DTE_RAW" ;;
   }
 
+  dimension_group: resolution_dte_for_calcs {
+    type: time
+    timeframes: [raw, date, week, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
+    sql: ${TABLE}."RESOLUTION_DTE_FOR_CALCS" ;;
+  }
+
   dimension_group: resolution_dte_transformed {
     type: time
     timeframes: [raw, date, week, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
@@ -260,6 +266,13 @@ view: issues_components_versions {
     sql_end: ${resolution_dte_raw_raw} ;;
   }
 
+  dimension_group: time_to_resolution_mpr {
+    type: duration
+    intervals: [day, hour, minute]
+    sql_start: ${created_dte_raw} ;;
+    sql_end: ${resolution_dte_for_calcs_raw} ;;
+  }
+
   dimension_group: time_open {
     type: duration
     sql_start: ${created_dte_date} ;;
@@ -319,6 +332,12 @@ view: issues_components_versions {
     type: average
     sql: ${hours_time_to_resolution};;
     label: "Mean Time to Resolution (Hours)"
+  }
+
+  measure: mean_time_to_resolution_mpr {
+    type: average
+    sql: ${hours_time_to_resolution_mpr};;
+    label: "Mean Time to Resolution (Hours) MPR"
   }
 
   measure: time_to_resolution_hours {
