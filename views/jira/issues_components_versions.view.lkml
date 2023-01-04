@@ -330,7 +330,7 @@ view: issues_components_versions {
   measure: documentation_published{
     type: count_distinct
     sql: ${issue_id};;
-    filters: [issue_type_name: "Documentation task", status: "published, Done"]
+    filters: [issue_type_name: "Documentation task", status: "published, Done", created_month_fl: "= 1"]
     label: "Documentation Tasks (Published)"
   }
 
