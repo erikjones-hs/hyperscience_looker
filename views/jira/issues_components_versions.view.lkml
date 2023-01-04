@@ -335,9 +335,10 @@ view: issues_components_versions {
   }
 
   measure: mean_time_to_resolution_mpr {
-    type: average
-    sql: ${days_time_to_resolution_mpr};;
-    label: "Mean Time to Resolution (Days) MPR"
+    type: average_distinct
+    sql_distinct_key: ${issue_id} ;;
+    sql: ${hours_time_to_resolution_mpr};;
+    label: "Mean Time to Resolution (Hours) MPR"
   }
 
   measure: time_to_resolution_hours {
