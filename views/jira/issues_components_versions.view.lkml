@@ -327,6 +327,13 @@ view: issues_components_versions {
     label: "Time to Resolution (Hours)"
   }
 
+  measure: documentation_published{
+    type: count_distinct
+    sql: ${issue_id};;
+    filters: [issue_type_name: "Documentation task", status: "published, Done"]
+    label: "Documentation Tasks (Published)"
+  }
+
 
   dimension: fix_version_filter {
     type: string
