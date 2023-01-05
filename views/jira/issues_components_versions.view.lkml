@@ -259,6 +259,11 @@ view: issues_components_versions {
     sql: split_part(${fix_version_name},'.',1) ;;
   }
 
+  dimension: labels {
+    type: string
+    sql: ${TABLE}."LABELS" ;;
+  }
+
   dimension_group: time_to_resolution {
     type: duration
     intervals: [day, hour, minute]
@@ -352,6 +357,13 @@ view: issues_components_versions {
     sql: ${issue_id};;
     filters: [issue_type_name: "Documentation task", status: "published, Done", created_month_fl: "= 1"]
     label: "Documentation Tasks (Published)"
+  }
+
+  measure: num_ml_customer_escalation_tickets {
+    type: count_distinct
+    sql: ${issue_id} ;;
+    filters: [labels: "escalation, jira_escalated, real-customer-issue", project_key: "TEAMR, MODELS", created_month_fl: "= 1"]
+    label: "# ML Customer Facing or Escalation Tickets"
   }
 
 
