@@ -35,7 +35,7 @@ view: arr_by_geo {
 
   dimension: billing_country {
     type: string
-    sql: ${TABLE}."BILLING_COUNTRY" ;;
+    sql: ${TABLE}."BILLING_COUNTRY_ADJUSTED" ;;
   }
 
   dimension: country {
