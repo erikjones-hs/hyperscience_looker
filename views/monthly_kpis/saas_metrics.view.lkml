@@ -437,79 +437,79 @@ view: saas_metrics {
   measure: eng_fte {
     type: sum
     sql: ${TABLE}."ENG_FTE" ;;
-    filters: [dte_month: "2022-02,2023-02,2024-02"]
+    filters: [dte_month: "2022-02,2023-02,2024-02,2025-02"]
   }
 
   measure: sales_fte {
     type: sum
     sql: ${TABLE}."SALES_FTE" ;;
-    filters: [dte_month: "2022-02,2023-02,2024-02"]
+    filters: [dte_month: "2022-02,2023-02,2024-02,2025-02"]
     label: "Sales Headcount"
   }
 
   measure: cx_fte {
     type: sum
     sql: ${TABLE}."CX_FTE" ;;
-    filters: [dte_month: "2022-02,2023-02,2024-02"]
+    filters: [dte_month: "2022-02,2023-02,2024-02,2025-02"]
     label: "CX Headcount"
   }
 
   measure: new_eng_fte {
     type: sum
     sql: ${TABLE}."NEW_ENG_FTE" ;;
-    filters: [dte_month: "2022-02,2023-02,2024-02"]
+    filters: [dte_month: "2022-02,2023-02,2024-02,2025-02"]
   }
 
   measure: people_fte {
     type: sum
     sql: ${TABLE}."PEOPLE_FTE" ;;
-    filters: [dte_month: "2022-02,2023-02,2024-02"]
+    filters: [dte_month: "2022-02,2023-02,2024-02,2025-02"]
   }
 
   measure: product_fte {
     type: sum
     sql: ${TABLE}."PRODUCT_FTE" ;;
-    filters: [dte_month: "2022-02,2023-02,2024-02"]
+    filters: [dte_month: "2022-02,2023-02,2024-02,2025-02"]
     label: "Product Headcount"
   }
 
   measure: marketing_fte {
     type: sum
     sql: ${TABLE}."MARKETING_FTE" ;;
-    filters: [dte_month: "2022-02,2023-02,2024-02"]
+    filters: [dte_month: "2022-02,2023-02,2024-02,2025-02"]
     label: "Marketing Headcount"
   }
 
   measure: finance_fte {
     type: sum
     sql: ${TABLE}."FINANCE_FTE" ;;
-    filters: [dte_month: "2022-02,2023-02,2024-02"]
+    filters: [dte_month: "2022-02,2023-02,2024-02,2025-02"]
     label: "Finance Headcount"
   }
 
   measure: corp_dev_fte {
     type: sum
     sql: ${TABLE}."CORP_DEV_FTE" ;;
-    filters: [dte_month: "2022-02,2023-02,2024-02"]
+    filters: [dte_month: "2022-02,2023-02,2024-02,2025-02"]
   }
 
   measure: legal_fte {
     type: sum
     sql: ${TABLE}."LEGAL_FTE" ;;
-    filters: [dte_month: "2022-02,2023-02,2024-02"]
+    filters: [dte_month: "2022-02,2023-02,2024-02,2025-02"]
     label: "Legal Headcount"
   }
 
   measure: operations_fte {
     type: sum
     sql: ${TABLE}."OPERATIONS_FTE" ;;
-    filters: [dte_month: "2022-02,2023-02,2024-02"]
+    filters: [dte_month: "2022-02,2023-02,2024-02,2025-02"]
   }
 
   measure: all_dept_fte {
     type: sum
     sql: ${TABLE}."ALL_DEPT_FTE" ;;
-    filters: [dte_month: "2022-02,2023-02,2024-02"]
+    filters: [dte_month: "2022-02,2023-02,2024-02,2025-02"]
     label: "Total Headcount"
   }
 
