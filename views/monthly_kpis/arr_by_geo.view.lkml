@@ -72,8 +72,7 @@ view: arr_by_geo {
   }
 
   measure: sum_arr {
-    type: sum_distinct
-    sql_distinct_key: ${account_id} ;;
+    type: sum
     sql: ${arr} ;;
     label: "$ ARR"
   }
