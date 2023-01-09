@@ -612,75 +612,75 @@ view: saas_metrics {
 
   measure: people_ftes {
     type: number
-    sql: ${people_fte} - 7 ;;
+    sql: ${people_fte} - 3 ;;
     label: "People Team Headcount"
   }
 
   measure: corp_dev_ops_fte {
     type: number
-    sql: ${corp_dev_fte} + ${operations_fte} + 7 ;;
+    sql: ${corp_dev_fte} + ${operations_fte} + 3 ;;
     label: "Corp. Dev + Operations Headcount"
   }
 
   measure: eng_percent_total_fte {
     type: number
-    sql: ${engineering_fte} / ${all_dept_fte} ;;
+    sql: ${engineering_fte} / NULLIFZERO(${all_dept_fte}) ;;
     value_format: "0\%"
     label: "Engineering % of Headcount"
   }
 
   measure: sales_percent_total_fte {
     type: number
-    sql: ${sales_fte} / ${all_dept_fte} ;;
+    sql: ${sales_fte} / NULLIFZERO(${all_dept_fte}) ;;
     value_format: "0\%"
     label: "Sales % of Headcount"
   }
 
   measure: cx_percent_total_fte {
     type: number
-    sql: ${cx_fte} / ${all_dept_fte} ;;
+    sql: ${cx_fte} / NULLIFZERO(${all_dept_fte}) ;;
     value_format: "0\%"
     label: "CX % of Headcount"
   }
 
   measure: people_percent_total_fte {
     type: number
-    sql: ${people_ftes} / ${all_dept_fte} ;;
+    sql: ${people_ftes} / NULLIFZERO(${all_dept_fte}) ;;
     value_format: "0\%"
     label: "People Team % of Headcount"
   }
 
   measure: product_percent_total_fte {
     type: number
-    sql: ${product_fte} / ${all_dept_fte} ;;
+    sql: ${product_fte} / NULLIFZERO(${all_dept_fte}) ;;
     value_format: "0\%"
     label: "Product % of Headcount"
   }
 
   measure: marketing_percent_total_fte {
     type: number
-    sql: ${marketing_fte} / ${all_dept_fte} ;;
+    sql: ${marketing_fte} / NULLIFZERO(${all_dept_fte}) ;;
     value_format: "0\%"
     label: "Marketing % of Headcount"
   }
 
   measure: corp_dev_ops_percent_total_fte {
     type: number
-    sql: ${corp_dev_ops_fte} / ${all_dept_fte} ;;
+    sql: ${corp_dev_ops_fte} / NULLIFZERO(${all_dept_fte}) ;;
     value_format: "0\%"
     label: "Corp. Dev + Ops. % of Headcount"
   }
 
   measure: finance_percent_total_fte {
     type: number
-    sql: ${finance_fte} / ${all_dept_fte} ;;
+    sql: ${finance_fte} / NULLIFZERO(${all_dept_fte}) ;;
     value_format: "0\%"
     label: "Finance % of Headcount"
   }
 
   measure: legal_percent_total_fte {
     type: number
-    sql: ${legal_fte} / ${all_dept_fte} ;;
+    sql: ${legal_fte} / NULLIFZERO(${all_dept_fte}) ;;
     value_format: "0\%"
     label: "Legal % of Headcount"
   }
