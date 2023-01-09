@@ -2,11 +2,6 @@ view: arr_by_geo {
   sql_table_name: (select * from dev.erikjones.arr_by_geo);;
   drill_fields: [detail*]
 
-  measure: count {
-    type: count
-    drill_fields: [detail*]
-  }
-
   dimension_group: date_month {
     type: time
     timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
@@ -61,6 +56,12 @@ view: arr_by_geo {
   dimension: revenue_range {
     type: string
     sql: ${TABLE}."REVENUE_RANGE" ;;
+  }
+
+  dimension_group: current_date {
+    type: time
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
+    sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
   }
 
   measure: num_accounts {
