@@ -2,8 +2,9 @@ view: arr_by_partner_category{
   sql_table_name: (select * from dev.erikjones.arr_partner_bpo_direct);;
   drill_fields: [detail*]
 
-  dimension: dte {
-    type: date
+  dimension_group: dte {
+    type: time
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
     sql: ${TABLE}."DTE" ;;
   }
 
@@ -40,7 +41,7 @@ view: arr_by_partner_category{
 
   set: detail {
     fields: [
-      dte,
+      dte_raw,
       account_id,
       account_name,
       arr,
