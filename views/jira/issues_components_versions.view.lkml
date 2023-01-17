@@ -362,7 +362,7 @@ view: issues_components_versions {
   measure: num_ml_customer_escalation_tickets {
     type: count_distinct
     sql: ${issue_id} ;;
-    filters: [labels: "escalation, jira_escalated, real-customer-issue", project_key: "TEAMR, MODELS", created_month_fl: "= 1"]
+    filters: [labels: "escalation, jira_escalated, real-customer-issue", project_key: "TEAMR, MODELS, MLE", created_month_fl: "= 1"]
     label: "# ML Customer Facing or Escalation Tickets"
   }
 
