@@ -989,4 +989,134 @@ view: saas_metrics {
     type: average
     sql: ${TABLE}."BURN_MULTIPLE_75" ;;
   }
+
+  measure: financing_cash_flow {
+    type: sum
+    sql: ${TABLE}."FINANCING_CASH_FLOW" ;;
+    value_format: "$#,##0.00"
+  }
+
+  measure: operating_cash_flow {
+    type: sum
+    sql: ${TABLE}."OPERATING_CASH_FLOW" ;;
+    value_format: "$#,##0.00"
+  }
+
+  measure: salaries_and_wages_allocation {
+    type: sum
+    sql: ${TABLE}."SALARIES_AND_WAGES_ALLOCATION" ;;
+    value_format: "$#,##0.00"
+
+  }
+
+  measure: payroll_taxes_allocation {
+    type: sum
+    sql: ${TABLE}."PAYROLL_TAXES_ALLOCATION" ;;
+    value_format: "$#,##0.00"
+  }
+
+  measure: benefits_allocation {
+    type: sum
+    sql: ${TABLE}."BENEFITS_ALLOCATION" ;;
+    value_format: "$#,##0.00"
+  }
+
+  measure: employer_match_401_k_allocation {
+    type: sum
+    sql: ${TABLE}."EMPLOYER_MATCH_401_K_ALLOCATION" ;;
+    value_format: "$#,##0.00"
+  }
+
+  measure: salaries_and_wages {
+    type: sum
+    sql: ${TABLE}."SALARIES_AND_WAGES" ;;
+    value_format: "$#,##0.00"
+  }
+
+  measure: payroll_taxes {
+    type: sum
+    sql: ${TABLE}."PAYROLL_TAXES" ;;
+    value_format: "$#,##0.00"
+  }
+
+  measure: payroll_benefits {
+    type: sum
+    sql: ${TABLE}."PAYROLL_BENEFITS" ;;
+    value_format: "$#,##0.00"
+  }
+
+  measure: health_club {
+    type: sum
+    sql: ${TABLE}."HEALTH_CLUB" ;;
+    value_format: "$#,##0.00"
+  }
+
+  measure: employer_match_401_k {
+    type: sum
+    sql: ${TABLE}."EMPLOYER_MATCH_401_K" ;;
+    value_format: "$#,##0.00"
+  }
+
+  measure: dependent_care {
+    type: sum
+    sql: ${TABLE}."DEPENDENT_CARE" ;;
+    value_format: "$#,##0.00"
+  }
+
+  measure: bonus {
+    type: sum
+    sql: ${TABLE}."BONUS" ;;
+    value_format: "$#,##0.00"
+  }
+
+  measure: severance {
+    type: sum
+    sql: ${TABLE}."SEVERANCE" ;;
+    value_format: "$#,##0.00"
+  }
+
+  measure: relocation {
+    type: sum
+    sql: ${TABLE}."RELOCATION" ;;
+    value_format: "$#,##0.00"
+  }
+
+  measure: temp_labor {
+    type: sum
+    sql: ${TABLE}."TEMP_LABOR" ;;
+    value_format: "$#,##0.00"
+  }
+
+  measure: software_subscriptions {
+    type: sum
+    sql: ${TABLE}."SOFTWARE_SUBSCRIPTIONS" ;;
+    value_format: "$#,##0.00"
+  }
+
+  measure: comp_benefits_spend {
+    type: sum
+    sql: ${TABLE}."COMP_BENEFITS_SPEND" ;;
+    value_format: "$#,##0.00"
+  }
+
+  measure: fcf_margin_percent {
+    type:  number
+    sql: (${financing_cash_flow} + ${operating_cash_flow}) / NULLIFZERO(${revenue}) ;;
+    value_format: "0\%"
+    label: "FCF Margin / GAAP Revenue"
+  }
+
+  measure: gaap_rev_per_fte {
+    type:  number
+    sql: ${revenue} / ${all_dept_fte} ;;
+    value_format: "0\%"
+    label: "GAAP Revenue / FTE"
+  }
+
+  measure: software_expenses_per_fte {
+    type:  number
+    sql: (${software_subscriptions} + ${software_engineering_expense}) / NULLIFZERO(${all_dept_fte}) ;;
+    value_format: "0\%"
+    label: "Software Expenses / FTE"
+  }
 }
