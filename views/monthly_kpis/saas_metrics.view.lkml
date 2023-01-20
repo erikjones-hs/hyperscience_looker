@@ -1126,11 +1126,25 @@ view: saas_metrics {
     label: "GAAP Revenue / FTE (FY)"
   }
 
+  measure: comp_benefits_per_revenue {
+    type:  number
+    sql: ${comp_benefits_spend} / NULLIFZERO(${revenue}) ;;
+    value_format: "0\%"
+    label: "Compensation & Benefits / GAAP Revenue"
+  }
+
   measure: software_expenses_per_fte {
     type:  number
     sql: (${software_subscriptions} + ${software_engineering_expense}) / NULLIFZERO(${all_dept_fte_all_months}) ;;
     value_format: "0\%"
     label: "Software Expenses / FTE"
+  }
+
+  measure: software_expenses_per_fte_fy {
+    type:  number
+    sql: (${software_subscriptions} + ${software_engineering_expense}) / NULLIFZERO(${all_dept_fte}) ;;
+    value_format: "0\%"
+    label: "Software Expenses / FTE (FY)"
   }
 
   measure: fcf_percent_25 {
