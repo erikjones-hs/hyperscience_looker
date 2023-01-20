@@ -1119,6 +1119,13 @@ view: saas_metrics {
     label: "GAAP Revenue / FTE"
   }
 
+  measure: gaap_rev_per_fte_fy {
+    type:  number
+    sql: ${revenue} / NULLIFZERO(${all_dept_fte}) ;;
+    value_format: "$#,##0"
+    label: "GAAP Revenue / FTE (FY)"
+  }
+
   measure: software_expenses_per_fte {
     type:  number
     sql: (${software_subscriptions} + ${software_engineering_expense}) / NULLIFZERO(${all_dept_fte_all_months}) ;;
