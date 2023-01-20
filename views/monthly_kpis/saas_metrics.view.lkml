@@ -510,7 +510,13 @@ view: saas_metrics {
     type: sum
     sql: ${TABLE}."ALL_DEPT_FTE" ;;
     filters: [dte_month: "2022-02,2023-02,2024-02,2025-02"]
-    label: "Total Headcount"
+    label: "Total FY Exit Headcount"
+  }
+
+  measure: all_dept_fte_all_months {
+    type: sum
+    sql: ${TABLE}."ALL_DEPT_FTE" ;;
+    label: "Total Headcount (All Months)"
   }
 
   measure: cloud_spend {
@@ -1108,14 +1114,14 @@ view: saas_metrics {
 
   measure: gaap_rev_per_fte {
     type:  number
-    sql: ${revenue} / NULLIFZERO(${all_dept_fte}) ;;
+    sql: ${revenue} / NULLIFZERO(${all_dept_fte_all_months}) ;;
     value_format: "0\%"
     label: "GAAP Revenue / FTE"
   }
 
   measure: software_expenses_per_fte {
     type:  number
-    sql: (${software_subscriptions} + ${software_engineering_expense}) / NULLIFZERO(${all_dept_fte}) ;;
+    sql: (${software_subscriptions} + ${software_engineering_expense}) / NULLIFZERO(${all_dept_fte_all_months}) ;;
     value_format: "0\%"
     label: "Software Expenses / FTE"
   }
