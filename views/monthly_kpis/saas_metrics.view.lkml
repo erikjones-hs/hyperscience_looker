@@ -1115,7 +1115,7 @@ view: saas_metrics {
   measure: gaap_rev_per_fte {
     type:  number
     sql: ${revenue} / NULLIFZERO(${all_dept_fte_all_months}) ;;
-    value_format: "$#,##0.00"
+    value_format: "$#,##0"
     label: "GAAP Revenue / FTE"
   }
 
