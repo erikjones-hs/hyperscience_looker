@@ -1119,4 +1119,65 @@ view: saas_metrics {
     value_format: "0\%"
     label: "Software Expenses / FTE"
   }
+
+  measure: fcf_percent_25 {
+    type: average
+    sql: ${TABLE}."FCF_PERCENT_25" ;;
+  }
+
+  measure: fcf_percent_median {
+    type: average
+    sql: ${TABLE}."FCF_PERCENT_MEDIAN" ;;
+  }
+
+  measure: fcf_percent_75 {
+    type: average
+    sql: ${TABLE}."FCF_PERCENT_75" ;;
+  }
+
+  measure: rev_per_fte_25 {
+    type: average
+    sql: ${TABLE}."REV_PER_FTE_25" ;;
+  }
+
+  measure: rev_per_fte_med {
+    type: average
+    sql: ${TABLE}."REV_PER_FTE_MED" ;;
+  }
+
+  measure: rev_per_fte_75 {
+    type: average
+    sql: ${TABLE}."REV_PER_FTE_75" ;;
+  }
+
+  measure: comp_benefit_25 {
+    type: average
+    sql: ${TABLE}."COMP_BENEFIT_25" ;;
+  }
+
+  measure: comp_benefit_med {
+    type: average
+    sql: ${TABLE}."COMP_BENEFIT_MED" ;;
+  }
+
+  measure: comp_benefit_75 {
+    type: average
+    sql: ${TABLE}."COMP_BENEFIT_75" ;;
+  }
+
+  measure: software_fte_25 {
+    type: average
+    sql: ${TABLE}."SOFTWARE_FTE_25" ;;
+  }
+
+  measure: software_fte_med {
+    type: average
+    sql: ${TABLE}."SOFTWARE_FTE_MED" ;;
+  }
+
+  measure: software_fte_75 {
+    type: average
+    sql: ${TABLE}."SOFTWARE_FTE_75" ;;
+  }
+
 }
