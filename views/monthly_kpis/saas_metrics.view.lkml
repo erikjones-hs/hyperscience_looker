@@ -1107,7 +1107,7 @@ view: saas_metrics {
 
   measure: fcf_margin_percent {
     type:  number
-    sql: (${financing_cash_flow} + ${operating_cash_flow}) / NULLIFZERO(${revenue}) ;;
+    sql: 100*((${financing_cash_flow} + ${operating_cash_flow}) / NULLIFZERO(${revenue})) ;;
     value_format: "0\%"
     label: "FCF Margin / GAAP Revenue"
   }
