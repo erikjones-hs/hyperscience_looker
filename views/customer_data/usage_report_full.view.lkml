@@ -1,5 +1,5 @@
 view: usage_report_full {
-  sql_table_name: (select * from dev.erikjones.usage_report_full);;
+  sql_table_name: (select * from prod.customer_usage.usage_report_full);;
 
   dimension: customer {
     type: string
