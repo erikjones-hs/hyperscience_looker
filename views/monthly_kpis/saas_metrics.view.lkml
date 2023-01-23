@@ -1128,7 +1128,7 @@ view: saas_metrics {
 
   measure: comp_benefits_per_revenue {
     type:  number
-    sql: ${comp_benefits_spend} / NULLIFZERO(${revenue}) ;;
+    sql: 100*(${comp_benefits_spend} / NULLIFZERO(${revenue})) ;;
     value_format: "0\%"
     label: "Compensation & Benefits / GAAP Revenue"
   }
