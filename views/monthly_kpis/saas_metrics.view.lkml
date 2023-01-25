@@ -513,6 +513,79 @@ view: saas_metrics {
     label: "Total FY Exit Headcount"
   }
 
+  measure: eng_fte_qtr {
+    type: sum
+    sql: ${TABLE}."ENG_FTE" ;;
+    filters: [dte_month: "2023-02,2023-05,2023-08,2023-11,2024-02,2024-05,2024-08,2024-11,2025-02"]
+  }
+
+  measure: sales_fte_qtr {
+    type: sum
+    sql: ${TABLE}."SALES_FTE" ;;
+    filters: [dte_month: "2023-02,2023-05,2023-08,2023-11,2024-02,2024-05,2024-08,2024-11,2025-02"]
+  }
+
+  measure: cx_fte_qtr {
+    type: sum
+    sql: ${TABLE}."CX_FTE" ;;
+    filters: [dte_month: "2023-02,2023-05,2023-08,2023-11,2024-02,2024-05,2024-08,2024-11,2025-02"]
+  }
+
+  measure: new_eng_fte_qtr {
+    type: sum
+    sql: ${TABLE}."NEW_ENG_FTE" ;;
+    filters: [dte_month: "2023-02,2023-05,2023-08,2023-11,2024-02,2024-05,2024-08,2024-11,2025-02"]
+  }
+
+  measure: people_fte_qtr {
+    type: sum
+    sql: ${TABLE}."PEOPLE_FTE" ;;
+    filters: [dte_month: "2023-02,2023-05,2023-08,2023-11,2024-02,2024-05,2024-08,2024-11,2025-02"]
+  }
+
+  measure: product_fte_qtr {
+    type: sum
+    sql: ${TABLE}."PRODUCT_FTE" ;;
+    filters: [dte_month: "2023-02,2023-05,2023-08,2023-11,2024-02,2024-05,2024-08,2024-11,2025-02"]
+    label: "Product Headcount"
+  }
+
+  measure: marketing_fte_qtr {
+    type: sum
+    sql: ${TABLE}."MARKETING_FTE" ;;
+    filters: [dte_month: "2023-02,2023-05,2023-08,2023-11,2024-02,2024-05,2024-08,2024-11,2025-02"]
+  }
+
+  measure: finance_fte_qtr {
+    type: sum
+    sql: ${TABLE}."FINANCE_FTE" ;;
+    filters: [dte_month: "2023-02,2023-05,2023-08,2023-11,2024-02,2024-05,2024-08,2024-11,2025-02"]
+  }
+
+  measure: corp_dev_fte_qtr {
+    type: sum
+    sql: ${TABLE}."CORP_DEV_FTE" ;;
+    filters: [dte_month: "2023-02,2023-05,2023-08,2023-11,2024-02,2024-05,2024-08,2024-11,2025-02"]
+  }
+
+  measure: legal_fte_qtr {
+    type: sum
+    sql: ${TABLE}."LEGAL_FTE" ;;
+    filters: [dte_month: "2023-02,2023-05,2023-08,2023-11,2024-02,2024-05,2024-08,2024-11,2025-02"]
+  }
+
+  measure: operations_fte_qtr {
+    type: sum
+    sql: ${TABLE}."OPERATIONS_FTE" ;;
+    filters: [dte_month: "2023-02,2023-05,2023-08,2023-11,2024-02,2024-05,2024-08,2024-11,2025-02"]
+  }
+
+  measure: all_dept_fte_qtr {
+    type: sum
+    sql: ${TABLE}."ALL_DEPT_FTE" ;;
+    filters: [dte_month: "2023-02,2023-05,2023-08,2023-11,2024-02,2024-05,2024-08,2024-11,2025-02"]
+  }
+
   measure: all_dept_fte_all_months {
     type: sum
     sql: ${TABLE}."ALL_DEPT_FTE" ;;
