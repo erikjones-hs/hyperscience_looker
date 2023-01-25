@@ -1,5 +1,5 @@
   view: current_fq_renewals_growth_acounting {
-    sql_table_name: (select * from dev.erikjones.current_fq_renewals);;
+    sql_table_name: (select * from prod.renewals.fct_renewals);;
 
   dimension_group: renewal_month {
     type: time
