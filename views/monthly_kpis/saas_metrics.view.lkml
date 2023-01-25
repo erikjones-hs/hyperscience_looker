@@ -20,6 +20,14 @@ view: saas_metrics {
     label: "Total ARR"
   }
 
+  measure: total_arr_qtr {
+    type: sum
+    sql: ${TABLE}."TOTAL_ARR" ;;
+    filters: [dte_month: "2023-02,2023-05,2023-08,2023-11,2024-02,2024-05,2024-08,2024-11,2025-02"]
+    value_format: "$#,##0.00"
+    label: "Total ARR (QTR)"
+  }
+
   measure: arr_percent_growth {
     type: sum
     sql: 100 * ${TABLE}."ARR_PERCENT_GROWTH" ;;
@@ -55,11 +63,27 @@ view: saas_metrics {
     label: "Net $$ Retention"
   }
 
+  measure: net_dollar_retention_qtr {
+    type: sum
+    sql: 100 * ${TABLE}."NET_DOLLAR_RETENTION" ;;
+    filters: [dte_month: "2023-02,2023-05,2023-08,2023-11,2024-02,2024-05,2024-08,2024-11,2025-02"]
+    value_format: "0\%"
+    label: "Net $$ Retention (QTR)"
+  }
+
   measure: gross_dollar_retention {
     type: sum
     sql: 100 * ${TABLE}."GROSS_DOLLAR_RETENTION" ;;
     value_format: "0\%"
     label: "Gross $$ Retention"
+  }
+
+  measure: gross_dollar_retention_qtr {
+    type: sum
+    sql: 100 * ${TABLE}."GROSS_DOLLAR_RETENTION" ;;
+    filters: [dte_month: "2023-02,2023-05,2023-08,2023-11,2024-02,2024-05,2024-08,2024-11,2025-02"]
+    value_format: "0\%"
+    label: "Gross $$ Retention (QTR)"
   }
 
   measure: gross_profit {
@@ -83,11 +107,27 @@ view: saas_metrics {
     label: "Gross Margin"
   }
 
+  measure: gross_margin_qtr {
+    type: sum
+    sql: 100 * ${TABLE}."GROSS_MARGIN" ;;
+    filters: [dte_month: "2023-02,2023-05,2023-08,2023-11,2024-02,2024-05,2024-08,2024-11,2025-02"]
+    value_format: "0\%"
+    label: "Gross Margin (QTR)"
+  }
+
   measure: net_logo_churn {
     type: sum
     sql: (100 * ${TABLE}."NET_LOGO_CHURN") + 100 ;;
     value_format: "0\%"
     label: "Net Logo Churn"
+  }
+
+  measure: net_logo_churn_qtr {
+    type: sum
+    sql: (100 * ${TABLE}."NET_LOGO_CHURN") + 100 ;;
+    filters: [dte_month: "2023-02,2023-05,2023-08,2023-11,2024-02,2024-05,2024-08,2024-11,2025-02"]
+    value_format: "0\%"
+    label: "Net Logo Churn (QTR)"
   }
 
   measure: cac_payback_months {
@@ -96,10 +136,24 @@ view: saas_metrics {
     label: "CAC Payback (BVP Calc)"
   }
 
+  measure: cac_payback_months_qtr {
+    type: sum
+    sql: ${TABLE}."CAC_PAYBACK_MONTHS" ;;
+    filters: [dte_month: "2023-02,2023-05,2023-08,2023-11,2024-02,2024-05,2024-08,2024-11,2025-02"]
+    label: "CAC Payback (BVP Calc) QTR"
+  }
+
   measure: cash_conversion_score {
     type: sum
     sql: ${TABLE}."CASH_CONVERSION_SCORE" ;;
     label: "Cash Conversion Score"
+  }
+
+  measure: cash_conversion_score_qtr {
+    type: sum
+    sql: ${TABLE}."CASH_CONVERSION_SCORE" ;;
+    filters: [dte_month: "2023-02,2023-05,2023-08,2023-11,2024-02,2024-05,2024-08,2024-11,2025-02"]
+    label: "Cash Conversion Score (QTR)"
   }
 
   measure: net_burn {
@@ -130,10 +184,25 @@ view: saas_metrics {
     label: "Rule of 40"
   }
 
+  measure: rule_of_40_qtr {
+    type: sum
+    sql: 100 * ${TABLE}."RULE_OF_40" ;;
+    filters: [dte_month: "2023-02,2023-05,2023-08,2023-11,2024-02,2024-05,2024-08,2024-11,2025-02"]
+    value_format: "0\%"
+    label: "Rule of 40 (QTR)"
+  }
+
   measure: ltv_to_cac {
     type: sum
     sql: ${TABLE}."LTV_TO_CAC" ;;
     label: "LTV-to-CAC"
+  }
+
+  measure: ltv_to_cac_qtr {
+    type: sum
+    sql: ${TABLE}."LTV_TO_CAC" ;;
+    filters: [dte_month: "2023-02,2023-05,2023-08,2023-11,2024-02,2024-05,2024-08,2024-11,2025-02"]
+    label: "LTV-to-CAC (QTR)"
   }
 
   measure: arr_growth_percent_goal_25 {
@@ -1008,6 +1077,13 @@ view: saas_metrics {
     type: sum
     sql: ${TABLE}."MAGIC_NUMBER" ;;
     label: "Magic Number"
+  }
+
+  measure: magic_number_qtr {
+    type: sum
+    sql: ${TABLE}."MAGIC_NUMBER" ;;
+    filters: [dte_month: "2023-02,2023-05,2023-08,2023-11,2024-02,2024-05,2024-08,2024-11,2025-02"]
+    label: "Magic Number (QTR)"
   }
 
   measure: magic_number_median {
