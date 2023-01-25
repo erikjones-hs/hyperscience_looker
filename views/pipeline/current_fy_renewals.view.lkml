@@ -95,11 +95,31 @@
     sql: ${TABLE}."OPP_STAGE_NAME" ;;
   }
 
-    dimension_group: current_date {
-      type: time
-      timeframes: [raw, date, month, month_num, month_name, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
-      sql:  to_timestamp(to_date(current_date())) ;;
-    }
+  dimension: has_churned_flag {
+    type: number
+    sql: ${TABLE}."HAS_CHURNED_FLAG" ;;
+  }
+
+  dimension: outstanding_renewal_flag {
+    type: number
+    sql: ${TABLE}."OUTSTANDING_RENEWAL_FLAG" ;;
+  }
+
+  dimension: upcoming_renewal_flag {
+    type: number
+    sql: ${TABLE}."UPCOMING_RENEWAL_FLAG" ;;
+  }
+
+  dimension: has_renewed_flag {
+    type: number
+    sql: ${TABLE}."HAS_RENEWED_FLAG" ;;
+  }
+
+  dimension_group: current_date {
+    type: time
+    timeframes: [raw, date, month, month_num, month_name, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
+    sql:  to_timestamp(to_date(current_date())) ;;
+  }
 
 
   measure: num_opps {
