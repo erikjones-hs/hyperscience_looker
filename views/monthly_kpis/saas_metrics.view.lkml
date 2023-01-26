@@ -757,6 +757,12 @@ view: saas_metrics {
     label: "Engineering Headcount"
   }
 
+  measure: engineering_fte_qtr {
+    type: number
+    sql: ${eng_fte_qtr} + ${new_eng_fte_qtr} ;;
+    label: "Engineering Headcount (QTR)"
+  }
+
   measure: people_ftes {
     type: number
     sql: ${people_fte} - 3 ;;
@@ -1274,6 +1280,13 @@ view: saas_metrics {
     label: "GAAP Revenue / FTE (FY)"
   }
 
+  measure: gaap_rev_per_fte_qtr {
+    type:  number
+    sql: ${revenue} / NULLIFZERO(${all_dept_fte_qtr}) ;;
+    value_format: "$#,##0"
+    label: "GAAP Revenue / FTE (QTR)"
+  }
+
   measure: comp_benefits_per_revenue {
     type:  number
     sql: 100*(${comp_benefits_spend} / NULLIFZERO(${revenue})) ;;
@@ -1293,6 +1306,13 @@ view: saas_metrics {
     sql: (${software_subscriptions} + ${software_engineering_expense}) / NULLIFZERO(${all_dept_fte}) ;;
     value_format: "$#,##0"
     label: "Software Expenses / FTE (FY)"
+  }
+
+  measure: software_expenses_per_qtr {
+    type:  number
+    sql: (${software_subscriptions} + ${software_engineering_expense}) / NULLIFZERO(${all_dept_fte_qtr}) ;;
+    value_format: "$#,##0"
+    label: "Software Expenses / FTE (QTR)"
   }
 
   measure: fcf_percent_25 {
