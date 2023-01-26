@@ -616,7 +616,6 @@ view: saas_metrics {
     type: sum
     sql: ${TABLE}."PRODUCT_FTE" ;;
     filters: [dte_month: "2023-02,2023-05,2023-08,2023-11,2024-02,2024-05,2024-08,2024-11,2025-02"]
-    label: "Product Headcount"
   }
 
   measure: marketing_fte_qtr {
