@@ -1268,7 +1268,7 @@ view: saas_metrics {
 
   measure: gaap_rev_per_fte {
     type:  number
-    sql: ${revenue} / NULLIFZERO(${all_dept_fte_all_months}) ;;
+    sql: 12*(${revenue} / NULLIFZERO(${all_dept_fte_all_months})) ;;
     value_format: "$#,##0"
     label: "GAAP Revenue / FTE"
   }
@@ -1296,7 +1296,7 @@ view: saas_metrics {
 
   measure: software_expenses_per_fte {
     type:  number
-    sql: (${software_subscriptions} + ${software_engineering_expense}) / NULLIFZERO(${all_dept_fte_all_months}) ;;
+    sql: 12*((${software_subscriptions} + ${software_engineering_expense}) / NULLIFZERO(${all_dept_fte_all_months})) ;;
     value_format: "$#,##0"
     label: "Software Expenses / FTE"
   }
