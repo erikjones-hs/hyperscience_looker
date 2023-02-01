@@ -72,7 +72,7 @@ view: saas_metrics_qtr {
 
   measure: budget_ndr {
     type: sum
-    sql: ${budget} ;;
+    sql: 100*${budget} ;;
     filters: [metric: "NET_DOLLAR_RETENTION"]
     value_format: "#0\%"
     label: "Net Dollar Retention (Budget)"
