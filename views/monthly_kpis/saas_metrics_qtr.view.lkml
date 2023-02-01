@@ -34,6 +34,21 @@ view: saas_metrics_qtr {
     sql: ${TABLE}."ACTUALS" ;;
   }
 
+  measure: budget_calcs {
+    type: sum
+    sql: ${TABLE}."BUDGET" ;;
+  }
+
+  measure: forecast_calcs {
+    type: sum
+    sql: ${TABLE}."FORECAST" ;;
+  }
+
+  measure: actuals_calcs {
+    type: sum
+    sql: ${TABLE}."ACTUALS" ;;
+  }
+
   measure: budget_variance {
     type: sum
     sql: ${TABLE}."BUDGET_VARIANCE" ;;
