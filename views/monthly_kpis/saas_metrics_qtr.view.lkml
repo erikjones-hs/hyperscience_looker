@@ -19,6 +19,15 @@ view: saas_metrics_qtr {
     sql: ${TABLE}."METRIC_ORDER_BY_COLUMN" ;;
   }
 
+  dimension: metric_formatted {
+    case: {
+      when: {
+        sql: ${TABLE}."METRIC" = "NET_DOLLAR_RETENTION";;
+        label: "Net Dollar Retention"
+      }
+    }
+  }
+
   measure: budget {
     type: sum
     sql: ${TABLE}."BUDGET" ;;
