@@ -15,7 +15,7 @@ view: saas_metrics_qtr {
   }
 
   dimension: metric_order_by_column {
-    type: number
+    type: string
     sql: ${TABLE}."METRIC_ORDER_BY_COLUMN" ;;
   }
 
