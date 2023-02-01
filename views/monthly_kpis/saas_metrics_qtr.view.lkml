@@ -24,13 +24,13 @@ view: saas_metrics_qtr {
     sql: ${TABLE}."BUDGET" ;;
   }
 
-  measure: forecast {
-    type: sum
+  dimension: forecast {
+    type: number
     sql: ${TABLE}."FORECAST" ;;
   }
 
-  measure: actuals {
-    type: sum
+  dimension: actuals {
+    type: number
     sql: ${TABLE}."ACTUALS" ;;
   }
 
@@ -53,6 +53,8 @@ view: saas_metrics_qtr {
     type: sum
     sql: ${TABLE}."PERCENT_FORECAST_VARIANCE" ;;
   }
+
+########################## BUDGET FILTERED MEASURES ###############################
 
   measure: budget_arr {
     type: sum
@@ -309,4 +311,522 @@ view: saas_metrics_qtr {
 #    value_format: "#0\%"
     label: "Legal FTEs (Budget)"
   }
+
+  ########################## FORECAST FILTERED MEASURES ###############################
+
+  measure: forecast_arr {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "ARR"]
+    value_format: "$#,##0"
+    label: "ARR (Forecast)"
+  }
+
+  measure: forecast_revenue {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "REVENUE"]
+    value_format: "$#,##0"
+    label: "Revenue (Forecast)"
+  }
+
+  measure: forecast_ndr {
+    type: sum
+    sql: 100*${forecast} ;;
+    filters: [metric: "NET_DOLLAR_RETENTION"]
+    value_format: "#0\%"
+    label: "Net Dollar Retention (Forecast)"
+  }
+
+  measure: forecast_gdr {
+    type: sum
+    sql: 100*${forecast} ;;
+    filters: [metric: "GROSS_DOLLAR_RETENTION"]
+    value_format: "#0\%"
+    label: "Gross Dollar Retention (Forecast)"
+  }
+
+  measure: forecast_logo_retention {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "NET_Logo_RETENTION"]
+    value_format: "#0\%"
+    label: "Net Logo Retention (Forecast)"
+  }
+
+  measure: forecast_gross_margin {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "GROSS_MARGIN"]
+    value_format: "$#,##0"
+    label: "Gross Margin (Forecast)"
+  }
+
+  measure: forecast_gross_margin_perc {
+    type: sum
+    sql: 100*${forecast} ;;
+    filters: [metric: "GROSS_MARGIN_PERCENT"]
+    value_format: "#0\%"
+    label: "Gross Margin % (Forecast)"
+  }
+
+  measure: forecast_cac_payback {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "CAC_PAYBACK_PERIOD"]
+    #   value_format: "#0\%"
+    label: "CAC Payback Period (BVP Calc.) (Forecast)"
+  }
+
+  measure: forecast_cash_conversion {
+    type: sum
+    sql: 100*${forecast} ;;
+    filters: [metric: "CASH_CONVERSION_SCORE"]
+#    value_format: "#0\%"
+    label: "Cash Conversion Score (Forecast)"
+  }
+
+  measure: forecast_rule_40 {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "RULE_OF_40"]
+#    value_format: "#0\%"
+    label: "Rule of 40 (Forecast)"
+  }
+
+  measure: forecast_magic_number {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "MAGIC_NUMBER"]
+#    value_format: "#0\%"
+    label: "Magic Number (Forecast)"
+  }
+
+  measure: forecast_ltv_cac {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "LTV_TO_CAC"]
+#    value_format: "#0\%"
+    label: "LTV to CAC Ratio (Forecast)"
+  }
+
+  measure: forecast_fcf_margin {
+    type: sum
+    sql: 100*${forecast} ;;
+    filters: [metric: "FCF_MARGIN"]
+    value_format: "#0\%"
+    label: "FCF Margin (Forecast)"
+  }
+
+  measure: forecast_net_new_arr {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "NET_NEW_ARR"]
+    value_format: "$#,##0"
+    label: "Net New ARR (Forecast)"
+  }
+
+  measure: forecast_burn_multiple {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "BURN_MULTIPLE"]
+#    value_format: "#0\%"
+    label: "Burn Multiple (Forecast)"
+  }
+
+  measure: forecast_aws {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "AWS_EXPENSE"]
+    value_format: "$#,##0"
+    label: "Cloud Expense (AWS) (Forecast)"
+  }
+
+  measure: forecast_software_fte {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "SOFTWARE_PER_FTE"]
+    value_format: "$#,##0"
+    label: "SOftware Expense / FTE (Forecast)"
+  }
+
+  measure: forecast_real_estate {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "REAL_ESTATE_EXPENSE"]
+    value_format: "$#,##0"
+    label: "Real Estate Expense (Forecast)"
+  }
+
+  measure: forecast_r_d {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "R_AND_D_EXPENSE"]
+    value_format: "$#,##0"
+    label: "R&D Expense (Forecast)"
+  }
+
+  measure: forecast_s_m {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "S_AND_M_EXPENSE"]
+    value_format: "$#,##0"
+    label: "S&M Expense (Forecast)"
+  }
+
+  measure: forecast_g_a {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "G_AND_A_EXPENSE"]
+    value_format: "$#,##0"
+    label: "G&A Expense (Forecast)"
+  }
+
+  measure: forecast_opex {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "TOTAL_OPEX"]
+    value_format: "$#,##0"
+    label: "Total Operating Expense (Forecast)"
+  }
+
+  measure: forecast_rev_fte {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "GAAP_REV_PER_FTE"]
+    value_format: "$#,##0"
+    label: "GAAP Revenue / FTE (Forecast)"
+  }
+
+  measure: forecast_comp_benefits_rev {
+    type: sum
+    sql: 100*${forecast} ;;
+    filters: [metric: "COMP_AND_BENEFITS_PER_REV"]
+    value_format: "#0\%"
+    label: "Compensation & Benefits / GAAP Revenue (Forecast)"
+  }
+
+  measure: forecast_eng {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "ENG_FTE"]
+#    value_format: "#0\%"
+    label: "Engineering FTEs (Forecast)"
+  }
+
+  measure: forecast_sales {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "SALES_FTE"]
+#    value_format: "#0\%"
+    label: "SALES FTEs (Forecast)"
+  }
+
+  measure: forecast_cx {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "CX_FTE"]
+#    value_format: "#0\%"
+    label: "Customer Experience FTEs (Forecast)"
+  }
+
+  measure: forecast_marketing {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "MARKETING_FTE"]
+#    value_format: "#0\%"
+    label: "MARKETING FTEs (Forecast)"
+  }
+
+  measure: forecast_product {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "PRODUCT_FTE"]
+#    value_format: "#0\%"
+    label: "Product FTEs (Forecast)"
+  }
+
+  measure: forecast_finance {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "FINANCE_FTE"]
+#    value_format: "#0\%"
+    label: "FInance FTEs (Forecast)"
+  }
+
+  measure: forecast_people {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "PEOPLE_FTE"]
+#    value_format: "#0\%"
+    label: "People FTEs (Forecast)"
+  }
+
+  measure: forecast_legal {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "LEGAL_FTE"]
+#    value_format: "#0\%"
+    label: "Legal FTEs (Forecast)"
+  }
+
+  ########################## ACTUALS FILTERED MEASURES ###############################
+
+  measure: actuals_arr {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "ARR"]
+    value_format: "$#,##0"
+    label: "ARR (Actuals)"
+  }
+
+  measure: actuals_revenue {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "REVENUE"]
+    value_format: "$#,##0"
+    label: "Revenue (Actuals)"
+  }
+
+  measure: actuals_ndr {
+    type: sum
+    sql: 100*${actuals} ;;
+    filters: [metric: "NET_DOLLAR_RETENTION"]
+    value_format: "#0\%"
+    label: "Net Dollar Retention (Actuals)"
+  }
+
+  measure: actuals_gdr {
+    type: sum
+    sql: 100*${actuals} ;;
+    filters: [metric: "GROSS_DOLLAR_RETENTION"]
+    value_format: "#0\%"
+    label: "Gross Dollar Retention (Actuals)"
+  }
+
+  measure: actuals_logo_retention {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "NET_Logo_RETENTION"]
+    value_format: "#0\%"
+    label: "Net Logo Retention (Actuals)"
+  }
+
+  measure: actuals_gross_margin {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "GROSS_MARGIN"]
+    value_format: "$#,##0"
+    label: "Gross Margin (Actuals)"
+  }
+
+  measure: actuals_gross_margin_perc {
+    type: sum
+    sql: 100*${actuals} ;;
+    filters: [metric: "GROSS_MARGIN_PERCENT"]
+    value_format: "#0\%"
+    label: "Gross Margin % (Actuals)"
+  }
+
+  measure: actuals_cac_payback {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "CAC_PAYBACK_PERIOD"]
+    #   value_format: "#0\%"
+    label: "CAC Payback Period (BVP Calc.) (Actuals)"
+  }
+
+  measure: actuals_cash_conversion {
+    type: sum
+    sql: 100*${actuals} ;;
+    filters: [metric: "CASH_CONVERSION_SCORE"]
+#    value_format: "#0\%"
+    label: "Cash Conversion Score (Actuals)"
+  }
+
+  measure: actuals_rule_40 {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "RULE_OF_40"]
+#    value_format: "#0\%"
+    label: "Rule of 40 (Actuals)"
+  }
+
+  measure: actuals_magic_number {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "MAGIC_NUMBER"]
+#    value_format: "#0\%"
+    label: "Magic Number (Actuals)"
+  }
+
+  measure: actuals_ltv_cac {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "LTV_TO_CAC"]
+#    value_format: "#0\%"
+    label: "LTV to CAC Ratio (Actuals)"
+  }
+
+  measure: actuals_fcf_margin {
+    type: sum
+    sql: 100*${actuals} ;;
+    filters: [metric: "FCF_MARGIN"]
+    value_format: "#0\%"
+    label: "FCF Margin (Actuals)"
+  }
+
+  measure: actuals_net_new_arr {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "NET_NEW_ARR"]
+    value_format: "$#,##0"
+    label: "Net New ARR (Actuals)"
+  }
+
+  measure: actuals_burn_multiple {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "BURN_MULTIPLE"]
+#    value_format: "#0\%"
+    label: "Burn Multiple (Actuals)"
+  }
+
+  measure: actuals_aws {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "AWS_EXPENSE"]
+    value_format: "$#,##0"
+    label: "Cloud Expense (AWS) (Actuals)"
+  }
+
+  measure: actuals_software_fte {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "SOFTWARE_PER_FTE"]
+    value_format: "$#,##0"
+    label: "SOftware Expense / FTE (Actuals)"
+  }
+
+  measure: actuals_real_estate {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "REAL_ESTATE_EXPENSE"]
+    value_format: "$#,##0"
+    label: "Real Estate Expense (Actuals)"
+  }
+
+  measure: actuals_r_d {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "R_AND_D_EXPENSE"]
+    value_format: "$#,##0"
+    label: "R&D Expense (Actuals)"
+  }
+
+  measure: actuals_s_m {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "S_AND_M_EXPENSE"]
+    value_format: "$#,##0"
+    label: "S&M Expense (Actuals)"
+  }
+
+  measure: actuals_g_a {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "G_AND_A_EXPENSE"]
+    value_format: "$#,##0"
+    label: "G&A Expense (Actuals)"
+  }
+
+  measure: actuals_opex {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "TOTAL_OPEX"]
+    value_format: "$#,##0"
+    label: "Total Operating Expense (Actuals)"
+  }
+
+  measure: actuals_rev_fte {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "GAAP_REV_PER_FTE"]
+    value_format: "$#,##0"
+    label: "GAAP Revenue / FTE (Actuals)"
+  }
+
+  measure: actuals_comp_benefits_rev {
+    type: sum
+    sql: 100*${actuals} ;;
+    filters: [metric: "COMP_AND_BENEFITS_PER_REV"]
+    value_format: "#0\%"
+    label: "Compensation & Benefits / GAAP Revenue (Actuals)"
+  }
+
+  measure: actuals_eng {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "ENG_FTE"]
+#    value_format: "#0\%"
+    label: "Engineering FTEs (Actuals)"
+  }
+
+  measure: actuals_sales {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "SALES_FTE"]
+#    value_format: "#0\%"
+    label: "SALES FTEs (Actuals)"
+  }
+
+  measure: actuals_cx {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "CX_FTE"]
+#    value_format: "#0\%"
+    label: "Customer Experience FTEs (Actuals)"
+  }
+
+  measure: actuals_marketing {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "MARKETING_FTE"]
+#    value_format: "#0\%"
+    label: "MARKETING FTEs (Actuals)"
+  }
+
+  measure: actuals_product {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "PRODUCT_FTE"]
+#    value_format: "#0\%"
+    label: "Product FTEs (Actuals)"
+  }
+
+  measure: actuals_finance {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "FINANCE_FTE"]
+#    value_format: "#0\%"
+    label: "FInance FTEs (Actuals)"
+  }
+
+  measure: actuals_people {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "PEOPLE_FTE"]
+#    value_format: "#0\%"
+    label: "People FTEs (Actuals)"
+  }
+
+  measure: actuals_legal {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "LEGAL_FTE"]
+#    value_format: "#0\%"
+    label: "Legal FTEs (Actuals)"
+  }
+
+
 }
