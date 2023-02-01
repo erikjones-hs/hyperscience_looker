@@ -19,17 +19,8 @@ view: saas_metrics_qtr {
     sql: ${TABLE}."METRIC_ORDER_BY_COLUMN" ;;
   }
 
-  dimension: metric_formatted {
-    case: {
-      when: {
-        sql: ${TABLE}."METRIC" = "NET_DOLLAR_RETENTION";;
-        label: "Net Dollar Retention"
-      }
-    }
-  }
-
-  measure: budget {
-    type: sum
+  dimension: budget {
+    type: number
     sql: ${TABLE}."BUDGET" ;;
   }
 
@@ -61,6 +52,30 @@ view: saas_metrics_qtr {
   measure: percent_forecast_variance {
     type: sum
     sql: ${TABLE}."PERCENT_FORECAST_VARIANCE" ;;
+  }
+
+  measure: budget_arr {
+    type: sum
+    sql: ${budget} ;;
+    filters: [metric: "ARR"]
+    value_format: "$#,##0"
+    label: "ARR (Budget)"
+  }
+
+  measure: budget_revenue {
+    type: sum
+    sql: ${budget} ;;
+    filters: [metric: "REVENUE"]
+    value_format: "$#,##0"
+    label: "Revenue (Budget)"
+  }
+
+  measure: budget_ndr {
+    type: sum
+    sql: ${budget} ;;
+    filters: [metric: "NET_DOLLAR_RETENTION"]
+    value_format: "#0\%"
+    label: "Net Dollar Retention (Budget)"
   }
 
 }
