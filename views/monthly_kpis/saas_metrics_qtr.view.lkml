@@ -51,11 +51,11 @@ view: saas_metrics_qtr {
   measure: budget_percent_format {
     type: sum
     sql: CASE
-         WHEN ${TABLE}."METRIC" in ('NET_DOLLAR_RETENTION', 'GROSS_DOLAR_RETENTION', 'GROSS_MARGIN_PERCENT','FCF_MARGIN',
+         WHEN ${TABLE}."METRIC" in ('NET_DOLLAR_RETENTION', 'GROSS_DOLLAR_RETENTION', 'GROSS_MARGIN_PERCENT','FCF_MARGIN',
                                     'COMP_AND_BENEFITS_PER_REV')
          THEN 100*(${TABLE}."BUDGET")
          ELSE ${TABLE}."BUDGET" END;;
-    filters: [metric: "NET_DOLLAR_RETENTION, GROSS_DOLAR_RETENTION, NET_LOGO_RETENTION, GROSS_MARGIN_PERCENT,
+    filters: [metric: "NET_DOLLAR_RETENTION, GROSS_DOLLAR_RETENTION, NET_LOGO_RETENTION, GROSS_MARGIN_PERCENT,
                        FCF_MARGIN, COMP_AND_BENEFITS_PER_REV"]
     value_format: "#0\%"
     label: "Budget (%)"
@@ -93,8 +93,12 @@ view: saas_metrics_qtr {
 
   measure: forecast_percent_format {
     type: sum
-    sql: ${TABLE}."FORECAST" ;;
-    filters: [metric: "NET_DOLLAR_RETENTION, GROSS_DOLAR_RETENTION, NET_LOGO_RETENTION, GROSS_MARGIN_PERCENT,
+    sql: CASE
+    WHEN ${TABLE}."METRIC" in ('NET_DOLLAR_RETENTION', 'GROSS_DOLLAR_RETENTION', 'GROSS_MARGIN_PERCENT','FCF_MARGIN',
+    'COMP_AND_BENEFITS_PER_REV')
+    THEN 100*(${TABLE}."FORECAST")
+    ELSE ${TABLE}."FORECAST" END;;
+    filters: [metric: "NET_DOLLAR_RETENTION, GROSS_DOLLAR_RETENTION, NET_LOGO_RETENTION, GROSS_MARGIN_PERCENT,
     FCF_MARGIN, COMP_AND_BENEFITS_PER_REV"]
     value_format: "#0\%"
     label: "Forecast (%)"
@@ -132,8 +136,12 @@ view: saas_metrics_qtr {
 
   measure: actuals_percent_format {
     type: sum
-    sql: ${TABLE}."ACTUALS" ;;
-    filters: [metric: "NET_DOLLAR_RETENTION, GROSS_DOLAR_RETENTION, NET_LOGO_RETENTION, GROSS_MARGIN_PERCENT,
+    sql: CASE
+    WHEN ${TABLE}."METRIC" in ('NET_DOLLAR_RETENTION', 'GROSS_DOLLAR_RETENTION', 'GROSS_MARGIN_PERCENT','FCF_MARGIN',
+    'COMP_AND_BENEFITS_PER_REV')
+    THEN 100*(${TABLE}."ACTUALS")
+    ELSE ${TABLE}."ACTUALS" END;;
+    filters: [metric: "NET_DOLLAR_RETENTION, GROSS_DOLLAR_RETENTION, NET_LOGO_RETENTION, GROSS_MARGIN_PERCENT,
     FCF_MARGIN, COMP_AND_BENEFITS_PER_REV"]
     value_format: "#0\%"
     label: "Actuals (%)"
