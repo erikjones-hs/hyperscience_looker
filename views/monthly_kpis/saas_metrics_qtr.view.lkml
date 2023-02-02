@@ -14,6 +14,11 @@ view: saas_metrics_qtr {
 #    order_by_field: metric_order_by_column
   }
 
+  dimension: metric_label {
+    type: string
+    sql: ${TABLE}."METRIC_LABEL" ;;
+  }
+
   dimension: metric_labeled {
     case: {
       when: {
