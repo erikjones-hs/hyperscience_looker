@@ -14,6 +14,136 @@ view: saas_metrics_qtr {
 #    order_by_field: metric_order_by_column
   }
 
+  dimension: metric_labeled {
+    case: {
+      when: {
+        sql: ${TABLE}."METRIC" = "ARR" ;;
+        label: "ARR"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "REVENUE" ;;
+        label: "Revenue"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "NET_DOLLAR_RETENTION" ;;
+        label: "Net Dollar Retention"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "GROSS_DOLLAR_RETENTION" ;;
+        label: "Gross Dollar Retention"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "GROSS_MARGIN" ;;
+        label: "Gross Margin"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "GROSS_MARGIN_PERCENT" ;;
+        label: "Gross Margin %"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "CAC_PAYBACK_PERIOD" ;;
+        label: "CAC Payback Period (BVP Calc.)"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "CASH_CONVERSION_SCORE" ;;
+        label: "Cash Conversion Score"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "RULE_OF_40" ;;
+        label: "Rule of 40"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "MAGIC_NUMBER" ;;
+        label: "Magic Number"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "LTV_TO_CAC" ;;
+        label: "LTV To CAC Ratio"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "FCF_MARGIN" ;;
+        label: "FCF Margin"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "NET_NEW_ARR" ;;
+        label: "Net New ARR"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "BURN_MULTIPLE" ;;
+        label: "Burn Multiple"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "AWS_EXPENSE" ;;
+        label: "Cloud Expense (AWS)"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "SOFTWARE_PER_FTE" ;;
+        label: "Software Expense / FTE"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "REAL_ESTATE_EXPENSEE" ;;
+        label: "Real Estate Expense"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "R_AND_D_EXPENSE" ;;
+        label: "R&D Expense"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "S_AND_M_EXPENSE" ;;
+        label: "S&M Expense"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "G_AND_A_EXPENSE" ;;
+        label: "G&A Expense"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "OPEX_EXPENSE" ;;
+        label: "Total Operating Expense"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "GAAP_REV_PER_FTE" ;;
+        label: "GAAP Revenue / FTE"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "COMP_AND_BENEFITS_PER_REV" ;;
+        label: "Compensation & Benefits / GAAP Revenue"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "ENG_FTE" ;;
+        label: "Engineering FTEs"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "SALES_FTE" ;;
+        label: "Sales FTEs"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "CX_FTE" ;;
+        label: "Customer Experience FTEs"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "MARKETING_FTE" ;;
+        label: "Marketing FTEs"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "PRODCT_FTE" ;;
+        label: "Product FTEs"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "FINANCE_FTE" ;;
+        label: "Finance FTEs"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "PEOPLE_FTE" ;;
+        label: "People FTEs"
+      }
+      when: {
+        sql: ${TABLE}."METRIC" = "LEGAL_FTE" ;;
+        label: "Legal FTEs"
+      }
+      else: "Other"
+    }
+  }
+
 #  dimension: metric_order_by_column {
 #    type: number
 #    sql: ${TABLE}."METRIC_ORDER_BY_COLUMN" ;;
