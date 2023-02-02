@@ -42,7 +42,7 @@ view: saas_metrics_qtr {
   measure: budget_dollars_format {
     type: sum
     sql: ${TABLE}."BUDGET" ;;
-    filters: [metric: "ARR, REVENUE, GROSS_MARGIN, NET_NEW_ARR, AWS_EXPENSE, SOFTWARE_PER_FTE, REAL_ESTATE_EXPENSE
+    filters: [metric: "ARR, REVENUE, GROSS_MARGIN, NET_NEW_ARR, AWS_EXPENSE, SOFTWARE_PER_FTE, REAL_ESTATE_EXPENSE,
                        R_AND_D_EXPENSE, S_AND_M_EXPENSE, G_AND_A_EXPENSE, TOTAL_OPEX, GAAP_REV_PER_FTE"]
     value_format: "$#,##0"
     label: "Budget ($$)"
@@ -81,7 +81,7 @@ view: saas_metrics_qtr {
   measure: forecast_dollars_format {
     type: sum
     sql: ${TABLE}."FORECAST" ;;
-    filters: [metric: "ARR, REVENUE, GROSS_MARGIN, NET_NEW_ARR, AWS_EXPENSE, SOFTWARE_PER_FTE, REAL_ESTATE_EXPENSE
+    filters: [metric: "ARR, REVENUE, GROSS_MARGIN, NET_NEW_ARR, AWS_EXPENSE, SOFTWARE_PER_FTE, REAL_ESTATE_EXPENSE,
     R_AND_D_EXPENSE, S_AND_M_EXPENSE, G_AND_A_EXPENSE, TOTAL_OPEX, GAAP_REV_PER_FTE"]
     value_format: "$#,##0"
     label: "Forecast ($$)"
@@ -120,7 +120,7 @@ view: saas_metrics_qtr {
   measure: actuals_dollars_format {
     type: sum
     sql: ${TABLE}."ACTUALS" ;;
-    filters: [metric: "ARR, REVENUE, GROSS_MARGIN, NET_NEW_ARR, AWS_EXPENSE, SOFTWARE_PER_FTE, REAL_ESTATE_EXPENSE
+    filters: [metric: "ARR, REVENUE, GROSS_MARGIN, NET_NEW_ARR, AWS_EXPENSE, SOFTWARE_PER_FTE, REAL_ESTATE_EXPENSE,
     R_AND_D_EXPENSE, S_AND_M_EXPENSE, G_AND_A_EXPENSE, TOTAL_OPEX, GAAP_REV_PER_FTE"]
     value_format: "$#,##0"
     label: "Actuals ($$)"
