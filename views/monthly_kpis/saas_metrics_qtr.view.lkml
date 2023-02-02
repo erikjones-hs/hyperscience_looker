@@ -39,14 +39,116 @@ view: saas_metrics_qtr {
     sql: ${TABLE}."BUDGET" ;;
   }
 
+  measure: budget_dollars_format {
+    type: sum
+    sql: ${TABLE}."BUDGET" ;;
+    filters: [metric: "ARR, REVENUE, GROSS_MARGIN, NET_NEW_ARR, AWS_EXPENSE, SOFTWARE_PER_FTE, REAL_ESTATE_EXPENSE
+                       R_AND_D_EXPENSE, S_AND_M_EXPENSE, G_AND_A_EXPENSE, TOTAL_OPEX, GAAP_REV_PER_FTE"]
+    value_format: "$#,##0"
+    label: "Budget ($$)"
+  }
+
+  measure: budget_percent_format {
+    type: sum
+    sql: ${TABLE}."BUDGET" ;;
+    filters: [metric: "NET_DOLLAR_RETENTION, GROSS_DOLAR_RETENTION, NET_LOGO_RETENTION, GROSS_MARGIN_PERCENT,
+                       FCF_MARGIN, COMP_AND_BENEFITS_PER_REV"]
+    value_format: "#0\%"
+    label: "Budget (%)"
+  }
+
+  measure: budget_number_format {
+    type: sum
+    sql: ${TABLE}."BUDGET" ;;
+    filters: [metric: "CAC_PAYBACK_PERIOD, CASH_CONVERSION_SCORE, RULE_OF_40, MAGIC_NUMBER, LTV_TO_CAC, BURN_MULTIPLE"]
+#    value_format: "#0\%"
+    label: "Budget (#)"
+  }
+
+  measure: budget_fte_format {
+    type: sum
+    sql: ${TABLE}."BUDGET" ;;
+    filters: [metric: "ENG_FTE, SALES_FTE, CX_FTE, MARKETING_FTE, PRODUCT_FTE, FINANCE_FTE, PEOPLE_FTE, LEGAL_FTE"]
+#    value_format: "#0\%"
+    label: "Budget (FTEs)"
+  }
+
   measure: forecast_calcs {
     type: sum
     sql: ${TABLE}."FORECAST" ;;
   }
 
+  measure: forecast_dollars_format {
+    type: sum
+    sql: ${TABLE}."FORECAST" ;;
+    filters: [metric: "ARR, REVENUE, GROSS_MARGIN, NET_NEW_ARR, AWS_EXPENSE, SOFTWARE_PER_FTE, REAL_ESTATE_EXPENSE
+    R_AND_D_EXPENSE, S_AND_M_EXPENSE, G_AND_A_EXPENSE, TOTAL_OPEX, GAAP_REV_PER_FTE"]
+    value_format: "$#,##0"
+    label: "Forecast ($$)"
+  }
+
+  measure: forecast_percent_format {
+    type: sum
+    sql: ${TABLE}."FORECAST" ;;
+    filters: [metric: "NET_DOLLAR_RETENTION, GROSS_DOLAR_RETENTION, NET_LOGO_RETENTION, GROSS_MARGIN_PERCENT,
+    FCF_MARGIN, COMP_AND_BENEFITS_PER_REV"]
+    value_format: "#0\%"
+    label: "Forecast (%)"
+  }
+
+  measure: forecast_number_format {
+    type: sum
+    sql: ${TABLE}."FORECAST" ;;
+    filters: [metric: "CAC_PAYBACK_PERIOD, CASH_CONVERSION_SCORE, RULE_OF_40, MAGIC_NUMBER, LTV_TO_CAC, BURN_MULTIPLE"]
+#    value_format: "#0\%"
+    label: "Forecast (#)"
+  }
+
+  measure: forecast_fte_format {
+    type: sum
+    sql: ${TABLE}."FORECAST" ;;
+    filters: [metric: "ENG_FTE, SALES_FTE, CX_FTE, MARKETING_FTE, PRODUCT_FTE, FINANCE_FTE, PEOPLE_FTE, LEGAL_FTE"]
+#    value_format: "#0\%"
+    label: "Forecast (FTEs)"
+  }
+
   measure: actuals_calcs {
     type: sum
     sql: ${TABLE}."ACTUALS" ;;
+  }
+
+  measure: actuals_dollars_format {
+    type: sum
+    sql: ${TABLE}."ACTUALS" ;;
+    filters: [metric: "ARR, REVENUE, GROSS_MARGIN, NET_NEW_ARR, AWS_EXPENSE, SOFTWARE_PER_FTE, REAL_ESTATE_EXPENSE
+    R_AND_D_EXPENSE, S_AND_M_EXPENSE, G_AND_A_EXPENSE, TOTAL_OPEX, GAAP_REV_PER_FTE"]
+    value_format: "$#,##0"
+    label: "Actuals ($$)"
+  }
+
+  measure: actuals_percent_format {
+    type: sum
+    sql: ${TABLE}."ACTUALS" ;;
+    filters: [metric: "NET_DOLLAR_RETENTION, GROSS_DOLAR_RETENTION, NET_LOGO_RETENTION, GROSS_MARGIN_PERCENT,
+    FCF_MARGIN, COMP_AND_BENEFITS_PER_REV"]
+    value_format: "#0\%"
+    label: "Actuals (%)"
+  }
+
+  measure: actuals_number_format {
+    type: sum
+    sql: ${TABLE}."ACTUALS" ;;
+    filters: [metric: "CAC_PAYBACK_PERIOD, CASH_CONVERSION_SCORE, RULE_OF_40, MAGIC_NUMBER, LTV_TO_CAC, BURN_MULTIPLE"]
+#    value_format: "#0\%"
+    label: "Actuals (#)"
+  }
+
+  measure: actuals_fte_format {
+    type: sum
+    sql: ${TABLE}."ACTUALS" ;;
+    filters: [metric: "ENG_FTE, SALES_FTE, CX_FTE, MARKETING_FTE, PRODUCT_FTE, FINANCE_FTE, PEOPLE_FTE, LEGAL_FTE"]
+#    value_format: "#0\%"
+    label: "Actuals (FTEs)"
   }
 
   measure: budget_variance {
@@ -106,7 +208,7 @@ view: saas_metrics_qtr {
   measure: budget_logo_retention {
     type: sum
     sql: ${budget} ;;
-    filters: [metric: "NET_Logo_RETENTION"]
+    filters: [metric: "NET_LOGO_RETENTION"]
     value_format: "#0\%"
     label: "Net Logo Retention (Budget)"
   }
@@ -364,7 +466,7 @@ view: saas_metrics_qtr {
   measure: forecast_logo_retention {
     type: sum
     sql: ${forecast} ;;
-    filters: [metric: "NET_Logo_RETENTION"]
+    filters: [metric: "NET_LOGO_RETENTION"]
     value_format: "#0\%"
     label: "Net Logo Retention (Forecast)"
   }
@@ -622,7 +724,7 @@ view: saas_metrics_qtr {
   measure: actuals_logo_retention {
     type: sum
     sql: ${actuals} ;;
-    filters: [metric: "NET_Logo_RETENTION"]
+    filters: [metric: "NET_LOGO_RETENTION"]
     value_format: "#0\%"
     label: "Net Logo Retention (Actuals)"
   }
