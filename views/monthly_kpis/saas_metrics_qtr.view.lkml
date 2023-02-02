@@ -19,141 +19,6 @@ view: saas_metrics_qtr {
     sql: ${TABLE}."METRIC_LABEL" ;;
   }
 
-  dimension: metric_labeled {
-    case: {
-      when: {
-        sql: ${metric} = "ARR" ;;
-        label: "ARR"
-      }
-      when: {
-        sql: ${metric} = "REVENUE" ;;
-        label: "Revenue"
-      }
-      when: {
-        sql: ${metric} = "NET_DOLLAR_RETENTION" ;;
-        label: "Net Dollar Retention"
-      }
-      when: {
-        sql: ${metric} = "GROSS_DOLLAR_RETENTION" ;;
-        label: "Gross Dollar Retention"
-      }
-      when: {
-        sql: ${metric} = "GROSS_MARGIN" ;;
-        label: "Gross Margin"
-      }
-      when: {
-        sql: ${metric} = "GROSS_MARGIN_PERCENT" ;;
-        label: "Gross Margin %"
-      }
-      when: {
-        sql: ${metric} = "CAC_PAYBACK_PERIOD" ;;
-        label: "CAC Payback Period (BVP Calc.)"
-      }
-      when: {
-        sql: ${metric} = "CASH_CONVERSION_SCORE" ;;
-        label: "Cash Conversion Score"
-      }
-      when: {
-        sql: ${metric} = "RULE_OF_40" ;;
-        label: "Rule of 40"
-      }
-      when: {
-        sql: ${metric} = "MAGIC_NUMBER" ;;
-        label: "Magic Number"
-      }
-      when: {
-        sql: ${metric} = "LTV_TO_CAC" ;;
-        label: "LTV To CAC Ratio"
-      }
-      when: {
-        sql: ${metric} = "FCF_MARGIN" ;;
-        label: "FCF Margin"
-      }
-      when: {
-        sql: ${metric} = "NET_NEW_ARR" ;;
-        label: "Net New ARR"
-      }
-      when: {
-        sql: ${metric} = "BURN_MULTIPLE" ;;
-        label: "Burn Multiple"
-      }
-      when: {
-        sql: ${metric} = "AWS_EXPENSE" ;;
-        label: "Cloud Expense (AWS)"
-      }
-      when: {
-        sql: ${metric} = "SOFTWARE_PER_FTE" ;;
-        label: "Software Expense / FTE"
-      }
-      when: {
-        sql: ${metric} = "REAL_ESTATE_EXPENSEE" ;;
-        label: "Real Estate Expense"
-      }
-      when: {
-        sql: ${metric} = "R_AND_D_EXPENSE" ;;
-        label: "R&D Expense"
-      }
-      when: {
-        sql: ${metric} = "S_AND_M_EXPENSE" ;;
-        label: "S&M Expense"
-      }
-      when: {
-        sql: ${metric} = "G_AND_A_EXPENSE" ;;
-        label: "G&A Expense"
-      }
-      when: {
-        sql: ${metric} = "OPEX_EXPENSE" ;;
-        label: "Total Operating Expense"
-      }
-      when: {
-        sql: ${metric} = "GAAP_REV_PER_FTE" ;;
-        label: "GAAP Revenue / FTE"
-      }
-      when: {
-        sql: ${metric} = "COMP_AND_BENEFITS_PER_REV" ;;
-        label: "Compensation & Benefits / GAAP Revenue"
-      }
-      when: {
-        sql: ${metric} = "ENG_FTE" ;;
-        label: "Engineering FTEs"
-      }
-      when: {
-        sql: ${metric} = "SALES_FTE" ;;
-        label: "Sales FTEs"
-      }
-      when: {
-        sql: ${metric} = "CX_FTE" ;;
-        label: "Customer Experience FTEs"
-      }
-      when: {
-        sql: ${metric} = "MARKETING_FTE" ;;
-        label: "Marketing FTEs"
-      }
-      when: {
-        sql: ${metric} = "PRODCT_FTE" ;;
-        label: "Product FTEs"
-      }
-      when: {
-        sql: ${metric} = "FINANCE_FTE" ;;
-        label: "Finance FTEs"
-      }
-      when: {
-        sql: ${metric} = "PEOPLE_FTE" ;;
-        label: "People FTEs"
-      }
-      when: {
-        sql: ${metric} = "LEGAL_FTE" ;;
-        label: "Legal FTEs"
-      }
-      else: "Other"
-    }
-  }
-
-#  dimension: metric_order_by_column {
-#    type: number
-#    sql: ${TABLE}."METRIC_ORDER_BY_COLUMN" ;;
-#  }
-
   dimension: budget {
     type: number
     sql: ${TABLE}."BUDGET" ;;
@@ -185,7 +50,10 @@ view: saas_metrics_qtr {
 
   measure: budget_percent_format {
     type: sum
-    sql: ${TABLE}."BUDGET" ;;
+    sql: CASE
+         WHEN ${TABLE}."BUDGET" in ('NET_DOLLAR_RETENTION', 'GROSS_DOLAR_RETENTION', 'GROSS_MARGIN_PERCENT','FCF_MARGIN',
+                                    'COMP_AND_BENEFITS_PER_REV') THEN 100*(${TABLE}."BUDGET")
+         ELSE ${TABLE}."BUDGET" END;;
     filters: [metric: "NET_DOLLAR_RETENTION, GROSS_DOLAR_RETENTION, NET_LOGO_RETENTION, GROSS_MARGIN_PERCENT,
                        FCF_MARGIN, COMP_AND_BENEFITS_PER_REV"]
     value_format: "#0\%"
