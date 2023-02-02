@@ -11,13 +11,13 @@ view: saas_metrics_qtr {
   dimension: metric {
     type: string
     sql: ${TABLE}."METRIC" ;;
-    order_by_field: metric_order_by_column
+#    order_by_field: metric_order_by_column
   }
 
-  dimension: metric_order_by_column {
-    type: number
-    sql: ${TABLE}."METRIC_ORDER_BY_COLUMN" ;;
-  }
+#  dimension: metric_order_by_column {
+#    type: number
+#    sql: ${TABLE}."METRIC_ORDER_BY_COLUMN" ;;
+#  }
 
   dimension: budget {
     type: number
