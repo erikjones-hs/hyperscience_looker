@@ -51,8 +51,9 @@ view: saas_metrics_qtr {
   measure: budget_percent_format {
     type: sum
     sql: CASE
-         WHEN ${TABLE}."BUDGET" in ('NET_DOLLAR_RETENTION', 'GROSS_DOLAR_RETENTION', 'GROSS_MARGIN_PERCENT','FCF_MARGIN',
-                                    'COMP_AND_BENEFITS_PER_REV') THEN 100*(${TABLE}."BUDGET")
+         WHEN ${TABLE}."METRIC" in ('NET_DOLLAR_RETENTION', 'GROSS_DOLAR_RETENTION', 'GROSS_MARGIN_PERCENT','FCF_MARGIN',
+                                    'COMP_AND_BENEFITS_PER_REV')
+         THEN 100*(${TABLE}."BUDGET")
          ELSE ${TABLE}."BUDGET" END;;
     filters: [metric: "NET_DOLLAR_RETENTION, GROSS_DOLAR_RETENTION, NET_LOGO_RETENTION, GROSS_MARGIN_PERCENT,
                        FCF_MARGIN, COMP_AND_BENEFITS_PER_REV"]
