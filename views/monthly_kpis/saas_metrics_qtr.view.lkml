@@ -42,7 +42,7 @@ view: saas_metrics_qtr {
   measure: budget_dollars_format {
     type: sum
     sql: ${TABLE}."BUDGET" ;;
-    filters: [metric: "ARR, REVENUE, GROSS_MARGIN, NET_NEW_ARR, AWS_EXPENSE, SOFTWARE_PER_FTE, REAL_ESTATE_EXPENSE,
+    filters: [metric: "ARR, REVENUE, GROSS_MARGIN, BURN_MULTIPLE_NUMERATOR, NET_NEW_ARR, AWS_EXPENSE, SOFTWARE_PER_FTE, REAL_ESTATE_EXPENSE,
                        R_AND_D_EXPENSE, S_AND_M_EXPENSE, G_AND_A_EXPENSE, TOTAL_OPEX, GAAP_REV_PER_FTE"]
     value_format: "$#,##0"
     label: "Budget ($$)"
@@ -85,7 +85,7 @@ view: saas_metrics_qtr {
   measure: forecast_dollars_format {
     type: sum
     sql: ${TABLE}."FORECAST" ;;
-    filters: [metric: "ARR, REVENUE, GROSS_MARGIN, NET_NEW_ARR, AWS_EXPENSE, SOFTWARE_PER_FTE, REAL_ESTATE_EXPENSE,
+    filters: [metric: "ARR, REVENUE, GROSS_MARGIN, BURN_MULTIPLE_NUMERATOR, NET_NEW_ARR, AWS_EXPENSE, SOFTWARE_PER_FTE, REAL_ESTATE_EXPENSE,
     R_AND_D_EXPENSE, S_AND_M_EXPENSE, G_AND_A_EXPENSE, TOTAL_OPEX, GAAP_REV_PER_FTE"]
     value_format: "$#,##0"
     label: "Forecast ($$)"
@@ -128,7 +128,7 @@ view: saas_metrics_qtr {
   measure: actuals_dollars_format {
     type: sum
     sql: ${TABLE}."ACTUALS" ;;
-    filters: [metric: "ARR, REVENUE, GROSS_MARGIN, NET_NEW_ARR, AWS_EXPENSE, SOFTWARE_PER_FTE, REAL_ESTATE_EXPENSE,
+    filters: [metric: "ARR, REVENUE, GROSS_MARGIN, BURN_MULTIPLE_NUMERATOR, NET_NEW_ARR, AWS_EXPENSE, SOFTWARE_PER_FTE, REAL_ESTATE_EXPENSE,
     R_AND_D_EXPENSE, S_AND_M_EXPENSE, G_AND_A_EXPENSE, TOTAL_OPEX, GAAP_REV_PER_FTE"]
     value_format: "$#,##0"
     label: "Actuals ($$)"
@@ -287,6 +287,14 @@ view: saas_metrics_qtr {
     filters: [metric: "FCF_MARGIN"]
     value_format: "#0\%"
     label: "FCF Margin (Budget)"
+  }
+
+  measure: budget_cash_burn {
+    type: sum
+    sql: abs(${budget}) ;;
+    filters: [metric: "BURN_MULTIPLE_NUMERATOR"]
+    value_format: "$#,##0"
+    label: "Cash Burn (Budget)"
   }
 
   measure: budget_net_new_arr {
@@ -547,6 +555,14 @@ view: saas_metrics_qtr {
     label: "FCF Margin (Forecast)"
   }
 
+  measure: forecast_cash_burn {
+    type: sum
+    sql: abs(${forecast}) ;;
+    filters: [metric: "BURN_MULTIPLE_NUMERATOR"]
+    value_format: "$#,##0"
+    label: "Cash Burn (Forecast)"
+  }
+
   measure: forecast_net_new_arr {
     type: sum
     sql: ${forecast} ;;
@@ -805,6 +821,14 @@ view: saas_metrics_qtr {
     label: "FCF Margin (Actuals)"
   }
 
+  measure: actuals_cash_burn {
+    type: sum
+    sql: abs(${actuals}) ;;
+    filters: [metric: "BURN_MULTIPLE_NUMERATOR"]
+    value_format: "$#,##0"
+    label: "Cash Burn (Actuals)"
+  }
+
   measure: actuals_net_new_arr {
     type: sum
     sql: ${actuals} ;;
@@ -1050,6 +1074,13 @@ view: saas_metrics_qtr {
     label: "FCF Margin (Budget/Actuals)"
   }
 
+  measure: budget_actuals_cash_burn {
+    type: number
+    sql: ${actuals_cash_burn} - ${budget_cash_burn} ;;
+    value_format: "$#,##0"
+    label: "Cash Burn (Budget/Actuals)"
+  }
+
   measure: budget_actuals_net_new_arr {
     type: number
     sql: ${actuals_net_new_arr} - ${budget_net_new_arr} ;;
@@ -1274,6 +1305,13 @@ view: saas_metrics_qtr {
     sql: 100*(${actuals_fcf_margin} - ${forecast_fcf_margin}) ;;
     value_format: "#0\%"
     label: "FCF Margin (Forecast/Actuals)"
+  }
+
+  measure: forecast_actuals_cash_burn {
+    type: number
+    sql: ${actuals_cash_burn} - ${forecast_cash_burn} ;;
+    value_format: "$#,##0"
+    label: "Cash Burn (Forecast/Actuals)"
   }
 
   measure: forecast_actuals_net_new_arr {
