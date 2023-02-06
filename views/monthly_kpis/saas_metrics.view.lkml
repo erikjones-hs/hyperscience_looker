@@ -1375,4 +1375,34 @@ view: saas_metrics {
     sql: ${TABLE}."SOFTWARE_FTE_75" ;;
   }
 
+  measure: rule_40_25 {
+    type: average
+    sql: ${TABLE}."RULE_40_25" ;;
+  }
+
+  measure: rule_40_med {
+    type: average
+    sql: ${TABLE}."RULE_40_MED" ;;
+  }
+
+  measure: rule_40_75 {
+    type: average
+    sql: ${TABLE}."RULE_40_75" ;;
+  }
+
+  measure: magic_number_25 {
+    type: average
+    sql: ${TABLE}."MAGIC_NUMBER_25" ;;
+  }
+
+  measure: magic_number_med {
+    type: average
+    sql: ${TABLE}."MAGIC_NUMBER_MED" ;;
+  }
+
+  measure: magic_number_75 {
+    type: average
+    sql: ${TABLE}."MAGIC_NUMBER_75" ;;
+  }
+
 }
