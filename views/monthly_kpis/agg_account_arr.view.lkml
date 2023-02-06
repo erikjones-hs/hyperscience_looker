@@ -141,6 +141,15 @@ view: agg_account_arr {
     drill_fields: [detail*]
   }
 
+  measure: de_book_arr {
+    type:  sum
+    sql:  ${mrr_change_acct};;
+    value_format: "$#,##0"
+    filters: [revenue_category: "de-book"]
+    label: "De-Book"
+    drill_fields: [detail*]
+  }
+
   measure: recurring_arr {
     type:  number
     sql: lag(${total_arr},1,0) over (order by ${date_month_month} asc);;
@@ -180,9 +189,23 @@ view: agg_account_arr {
     drill_fields: [detail*]
   }
 
+  measure: de_book_customers_int {
+    type:  count_distinct
+    sql_distinct_key: ${account_id} ;;
+    sql:  ${account_id};;
+    filters: [customer_category: "de-book"]
+    drill_fields: [detail*]
+  }
+
   measure: churn_customers {
     type:  number
     sql: -1 * ${churn_customers_int} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: de_book_customers {
+    type:  number
+    sql: -1 * ${de_book_customers_int} ;;
     drill_fields: [detail*]
   }
 
