@@ -765,7 +765,7 @@ view: saas_metrics {
 
   measure: people_ftes {
     type: number
-    sql: ${people_fte} - 3 ;;
+    sql: ${people_fte};;
     label: "People Team Headcount"
   }
 
