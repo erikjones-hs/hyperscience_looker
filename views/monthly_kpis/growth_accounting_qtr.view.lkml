@@ -34,6 +34,11 @@ view: growth_accounting_qtr {
     sql: ${TABLE}."CHURN_ARR" ;;
   }
 
+  dimension: de_book_arr {
+    type: number
+    sql: ${TABLE}."DE_BOOK_ARR" ;;
+  }
+
   dimension: ending_arr {
     type: number
     sql: ${TABLE}."ENDING_ARR" ;;
@@ -52,6 +57,11 @@ view: growth_accounting_qtr {
   dimension: churn_customer {
     type: number
     sql: ${TABLE}."CHURN_CUSTOMER" ;;
+  }
+
+  dimension: de_book_customer {
+    type: number
+    sql: ${TABLE}."DE_BOOK_CUSTOMER" ;;
   }
 
   dimension: ending_customer {
@@ -117,6 +127,13 @@ view: growth_accounting_qtr {
     label: "Churned ARR"
   }
 
+  measure: arr_de_book {
+    type:  sum
+    sql:  ${de_book_arr} ;;
+    value_format: "$#,##0"
+    label: "De-Book ARR"
+  }
+
   measure: arr_ending {
     type:  sum
     sql:  ${ending_arr} ;;
@@ -140,6 +157,12 @@ view: growth_accounting_qtr {
     type:  sum
     sql:  ${churn_customer} ;;
     label: "Churned Customers"
+  }
+
+  measure: customer_de_book {
+    type:  sum
+    sql:  ${de_book_customer} ;;
+    label: "De-Booked Customers"
   }
 
   measure: customer_ending {
