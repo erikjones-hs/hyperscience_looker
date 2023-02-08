@@ -28,6 +28,11 @@
     sql: ${TABLE}."CHURN_ARR" ;;
   }
 
+  dimension: de_book_arr {
+    type: number
+    sql: ${TABLE}."DE_BOOK_ARR" ;;
+  }
+
   dimension: recurring_arr {
     type: number
     sql: ${TABLE}."RECURRING_ARR" ;;
@@ -70,6 +75,13 @@
     sql: ${churn_arr} ;;
     value_format: "$#,##0.00"
     label: "Churn ARR"
+  }
+
+  measure: arr_de_book {
+    type:  sum
+    sql: ${de_book_arr} ;;
+    value_format: "$#,##0.00"
+    label: "De-Book ARR"
   }
 
   measure: arr_net_new {
