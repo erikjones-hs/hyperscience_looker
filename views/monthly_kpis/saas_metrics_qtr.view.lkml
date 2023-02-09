@@ -251,7 +251,7 @@ view: saas_metrics_qtr {
 
   measure: budget_cash_conversion {
     type: sum
-    sql: 100*${budget} ;;
+    sql: ${budget} ;;
     filters: [metric: "CASH_CONVERSION_SCORE"]
 #    value_format: "#0\%"
     label: "Cash Conversion Score (Budget)"
@@ -517,7 +517,7 @@ view: saas_metrics_qtr {
 
   measure: forecast_cash_conversion {
     type: sum
-    sql: 100*${forecast} ;;
+    sql: ${forecast} ;;
     filters: [metric: "CASH_CONVERSION_SCORE"]
 #    value_format: "#0\%"
     label: "Cash Conversion Score (Forecast)"
@@ -783,7 +783,7 @@ view: saas_metrics_qtr {
 
   measure: actuals_cash_conversion {
     type: sum
-    sql: 100*${actuals} ;;
+    sql: ${actuals} ;;
     filters: [metric: "CASH_CONVERSION_SCORE"]
 #    value_format: "#0\%"
     label: "Cash Conversion Score (Actuals)"
@@ -1041,7 +1041,7 @@ view: saas_metrics_qtr {
 
   measure: budget_actuals_cash_conversion {
     type: number
-    sql: 100*(${actuals_cash_conversion} - ${budget_cash_conversion}) ;;
+    sql: (${actuals_cash_conversion} - ${budget_cash_conversion}) ;;
 #    value_format: "#0\%"
     label: "Cash Conversion Score (Budget/Actuals)"
   }
@@ -1274,7 +1274,7 @@ view: saas_metrics_qtr {
 
   measure: forecast_actuals_cash_conversion {
     type: number
-    sql: 100*(${actuals_cash_conversion} - ${forecast_cash_conversion}) ;;
+    sql: (${actuals_cash_conversion} - ${forecast_cash_conversion}) ;;
 #    value_format: "#0\%"
     label: "Cash Conversion Score (Forecast/Actuals)"
   }
