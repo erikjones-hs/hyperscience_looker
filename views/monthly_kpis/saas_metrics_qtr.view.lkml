@@ -371,7 +371,7 @@ view: saas_metrics_qtr {
 
   measure: budget_rev_fte {
     type: sum
-    sql: ${budget} ;;
+    sql: 4*${budget} ;;
     filters: [metric: "GAAP_REV_PER_FTE"]
     value_format: "$#,##0"
     label: "GAAP Revenue / FTE (Budget)"
@@ -637,7 +637,7 @@ view: saas_metrics_qtr {
 
   measure: forecast_rev_fte {
     type: sum
-    sql: ${forecast} ;;
+    sql: 4*${forecast} ;;
     filters: [metric: "GAAP_REV_PER_FTE"]
     value_format: "$#,##0"
     label: "GAAP Revenue / FTE (Forecast)"
@@ -903,7 +903,7 @@ view: saas_metrics_qtr {
 
   measure: actuals_rev_fte {
     type: sum
-    sql: ${actuals} ;;
+    sql: 4*${actuals} ;;
     filters: [metric: "GAAP_REV_PER_FTE"]
     value_format: "$#,##0"
     label: "GAAP Revenue / FTE (Actuals)"
@@ -1146,7 +1146,7 @@ view: saas_metrics_qtr {
 
   measure: budget_actuals_rev_fte {
     type: number
-    sql: (${actuals_rev_fte} - ${budget_rev_fte}) ;;
+    sql: 4*(${actuals_rev_fte} - ${budget_rev_fte}) ;;
     value_format: "$#,##0"
     label: "GAAP Revenue / FTE (Budget/Actuals)"
   }
@@ -1379,7 +1379,7 @@ view: saas_metrics_qtr {
 
   measure: forecast_actuals_rev_fte {
     type: number
-    sql: (${actuals_rev_fte} - ${forecast_rev_fte}) ;;
+    sql: 4*(${actuals_rev_fte} - ${forecast_rev_fte}) ;;
     value_format: "$#,##0"
     label: "GAAP Revenue / FTE (Forecast/Actuals)"
   }
