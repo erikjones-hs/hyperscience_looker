@@ -379,9 +379,9 @@ view: saas_metrics_qtr {
 
   measure: budget_comp_benefits_rev {
     type: sum
-    sql: 100*${budget} ;;
+    sql: ${budget} ;;
     filters: [metric: "COMP_AND_BENEFITS_PER_REV"]
-    value_format: "#0\%"
+ #   value_format: "#0\%"
     label: "Compensation & Benefits / GAAP Revenue (Budget)"
   }
 
@@ -645,9 +645,9 @@ view: saas_metrics_qtr {
 
   measure: forecast_comp_benefits_rev {
     type: sum
-    sql: 100*${forecast} ;;
+    sql: ${forecast} ;;
     filters: [metric: "COMP_AND_BENEFITS_PER_REV"]
-    value_format: "#0\%"
+ #   value_format: "#0\%"
     label: "Compensation & Benefits / GAAP Revenue (Forecast)"
   }
 
@@ -911,9 +911,9 @@ view: saas_metrics_qtr {
 
   measure: actuals_comp_benefits_rev {
     type: sum
-    sql: 100*${actuals} ;;
+    sql: ${actuals} ;;
     filters: [metric: "COMP_AND_BENEFITS_PER_REV"]
-    value_format: "#0\%"
+ #   value_format: "#0\%"
     label: "Compensation & Benefits / GAAP Revenue (Actuals)"
   }
 
@@ -1153,8 +1153,8 @@ view: saas_metrics_qtr {
 
   measure: budget_actuals_comp_benefits_rev {
     type: number
-    sql: 100*(${actuals_comp_benefits_rev} - ${budget_comp_benefits_rev}) ;;
-    value_format: "#0\%"
+    sql: (${actuals_comp_benefits_rev} - ${budget_comp_benefits_rev}) ;;
+#    value_format: "#0\%"
     label: "Compensation & Benefits / GAAP Revenue (Budget/Actuals)"
   }
 
@@ -1386,8 +1386,8 @@ view: saas_metrics_qtr {
 
   measure: forecast_actuals_comp_benefits_rev {
     type: number
-    sql: 100*(${actuals_comp_benefits_rev} - ${forecast_comp_benefits_rev}) ;;
-    value_format: "#0\%"
+    sql: (${actuals_comp_benefits_rev} - ${forecast_comp_benefits_rev}) ;;
+ #   value_format: "#0\%"
     label: "Compensation & Benefits / GAAP Revenue (Forecast/Actuals)"
   }
 
