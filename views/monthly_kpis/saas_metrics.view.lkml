@@ -1405,4 +1405,10 @@ view: saas_metrics {
     sql: ${TABLE}."MAGIC_NUMBER_75" ;;
   }
 
+  measure: cash_balance {
+    type: sum
+    sql: ${TABLE}."CASH_BALANCE" ;;
+    value_format: "$#,##0"
+  }
+
 }
