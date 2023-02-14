@@ -385,6 +385,14 @@ view: saas_metrics_qtr {
     label: "Compensation & Benefits / GAAP Revenue (Budget)"
   }
 
+  measure: budget_cash_balance {
+    type: sum
+    sql: ${budget} ;;
+    filters: [metric: "CASH_BALANCE"]
+    value_format: "$#,##0"
+    label: "Cash Balance (Budget)"
+  }
+
   measure: budget_eng {
     type: sum
     sql: ${budget} ;;
@@ -649,6 +657,14 @@ view: saas_metrics_qtr {
     filters: [metric: "COMP_AND_BENEFITS_PER_REV"]
  #   value_format: "#0\%"
     label: "Compensation & Benefits / GAAP Revenue (Forecast)"
+  }
+
+  measure: forecast_cash_balance {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "CASH_BALANCE"]
+    value_format: "$#,##0"
+    label: "Cash Balance (Forecast)"
   }
 
   measure: forecast_eng {
@@ -917,6 +933,14 @@ view: saas_metrics_qtr {
     label: "Compensation & Benefits / GAAP Revenue (Actuals)"
   }
 
+  measure: actuals_cash_balance {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "CASH_BALANCE"]
+    value_format: "$#,##0"
+    label: "Cash Balance (Actuals)"
+  }
+
   measure: actuals_eng {
     type: sum
     sql: ${actuals} ;;
@@ -1158,6 +1182,13 @@ view: saas_metrics_qtr {
     label: "Compensation & Benefits / GAAP Revenue (Budget/Actuals)"
   }
 
+  measure: budget_actuals_cash_balance {
+    type: number
+    sql: (${actuals_cash_balance} - ${budget_cash_balance}) ;;
+    value_format: "$#,##0"
+    label: "Cash Balance (Budget/Actuals)"
+  }
+
   measure: budget_actuals_eng {
     type: number
     sql: ${actuals_eng} - ${budget_eng} ;;
@@ -1389,6 +1420,13 @@ view: saas_metrics_qtr {
     sql: (${actuals_comp_benefits_rev} - ${forecast_comp_benefits_rev}) ;;
  #   value_format: "#0\%"
     label: "Compensation & Benefits / GAAP Revenue (Forecast/Actuals)"
+  }
+
+  measure: forecast_actuals_cash_balance {
+    type: number
+    sql: (${actuals_cash_balance} - ${forecast_cash_balance}) ;;
+    value_format: "$#,##0"
+    label: "Cash Balance (Forecast/Actuals)"
   }
 
   measure: forecast_actuals_eng {
