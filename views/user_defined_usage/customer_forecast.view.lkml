@@ -1,5 +1,5 @@
   view: customer_forecast {
-    sql_table_name: (select * from dev.erikjones.usage_forecast_actuals_all);;
+    sql_table_name: (select * from prod.customer_usage.usage_forecast);;
 
   dimension_group: dte {
     type: time
