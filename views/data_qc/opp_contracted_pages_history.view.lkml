@@ -1,5 +1,5 @@
 view: opp_contracted_pages_history {
-  sql_table_name: (select * from "PROD"."CUSTOMER_USAGE"."DATA_QC_OPP_CONTRACTED_PAGES_HISTORY");;
+  sql_table_name: (select * from "PROD"."DATA_QC"."DATA_QC_OPP_CONTRACTED_PAGES_HISTORY");;
 
   measure: count {
     type: count
