@@ -5,3 +5,4 @@ fiscal_month_offset:  2
 
 explore: opp_contracted_pages_history {}
 explore: usage_no_lookup {}
+explore: new_saas_usage {}
