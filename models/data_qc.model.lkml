@@ -4,3 +4,4 @@ include: "/views/data_qc/*.view.lkml"                # include all views in the 
 fiscal_month_offset:  2
 
 explore: opp_contracted_pages_history {}
+explore: usage_no_lookup {}
