@@ -176,8 +176,7 @@ view: calls_with_sfdc {
 
   measure: calls_per_opp {
     type: number
-    sql:  100.00 * ${num_calls} / NULLIFZERO(${num_opps});;
-    value_format: "#0\%"
+    sql:  ${num_calls} / NULLIFZERO(${num_opps});;
     label: "# Calls / Opp"
   }
 }
