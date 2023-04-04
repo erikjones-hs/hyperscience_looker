@@ -179,4 +179,10 @@ view: calls_with_sfdc {
     sql:  ${num_calls} / NULLIFZERO(${num_opps});;
     label: "# Calls / Opp"
   }
+
+  measure: num_mentions {
+    type: sum
+    sql: ${tracker_count} ;;
+    label: "# Tracker Mentions"
+  }
 }
