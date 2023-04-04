@@ -174,4 +174,10 @@ view: calls_with_sfdc {
     label: "Avg. Call Time"
   }
 
+  measure: calls_per_opp {
+    type: number
+    sql:  100.00 * ${num_calls} / NULLIFZERO(${num_opps});;
+    value_format: "#0\%"
+    label: "# Calls / Opp"
+  }
 }
