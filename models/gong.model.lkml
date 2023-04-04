@@ -4,3 +4,4 @@ include: "/views/gong/*.view.lkml"                # include all views in the vie
 fiscal_month_offset:  2
 
 explore: calls_and_trackers {}
+explore: calls_with_sfdc {}
