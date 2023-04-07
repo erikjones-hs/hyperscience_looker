@@ -1,5 +1,6 @@
 view: calls_with_sfdc {
   sql_table_name: (select * from "PROD"."GONG"."CALLS_WITH_SFDC_METADATA");;
+  drill_fields: [detail*]
 
   dimension: call_id {
     type: string
@@ -184,5 +185,23 @@ view: calls_with_sfdc {
     type: sum
     sql: ${tracker_count} ;;
     label: "# Tracker Mentions"
+  }
+
+  set: detail {
+    fields: [
+      call_id,
+      conversation_key,
+      call_date_date,
+      title,
+      tracker_category,
+      tracker_specific,
+      account_id,
+      account_name,
+      opp_id,
+      opp_name,
+      opp_stage_name,
+      opp_created_dte_date,
+      opp_closed_dte_date
+    ]
   }
 }
