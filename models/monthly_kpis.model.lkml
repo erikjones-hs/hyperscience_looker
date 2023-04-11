@@ -13,7 +13,14 @@ explore: sales_pipeline_current {persist_for: "12 hours"}
 explore: sales_stage_progression {persist_for: "12 hours"}
 explore: cx_go_live_ttv {persist_for: "12 hours"}
 explore: finance_arr {persist_for: "12 hours"}
-explore: agg_account_arr {persist_for: "12 hours"}
+explore: agg_account_arr {
+  join: usage_meta_data {
+    type: left_outer
+    relationship: many_to_one
+    sql_on:  ${agg_account_arr.account_id} = ${usage_meta_data.account_id} AND ${agg_account_arr.date_month_month} = ${usage_meta_data.dte_month_month} ;;
+  }
+  persist_for: "12 hours"
+}
 explore: sales_closed_opps_this_year {persist_for: "12 hours"}
 explore: marketing_mqls {persist_for: "12 hours"}
 explore: hr_attrition {persist_for: "12 hours"}
