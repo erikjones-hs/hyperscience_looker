@@ -159,7 +159,10 @@ view: go_live_history {
       opp_name,
       go_live_date_date,
       live_customer_fl,
-      go_live_date_fl
+      go_live_date_fl,
+      deployment,
+      ttv_days,
+      ttv_months
     ]
   }
 }
