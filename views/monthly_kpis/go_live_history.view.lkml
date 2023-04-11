@@ -72,6 +72,11 @@ view: go_live_history {
     sql: ${TABLE}."TTV_MONTHS" ;;
   }
 
+  dimension: deployment {
+    type: string
+    sql: ${TABLE}."DEPLOYMENT" ;;
+  }
+
   measure: num_live_customers {
     type: count_distinct
     sql_distinct_key: account_id ;;
