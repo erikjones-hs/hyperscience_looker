@@ -86,6 +86,13 @@
     sql: ${TABLE}."TOTAL_PAGES" ;;
   }
 
+    measure: total_pages_software_version {
+      type: sum_distinct
+      sql_distinct_key: ${account_id} ;;
+      sql: ${TABLE}."TOTAL_PAGES" ;;
+      label: "Total Pages (for Software Version Calc)"
+    }
+
   measure: contract_length_months {
     type: sum
     sql: ${TABLE}."CONTRACT_LENGTH_MONTHS" ;;
