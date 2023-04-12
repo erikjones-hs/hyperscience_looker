@@ -15,4 +15,10 @@ explore: usage_combined {}
 
 explore: customer_forecast {}
 
-explore: fct_usage {}
+explore: fct_usage {
+  join: software_version {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${fct_usage.account_id} = ${software_version.sfdc_account_id} ;;
+  }
+}
