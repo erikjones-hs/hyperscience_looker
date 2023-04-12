@@ -1,5 +1,5 @@
 view: software_version {
-  sql_table_name: (select * from DEV.ERIKJONES.CURRENT_SOFTWARE_VERSION);;
+  sql_table_name: (select * from PROD.CUSTOMER_USAGE.CURRENT_SOFTWARE_VERSION);;
 
   dimension: dte {
     type: date
@@ -21,29 +21,14 @@ view: software_version {
     sql: ${TABLE}."VERSION" ;;
   }
 
-  dimension: main_version {
-    type: number
-    sql: ${TABLE}."MAIN_VERSION" ;;
-  }
-
-  dimension: opp_id {
-    type: string
-    sql: ${TABLE}."OPP_ID" ;;
-  }
-
-  dimension: opp_name {
-    type: string
-    sql: ${TABLE}."OPP_NAME" ;;
-  }
-
   dimension: sfdc_account_id {
     type: string
-    sql: ${TABLE}."SFDC_ACCOUNT_ID" ;;
+    sql: ${TABLE}."ACCOUNT_ID" ;;
   }
 
   dimension: sfdc_account_name {
     type: string
-    sql: ${TABLE}."SFDC_ACCOUNT_NAME" ;;
+    sql: ${TABLE}."ACCOUNT_NAME" ;;
   }
 
   dimension: row_num {
@@ -51,9 +36,9 @@ view: software_version {
     sql: ${TABLE}."ROW_NUM" ;;
   }
 
-  dimension: is_opp_active_fl {
+  dimension: is_active_acct {
     type: number
-    sql: ${TABLE}."IS_OPP_ACTIVE_FL" ;;
+    sql: ${TABLE}."IS_ACTIVE_ACCT" ;;
   }
 
   measure: num_customers{
@@ -67,9 +52,6 @@ view: software_version {
     fields: [
       software_version,
       version,
-      main_version,
-      opp_id,
-      opp_name,
       sfdc_account_id,
       sfdc_account_name,
       customer
