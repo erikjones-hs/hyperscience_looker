@@ -205,7 +205,6 @@ view: calls_with_sfdc {
   set: detail {
     fields: [
       call_id,
-      conversation_key,
       call_date_date,
       title,
       tracker_category,
