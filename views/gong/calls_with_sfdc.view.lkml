@@ -5,16 +5,16 @@ view: calls_with_sfdc {
   dimension: call_id {
     type: string
     sql: ${TABLE}."CALL_ID" ;;
-  }
-
-  dimension: conversation_key {
-    type: string
-    sql: ${TABLE}."CONVERSATION_KEY" ;;
     link: {
       label: "Gong"
       url: " https://us-10871.app.gong.io/call?id={{value}}"
       icon_url: "https://asset.brandfetch.io/idHyhmcKvT/id4tdnM_zC.jpeg"
     }
+  }
+
+  dimension: conversation_key {
+    type: string
+    sql: ${TABLE}."CONVERSATION_KEY" ;;
   }
 
   dimension: owner_id {
