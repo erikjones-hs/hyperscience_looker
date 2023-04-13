@@ -10,6 +10,11 @@ view: calls_with_sfdc {
   dimension: conversation_key {
     type: string
     sql: ${TABLE}."CONVERSATION_KEY" ;;
+    link: {
+      label: "Gong"
+      url: " https://us-10871.app.gong.io/call?id={{value}}"
+      icon_url: "https://asset.brandfetch.io/idHyhmcKvT/id4tdnM_zC.jpeg"
+    }
   }
 
   dimension: owner_id {
@@ -113,6 +118,11 @@ view: calls_with_sfdc {
   dimension: account_id {
     type: string
     sql: ${TABLE}."ACCOUNT_ID" ;;
+    link: {
+      label: "Salesforce"
+      url: "https://hyperscience.lightning.force.com/lightning/r/Account/{{ value }}/view"
+      icon_url: "http://salesforce.com/favicon.ico"
+    }
   }
 
   dimension: account_name {
@@ -123,6 +133,11 @@ view: calls_with_sfdc {
   dimension: opp_id {
     type: string
     sql: ${TABLE}."OPP_ID" ;;
+    link: {
+      label: "Salesforce"
+      url: "https://hyperscience.lightning.force.com/lightning/r/Opportunity/{{ value }}/view"
+      icon_url: "http://salesforce.com/favicon.ico"
+    }
   }
 
   dimension: opp_name {
