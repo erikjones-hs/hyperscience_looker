@@ -9,3 +9,4 @@ explore: new_saas_usage {}
 explore: new_closed_won_opps {}
 explore: renewals_moved_to_closed_lost {}
 explore: renewals_moved_to_closed_won {}
+explore: saas_usage_no_lookup {}
