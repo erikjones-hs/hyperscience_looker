@@ -42,6 +42,12 @@ view: software_version_history {
     sql: ${TABLE}."IS_ACTIVE_ACCT" ;;
   }
 
+  dimension_group: current_date {
+    type: time
+    timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
+    sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
+  }
+
   measure: num_customers{
     type: count_distinct
     sql: ${customer} ;;
