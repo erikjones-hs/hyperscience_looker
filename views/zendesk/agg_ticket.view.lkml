@@ -416,7 +416,7 @@ view: agg_ticket {
 
   dimension: version_num {
     type: number
-    sql: try_to_numeric(${ticket_major_version};;
+    sql: try_to_numeric(${ticket_major_version});;
     label: "Version #"
   }
 
