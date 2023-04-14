@@ -414,6 +414,12 @@ view: agg_ticket {
     sql:  to_timestamp(date_trunc(month,to_date(current_date()))) ;;
   }
 
+  dimension: version_num {
+    type: number
+    sql: try_to_numeric(${ticket_major_version};;
+    label: "Version #"
+  }
+
   measure: num_tse_tickets  {
     type: number
     sql:  SUM(${is_tse_fl}) ;;
