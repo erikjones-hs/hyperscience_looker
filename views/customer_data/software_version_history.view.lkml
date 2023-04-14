@@ -1,8 +1,9 @@
 view: software_version_history {
   sql_table_name: (select * from PROD.CUSTOMER_USAGE.SOFTWARE_VERSION_HISTORY);;
 
-  dimension: dte {
-    type: date
+  dimension_group: dte {
+    type: time
+    timeframes: [date, week, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
     sql: ${TABLE}."DTE" ;;
   }
 
