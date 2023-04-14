@@ -34,3 +34,4 @@ explore: sfdc_usage_qc {}
 explore: contracted_pages_qc {}
 explore: usage_report_full {}
 explore: usage_software {}
+explore: software_version_history {}
