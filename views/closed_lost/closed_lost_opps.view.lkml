@@ -93,6 +93,23 @@ view: closed_lost_opps {
     sql: ${TABLE}."HAD_GONG_CALL_FLAG" ;;
   }
 
+  parameter: timeframe_picker {
+    label: "Date Granularity"
+    type: string
+    allowed_value: { value: "Month" }
+    allowed_value: { value: "Fiscal Quarter" }
+    default_value: "Fiscal Quarter"
+  }
+
+  dimension: dynamic_timeframe {
+    type: string
+    sql:
+    CASE
+    WHEN {% parameter timeframe_picker %} = 'Month' THEN ${closed_lost_dte_month}
+    WHEN{% parameter timeframe_picker %} = 'Fiscal Quarter' THEN ${closed_lost_dte_fiscal_quarter}
+    END ;;
+  }
+
   measure: num_opps {
     type: count_distinct
     sql_distinct_key: ${opp_id} ;;
