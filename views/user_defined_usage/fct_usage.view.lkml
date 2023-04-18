@@ -1,5 +1,7 @@
   view: fct_usage {
     sql_table_name: (select * from prod.customer_usage.fct_usage);;
+    drill_fields: [detail*]
+
 
   dimension_group: dte_month {
     type: time
@@ -99,18 +101,10 @@
 
   set: detail {
     fields: [
-      dte_month_date,
-      opp_id,
-      opp_name,
+      dte_month_month,
       account_id,
       sfdc_account_name,
       total_pages,
-      start_dte_date,
-      end_dte_date,
-      contract_length_months,
-      arr,
-      is_opp_active_fl,
-      contract_pages_annual
     ]
   }
 }
