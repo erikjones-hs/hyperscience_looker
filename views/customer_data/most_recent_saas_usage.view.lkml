@@ -11,4 +11,11 @@ view: most_recent_saas_usage {
     sql: ${TABLE}."MOST_RECENT_DAY_SENT" ;;
   }
 
+  measure: num_customers {
+    type: count_distinct
+    sql_distinct_key: ${customer} ;;
+    sql: ${customer} ;;
+    label: "# Customers"
+  }
+
 }
