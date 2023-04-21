@@ -1,5 +1,5 @@
 view: arr_usage {
-  sql_table_name: (select * from dev.erikjones.arr_customers_usage);;
+  sql_table_name: (select * from "PROD"."DATA_QC"."DATA_QC_ARR_NO_USAGE");;
 
   dimension: account_id {
     type: string
