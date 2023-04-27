@@ -1,5 +1,5 @@
  view: hr_budget_forecast {
-    sql_table_name: (select * from prod..monthly_kpis.hr_budget_forecast);;
+    sql_table_name: (select * from prod.monthly_kpis.hr_budget_forecast);;
     drill_fields: [detail*]
 
 

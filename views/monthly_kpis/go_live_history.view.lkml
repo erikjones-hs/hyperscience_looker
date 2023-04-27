@@ -1,5 +1,5 @@
 view: go_live_history {
-  sql_table_name: (select * from prod.monthly_kpis.go_live_date_history);;
+  sql_table_name: (select * from prod.customer_usage.go_live_date_history);;
   drill_fields: [detail*]
 
   dimension_group: dte {
