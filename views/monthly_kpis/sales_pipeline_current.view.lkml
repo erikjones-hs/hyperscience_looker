@@ -1,5 +1,5 @@
 view: sales_pipeline_current {
-  sql_table_name: (select * from dev.erikjones.monthly_kpis_pipeline_current_month);;
+  sql_table_name: (select * from prod.monthly_kpis.new_business_pipeline_current);;
   drill_fields: [detail*]
 
   dimension_group: date_ran {

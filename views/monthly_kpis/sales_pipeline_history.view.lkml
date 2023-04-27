@@ -1,5 +1,5 @@
 view: sales_pipeline_history {
-  sql_table_name: (select * from dev.erikjones.monthly_kpis_pipeline_history);;
+  sql_table_name: (select * from prod.monthly_kpis.pipeline_history);;
   drill_fields: [detail*]
 
   dimension_group: date_ran {

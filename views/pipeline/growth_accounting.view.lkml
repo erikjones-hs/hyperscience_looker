@@ -1,5 +1,5 @@
   view: growth_accounting {
-    sql_table_name: (select * from dev.erikjones.growth_accounting_new_business_pipeline);;
+    sql_table_name: (select * from prod.monthly_kpis.growth_accounting_new_business_pipeline);;
 
 
   dimension_group: qtr_end_dte {

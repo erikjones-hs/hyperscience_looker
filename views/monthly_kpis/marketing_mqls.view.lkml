@@ -1,5 +1,5 @@
   view: marketing_mqls {
-    sql_table_name: (select * from dev.erikjones.monthly_kpis_marketing_mqls);;
+    sql_table_name: (select * from prod.monthly_kpis.marketing_mqls);;
     drill_fields: [detail*]
 
   dimension_group: mql_dte {

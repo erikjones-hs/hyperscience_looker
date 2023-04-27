@@ -1,5 +1,5 @@
   view: avg_arr_customer {
-    sql_table_name: (select * from DEV.ERIKJONES.MONTHLY_KPIS_AVG_ARR_CUSTOMER_QTR);;
+    sql_table_name: (select * from PROD.MONTHLY_KPIS.AVG_ARR_CUSTOMER_QTR);;
 
 
   dimension_group: qtr_end_dte {

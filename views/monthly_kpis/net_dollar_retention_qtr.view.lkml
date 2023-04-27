@@ -1,5 +1,5 @@
   view: net_dollar_retention_qtr {
-    sql_table_name: (select * from dev.erikjones.monthly_kpis_net_dollar_retention_qtr);;
+    sql_table_name: (select * from prod.monthly_kpis.net_dollar_retention_qtr);;
     drill_fields: [detail*]
 
   dimension_group: dte {

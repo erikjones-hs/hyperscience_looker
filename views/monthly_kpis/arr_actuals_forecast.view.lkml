@@ -1,5 +1,5 @@
   view: arr_actuals_forecast {
-    sql_table_name: (select * from dev.erikjones.monthly_kpis_arr_actuals_forecast);;
+    sql_table_name: (select * from prod.monthly_kpis.arr_actuals_forecast);;
     drill_fields: [detail*]
 
   dimension_group: qtr_end_dte {
