@@ -7,3 +7,4 @@ explore: revenue_schedule {}
 explore: fy_budget {}
 explore: last_fy_fytd {}
 explore: last_fy_totals {}
+explore: current_fy_fytd {}
