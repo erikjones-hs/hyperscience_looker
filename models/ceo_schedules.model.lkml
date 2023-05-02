@@ -5,3 +5,5 @@ fiscal_month_offset:  2
 
 explore: revenue_schedule {}
 explore: fy_budget {}
+explore: last_fy_fytd {}
+explore: last_fy_totals {}
