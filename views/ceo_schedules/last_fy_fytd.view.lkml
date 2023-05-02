@@ -11,63 +11,63 @@ view: last_fy_fytd {
     sql: ${TABLE}."DATE_MONTH" ;;
   }
 
-  dimension: beginning_arr {
-    type: number
+  measure: beginning_arr {
+    type: sum
     sql: ${TABLE}."BEGINNING_ARR" ;;
   }
 
-  dimension: last_fy_new_bookings {
-    type: number
+  measure: last_fy_new_bookings {
+    type: sum
     sql: ${TABLE}."LAST_FY_NEW_BOOKINGS" ;;
   }
 
-  dimension: last_fy_na_new_bookings {
-    type: number
+  measure: last_fy_na_new_bookings {
+    type: sum
     sql: ${TABLE}."LAST_FY_NA_NEW_BOOKINGS" ;;
   }
 
-  dimension: last_fy_emea_new_bookings {
-    type: number
+  measure: last_fy_emea_new_bookings {
+    type: sum
     sql: ${TABLE}."LAST_FY_EMEA_NEW_BOOKINGS" ;;
   }
 
-  dimension: last_fy_apac_new_bookings {
-    type: number
+  measure: last_fy_apac_new_bookings {
+    type: sum
     sql: ${TABLE}."LAST_FY_APAC_NEW_BOOKINGS" ;;
   }
 
-  dimension: last_fy_churn_arr {
-    type: number
+  measure: last_fy_churn_arr {
+    type: sum
     sql: ${TABLE}."LAST_FY_CHURN_ARR" ;;
   }
 
-  dimension: last_fy_de_book_arr {
-    type: number
+  measure: last_fy_de_book_arr {
+    type: sum
     sql: ${TABLE}."LAST_FY_DE_BOOK_ARR" ;;
   }
 
-  dimension: last_fy_na_churn_arr {
-    type: number
+  measure: last_fy_na_churn_arr {
+    type: sum
     sql: ${TABLE}."LAST_FY_NA_CHURN_ARR" ;;
   }
 
-  dimension: last_fy_emea_churn_arr {
-    type: number
+  measure: last_fy_emea_churn_arr {
+    type: sum
     sql: ${TABLE}."LAST_FY_EMEA_CHURN_ARR" ;;
   }
 
-  dimension: last_fy_apac_churn_arr {
-    type: number
+  measure: last_fy_apac_churn_arr {
+    type: sum
     sql: ${TABLE}."LAST_FY_APAC_CHURN_ARR" ;;
   }
 
-  dimension: last_fy_net_new_arr {
-    type: number
+  measure: last_fy_net_new_arr {
+    type: sum
     sql: ${TABLE}."LAST_FY_NET_NEW_ARR" ;;
   }
 
-  dimension: ending_arr {
-    type: number
+  measure: ending_arr {
+    type: sum
     sql: ${TABLE}."ENDING_ARR" ;;
   }
 
