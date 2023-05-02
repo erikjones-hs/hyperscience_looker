@@ -48,6 +48,21 @@ view: revenue_schedule {
     sql: ${TABLE}."CHURN_ARR" ;;
   }
 
+  measure: na_churn {
+    type: sum
+    sql: ${TABLE}."NA_CHURN" ;;
+  }
+
+  measure: emea_churn {
+    type: sum
+    sql: ${TABLE}."EMEA_CHURN" ;;
+  }
+
+  measure: apac_churn {
+    type: sum
+    sql: ${TABLE}."APAC_CHURN" ;;
+  }
+
   measure: de_book_arr {
     type: sum
     sql: ${TABLE}."DE_BOOK_ARR" ;;
