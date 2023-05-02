@@ -4,3 +4,4 @@ include: "/views/ceo_schedules/*.view.lkml"                # include all views i
 fiscal_month_offset:  2
 
 explore: revenue_schedule {}
+explore: fy_budget {}
