@@ -9,3 +9,4 @@ explore: last_fy_fytd {}
 explore: last_fy_totals {}
 explore: current_fy_fytd {}
 explore: budget_v_last_fy_actuals {}
+explore: fy_budget_totals {}
