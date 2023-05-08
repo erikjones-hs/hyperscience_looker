@@ -221,6 +221,36 @@ view: fct_renewals {
     label: "# Total Outstanding Opps"
   }
 
+  measure: total_renewal_opps {
+    type: number
+    sql: ${flat_opps} + ${expansion_opps} + ${downsell_opps} + ${logo_churn_opps} ;;
+    label: "# Total Renewals"
+  }
+
+  measure: percent_logo_churn {
+    type: number
+    sql: ${logo_churn_opps} / nullifzero(${total_renewal_opps} ;;
+    label: "% Logo Churn Renewals"
+  }
+
+  measure: percent_flat_renewals {
+    type: number
+    sql: ${flat_opps} / nullifzero(${total_renewal_opps} ;;
+    label: "% Flat Renewals"
+  }
+
+  measure: percent_expansion_renewals {
+    type: number
+    sql: ${expansion_opps} / nullifzero(${total_renewal_opps} ;;
+    label: "% Expansion Renewals"
+  }
+
+  measure: percent_arr_churn_renewals {
+    type: number
+    sql: ${downsell_opps} / nullifzero(${total_renewal_opps} ;;
+    label: "% ARR Churn Renewals"
+  }
+
   set: detail {
     fields: [
       renewal_month_date,
