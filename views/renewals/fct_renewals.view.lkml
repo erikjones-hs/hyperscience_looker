@@ -203,8 +203,22 @@ view: fct_renewals {
     type: count_distinct
     sql_distinct_key: ${existing_opp_id} ;;
     sql: ${existing_opp_id} ;;
-    filters: [outstanding_renewal_flag: "=1", upcoming_renewal_flag: "=1"]
+    filters: [outstanding_renewal_flag: "=1"]
     label: "# Outstanding Opps"
+  }
+
+  measure: upcoming_opps {
+    type: count_distinct
+    sql_distinct_key: ${existing_opp_id} ;;
+    sql: ${existing_opp_id} ;;
+    filters: [upcoming_renewal_flag: "=1"]
+    label: "# Upcoming Opps"
+  }
+
+  measure: total_outstanding_opps {
+    type: number
+    sql: ${outstanding_opps} + ${upcoming_opps} ;;
+    label: "# Total Outstanding Opps"
   }
 
   set: detail {
