@@ -150,13 +150,13 @@ view: fct_renewals {
 
   measure: gross_retention {
     type: number
-    sql:  (${potential_churn_amount} + ${total_contraction}) / NULLIFZERO(${potential_churn_amount};;
+    sql:  (${potential_churn_amount} + ${total_contraction}) / NULLIFZERO(${potential_churn_amount});;
     label: "Gross Retention %"
   }
 
   measure: net_retention {
     type: number
-    sql: (${potential_churn_amount} + ${total_contraction} + ${uplift_arr}) / NULLIFZERO(${potential_churn_amount};;
+    sql: (${potential_churn_amount} + ${total_contraction} + ${uplift_arr}) / NULLIFZERO(${potential_churn_amount});;
     label: "Net Retention %"
   }
 
