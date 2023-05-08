@@ -160,6 +160,45 @@ view: fct_renewals {
     label: "Net Retention %"
   }
 
+  measure: potential_churn_opps {
+    type: count_distinct
+    sql_distinct_key: ${existing_opp_id} ;;
+    sql: ${existing_opp_id} ;;
+    label: "Potential # Churn Opps"
+  }
+
+  measure: logo_churn_opps {
+    type: count_distinct
+    sql_distinct_key: ${existing_opp_id} ;;
+    sql: ${existing_opp_id} ;;
+    filters: [renewal_type: "logo churn"]
+    label: "Logo Churn Opps"
+  }
+
+  measure: downsell_opps {
+    type: count_distinct
+    sql_distinct_key: ${existing_opp_id} ;;
+    sql: ${existing_opp_id} ;;
+    filters: [renewal_type: "arr decrease"]
+    label: "Downsell Opps"
+  }
+
+  measure: expansion_opps {
+    type: count_distinct
+    sql_distinct_key: ${existing_opp_id} ;;
+    sql: ${existing_opp_id} ;;
+    filters: [renewal_type: "arr increase"]
+    label: "Expansion Opps"
+  }
+
+  measure: flat_opps {
+    type: count_distinct
+    sql_distinct_key: ${existing_opp_id} ;;
+    sql: ${existing_opp_id} ;;
+    filters: [renewal_type: "flat"]
+    label: "Flat Opps"
+  }
+
   set: detail {
     fields: [
       renewal_month_date,
