@@ -203,7 +203,7 @@ view: fct_renewals {
     type: count_distinct
     sql_distinct_key: ${existing_opp_id} ;;
     sql: ${existing_opp_id} ;;
-    filters: [outstanding_renewal_flag: "=1"]
+    filters: [outstanding_renewal_flag: "=1", upcoming_renewal_flag: "=1"]
     label: "# Outstanding Opps"
   }
 
