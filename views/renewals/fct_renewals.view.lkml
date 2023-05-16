@@ -1,5 +1,6 @@
 view: fct_renewals {
   sql_table_name: (select * from "PROD"."RENEWALS"."FCT_RENEWALS");;
+  drill_fields: [detail*]
 
   dimension_group: renewal_month {
     type: time
@@ -254,26 +255,16 @@ view: fct_renewals {
   set: detail {
     fields: [
       renewal_month_date,
-      qtr_end_dte,
       account_id,
       account_name,
       existing_opp_id,
       existing_opp_name,
       potential_churn_amount,
-      has_account_renewed_flag,
       renewal_type,
       renewal_arr_change,
       renewal_opp_id,
       renewal_opp_name,
       actual_renewal_amount,
-      renewal_with_arr_churn_flag,
-      renewal_with_arr_expansion_flag,
-      flat_renewal_flag,
-      logo_churn_flag,
-      renewal_flag,
-      has_churned_flag,
-      outstanding_renewal_flag,
-      upcoming_renewal_flag,
       existing_opp_renewal_date_time
     ]
   }
