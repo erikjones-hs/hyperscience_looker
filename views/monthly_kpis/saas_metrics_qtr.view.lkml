@@ -43,7 +43,7 @@ view: saas_metrics_qtr {
     type: sum
     sql: ${TABLE}."BUDGET" ;;
     filters: [metric: "ARR, REVENUE, GROSS_MARGIN, BURN_MULTIPLE_NUMERATOR, NET_NEW_ARR, AWS_EXPENSE, SOFTWARE_PER_FTE, REAL_ESTATE_EXPENSE,
-                       R_AND_D_EXPENSE, S_AND_M_EXPENSE, G_AND_A_EXPENSE, TOTAL_OPEX, GAAP_REV_PER_FTE, CASH_BALANCE"]
+                       R_AND_D_EXPENSE, S_AND_M_EXPENSE, G_AND_A_EXPENSE, TOTAL_OPEX, GAAP_REV_PER_FTE, CASH_BALANCE, NEW_ARR, CHURN_ARR" ]
     value_format: "$#,##0"
     label: "Budget ($$)"
   }
@@ -86,7 +86,7 @@ view: saas_metrics_qtr {
     type: sum
     sql: ${TABLE}."FORECAST" ;;
     filters: [metric: "ARR, REVENUE, GROSS_MARGIN, BURN_MULTIPLE_NUMERATOR, NET_NEW_ARR, AWS_EXPENSE, SOFTWARE_PER_FTE, REAL_ESTATE_EXPENSE,
-    R_AND_D_EXPENSE, S_AND_M_EXPENSE, G_AND_A_EXPENSE, TOTAL_OPEX, GAAP_REV_PER_FTE, CASH_BALANCE"]
+    R_AND_D_EXPENSE, S_AND_M_EXPENSE, G_AND_A_EXPENSE, TOTAL_OPEX, GAAP_REV_PER_FTE, CASH_BALANCE, NEW_ARR, CHURN_ARR"]
     value_format: "$#,##0"
     label: "Forecast ($$)"
   }
@@ -129,7 +129,7 @@ view: saas_metrics_qtr {
     type: sum
     sql: ${TABLE}."ACTUALS" ;;
     filters: [metric: "ARR, REVENUE, GROSS_MARGIN, BURN_MULTIPLE_NUMERATOR, NET_NEW_ARR, AWS_EXPENSE, SOFTWARE_PER_FTE, REAL_ESTATE_EXPENSE,
-    R_AND_D_EXPENSE, S_AND_M_EXPENSE, G_AND_A_EXPENSE, TOTAL_OPEX, GAAP_REV_PER_FTE, CASH_BALANCE"]
+    R_AND_D_EXPENSE, S_AND_M_EXPENSE, G_AND_A_EXPENSE, TOTAL_OPEX, GAAP_REV_PER_FTE, CASH_BALANCE, NEW_ARR, CHURN_ARR"]
     value_format: "$#,##0"
     label: "Actuals ($$)"
   }
@@ -457,6 +457,22 @@ view: saas_metrics_qtr {
     label: "Legal FTEs (Budget)"
   }
 
+  measure: budget_new_arr {
+    type: sum
+    sql: ${budget} ;;
+    filters: [metric: "NEW_ARR"]
+    value_format: "$#,##0"
+    label: "New ARR (Budget)"
+  }
+
+  measure: budget_churn_arr {
+    type: sum
+    sql: ${budget} ;;
+    filters: [metric: "CHURN_ARR"]
+    value_format: "$#,##0"
+    label: "Churn ARR (Budget)"
+  }
+
   ########################## FORECAST FILTERED MEASURES ###############################
 
   measure: forecast_arr {
@@ -731,6 +747,22 @@ view: saas_metrics_qtr {
     label: "Legal FTEs (Forecast)"
   }
 
+  measure: forecast_new_arr {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "NEW_ARR"]
+    value_format: "$#,##0"
+    label: "New ARR (Forecast)"
+  }
+
+  measure: forecast_churn_arr {
+    type: sum
+    sql: ${forecast} ;;
+    filters: [metric: "CHURN_ARR"]
+    value_format: "$#,##0"
+    label: "Churn ARR (Forecast)"
+  }
+
   ########################## ACTUALS FILTERED MEASURES ###############################
 
   measure: actuals_arr {
@@ -1003,6 +1035,22 @@ view: saas_metrics_qtr {
     filters: [metric: "LEGAL_FTE"]
 #    value_format: "#0\%"
     label: "Legal FTEs (Actuals)"
+  }
+
+  measure: actuals_new_arr {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "NEW_ARR"]
+    value_format: "$#,##0"
+    label: "New ARR (Actuals)"
+  }
+
+  measure: actuals_churn_arr {
+    type: sum
+    sql: ${actuals} ;;
+    filters: [metric: "CHURN_ARR"]
+    value_format: "$#,##0"
+    label: "Churn ARR (Actuals)"
   }
 
 ########################## ACTUALS - Budget Deltas ###############################
