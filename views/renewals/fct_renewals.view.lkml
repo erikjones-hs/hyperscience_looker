@@ -98,6 +98,51 @@ view: fct_renewals {
     sql: ${TABLE}."EXISTING_OPP_RENEWAL_DATE" ;;
   }
 
+  dimension: open_opp_id {
+    type: string
+    sql: ${TABLE}."OPEN_OPP_ID" ;;
+  }
+
+  dimension: open_opp_name {
+    type: string
+    sql: ${TABLE}."OPEN_OPP_NAME" ;;
+  }
+
+  dimension: open_opp_arr {
+    type: number
+    sql: ${TABLE}."OPEN_OPP_ARR" ;;
+  }
+
+  dimension: open_opp_net_new_arr_raw {
+    type: number
+    sql: ${TABLE}."OPEN_OPP_NET_NEW_ARR_RAW" ;;
+  }
+
+  dimension_group: open_opp_close_dte {
+    type: time
+    sql: ${TABLE}."OPEN_OPP_CLOSE_DTE" ;;
+  }
+
+  dimension: open_opp_stage_name {
+    type: string
+    sql: ${TABLE}."OPEN_OPP_STAGE_NAME" ;;
+  }
+
+  dimension: open_opp_commit_status {
+    type: string
+    sql: ${TABLE}."OPEN_OPP_COMMIT_STATUS" ;;
+  }
+
+  dimension: open_opp_projected_renewal_type {
+    type: string
+    sql: ${TABLE}."OPEN_OPP_PROJECTED_RENEWAL_TYPE" ;;
+  }
+
+  dimension: health_score {
+    type: string
+    sql: ${TABLE}."HEALTH_SCORE" ;;
+  }
+
   dimension_group: current_date {
     type: time
     timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
@@ -141,6 +186,18 @@ view: fct_renewals {
     sql: ${TABLE}."RENEWAL_ARR_CHANGE" ;;
     filters: [renewal_type: "arr increase"]
     label: "Uplift ARR"
+  }
+
+  measure: open_opp_net_new_arr {
+    type: sum
+    sql: ${TABLE}."OPEN_OPP_NET_NEW_ARR" ;;
+    label: "Open Opp Net New ARR"
+  }
+
+  measure: arr_open_opp {
+    type: sum
+    sql: ${TABLE}."OPEN_OPP_ARR" ;;
+    label: "OPe Opp ARR"
   }
 
   measure: total_contraction {
