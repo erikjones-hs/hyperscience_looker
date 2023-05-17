@@ -149,6 +149,11 @@ view: fct_renewals {
     sql: ${TABLE}."HEALTH_SCORE" ;;
   }
 
+  dimension: sales_region {
+    type: string
+    sql: ${TABLE}."SALES_REGION" ;;
+  }
+
   dimension_group: current_date {
     type: time
     timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
