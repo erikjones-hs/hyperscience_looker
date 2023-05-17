@@ -197,7 +197,7 @@ view: fct_renewals {
   measure: arr_open_opp {
     type: sum
     sql: ${TABLE}."OPEN_OPP_ARR" ;;
-    label: "OPe Opp ARR"
+    label: "Open Opp ARR"
   }
 
   measure: total_contraction {
