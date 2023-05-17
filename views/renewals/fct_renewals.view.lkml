@@ -113,6 +113,12 @@ view: fct_renewals {
     sql: ${TABLE}."OPEN_OPP_ARR" ;;
   }
 
+  dimension: amount_potential_churn {
+    type: number
+    sql: ${TABLE}."POTENTIAL_CHURN_AMOUNT" ;;
+    label: "Potential Churn ARR"
+  }
+
   dimension: open_opp_net_new_arr_raw {
     type: number
     sql: ${TABLE}."OPEN_OPP_NET_NEW_ARR_RAW" ;;
