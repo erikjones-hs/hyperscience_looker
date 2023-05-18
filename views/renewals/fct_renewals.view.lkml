@@ -220,6 +220,12 @@ view: fct_renewals {
     label: "Forecasted Churn ARR"
   }
 
+  measure: total_churn_forecast {
+    type: number
+    sql: ${logo_churn_arr} + ${downsell_arr} + ${forecast_churn_arr} ;;
+    label: "Total Forecasted Churn ARR"
+  }
+
   measure: open_opp_net_new_arr {
     type: sum
     sql: ${TABLE}."OPEN_OPP_NET_NEW_ARR" ;;
