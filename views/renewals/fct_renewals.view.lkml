@@ -213,6 +213,13 @@ view: fct_renewals {
     label: "Uplift ARR"
   }
 
+  measure: forecast_churn_arr {
+    type: sum
+    sql: ${TABLE}."POTENTIAL_CHURN_AMOUNT" ;;
+    filters: [renewal_at_risk: "1"]
+    label: "Forecasted Churn ARR"
+  }
+
   measure: open_opp_net_new_arr {
     type: sum
     sql: ${TABLE}."OPEN_OPP_NET_NEW_ARR" ;;
