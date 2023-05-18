@@ -154,6 +154,20 @@ view: fct_renewals {
     sql: ${TABLE}."SALES_REGION" ;;
   }
 
+  dimension: renewal_at_risk {
+    type: number
+    sql: ${TABLE}."RENEWAL_AT_RISK" ;;
+    html:
+    {% if value == '1' %}
+    <p style="color: black; background-color: red; font-size:100%; text-align:center">{{ rendered_value }}</p>
+    {% else %}
+    <p style="color: black; background-color: white; font-size:100%; text-align:center">{{ rendered_value }}</p>
+    {% endif %}
+;;
+
+  }
+
+
   dimension_group: current_date {
     type: time
     timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
