@@ -215,7 +215,7 @@ view: fct_renewals {
 
   measure: forecast_churn_arr {
     type: sum
-    sql: ${TABLE}."POTENTIAL_CHURN_AMOUNT" ;;
+    sql: (-1)*${TABLE}."POTENTIAL_CHURN_AMOUNT" ;;
     filters: [renewal_at_risk: "1"]
     label: "Forecasted Churn ARR"
   }
