@@ -44,6 +44,7 @@ view: closed_won_region {
 
   dimension_group: first_active_month {
     type: time
+    timeframes: [raw, date, month, month_num, month_name, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
     sql: ${TABLE}."FIRST_ACTIVE_MONTH" ;;
   }
 
