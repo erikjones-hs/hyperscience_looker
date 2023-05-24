@@ -42,6 +42,11 @@ view: closed_won_region {
     sql: ${TABLE}."SALES_REGION" ;;
   }
 
+  dimension_group: first_active_month {
+    type: time
+    sql: ${TABLE}."FIRST_ACTIVE_MONTH" ;;
+  }
+
   measure: mrr {
     type: sum
     sql: ${TABLE}."MRR" ;;
