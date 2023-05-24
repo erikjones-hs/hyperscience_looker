@@ -48,6 +48,13 @@ view: closed_won_region {
     sql: ${TABLE}."FIRST_ACTIVE_MONTH" ;;
   }
 
+  dimension_group: closed_won_dte {
+    type: time
+    timeframes: [raw, date, month, month_num, month_name, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
+    sql: ${TABLE}."CLOSED_WON_DTE" ;;
+    label: "Closed Won Date"
+  }
+
   measure: mrr {
     type: sum
     sql: ${TABLE}."MRR" ;;
