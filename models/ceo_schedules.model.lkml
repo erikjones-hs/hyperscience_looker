@@ -11,3 +11,5 @@ explore: current_fy_fytd {}
 explore: budget_v_last_fy_actuals {}
 explore: fy_budget_totals {}
 explore: budget_fy_actuals {}
+explore: closed_won_region {}
+explore: sfdc_change_history {}
