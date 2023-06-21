@@ -89,6 +89,7 @@ view: tve {
     type: sum
     sql: ${TABLE}."OPP_NET_NEW_ARR" ;;
     label: "Net New ARR"
+    value_format: "$#,##0"
   }
 
   set: detail {
