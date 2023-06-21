@@ -110,13 +110,13 @@ view: tve {
 
 measure: perc_cw {
   type: number
-  sql: num_closed_won / NULLIFZERO(${num_opps} ;;
+  sql: num_closed_won / NULLIFZERO(${num_opps}) ;;
   label: "% Closed Won"
 }
 
   measure: perc_cl {
     type: number
-    sql: num_closed_lost / NULLIFZERO(${num_opps} ;;
+    sql: num_closed_lost / NULLIFZERO(${num_opps}) ;;
     label: "% Closed Lost"
   }
 
