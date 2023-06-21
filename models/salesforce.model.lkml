@@ -2,6 +2,8 @@ connection: "looker-snowflake"
 
 include: "/views/salesforce/*.view.lkml"
 
+fiscal_month_offset:  2
+
 datagroup: hyperscience_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
@@ -149,3 +151,5 @@ explore: pipeline_aggregation {}
 explore: arr_tracking {}
 
 explore: pipeline_tracking {}
+
+explore: tve {}
