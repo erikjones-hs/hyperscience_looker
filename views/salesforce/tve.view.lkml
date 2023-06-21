@@ -92,6 +92,35 @@ view: tve {
     value_format: "$#,##0"
   }
 
+  measure: num_closed_won {
+    type: count_distinct
+    sql_distinct_key: ${id} ;;
+    sql:  ${id} ;;
+    filters: [closed_won_fl: "1"]
+    label: "# CW Opps"
+  }
+
+  measure: num_closed_lost {
+    type: count_distinct
+    sql_distinct_key: ${id} ;;
+    sql:  ${id} ;;
+    filters: [closed_lost_fl: "1"]
+    label: "# CL Opps"
+}
+
+measure: perc_cw {
+  type: number
+  sql: num_closed_won / NULLIFZERO(${num_opps} ;;
+  label: "% Closed Won"
+}
+
+  measure: perc_cl {
+    type: number
+    sql: num_closed_lost / NULLIFZERO(${num_opps} ;;
+    label: "% Closed Lost"
+  }
+
+
   set: detail {
     fields: [
       id,
