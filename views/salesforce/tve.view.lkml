@@ -72,6 +72,17 @@ view: tve {
     sql: ${TABLE}."TVE_DATE" ;;
   }
 
+  dimension: commit_status {
+    type: string
+    sql: ${TABLE}."COMMIT_STATUS" ;;
+  }
+
+  dimension_group: close_date {
+    type: time
+    timeframes: [raw, date, week, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
+    sql: ${TABLE}."CLOSE_DATE" ;;
+  }
+
   measure: num_opps {
     type: count_distinct
     sql_distinct_key: ${id} ;;
