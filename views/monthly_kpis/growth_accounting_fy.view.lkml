@@ -216,7 +216,7 @@ view: growth_accounting_fy {
 
   measure: retention {
     type: number
-    sql: 100 * (${arr_ending} / NULLIFZERO(${arr_beginning}) ;;
+    sql: 100 * (${arr_ending} / NULLIFZERO(${arr_beginning})) ;;
     value_format: "#0\%"
     label: "$$ Retention"
   }
