@@ -207,6 +207,20 @@ view: growth_accounting_fy {
     label: "Initial ARR from New Customers"
   }
 
+  measure: net_new_arr {
+    type: number
+    sql: ${arr_new} + ${arr_expansion} + ${arr_churn} + ${arr_de_book} ;;
+    value_format: "$#,##0"
+    label: "Net New ARR"
+  }
+
+  measure: retention {
+    type: number
+    sql: 100 * (${arr_ending} / NULLIFZERO(${arr_beginning}) ;;
+    value_format: "#0\%"
+    label: "$$ Retention"
+  }
+
   set: detail {
     fields: [
       beginning_arr,
