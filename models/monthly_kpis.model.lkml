@@ -65,3 +65,4 @@ explore: growth_accounting_month {}
 explore: arr_by_geo {}
 explore: arr_by_partner_category{}
 explore: saas_metrics_qtr {}
+explore: growth_accounting_fy {}

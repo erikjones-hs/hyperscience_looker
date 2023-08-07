@@ -1,17 +1,18 @@
-view: growth_accounting_qtr {
-  sql_table_name: (select * from dev.erikjones.yearly_growth_accounting);;
+view: growth_accounting_fy {
+  sql_table_name: (select * from prod.monthly_kpis.monthly_kpis_growth_accounting_qtr);;
   drill_fields: [detail*]
 
 
-  dimension: qtr_end_dte {
+  dimension: fy_end_dte {
     type: date
-    sql: ${TABLE}."QTR_END_DTE" ;;
+    sql: ${TABLE}."FY_YEAR" ;;
   }
 
-  dimension_group: qtr_end {
+  dimension_group: fy {
     type:  time
     timeframes: [raw, date, month, quarter, year, fiscal_year, fiscal_quarter, fiscal_month_num, fiscal_quarter_of_year]
-    sql: ${TABLE}."QTR_END_DTE" ;;
+    sql: ${TABLE}."FY_YEAR" ;;
+    label: "FY"
   }
 
   dimension: beginning_arr {
@@ -74,9 +75,9 @@ view: growth_accounting_qtr {
     sql: ${TABLE}."ARR_PER_CUSTOMER" ;;
   }
 
-  dimension: arr_growth_yoy {
+  dimension: arr_growth_qoq {
     type: number
-    sql: ${TABLE}."ARR_GROWTH_YOY" ;;
+    sql: ${TABLE}."ARR_GROWTH_QOQ" ;;
   }
 
   dimension: new_arr_percent_beg_arr {
@@ -180,7 +181,7 @@ view: growth_accounting_qtr {
 
   measure: arr_qoq {
     type:  sum
-    sql:  100 * ${arr_growth_yoy} ;;
+    sql:  100 * ${arr_growth_qoq} ;;
     value_format: "#0\%"
     label: "ARR Growth QoQ"
   }
@@ -218,7 +219,7 @@ view: growth_accounting_qtr {
       churn_customer,
       ending_customer,
       arr_per_customer,
-      arr_growth_yoy,
+      arr_growth_qoq,
       new_arr_percent_beg_arr,
       churn_arr_percent_beg_arr,
       new_arr_per_new_customers
