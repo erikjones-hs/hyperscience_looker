@@ -224,7 +224,6 @@ view: growth_accounting_fy {
   measure: net_new_customers {
     type: number
     sql: ${customer_new} - ${customer_churn} - ${customer_de_book} ;;
-    value_format: "$#,##0"
     label: "Net New Customers"
   }
 
