@@ -221,6 +221,20 @@ view: growth_accounting_fy {
     label: "$$ Retention"
   }
 
+  measure: net_new_customers {
+    type: number
+    sql: ${customer_new} - ${customer_churn} - ${customer_de_book} ;;
+    value_format: "$#,##0"
+    label: "Net New Customers"
+  }
+
+  measure: customer_retention {
+    type: number
+    sql: 100 * (${customer_ending} / NULLIFZERO(${customer_beginning})) ;;
+    value_format: "#0\%"
+    label: "Customer Retention"
+  }
+
   set: detail {
     fields: [
       beginning_arr,
