@@ -44,6 +44,16 @@ view: growth_accounting_qtr {
     sql: ${TABLE}."ENDING_ARR" ;;
   }
 
+  dimension: logo_churn_arr {
+    type: number
+    sql: ${TABLE}."LOGO_CHURN_ARR" ;;
+  }
+
+  dimension: arr_churn_arr {
+    type: number
+    sql: ${TABLE}."ARR_CHURN_ARR" ;;
+  }
+
   dimension: beginning_customer {
     type: number
     sql: ${TABLE}."BEGINNING_CUSTOMER" ;;
@@ -139,6 +149,20 @@ view: growth_accounting_qtr {
     sql:  ${ending_arr} ;;
     value_format: "$#,##0"
     label: "Ending ARR"
+  }
+
+  measure: downsell {
+    type:  sum
+    sql:  ${arr_churn_arr} ;;
+    value_format: "$#,##0"
+    label: "ARR Churn (Downsell)"
+  }
+
+  measure: logo_churn {
+    type:  sum
+    sql:  ${logo_churn_arr} ;;
+    value_format: "$#,##0"
+    label: "Logo ARR"
   }
 
   measure: customer_beginning {
