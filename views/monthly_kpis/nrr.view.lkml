@@ -40,7 +40,6 @@ view: nrr {
       account_name,
       opp_id,
       opp_name,
-      opp_start_dte_date,
       opp_services_nrr
     ]
   }
