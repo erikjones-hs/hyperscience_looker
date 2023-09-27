@@ -1,5 +1,6 @@
 view: nrr {
   sql_table_name: (select * from prod.monthly_kpis.nrr);;
+  drill_fields: [detail*]
 
   dimension: account_id {
     type: string
