@@ -180,7 +180,7 @@ view: fct_arr_opp {
     type:  sum
     sql:  ${mrr_change_acct};;
     value_format: "$#,##0"
-    filters: [customer_category: "churn", opp_category: "churn"]
+    filters: [customer_category: "churn", revenue_category: "churn"]
     label: "Logo Churn"
   }
 
@@ -188,7 +188,7 @@ view: fct_arr_opp {
     type:  sum
     sql:  ${mrr_change_acct};;
     value_format: "$#,##0"
-    filters: [customer_category: "active", opp_category: "churn"]
+    filters: [customer_category: "active", revenue_category: "churn"]
     label: "ARR Churn"
   }
 
