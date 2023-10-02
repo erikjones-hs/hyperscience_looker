@@ -200,4 +200,17 @@ view: fct_arr_opp {
     label: "De-Book"
   }
 
+  measure: net_new_arr {
+    type:  number
+    sql:  ${new_arr} + ${expansion_arr} + ${churn} + ${de_book_arr} ;;
+    value_format: "$#,##0"
+  }
+
+  measure: new_bookings_arr {
+    type:  number
+    sql:  ${new_arr} + ${expansion_arr};;
+    value_format: "$#,##0"
+    label: "New Bookings ARR"
+  }
+
 }
