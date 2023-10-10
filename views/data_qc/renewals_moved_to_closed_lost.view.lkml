@@ -3,7 +3,6 @@ view: renewals_moved_to_closed_lost {
 
   measure: count {
     type: count
-    drill_fields: [detail*]
   }
 
   dimension_group: renewal_month {
@@ -51,11 +50,6 @@ view: renewals_moved_to_closed_lost {
     sql: ${TABLE}."UPCOMING_RENEWAL_FLAG" ;;
   }
 
-  dimension: has_renewed_flag {
-    type: number
-    sql: ${TABLE}."HAS_RENEWED_FLAG" ;;
-  }
-
   dimension: open_opp_id {
     type: string
     sql: ${TABLE}."OPEN_OPP_ID" ;;
@@ -71,21 +65,4 @@ view: renewals_moved_to_closed_lost {
     sql: ${TABLE}."OPEN_OPP_CLOSE_DTE" ;;
   }
 
-  set: detail {
-    fields: [
-      renewal_month_time,
-      account_id,
-      account_name,
-      existing_opp_id,
-      existing_opp_name,
-      potential_churn_amount,
-      has_churned_flag,
-      outstanding_renewal_flag,
-      upcoming_renewal_flag,
-      has_renewed_flag,
-      open_opp_id,
-      open_opp_name,
-      open_opp_close_dte_time
-    ]
-  }
 }
