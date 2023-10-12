@@ -1411,4 +1411,18 @@ view: saas_metrics {
     value_format: "$#,##0"
   }
 
+  measure: quick_ratio {
+    type: number
+    sql:  ${new_arr} / ${churn_arr};;
+    value_format: "0\%"
+    label: "Quick Ratio"
+  }
+
+  measure: productivity_ratio {
+    type: number
+    sql: (${total_arr} / NULLIFZERO(${all_dept_fte})) / (${opex} / NULLIFZERO(${all_dept_fte})) ;;
+    value_format: "0\%"
+    label: "Productivity Ratio"
+  }
+
 }
