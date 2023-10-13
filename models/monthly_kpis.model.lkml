@@ -19,6 +19,11 @@ explore: agg_account_arr {
     relationship: many_to_one
     sql_on:  ${agg_account_arr.account_id} = ${usage_meta_data.account_id} AND ${agg_account_arr.date_month_month} = ${usage_meta_data.dte_month_month} ;;
   }
+  join: acct_meta_data {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${agg_account_arr.account_id} = ${acct_meta_data.account_id} ;;
+  }
   persist_for: "12 hours"
 }
 explore: sales_closed_opps_this_year {persist_for: "12 hours"}
