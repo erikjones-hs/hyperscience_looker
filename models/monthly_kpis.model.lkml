@@ -73,3 +73,4 @@ explore: saas_metrics_qtr {}
 explore: growth_accounting_fy {}
 explore: nrr {}
 explore: fct_arr_opp {}
+explore: fct_arr_partners {}
