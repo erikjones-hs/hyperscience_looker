@@ -39,7 +39,7 @@ view: fct_arr_partners {
 
   dimension: is_ibm_partner {
     type: number
-    sql: CASE WHEN $opp_partner_account in ('001Dm000002jS2nIAE','0011R00002e99gWQAQ','0013600001hWo0yAAC') then 1 else 0 end ;;
+    sql: CASE WHEN ${opp_partner_account} in ('001Dm000002jS2nIAE','0011R00002e99gWQAQ','0013600001hWo0yAAC') then 1 else 0 end ;;
     label: "IBM Partner Flag"
   }
 
