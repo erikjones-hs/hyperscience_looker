@@ -1432,4 +1432,11 @@ view: saas_metrics {
     label: "ARR / FTE"
   }
 
+  measure: arr_per_fte_fy {
+    type:  number
+    sql: ${total_arr} / NULLIFZERO(${all_dept_fte}) ;;
+    value_format: "$#,##0"
+    label: "ARR / FTE (FY)"
+  }
+
 }
