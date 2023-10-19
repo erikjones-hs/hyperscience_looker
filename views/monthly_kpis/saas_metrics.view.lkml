@@ -1425,4 +1425,11 @@ view: saas_metrics {
     label: "Productivity Ratio"
   }
 
+  measure: arr_per_fte {
+    type: number
+    sql:${total_arr} / NULLIFZERO(${all_dept_fte});;
+    value_format: "0\%"
+    label: "ARR / FTE"
+  }
+
 }
