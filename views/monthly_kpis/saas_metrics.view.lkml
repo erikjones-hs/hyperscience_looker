@@ -1420,14 +1420,14 @@ view: saas_metrics {
 
   measure: productivity_ratio {
     type: number
-    sql: (${total_arr} / NULLIFZERO(${all_dept_fte})) / (${opex} / NULLIFZERO(${all_dept_fte})) ;;
+    sql: (${total_arr} / NULLIFZERO(${all_dept_fte_all_months})) / (${opex} / NULLIFZERO(${all_dept_fte_all_months})) ;;
     value_format: "0\%"
     label: "Productivity Ratio"
   }
 
   measure: arr_per_fte {
     type: number
-    sql:${total_arr} / NULLIFZERO(${all_dept_fte});;
+    sql:${total_arr} / NULLIFZERO(${all_dept_fte_all_months});;
     value_format: "$#,##0"
     label: "ARR / FTE"
   }
