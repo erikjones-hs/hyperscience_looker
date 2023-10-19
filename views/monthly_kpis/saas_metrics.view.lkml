@@ -28,6 +28,14 @@ view: saas_metrics {
     label: "Total ARR (QTR)"
   }
 
+  measure: total_arr_fy {
+    type: sum
+    sql: ${TABLE}."TOTAL_ARR" ;;
+    filters: [dte_month: "2020-02,2021-02,2022-02,2023-02,2024-02,2025-02"]
+    value_format: "$#,##0.00"
+    label: "Total ARR (FY)"
+  }
+
   measure: arr_percent_growth {
     type: sum
     sql: 100 * ${TABLE}."ARR_PERCENT_GROWTH" ;;
@@ -1434,7 +1442,7 @@ view: saas_metrics {
 
   measure: arr_per_fte_fy {
     type:  number
-    sql: ${total_arr} / NULLIFZERO(${all_dept_fte}) ;;
+    sql: ${total_arr_fy} / NULLIFZERO(${all_dept_fte}) ;;
     value_format: "$#,##0"
     label: "ARR / FTE (FY)"
   }
