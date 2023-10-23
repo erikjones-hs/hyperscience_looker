@@ -586,7 +586,7 @@ view: saas_metrics {
   measure: all_dept_fte {
     type: sum
     sql: ${TABLE}."ALL_DEPT_FTE" ;;
-    filters: [dte_month: "2022-02,2023-02,2024-02,2025-02"]
+    filters: [dte_month: "2021-02-02,2022-02,2023-02,2024-02,2025-02"]
     label: "Total FY Exit Headcount"
   }
 
