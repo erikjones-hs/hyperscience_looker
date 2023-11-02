@@ -115,6 +115,20 @@ view: saas_metrics {
     label: "Gross Margin"
   }
 
+  measure: gross_margin_fy {
+    type: sum
+    sql: 100 * ${TABLE}."GROSS_MARGIN_FY" ;;
+    value_format: "0\%"
+    label: "Gross Margin (FY)"
+  }
+
+  measure: gross_margin_ttm {
+    type: sum
+    sql: 100 * ${TABLE}."GROSS_MARGIN_TTM" ;;
+    value_format: "0\%"
+    label: "Gross Margin (TTM)"
+  }
+
   measure: gross_margin_qtr {
     type: sum
     sql: 100 * ${TABLE}."GROSS_MARGIN" ;;
