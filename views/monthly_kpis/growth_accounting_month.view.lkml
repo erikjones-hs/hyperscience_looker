@@ -58,6 +58,16 @@ view: growth_accounting_month {
     sql: ${TABLE}."DE_BOOK_CUSTOMER" ;;
   }
 
+  dimension: logo_churn_arr {
+    type: number
+    sql: ${TABLE}."LOGO_CHURN_ARR" ;;
+  }
+
+  dimension: arr_churn_arr {
+    type: number
+    sql: ${TABLE}."ARR_CHURN_ARR" ;;
+  }
+
   dimension: ending_customer {
     type: number
     sql: ${TABLE}."ENDING_CUSTOMER" ;;
@@ -133,6 +143,20 @@ view: growth_accounting_month {
     sql:  ${ending_arr} ;;
     value_format: "$#,##0"
     label: "Ending ARR"
+  }
+
+  measure: downsell {
+    type:  sum
+    sql:  ${arr_churn_arr} ;;
+    value_format: "$#,##0"
+    label: "ARR Churn (Downsell)"
+  }
+
+  measure: logo_churn {
+    type:  sum
+    sql:  ${logo_churn_arr} ;;
+    value_format: "$#,##0"
+    label: "Logo ARR"
   }
 
   measure: customer_beginning {
