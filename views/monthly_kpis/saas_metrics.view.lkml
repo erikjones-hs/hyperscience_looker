@@ -1461,4 +1461,25 @@ view: saas_metrics {
     label: "ARR / FTE (FY)"
   }
 
+  measure: gross_dollar_retention_annualized {
+    type: sum
+    sql: 100 * ${TABLE}."GDR_ANNUALIZED" ;;
+    value_format: "0\%"
+    label: "Gross $$ Retention (Annualized)"
+  }
+
+  measure: net_dollar_retention_annualized {
+    type: sum
+    sql: 100 * ${TABLE}."NDR_ANNUALIZED" ;;
+    value_format: "0\%"
+    label: "Net $$ Retention (Annualized)"
+  }
+
+  measure: logo_retention_annualized {
+    type: sum
+    sql: 100 * ${TABLE}."LOGO_RETENTION_ANNUALIZED" ;;
+    value_format: "0\%"
+    label: "Logo Retention (Annualized)"
+  }
+
 }
