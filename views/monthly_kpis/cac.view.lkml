@@ -57,7 +57,7 @@
     }
 
     measure: ltv_cac {
-      type:  number
+      type:  sum
       sql: ${ltv_to_cac} ;;
       label: "LTV / CAC"
     }
