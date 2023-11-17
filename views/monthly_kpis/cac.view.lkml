@@ -24,6 +24,11 @@
     sql: ${TABLE}."ARR_CAC_RATIO" ;;
   }
 
+  dimension: ltv_to_cac {
+    type: number
+    sql: ${TABLE}."LTV_TO_CAC" ;;
+  }
+
     dimension_group: current_date {
       type: time
       timeframes: [date, month, quarter, year]
@@ -49,6 +54,12 @@
       sql: ${new_expansion_arr} / NULLIFZERO(${cost_acq}) ;;
       value_format: "$0.00"
       label: "New/Expansion ARR / CAC Ratio"
+    }
+
+    measure: ltv_cac {
+      type:  number
+      sql: ${ltv_to_cac} ;;
+      label: "LTV / CAC"
     }
 
   set: detail {
