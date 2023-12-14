@@ -1,10 +1,6 @@
 view: mktg_attribution{
   sql_table_name: (select * from "PROD"."SALESFORCE"."MART_MULTI_TOUCH_PIPELINE_ATTRIBUTION");;
 
-  measure: count {
-    type: count
-  }
-
   dimension: id {
     type: string
     sql: ${TABLE}."ID" ;;
@@ -85,6 +81,12 @@ view: mktg_attribution{
   measure: mt_model_arr_total {
     type: number
     sql: ${TABLE}."MT_MODEL_ARR_TOTAL" ;;
+  }
+
+  measure: count {
+    type: count_distinct
+    sql: ${opp_id} ;;
+    label: "# Opps"
   }
 
 }
