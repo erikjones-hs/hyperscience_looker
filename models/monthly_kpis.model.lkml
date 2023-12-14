@@ -74,3 +74,4 @@ explore: growth_accounting_fy {}
 explore: nrr {}
 explore: fct_arr_opp {}
 explore: fct_arr_partners {}
+explore: mktg_attribution {}
