@@ -69,17 +69,17 @@ view: mktg_attribution{
   }
 
   measure: mt_model {
-    type: number
+    type: sum
     sql: ${TABLE}."MT_MODEL" ;;
   }
 
   measure: mt_model_arr {
-    type: number
+    type: sum
     sql: ${TABLE}."MT_MODEL_ARR" ;;
   }
 
   measure: mt_model_arr_total {
-    type: number
+    type: sum
     sql: ${TABLE}."MT_MODEL_ARR_TOTAL" ;;
   }
 
