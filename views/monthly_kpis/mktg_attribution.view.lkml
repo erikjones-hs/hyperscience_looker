@@ -63,6 +63,16 @@ view: mktg_attribution{
     sql: ${TABLE}."CAMPAIGN_TYPE" ;;
   }
 
+  dimension: opp_name {
+    type: string
+    sql: ${TABLE}."OPP_NAME" ;;
+  }
+
+  dimension: opp_owner_name {
+    type: string
+    sql: ${TABLE}."OPP_OWNER_NAME" ;;
+  }
+
   dimension: campaign_name {
     type: string
     sql: ${TABLE}."CAMPAIGN_NAME" ;;
