@@ -8,7 +8,7 @@ view: new_saas_usage {
 
   dimension: customer_int {
     type: string
-    sql: ${TABLE}."CUSTOMER_INT" ;;
+    sql: ${TABLE}."CUSTOMER" ;;
   }
 
   set: detail {
