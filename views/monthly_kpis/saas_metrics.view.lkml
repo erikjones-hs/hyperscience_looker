@@ -139,14 +139,14 @@ view: saas_metrics {
 
   measure: net_logo_churn {
     type: sum
-    sql: (100 * ${TABLE}."NET_LOGO_CHURN") + 100 ;;
+    sql: (100 * ${TABLE}."NET_LOGO_CHURN");;
     value_format: "0\%"
     label: "Net Logo Churn"
   }
 
   measure: net_logo_churn_qtr {
     type: sum
-    sql: (100 * ${TABLE}."NET_LOGO_CHURN") + 100 ;;
+    sql: (100 * ${TABLE}."NET_LOGO_CHURN");;
     filters: [dte_month: "2023-02,2023-05,2023-08,2023-11,2024-02,2024-05,2024-08,2024-11,2025-02"]
     value_format: "0\%"
     label: "Net Logo Churn (QTR)"
