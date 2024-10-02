@@ -276,7 +276,6 @@ view: agg_account_arr {
 
   set: detail {
     fields: [
-      date_month_month,
       account_id,
       account_name,
       mrr_acct,
