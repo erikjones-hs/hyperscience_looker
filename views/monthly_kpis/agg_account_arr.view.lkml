@@ -96,6 +96,11 @@ view: agg_account_arr {
     label: "Churn Category"
   }
 
+  dimension: win_back_fl {
+    type: number
+    sql: ${TABLE}."WIN_BACK_FL" ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
