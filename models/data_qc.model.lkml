@@ -12,3 +12,4 @@ explore: renewals_moved_to_closed_won {}
 explore: saas_usage_no_lookup {}
 explore: stage_change_history {}
 explore: on_prem_auto_usage_qc {}
+explore: first_saas_usage_sent {}
