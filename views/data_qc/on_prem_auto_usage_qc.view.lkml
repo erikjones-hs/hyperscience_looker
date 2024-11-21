@@ -46,6 +46,11 @@ view: on_prem_auto_usage_qc {
     sql: ${TABLE}."LATEST_DAY_RECEIVING_USAGE" ;;
   }
 
+  dimension: software_version {
+    type: string
+    sql: ${TABLE}."SOFTWARE_VERSION" ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
