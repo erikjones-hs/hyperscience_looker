@@ -759,6 +759,20 @@ view: saas_metrics {
     label: "R&D Expense % of Revenue"
   }
 
+  measure: r_d_expense_percent_revenue_opex {
+    type: number
+    sql: ${r_and_d_expense} / ${revenue} ;;
+    value_format: "0\%"
+    label: "R&D Expense % of Revenue (Opex)"
+  }
+
+  measure: s_m_expense_percent_revenue_opex {
+    type: number
+    sql: ${sales_and_marketing_expense} / ${revenue} ;;
+    value_format: "0\%"
+    label: "Sales + Marketing % of Revenue (Opex)"
+  }
+
   measure: g_a_expense {
     type: number
     sql: ${g_and_a_expense} - ${g_and_a_stock_expense} ;;
