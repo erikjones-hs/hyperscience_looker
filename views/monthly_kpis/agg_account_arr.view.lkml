@@ -101,6 +101,11 @@ view: agg_account_arr {
     sql: ${TABLE}."WIN_BACK_FL" ;;
   }
 
+  dimension: live_customer_fl {
+    type: number
+    sql: ${acct_meta_data.live_customer_fl} ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
@@ -277,6 +282,21 @@ view: agg_account_arr {
     sql:  ${expansion_arr} / NULLIFZERO((${new_arr} + ${expansion_arr})) ;;
     label: "% Expansion"
     value_format: "0%"
+  }
+
+  measure: live_arr {
+    type:  sum
+    sql: ${mrr_acct};;
+    value_format: "$#,##0"
+    filters: [live_customer_fl: "1"]
+    drill_fields: [detail*]
+  }
+
+  measure: live_accounts {
+    type: count_distinct
+    sql:${account_id} ;;
+    filters: [live_customer_fl: "1"]
+    drill_fields: [detail*]
   }
 
   set: detail {
