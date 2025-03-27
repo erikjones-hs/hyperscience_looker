@@ -872,7 +872,7 @@ view: usage_report_full {
     type: number
     sql:
       (SELECT
-        SUM(NUMBER_OF_QA_CORRECT_RESPONSES_ON_SYSTEM_NON_STRUCTURED_CLASSIFICATION)::DECIMAL
+        SUM(QA_CORRECT_RESPONSES_ON_SYSTEM_NON_STRUCTURED_CLASSIFICATION)::DECIMAL
       FROM PROD.CUSTOMER_USAGE.USAGE_REPORT_FULL
       WHERE CUSTOMER = ${customer}
       AND DATE = current_date - interval '2 week'
@@ -880,7 +880,7 @@ view: usage_report_full {
       /
       NULLIF(
         (SELECT
-          SUM(NUMBER_OF_QA_RESPONSES_ON_SYSTEM_NON_STRUCTURED_CLASSIFICATION)
+          SUM(QA_RESPONSES_ON_SYSTEM_NON_STRUCTURED_CLASSIFICATION)
         FROM PROD.CUSTOMER_USAGE.USAGE_REPORT_FULL
         WHERE CUSTOMER = ${customer}
         AND DATE = current_date - interval '2 week'
