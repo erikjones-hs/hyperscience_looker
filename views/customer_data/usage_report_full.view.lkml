@@ -860,35 +860,7 @@ view: usage_report_full {
   }
 
   ########### BRAD J ADDITIONS 3/27/2025
-  measure: classification_accuracy_trend {
-    label: "Classification Accuracy Trend"
-    type: number
-    sql: ${percent_classification_accuracy} - ${classification_accuracy_two_weeks_ago} ;;
-    value_format_name: percent_2
-  }
 
-  measure: classification_accuracy_two_weeks_ago {
-    label: "Classification Accuracy 2 Weeks Ago"
-    type: number
-    sql:
-      (SELECT
-        SUM(QA_CORRECT_RESPONSES_ON_SYSTEM_NON_STRUCTURED_CLASSIFICATION)::DECIMAL
-      FROM PROD.CUSTOMER_USAGE.USAGE_REPORT_FULL
-      WHERE CUSTOMER = ${customer}
-      AND DATE = current_date - interval '2 week'
-      )
-      /
-      NULLIF(
-        (SELECT
-          SUM(QA_RESPONSES_ON_SYSTEM_NON_STRUCTURED_CLASSIFICATION)
-        FROM PROD.CUSTOMER_USAGE.USAGE_REPORT_FULL
-        WHERE CUSTOMER = ${customer}
-        AND DATE = current_date - interval '2 week'
-        ), 0
-      )
-    ;;
-    value_format_name: percent_2
-  }
   ########### END BRAD J ADDITIONS 3/27/2025
 
   set: details {
