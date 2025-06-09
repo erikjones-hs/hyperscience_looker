@@ -13,3 +13,4 @@ explore: saas_usage_no_lookup {}
 explore: stage_change_history {}
 explore: on_prem_auto_usage_qc {}
 explore: first_saas_usage_sent {}
+explore: latest_usage_sent {}
