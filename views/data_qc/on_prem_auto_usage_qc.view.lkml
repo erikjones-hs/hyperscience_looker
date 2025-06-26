@@ -48,7 +48,7 @@ view: on_prem_auto_usage_qc {
 
   dimension_group: first_day_receiving_usage {
     type: time
-    sql: ${TABLE}."LATEST_DAY_RECEIVING_USAGE" ;;
+    sql: ${TABLE}."FIRST_DAY_RECEIVING_USAGE" ;;
   }
 
   dimension: software_version {
