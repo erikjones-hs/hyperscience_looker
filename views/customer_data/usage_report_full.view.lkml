@@ -866,6 +866,16 @@ view: usage_report_full {
     label: "Last Statistics Received"
   }
 
+  measure: percent_transcription_accuracy {
+    group_label: "Page Details"
+    label: "% Transcription Accuracy"
+    type: number
+    drill_fields: [details*, total_qa_correct_responses_machine_transcription, total_qa_responses_machine_transcription]
+    sql: (${total_qa_correct_responses_machine_transcription}::real)
+      /nullif(${total_qa_responses_machine_transcription}::real,0);;
+    value_format_name: percent_2
+  }
+
   set: details {
     fields: [customer, software_version]
   }
