@@ -859,9 +859,12 @@ view: usage_report_full {
     label: "AVG Pages / Month"
   }
 
-  ########### BRAD J ADDITIONS 3/27/2025
-
-  ########### END BRAD J ADDITIONS 3/27/2025
+  measure: last_statistics_received {
+    type: date
+    sql: MAX(${TABLE}."DATE") ;;
+    convert_tz: no
+    label: "Last Statistics Received"
+  }
 
   set: details {
     fields: [customer, software_version]
