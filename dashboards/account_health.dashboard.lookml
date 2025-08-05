@@ -4,6 +4,34 @@
   layout: newspaper
   description: ''
   preferred_slug: sgBcPUVYXE6ByFTkSyfHMr
+  filters:
+  - name: Account Name
+    title: Account Name
+    type: field_filter
+    default_value: ''
+    allow_multiple_values: true
+    required: true
+    ui_config:
+      type: dropdown_menu
+      display: inline
+    model: product_usage
+    explore: dim_accounts
+    listens_to_filters: []
+    field: dim_accounts.account_name
+  - name: Usage Date
+    title: Usage Date
+    type: field_filter
+    default_value: 30 day
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: relative_timeframes
+      display: inline
+      options: []
+    model: product_usage
+    explore: dim_accounts
+    listens_to_filters: []
+    field: usage_report_full.date_date
   elements:
   - title: System Version
     name: System Version
@@ -701,31 +729,3 @@
     col: 5
     width: 11
     height: 6
-  filters:
-  - name: Account Name
-    title: Account Name
-    type: field_filter
-    default_value: ''
-    allow_multiple_values: true
-    required: true
-    ui_config:
-      type: dropdown_menu
-      display: inline
-    model: product_usage
-    explore: dim_accounts
-    listens_to_filters: []
-    field: dim_accounts.account_name
-  - name: Usage Date
-    title: Usage Date
-    type: field_filter
-    default_value: 30 day
-    allow_multiple_values: true
-    required: false
-    ui_config:
-      type: relative_timeframes
-      display: inline
-      options: []
-    model: product_usage
-    explore: dim_accounts
-    listens_to_filters: []
-    field: usage_report_full.date_date
