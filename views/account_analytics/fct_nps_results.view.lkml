@@ -1,5 +1,5 @@
 view: fct_nps_results {
-  sql_table_name: PROD.PRODUCT_REPORTING.FCT_NPS_RESULTS ;;
+  sql_table_name: PROD.ACCOUNT_ANALYTICS.FCT_NPS_RESULTS ;;
 
   dimension: nps_id {
     primary_key: yes
@@ -8,34 +8,16 @@ view: fct_nps_results {
     label: "NPS ID"
   }
 
-  dimension: account_id {
-    type: string
-    sql: ${TABLE}.ACCOUNT_ID ;;
-    hidden: yes
-  }
-
-  dimension: cohort_group {
-    type: string
-    sql: ${TABLE}.COHORT_GROUP ;;
-    label: "Cohort Group"
-  }
-
-  dimension: cohort_year {
-    type: string
-    sql: SPLIT_PART(${cohort_group}, '-', 1) ;;
-    label: "Cohort Year"
-  }
-
-  dimension: cohort_quarter {
-    type: string
-    sql: SPLIT_PART(${cohort_group}, '-', 2) ;;
-    label: "Cohort Quarter"
-  }
-
   dimension: nps_name {
     type: string
     sql: ${TABLE}.NPS_NAME ;;
     label: "NPS Survey Name"
+  }
+
+  dimension: account_id {
+    type: string
+    sql: ${TABLE}.ACCOUNT_ID ;;
+    hidden: yes
   }
 
   dimension: nps_group {
@@ -56,11 +38,22 @@ view: fct_nps_results {
     label: "NPS Contact ID"
   }
 
-  measure: average_nps_score {
-    type: average
-    sql: ${nps_score} ;;
-    value_format: "0.0"
-    label: "Average NPS Score"
+  dimension: cohort_group {
+    type: string
+    sql: ${TABLE}.COHORT_GROUP ;;
+    label: "Cohort Group"
+  }
+
+  dimension: cohort_year {
+    type: string
+    sql: SPLIT_PART(${cohort_group}, '-', 1) ;;
+    label: "Cohort Year"
+  }
+
+  dimension: cohort_quarter {
+    type: string
+    sql: SPLIT_PART(${cohort_group}, '-', 2) ;;
+    label: "Cohort Quarter"
   }
 
   measure: count {

@@ -1,5 +1,5 @@
 view: dim_accounts {
-  sql_table_name: PROD.PRODUCT_REPORTING.DIM_ACCOUNTS ;;
+  sql_table_name: PROD.ACCOUNT_ANALYTICS.DIM_ACCOUNTS ;;
 
   dimension: account_id {
     primary_key: yes
@@ -8,16 +8,16 @@ view: dim_accounts {
     label: "Account ID"
   }
 
-  dimension: account_name {
-    type: string
-    sql: ${TABLE}.ACCOUNT_NAME ;;
-    label: "Account Name"
-  }
-
   dimension: global_account_id {
     type: string
     sql: ${TABLE}.GLOBAL_ACCOUNT_ID ;;
     label: "Global Account ID"
+  }
+
+  dimension: account_name {
+    type: string
+    sql: ${TABLE}.ACCOUNT_NAME ;;
+    label: "Account Name"
   }
 
   dimension: customer_status {
@@ -42,6 +42,13 @@ view: dim_accounts {
     type: string
     sql: ${TABLE}.SOLUTION_ARCHITECT ;;
     label: "Solution Architect"
+  }
+
+  dimension: msp_bpo_owner_id {
+    type: string
+    hidden: yes
+    sql: ${TABLE}.MSP_BPO_OWNER_ID ;;
+    label: "MSP/BPO Owner Id"
   }
 
   dimension: msp_bpo_owner {
@@ -87,53 +94,22 @@ view: dim_accounts {
     label: "Go-Live Date (SFDC)"
   }
 
-  dimension: csm_account_score {
-    type: string
-    sql: ${TABLE}.CSM_ACCOUNT_SCORE ;;
-    label: "CSM Account Score"
-  }
-
-  dimension: active_subscription_opportunity_id {
-    type: string
-    sql: ${TABLE}.ACTIVE_SUBSCRIPTION_OPPORTUNITY_ID ;;
-    hidden: yes
+  dimension: contracted_pages_annual {
+    type: number
+    sql: ${TABLE}.CONTRACTED_PAGES_ANNUAL ;;
+    label: "Contracted Pages Annual"
   }
 
   dimension: upcoming_renewal_opportunity_id {
     type: string
     sql: ${TABLE}.UPCOMING_RENEWAL_OPPORTUNITY_ID ;;
-    hidden: yes
+    label: "Upcoming Renewal Opportunity Id"
   }
 
-  measure: total_p1_tickets {
-    type: sum
-    sql: ${TABLE}.TOTAL_P1_TICKETS ;;
-    label: "Total P1 Tickets"
-  }
-  measure: open_p1_tickets {
-    type: sum
-    sql: ${TABLE}.OPEN_P1_TICKETS ;;
-    label: "Open P1 Tickets"
-  }
-  measure: total_p2_tickets {
-    type: sum
-    sql: ${TABLE}.TOTAL_P2_TICKETS ;;
-    label: "Total P2 Tickets"
-  }
-  measure: open_p2_tickets {
-    type: sum
-    sql: ${TABLE}.OPEN_P2_TICKETS ;;
-    label: "Open P2 Tickets"
-  }
-  measure: total_p3_tickets {
-    type: sum
-    sql: ${TABLE}.TOTAL_P3_TICKETS ;;
-    label: "Total P3 Tickets"
-  }
-  measure: open_p3_tickets {
-    type: sum
-    sql: ${TABLE}.OPEN_P3_TICKETS ;;
-    label: "Open P3 Tickets"
+  dimension: is_current_customer {
+    type: yesno
+    sql: ${TABLE}.IS_CURRENT_CUSTOMER ;;
+    label: "Is Current Customer"
   }
 
   measure: count {

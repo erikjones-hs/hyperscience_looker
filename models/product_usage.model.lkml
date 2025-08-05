@@ -3,7 +3,7 @@ connection: "looker-snowflake"
 include: "/views/user_defined_usage/*.view.lkml" # include all views in the views/ folder in this project
 include: "/views/product_analytics/*.view.lkml"
 include: "/views/customer_data/*.view.lkml"
-include: "/views/account_health/*.view.lkml"
+include: "/views/account_analytics/*.view.lkml"
 
 fiscal_month_offset:  2
 
@@ -37,20 +37,17 @@ explore: usage_report_full {}
 explore: usage_software {}
 explore: software_version_history {}
 
-# -- Account Health Explore --
+# -- Account Analytics Explore --
 
-explore: accounts {
-  label: "Account Health"
-  from: dim_accounts
-  description: "A comprehensive view of accounts, their opportunities, NPS scores, and product usage."
+explore: dim_accounts {
+  label: "Account Analytics"
+  description: ""
 
-  # -- Joins --
-
-  # Join to Opportunities
+    # Join to Opportunities
   join: fct_opportunities {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${accounts.account_id} = ${fct_opportunities.account_id} ;;
+    sql_on: ${dim_accounts.account_id} = ${fct_opportunities.account_id} ;;
   }
 
   # Join to Opportunities again to get Partner information
@@ -59,21 +56,22 @@ explore: accounts {
     type: left_outer
     relationship: one_to_many
     view_label: "Partner Opportunities"
-    sql_on: ${accounts.account_id} = ${partner_opportunities.main_partner_account_id} ;;
+    sql_on: ${dim_accounts.account_id} = ${partner_opportunities.main_partner_account_id} ;;
   }
 
-  # Join to NPS Results
-  join: fct_nps_results {
+  join: renewal_opportunity {
+    from: fct_opportunities
     type: left_outer
     relationship: one_to_many
-    sql_on: ${accounts.account_id} = ${fct_nps_results.account_id} ;;
+    view_label: "Renewal Opportunity"
+    sql_on: ${dim_accounts.upcoming_renewal_opportunity_id} = ${renewal_opportunity.account_id} ;;
   }
 
   # Join to the Usage Lookup Table
   join: usage_sfdc_lookup_account_level {
     type: left_outer
     relationship: one_to_one
-    sql_on: ${accounts.account_id} = ${usage_sfdc_lookup_account_level.sfdc_account_id} ;;
+    sql_on: ${dim_accounts.account_id} = ${usage_sfdc_lookup_account_level.sfdc_account_id} ;;
   }
 
   # Join from the Lookup Table to the main Usage Table

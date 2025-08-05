@@ -1,5 +1,5 @@
 view: fct_opportunities {
-  sql_table_name: PROD.PRODUCT_REPORTING.FCT_OPPORTUNITIES ;;
+  sql_table_name: PROD.ACCOUNT_ANALYTICS.FCT_OPPORTUNITIES ;;
 
   dimension: opportunity_id {
     primary_key: yes
@@ -50,6 +50,27 @@ view: fct_opportunities {
     label: "Revenue Type"
   }
 
+  dimension: arr {
+    type: number
+    sql: ${TABLE}.ARR ;;
+    value_format_name: usd_0
+    label: "ARR"
+  }
+
+  dimension: net_new_arr {
+    type: number
+    sql: ${TABLE}.NET_NEW_ARR ;;
+    value_format_name: usd_0
+    label: "Net New ARR"
+  }
+
+  dimension: services_nrr {
+    type: number
+    sql: ${TABLE}.SERVICES_NRR ;;
+    value_format_name: usd_0
+    label: "Services NRR"
+  }
+
   dimension_group: subscription_start_date {
     type: time
     timeframes: [raw, date, week, month, quarter, year]
@@ -68,6 +89,12 @@ view: fct_opportunities {
     type: number
     sql: ${TABLE}.SUBSCRIPTION_TERM_MONTHS ;;
     label: "Subscription Term (Months)"
+  }
+
+  dimension: page_volume_annual {
+    type: number
+    sql: ${TABLE}.PAGE_VOLUME_ANNUAL ;;
+    label: "Page Volume Annual"
   }
 
   dimension: deployment_type {
@@ -97,6 +124,12 @@ view: fct_opportunities {
     label: "Go-Live Actual Date"
   }
 
+  dimension: doc_types {
+    type: string
+    sql: ${TABLE}.DOC_TYPES ;;
+    label: "Doc Types"
+  }
+
   dimension: is_active_subscription {
     type: yesno
     sql: ${TABLE}.IS_ACTIVE_SUBSCRIPTION ;;
@@ -107,30 +140,6 @@ view: fct_opportunities {
     type: yesno
     sql: ${TABLE}.IS_UPCOMING_RENEWAL ;;
     label: "Is Upcoming Renewal?"
-  }
-
-  measure: total_arr {
-    type: sum
-    sql: ${TABLE}.ARR ;;
-    value_format_name: usd_0
-    label: "Total ARR"
-  }
-  measure: total_net_new_arr {
-    type: sum
-    sql: ${TABLE}.NET_NEW_ARR ;;
-    value_format_name: usd_0
-    label: "Total Net New ARR"
-  }
-  measure: total_services_nrr {
-    type: sum
-    sql: ${TABLE}.SERVICES_NRR ;;
-    value_format_name: usd_0
-    label: "Total Services NRR"
-  }
-  measure: total_page_volume_annual {
-    type: sum
-    sql: ${TABLE}.PAGE_VOLUME_ANNUAL ;;
-    label: "Total Annual Page Volume"
   }
 
   measure: count {
