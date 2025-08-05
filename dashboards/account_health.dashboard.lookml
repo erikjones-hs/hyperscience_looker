@@ -10,9 +10,9 @@
     model: product_usage
     explore: dim_accounts
     type: single_value
-    fields: [accounts.current_prod_version_number]
+    fields: [dim_accounts.current_prod_version_number]
     filters: {}
-    sorts: [accounts.current_prod_version_number]
+    sorts: [dim_accounts.current_prod_version_number]
     limit: 1
     column_limit: 50
     custom_color_enabled: true
@@ -53,7 +53,7 @@
     totals_color: "#808080"
     defaults_version: 1
     listen:
-      Account Name: accounts.account_name
+      Account Name: dim_accounts.account_name
       Usage Date: usage_report_full.date_date
     row: 2
     col: 0
@@ -107,7 +107,7 @@
     y_axis_zoom: true
     defaults_version: 1
     listen:
-      Account Name: accounts.account_name
+      Account Name: dim_accounts.account_name
       Usage Date: usage_report_full.date_date
     row: 2
     col: 8
@@ -133,7 +133,7 @@
     show_view_names: false
     defaults_version: 1
     listen:
-      Account Name: accounts.account_name
+      Account Name: dim_accounts.account_name
     row: 2
     col: 4
     width: 4
@@ -166,7 +166,7 @@
     conditional_formatting_include_nulls: false
     defaults_version: 1
     listen:
-      Account Name: accounts.account_name
+      Account Name: dim_accounts.account_name
       Usage Date: usage_report_full.date_date
     row: 10
     col: 0
@@ -224,7 +224,7 @@
     x_axis_datetime_label: ''
     defaults_version: 1
     listen:
-      Account Name: accounts.account_name
+      Account Name: dim_accounts.account_name
       Usage Date: usage_report_full.date_date
     row: 10
     col: 4
@@ -248,7 +248,7 @@
     conditional_formatting_include_nulls: false
     defaults_version: 1
     listen:
-      Account Name: accounts.account_name
+      Account Name: dim_accounts.account_name
       Usage Date: usage_report_full.date_date
     row: 16
     col: 0
@@ -311,7 +311,7 @@
     interpolation: linear
     defaults_version: 1
     listen:
-      Account Name: accounts.account_name
+      Account Name: dim_accounts.account_name
       Usage Date: usage_report_full.date_date
     row: 16
     col: 4
@@ -372,7 +372,7 @@
       usage_report_full.percent_table_automation: line
     defaults_version: 1
     listen:
-      Account Name: accounts.account_name
+      Account Name: dim_accounts.account_name
       Usage Date: usage_report_full.date_date
     row: 22
     col: 0
@@ -396,7 +396,7 @@
     conditional_formatting_include_nulls: false
     defaults_version: 1
     listen:
-      Account Name: accounts.account_name
+      Account Name: dim_accounts.account_name
       Usage Date: usage_report_full.date_date
     row: 28
     col: 0
@@ -457,7 +457,7 @@
       usage_report_full.percent_of_fields_auto_transcribed: line
     defaults_version: 1
     listen:
-      Account Name: accounts.account_name
+      Account Name: dim_accounts.account_name
       Usage Date: usage_report_full.date_date
     row: 28
     col: 4
@@ -512,7 +512,7 @@
       usage_report_full.percent_correct_of_system_transcription: Accuracy %
     defaults_version: 1
     listen:
-      Account Name: accounts.account_name
+      Account Name: dim_accounts.account_name
       Usage Date: usage_report_full.date_date
     row: 34
     col: 0
@@ -566,7 +566,7 @@
     y_axis_zoom: true
     defaults_version: 1
     listen:
-      Account Name: accounts.account_name
+      Account Name: dim_accounts.account_name
       Usage Date: usage_report_full.date_date
     row: 42
     col: 0
@@ -597,7 +597,7 @@
     model: product_usage
     explore: dim_accounts
     type: single_value
-    fields: [accounts.open_p1_tickets]
+    fields: [fct_jira_tickets.open_p1_tickets]
     limit: 500
     custom_color_enabled: true
     show_single_value_title: true
@@ -610,7 +610,7 @@
     conditional_formatting_include_nulls: false
     defaults_version: 1
     listen:
-      Account Name: accounts.account_name
+      Account Name: dim_accounts.account_name
     row: 50
     col: 0
     width: 5
@@ -620,7 +620,7 @@
     model: product_usage
     explore: dim_accounts
     type: single_value
-    fields: [accounts.open_p2_tickets]
+    fields: [fct_jira_tickets.open_p2_tickets]
     limit: 500
     custom_color_enabled: true
     show_single_value_title: true
@@ -633,7 +633,7 @@
     conditional_formatting_include_nulls: false
     defaults_version: 1
     listen:
-      Account Name: accounts.account_name
+      Account Name: dim_accounts.account_name
     row: 50
     col: 5
     width: 5
@@ -643,7 +643,7 @@
     model: product_usage
     explore: dim_accounts
     type: single_value
-    fields: [accounts.open_p3_tickets]
+    fields: [fct_jira_tickets.open_p3_tickets]
     limit: 500
     custom_color_enabled: true
     show_single_value_title: true
@@ -656,7 +656,7 @@
     conditional_formatting_include_nulls: false
     defaults_version: 1
     listen:
-      Account Name: accounts.account_name
+      Account Name: dim_accounts.account_name
     row: 50
     col: 10
     width: 6
@@ -696,7 +696,7 @@
     interpolation: linear
     defaults_version: 1
     listen:
-      Account Name: accounts.account_name
+      Account Name: dim_accounts.account_name
     row: 55
     col: 5
     width: 11
@@ -714,7 +714,7 @@
     model: product_usage
     explore: dim_accounts
     listens_to_filters: []
-    field: accounts.account_name
+    field: dim_accounts.account_name
   - name: Usage Date
     title: Usage Date
     type: field_filter

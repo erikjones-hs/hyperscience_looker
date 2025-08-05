@@ -4,6 +4,7 @@ include: "/views/user_defined_usage/*.view.lkml" # include all views in the view
 include: "/views/product_analytics/*.view.lkml"
 include: "/views/customer_data/*.view.lkml"
 include: "/views/account_analytics/*.view.lkml"
+include: "/dashboards/*.dashboard.lookml"
 
 fiscal_month_offset:  2
 
@@ -65,6 +66,18 @@ explore: dim_accounts {
     relationship: one_to_many
     view_label: "Renewal Opportunity"
     sql_on: ${dim_accounts.upcoming_renewal_opportunity_id} = ${renewal_opportunity.account_id} ;;
+  }
+
+  join: fct_jira_tickets {
+    type: left_outer
+    relationship: one_to_one  # Since there is one row of metrics per account
+    sql_on: ${dim_accounts.account_id} = ${fct_jira_tickets.account_id} ;;
+  }
+
+  join: fct_nps_results {
+    type: left_outer
+    relationship: one_to_one  # Since there is one row of metrics per account
+    sql_on: ${dim_accounts.account_id} = ${fct_nps_results.account_id} ;;
   }
 
   # Join to the Usage Lookup Table
