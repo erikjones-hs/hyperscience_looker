@@ -93,4 +93,19 @@ explore: dim_accounts {
     relationship: one_to_many
     sql_on: ${usage_report_full.customer} = ${usage_sfdc_lookup_account_level.customer_usage_data} ;;
   }
+
+# Join to daily defect snapshots to dim_accounts
+  join: fct_daily_defect_snapshots {
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${dim_accounts.account_id} = ${fct_daily_defect_snapshots.account_id} ;;
+  }
+
+# Join to usage stats
+  join: dim_usage_stats {
+    type: left_outer
+    relationship: one_to_one  # Since there is one row of metrics per account
+    sql_on: ${dim_accounts.account_id} = ${dim_usage_stats.account_id} ;;
+  }
+
 }
