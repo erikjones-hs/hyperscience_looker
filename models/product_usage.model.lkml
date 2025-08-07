@@ -74,12 +74,6 @@ explore: dim_accounts {
     sql_on: ${dim_accounts.account_id} = ${fct_jira_tickets.account_id} ;;
   }
 
-  join: fct_nps_results {
-    type: left_outer
-    relationship: one_to_one  # Since there is one row of metrics per account
-    sql_on: ${dim_accounts.account_id} = ${fct_nps_results.account_id} ;;
-  }
-
   # Join to the Usage Lookup Table
   join: usage_sfdc_lookup_account_level {
     type: left_outer
@@ -92,6 +86,13 @@ explore: dim_accounts {
     type: left_outer
     relationship: one_to_many
     sql_on: ${usage_report_full.customer} = ${usage_sfdc_lookup_account_level.customer_usage_data} ;;
+  }
+
+# Join from the Lookup Table to the nps survey
+  join: fct_nps_results {
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${dim_accounts.account_id} = ${fct_nps_results.account_id} ;;
   }
 
 # Join to daily defect snapshots to dim_accounts

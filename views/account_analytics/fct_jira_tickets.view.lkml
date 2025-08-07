@@ -39,4 +39,16 @@ view: fct_jira_tickets {
     label: "Open P3 Tickets"
   }
 
+  measure: total_open_tickets {
+    type: sum
+    sql: ${TABLE}.TOTAL_OPEN_TICKETS ;;
+    label: "Total Open Tickets"
+  }
+
+  measure: total_tickets {
+    type: sum
+    sql: ${TABLE}.TOTAL_TICKETS ;;
+    label: "Total Tickets"
+  }
+
 }
