@@ -3,35 +3,7 @@
   title: Account Health
   layout: newspaper
   description: ''
-  preferred_slug: sgBcPUVYXE6ByFTkSyfHMr
-  filters:
-  - name: Account Name
-    title: Account Name
-    type: field_filter
-    default_value: ''
-    allow_multiple_values: true
-    required: true
-    ui_config:
-      type: dropdown_menu
-      display: inline
-    model: product_usage
-    explore: dim_accounts
-    listens_to_filters: []
-    field: dim_accounts.account_name
-  - name: Usage Date
-    title: Usage Date
-    type: field_filter
-    default_value: 30 day
-    allow_multiple_values: true
-    required: false
-    ui_config:
-      type: relative_timeframes
-      display: inline
-      options: []
-    model: product_usage
-    explore: dim_accounts
-    listens_to_filters: []
-    field: usage_report_full.date_date
+  preferred_slug: QuK6aG4G1E8gyc6r6PKRgK
   elements:
   - title: System Version
     name: System Version
@@ -39,7 +11,6 @@
     explore: dim_accounts
     type: single_value
     fields: [dim_accounts.current_prod_version_number]
-    filters: {}
     sorts: [dim_accounts.current_prod_version_number]
     limit: 1
     column_limit: 50
@@ -84,13 +55,12 @@
       Account Name: dim_accounts.account_name
       Usage Date: usage_report_full.date_date
     row: 2
-    col: 0
+    col: 2
     width: 4
     height: 6
   - name: ''
     type: text
     title_text: ''
-    subtitle_text: ''
     body_text: '[{"type":"h1","children":[{"text":"System"}],"align":"center"}]'
     rich_content_json: '{"format":"slate"}'
     row: 0
@@ -137,8 +107,8 @@
     listen:
       Account Name: dim_accounts.account_name
       Usage Date: usage_report_full.date_date
-    row: 2
-    col: 8
+    row: 8
+    col: 6
     width: 8
     height: 6
   - title: Last Statistics Received
@@ -163,16 +133,15 @@
     listen:
       Account Name: dim_accounts.account_name
     row: 2
-    col: 4
+    col: 10
     width: 4
     height: 6
   - name: " (2)"
     type: text
     title_text: ''
-    subtitle_text: ''
     body_text: '[{"type":"h1","children":[{"text":"System Performance"}],"align":"center"}]'
     rich_content_json: '{"format":"slate"}'
-    row: 8
+    row: 14
     col: 0
     width: 16
     height: 2
@@ -183,20 +152,31 @@
     type: single_value
     fields: [usage_report_full.percent_classification_accuracy]
     limit: 500
+    column_limit: 50
     custom_color_enabled: true
     show_single_value_title: true
     show_comparison: false
     comparison_type: value
     comparison_reverse_colors: false
     show_comparison_label: true
-    enable_conditional_formatting: false
+    enable_conditional_formatting: true
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
+    conditional_formatting: [{type: greater than, value: 0.89, background_color: '',
+        font_color: "#18d143", color_application: {collection_id: b43731d5-dc87-4a8e-b807-635bef3948e7,
+          palette_id: 85de97da-2ded-4dec-9dbd-e6a7d36d5825}, bold: false, italic: false,
+        strikethrough: false, fields: !!null ''}, {type: between, value: [0.8, 0.89],
+        background_color: '', font_color: "#FFD95F", color_application: {collection_id: b43731d5-dc87-4a8e-b807-635bef3948e7,
+          palette_id: 85de97da-2ded-4dec-9dbd-e6a7d36d5825}, bold: false, italic: false,
+        strikethrough: false, fields: !!null ''}, {type: less than, value: 0.79, background_color: '',
+        font_color: "#B32F37", color_application: {collection_id: b43731d5-dc87-4a8e-b807-635bef3948e7,
+          palette_id: 85de97da-2ded-4dec-9dbd-e6a7d36d5825}, bold: false, italic: false,
+        strikethrough: false, fields: !!null ''}]
     defaults_version: 1
     listen:
       Account Name: dim_accounts.account_name
       Usage Date: usage_report_full.date_date
-    row: 10
+    row: 16
     col: 0
     width: 4
     height: 6
@@ -254,7 +234,7 @@
     listen:
       Account Name: dim_accounts.account_name
       Usage Date: usage_report_full.date_date
-    row: 10
+    row: 16
     col: 4
     width: 12
     height: 6
@@ -265,20 +245,31 @@
     type: single_value
     fields: [usage_report_full.percent_identification_accuracy]
     limit: 500
+    column_limit: 50
     custom_color_enabled: true
     show_single_value_title: true
     show_comparison: false
     comparison_type: value
     comparison_reverse_colors: false
     show_comparison_label: true
-    enable_conditional_formatting: false
+    enable_conditional_formatting: true
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
+    conditional_formatting: [{type: greater than, value: 0.89, background_color: '',
+        font_color: "#18d143", color_application: {collection_id: b43731d5-dc87-4a8e-b807-635bef3948e7,
+          palette_id: 85de97da-2ded-4dec-9dbd-e6a7d36d5825}, bold: false, italic: false,
+        strikethrough: false, fields: !!null ''}, {type: between, value: [0.8, 0.89],
+        background_color: '', font_color: "#FFD95F", color_application: {collection_id: b43731d5-dc87-4a8e-b807-635bef3948e7,
+          palette_id: 85de97da-2ded-4dec-9dbd-e6a7d36d5825}, bold: false, italic: false,
+        strikethrough: false, fields: !!null ''}, {type: less than, value: 0.79, background_color: '',
+        font_color: "#B32F37", color_application: {collection_id: b43731d5-dc87-4a8e-b807-635bef3948e7,
+          palette_id: 85de97da-2ded-4dec-9dbd-e6a7d36d5825}, bold: false, italic: false,
+        strikethrough: false, fields: !!null ''}]
     defaults_version: 1
     listen:
       Account Name: dim_accounts.account_name
       Usage Date: usage_report_full.date_date
-    row: 16
+    row: 22
     col: 0
     width: 4
     height: 6
@@ -341,7 +332,7 @@
     listen:
       Account Name: dim_accounts.account_name
       Usage Date: usage_report_full.date_date
-    row: 16
+    row: 22
     col: 4
     width: 12
     height: 6
@@ -402,7 +393,7 @@
     listen:
       Account Name: dim_accounts.account_name
       Usage Date: usage_report_full.date_date
-    row: 22
+    row: 28
     col: 0
     width: 16
     height: 6
@@ -413,20 +404,31 @@
     type: single_value
     fields: [usage_report_full.percent_correct_of_machine_transcription]
     limit: 500
+    column_limit: 50
     custom_color_enabled: true
     show_single_value_title: true
     show_comparison: false
     comparison_type: value
     comparison_reverse_colors: false
     show_comparison_label: true
-    enable_conditional_formatting: false
+    enable_conditional_formatting: true
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
+    conditional_formatting: [{type: greater than, value: 0.9, background_color: '',
+        font_color: "#18d143", color_application: {collection_id: b43731d5-dc87-4a8e-b807-635bef3948e7,
+          palette_id: 85de97da-2ded-4dec-9dbd-e6a7d36d5825}, bold: false, italic: false,
+        strikethrough: false, fields: !!null ''}, {type: between, value: [0.8, 0.89],
+        background_color: '', font_color: "#FFD95F", color_application: {collection_id: b43731d5-dc87-4a8e-b807-635bef3948e7,
+          palette_id: 85de97da-2ded-4dec-9dbd-e6a7d36d5825}, bold: false, italic: false,
+        strikethrough: false, fields: !!null ''}, {type: less than, value: 0.8, background_color: '',
+        font_color: "#B32F37", color_application: {collection_id: b43731d5-dc87-4a8e-b807-635bef3948e7,
+          palette_id: 85de97da-2ded-4dec-9dbd-e6a7d36d5825}, bold: false, italic: false,
+        strikethrough: false, fields: !!null ''}]
     defaults_version: 1
     listen:
       Account Name: dim_accounts.account_name
       Usage Date: usage_report_full.date_date
-    row: 28
+    row: 34
     col: 0
     width: 4
     height: 6
@@ -487,7 +489,7 @@
     listen:
       Account Name: dim_accounts.account_name
       Usage Date: usage_report_full.date_date
-    row: 28
+    row: 34
     col: 4
     width: 12
     height: 6
@@ -542,17 +544,16 @@
     listen:
       Account Name: dim_accounts.account_name
       Usage Date: usage_report_full.date_date
-    row: 34
+    row: 40
     col: 0
     width: 16
     height: 6
   - name: " (3)"
     type: text
     title_text: ''
-    subtitle_text: ''
     body_text: '[{"type":"h1","children":[{"text":"System Utilization"}],"align":"center"}]'
     rich_content_json: '{"format":"slate"}'
-    row: 40
+    row: 46
     col: 0
     width: 16
     height: 2
@@ -596,99 +597,28 @@
     listen:
       Account Name: dim_accounts.account_name
       Usage Date: usage_report_full.date_date
-    row: 42
+    row: 48
     col: 0
     width: 16
     height: 6
   - name: " (4)"
     type: text
     title_text: ''
-    subtitle_text: ''
     body_text: '[{"type":"h1","children":[{"text":"System Health"}],"align":"center"}]'
     rich_content_json: '{"format":"slate"}'
-    row: 48
+    row: 58
     col: 0
     width: 16
     height: 2
   - name: " (5)"
     type: text
     title_text: ''
-    subtitle_text: ''
     body_text: '[{"type":"h1","children":[{"text":"Account Health"}],"align":"center"}]'
     rich_content_json: '{"format":"slate"}'
-    row: 53
+    row: 68
     col: 0
     width: 16
     height: 2
-  - title: Open P1 Tickets
-    name: Open P1 Tickets
-    model: product_usage
-    explore: dim_accounts
-    type: single_value
-    fields: [fct_jira_tickets.open_p1_tickets]
-    limit: 500
-    custom_color_enabled: true
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    defaults_version: 1
-    listen:
-      Account Name: dim_accounts.account_name
-    row: 50
-    col: 0
-    width: 5
-    height: 3
-  - title: Open P2 Tickets
-    name: Open P2 Tickets
-    model: product_usage
-    explore: dim_accounts
-    type: single_value
-    fields: [fct_jira_tickets.open_p2_tickets]
-    limit: 500
-    custom_color_enabled: true
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    defaults_version: 1
-    listen:
-      Account Name: dim_accounts.account_name
-    row: 50
-    col: 5
-    width: 5
-    height: 3
-  - title: Open P3 Tickets
-    name: Open P3 Tickets
-    model: product_usage
-    explore: dim_accounts
-    type: single_value
-    fields: [fct_jira_tickets.open_p3_tickets]
-    limit: 500
-    custom_color_enabled: true
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    defaults_version: 1
-    listen:
-      Account Name: dim_accounts.account_name
-    row: 50
-    col: 10
-    width: 6
-    height: 3
   - title: NPS History
     name: NPS History
     model: product_usage
@@ -725,7 +655,360 @@
     defaults_version: 1
     listen:
       Account Name: dim_accounts.account_name
-    row: 55
-    col: 5
-    width: 11
+    row: 70
+    col: 4
+    width: 12
+    height: 5
+  - title: Live Layouts
+    name: Live Layouts (2)
+    model: product_usage
+    explore: dim_accounts
+    type: single_value
+    fields: [usage_report_full.number_of_live_layouts, usage_report_full.date_date]
+    sorts: [usage_report_full.date_date desc]
+    limit: 1
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    defaults_version: 1
+    listen:
+      Account Name: dim_accounts.account_name
+    row: 8
+    col: 2
+    width: 4
     height: 6
+  - title: Days Since Last Usage Received
+    name: Days Since Last Usage Received
+    model: product_usage
+    explore: dim_accounts
+    type: single_value
+    fields: [dim_usage_stats.num_days_since_last_received]
+    sorts: [dim_usage_stats.num_days_since_last_received]
+    limit: 1
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: true
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    conditional_formatting: [{type: less than, value: 30, background_color: '', font_color: "#18d143",
+        color_application: {collection_id: b43731d5-dc87-4a8e-b807-635bef3948e7, palette_id: 85de97da-2ded-4dec-9dbd-e6a7d36d5825},
+        bold: false, italic: false, strikethrough: false, fields: !!null ''}, {type: between,
+        value: [30, 60], background_color: '', font_color: "#FFD95F", color_application: {
+          collection_id: b43731d5-dc87-4a8e-b807-635bef3948e7, palette_id: 85de97da-2ded-4dec-9dbd-e6a7d36d5825},
+        bold: false, italic: false, strikethrough: false, fields: !!null ''}, {type: greater
+          than, value: 60, background_color: '', font_color: "#B32F37", color_application: {
+          collection_id: b43731d5-dc87-4a8e-b807-635bef3948e7, palette_id: 85de97da-2ded-4dec-9dbd-e6a7d36d5825},
+        bold: false, italic: false, strikethrough: false, fields: !!null ''}]
+    defaults_version: 1
+    listen:
+      Account Name: dim_accounts.account_name
+    row: 2
+    col: 6
+    width: 4
+    height: 6
+  - title: Contracted Pages Annual
+    name: Contracted Pages Annual
+    model: product_usage
+    explore: dim_accounts
+    type: single_value
+    fields: [dim_usage_stats.contracted_pages_annual]
+    sorts: [dim_usage_stats.contracted_pages_annual]
+    limit: 500
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    defaults_version: 1
+    listen:
+      Account Name: dim_accounts.account_name
+    row: 54
+    col: 4
+    width: 4
+    height: 4
+  - title: Projected Pages Completed (@ Renewal)
+    name: Projected Pages Completed (@ Renewal)
+    model: product_usage
+    explore: dim_accounts
+    type: single_value
+    fields: [dim_usage_stats.projected_pages_completed_at_next_renewal]
+    sorts: [dim_usage_stats.projected_pages_completed_at_next_renewal]
+    limit: 500
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    defaults_version: 1
+    listen:
+      Account Name: dim_accounts.account_name
+    row: 54
+    col: 8
+    width: 4
+    height: 4
+  - title: Projected Utilization % (@ Renewal)
+    name: Projected Utilization % (@ Renewal)
+    model: product_usage
+    explore: dim_accounts
+    type: single_value
+    fields: [dim_usage_stats.projected_utilization_at_next_renewal_percent]
+    sorts: [dim_usage_stats.projected_utilization_at_next_renewal_percent]
+    limit: 500
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    defaults_version: 1
+    listen:
+      Account Name: dim_accounts.account_name
+    row: 54
+    col: 12
+    width: 4
+    height: 4
+  - title: Utilization Health
+    name: Utilization Health
+    model: product_usage
+    explore: dim_accounts
+    type: single_value
+    fields: [dim_usage_stats.utilization_health]
+    sorts: [dim_usage_stats.utilization_health]
+    limit: 500
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    conditional_formatting: []
+    defaults_version: 1
+    listen:
+      Account Name: dim_accounts.account_name
+    row: 54
+    col: 0
+    width: 4
+    height: 4
+  - title: Latest NPS Score
+    name: Latest NPS Score
+    model: product_usage
+    explore: dim_accounts
+    type: single_value
+    fields: [dim_account_health.latest_nps_score]
+    limit: 500
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    defaults_version: 1
+    listen:
+      Account Name: dim_accounts.account_name
+    row: 70
+    col: 0
+    width: 4
+    height: 5
+  - title: Open Support Tickets
+    name: Open Support Tickets
+    model: product_usage
+    explore: dim_accounts
+    type: single_value
+    fields: [fct_jira_tickets.total_open_tickets]
+    limit: 500
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    defaults_version: 1
+    listen:
+      Account Name: dim_accounts.account_name
+    row: 60
+    col: 0
+    width: 4
+    height: 5
+  - title: Open Priority 1 Tickets
+    name: Open Priority 1 Tickets
+    model: product_usage
+    explore: dim_accounts
+    type: single_value
+    fields: [fct_jira_tickets.open_p1_tickets]
+    limit: 500
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: true
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    conditional_formatting: [{type: greater than, value: 0, background_color: '',
+        font_color: "#B32F37", color_application: {collection_id: b43731d5-dc87-4a8e-b807-635bef3948e7,
+          palette_id: 85de97da-2ded-4dec-9dbd-e6a7d36d5825}, bold: false, italic: false,
+        strikethrough: false, fields: !!null ''}]
+    defaults_version: 1
+    listen:
+      Account Name: dim_accounts.account_name
+    row: 65
+    col: 2
+    width: 4
+    height: 3
+  - title: Open Support Ticket History
+    name: Open Support Ticket History
+    model: product_usage
+    explore: dim_accounts
+    type: looker_line
+    fields: [fct_daily_defect_snapshots.snapdate_date, fct_daily_defect_snapshots.total_open_tickets]
+    fill_fields: [fct_daily_defect_snapshots.snapdate_date]
+    sorts: [fct_daily_defect_snapshots.snapdate_date desc]
+    limit: 500
+    column_limit: 50
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    show_null_points: true
+    interpolation: linear
+    defaults_version: 1
+    listen:
+      Account Name: dim_accounts.account_name
+    row: 60
+    col: 4
+    width: 12
+    height: 5
+  - title: Open Priority 3 Tickets
+    name: Open Priority 3 Tickets
+    model: product_usage
+    explore: dim_accounts
+    type: single_value
+    fields: [fct_jira_tickets.open_p3_tickets]
+    limit: 500
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    defaults_version: 1
+    hidden_pivots: {}
+    listen:
+      Account Name: dim_accounts.account_name
+    row: 65
+    col: 10
+    width: 4
+    height: 3
+  - title: Open Priority 2 Tickets
+    name: Open Priority 2 Tickets
+    model: product_usage
+    explore: dim_accounts
+    type: single_value
+    fields: [fct_jira_tickets.open_p2_tickets]
+    limit: 500
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    defaults_version: 1
+    hidden_pivots: {}
+    listen:
+      Account Name: dim_accounts.account_name
+    row: 65
+    col: 6
+    width: 4
+    height: 3
+  filters:
+  - name: Account Name
+    title: Account Name
+    type: field_filter
+    default_value: ''
+    allow_multiple_values: true
+    required: true
+    ui_config:
+      type: dropdown_menu
+      display: inline
+    model: product_usage
+    explore: dim_accounts
+    listens_to_filters: []
+    field: dim_accounts.account_name
+  - name: Usage Date
+    title: Usage Date
+    type: field_filter
+    default_value: 30 day
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: relative_timeframes
+      display: inline
+      options: []
+    model: product_usage
+    explore: dim_accounts
+    listens_to_filters: []
+    field: usage_report_full.date_date
