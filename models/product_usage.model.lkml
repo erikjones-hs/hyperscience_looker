@@ -109,4 +109,11 @@ explore: dim_accounts {
     sql_on: ${dim_accounts.account_id} = ${dim_usage_stats.account_id} ;;
   }
 
+# Join to account health
+  join: dim_account_health {
+    type: left_outer
+    relationship: one_to_one  # Since there is one row of metrics per account
+    sql_on: ${dim_accounts.account_id} = ${dim_account_health.account_id} ;;
+  }
+
 }
