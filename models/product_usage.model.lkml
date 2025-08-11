@@ -77,7 +77,7 @@ explore: dim_accounts {
   # Join to the Usage Lookup Table
   join: usage_sfdc_lookup_account_level {
     type: left_outer
-    relationship: one_to_one
+    relationship: one_to_many
     sql_on: ${dim_accounts.account_id} = ${usage_sfdc_lookup_account_level.sfdc_account_id} ;;
   }
 
