@@ -76,14 +76,14 @@ explore: dim_accounts {
 
   # Join to the Usage Lookup Table
   join: usage_sfdc_lookup_account_level {
-    type: inner
+    type: left_outer
     relationship: one_to_many
     sql_on: ${dim_accounts.account_id} = ${usage_sfdc_lookup_account_level.sfdc_account_id} ;;
   }
 
   # Join from the Lookup Table to the main Usage Table
   join: usage_report_full {
-    type: left_outer
+    type: inner
     relationship: one_to_many
     sql_on: ${usage_report_full.customer} = ${usage_sfdc_lookup_account_level.customer_usage_data} ;;
   }
