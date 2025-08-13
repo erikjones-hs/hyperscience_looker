@@ -1,5 +1,5 @@
 view: dim_accounts {
-  sql_table_name: PROD.ACCOUNT_ANALYTICS.DIM_ACCOUNTS ;;
+  sql_table_name: PROD.MARTS_ACCOUNT_ANALYTICS.DIM_ACCOUNTS ;;
 
   dimension: account_id {
     primary_key: yes

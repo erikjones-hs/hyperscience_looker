@@ -1,5 +1,5 @@
 view: dim_account_health {
-  sql_table_name: PROD.ACCOUNT_ANALYTICS.DIM_ACCOUNT_HEALTH ;;
+  sql_table_name: PROD.MARTS_ACCOUNT_ANALYTICS.DIM_ACCOUNT_HEALTH ;;
 
   dimension: account_id {
     primary_key: yes

@@ -1,5 +1,5 @@
 view: fct_jira_tickets {
-  sql_table_name: PROD.ACCOUNT_ANALYTICS.FCT_JIRA_TICKETS ;;
+  sql_table_name: PROD.MARTS_ACCOUNT_ANALYTICS.FCT_JIRA_TICKETS ;;
 
   dimension: account_id {
     primary_key: yes

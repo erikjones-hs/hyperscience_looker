@@ -1,5 +1,5 @@
 view: fct_opportunities {
-  sql_table_name: PROD.ACCOUNT_ANALYTICS.FCT_OPPORTUNITIES ;;
+  sql_table_name: PROD.MARTS_ACCOUNT_ANALYTICS.FCT_OPPORTUNITIES ;;
 
   dimension: opportunity_id {
     primary_key: yes

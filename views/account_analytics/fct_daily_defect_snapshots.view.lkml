@@ -1,5 +1,5 @@
 view: fct_daily_defect_snapshots {
-  sql_table_name: PROD.ACCOUNT_ANALYTICS.FCT_DAILY_DEFECT_SNAPSHOTS ;;
+  sql_table_name: PROD.MARTS_ACCOUNT_ANALYTICS.FCT_DAILY_DEFECT_SNAPSHOTS ;;
 
   dimension: account_id {
     primary_key: yes

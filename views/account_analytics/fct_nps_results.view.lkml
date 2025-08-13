@@ -1,5 +1,5 @@
 view: fct_nps_results {
-  sql_table_name: PROD.ACCOUNT_ANALYTICS.FCT_NPS_RESULTS ;;
+  sql_table_name: PROD.MARTS_ACCOUNT_ANALYTICS.FCT_NPS_RESULTS ;;
 
   dimension: account_id {
     primary_key: yes

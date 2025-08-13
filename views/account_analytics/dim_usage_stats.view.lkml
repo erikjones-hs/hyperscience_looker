@@ -1,5 +1,5 @@
 view: dim_usage_stats {
-  sql_table_name: PROD.ACCOUNT_ANALYTICS.DIM_USAGE_STATS ;;
+  sql_table_name: PROD.MARTS_ACCOUNT_ANALYTICS.DIM_USAGE_STATS ;;
   label: "Usage Stats"
 
   dimension: account_id {
